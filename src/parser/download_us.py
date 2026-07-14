@@ -1,11 +1,8 @@
-import os
 from pathlib import Path
 from sec_edgar_downloader import Downloader
 
 
 def tai_bao_cao_my():
-    # Quy định bắt buộc của SEC: Thay tên nhóm và email của bạn vào đây
-    USER_AGENT = "FinLensRAGTeam/1.0 (your-email@domain.com)"
 
     # Định vị thư mục data/raw trong dự án của bạn
     thu_muc_goc = Path(__file__).parent.parent.parent / "data" / "raw"

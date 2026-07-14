@@ -1,0 +1,107 @@
+import os
+import json
+import sys
+
+from config import JSON_FILENAME, DATA_DIR
+
+# ==========================================
+# XỬ LÝ RENAME/XÓA FILE DỰA TRÊN JSON
+# ==========================================
+
+def cleanData():
+    """Đổi tên hoặc xóa file dựa trên thông tin trong JSON"""
+    print("\n--- Step 5: Process Data (Rename/Delete Files) ---")
+    
+    if not os.path.exists(JSON_FILENAME):
+        print(f" [!] Không tìm thấy file JSON: {JSON_FILENAME}")
+        return False
+
+    try:
+        renamed_count = 0
+        deleted_count = 0
+        skipped_count = 0
+        error_count = 0
+
+        # Đọc file JSON
+        with open(JSON_FILENAME, mode='r', encoding='utf-8-sig') as f:
+            data = json.load(f)
+        
+        print(f" [*] Tải {len(data)} bản ghi từ JSON")
+        
+        # Xử lý từng bản ghi
+        for record in data:
+            company = record['Company']
+            old_name = record['Key_Original']
+            new_name = record['New_File_Name'].strip()
+            
+            # Xây dựng đường dẫn folder từ company
+            folder_path = os.path.join(DATA_DIR, company)
+            old_path = os.path.join(folder_path, old_name)
+            
+            # 1. TRƯỜNG HỢP: XÓA FILE (Tên là 'x')
+            if new_name.lower() == 'x':
+                if os.path.exists(old_path):
+                    try:
+                        os.remove(old_path)
+                        print(f" [Xóa] {company}/{old_name}")
+                        deleted_count += 1
+                    except Exception as e:
+                        print(f" [Lỗi] Không thể xóa {old_name}: {e}")
+                        error_count += 1
+                else:
+                    print(f" [⚠️ ] File không tồn tại: {old_name}")
+            
+            # 2. TRƯỜNG HỢP: ĐỔI TÊN
+            elif new_name.lower() != old_name.lower():
+                if not new_name.lower().endswith(".pdf"):
+                    new_name += ".pdf"
+                
+                new_path = os.path.join(folder_path, new_name)
+                
+                if os.path.exists(old_path):
+                    try:
+                        os.rename(old_path, new_path)
+                        print(f" [Đổi] {company}: {old_name} → {new_name}")
+                        renamed_count += 1
+                    except Exception as e:
+                        print(f" [Lỗi] Không thể đổi tên {old_name}: {e}")
+                        error_count += 1
+                else:
+                    print(f" [⚠️ ] File không tồn tại: {old_name}")
+                    error_count += 1
+            else:
+                skipped_count += 1
+
+        print(f"\n [✓] Kết quả xử lý:")
+        print(f"     - Đổi tên: {renamed_count} file")
+        print(f"     - Xóa: {deleted_count} file")
+        print(f"     - Bỏ qua (không thay đổi): {skipped_count} file")
+        if error_count > 0:
+            print(f"     - Lỗi: {error_count} file")
+        
+        return True
+        
+    except Exception as e:
+        print(f" [!] Lỗi: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
+
+
+# ==========================================
+# ENTRY POINT
+# ==========================================
+
+if __name__ == "__main__":
+    print("="*60)
+    print("BƯỚC 5: XỬ LÝ DỮ LIỆU (ĐỔI TÊN & XÓA FILE)")
+    print("="*60)
+    
+    success = cleanData()
+    
+    if success:
+        print(f"\n✓ Xử lý dữ liệu hoàn tất!")
+        sys.exit(0)
+    else:
+        print("\n[!] Lỗi khi xử lý")
+        sys.exit(1)

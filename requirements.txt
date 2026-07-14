@@ -32,6 +32,7 @@ decorator==5.2.1
 distro==1.9.0
 dlinfo==2.0.0
 docopt==0.6.2
+docling==2.45.0
 EbookLib==0.20
 espeakng-loader==0.2.4
 executing==2.2.1

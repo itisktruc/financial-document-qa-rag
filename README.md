@@ -1,229 +1,43 @@
-# 📊 FinLens-RAG: Financial Document Intelligence Assistant
+# Financial Document Intelligence Assistant
 
-> An advanced RAG system for analyzing financial documents such as 10-K, 10-Q reports, prospectuses, and contracts using Hybrid Retrieval, Agentic RAG, and Evaluation Frameworks.
+## Overview
+This project is a Financial RAG (Retrieval-Augmented Generation) Chatbot designed to process and query complex financial documents intelligently. 
 
----
+## Dataset
+* **Domain:** Finance
+* **Document Types:** 10-K/10-Q reports, credit agreements (hợp đồng tín dụng), and prospectuses (bản cáo bạch)
 
-## 📁 Project Structure
+## Architecture
+* **Core Techniques:** Layout/Table-aware Parsing, Hierarchical Chunking, Metadata Enrichment, Hybrid Search (BM25 + Dense), Cross-Encoder Reranking, HyDE, Semantic Query Routing, Traceable Citations, and Semantic Caching
+* **RAG Framework:** LlamaIndex / LangChain / LangGraph
 
-```text
-financial-rag-assistant/
-│
-├── .github/
-│   └── workflows/
-│       ├── ci.yml
-│       └── cd.yml
-│
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── evaluation/
-│
-├── notebooks/
-│   ├── 01_eda_and_parsing.ipynb
-│   ├── 02_hybrid_search_experiments.ipynb
-│   └── 03_ragas_evaluation.ipynb
-│
-├── src/
-│   ├── parser/
-│   ├── indexer/
-│   ├── retrieval/
-│   ├── pipeline/
-│   ├── evaluation/
-│   ├── backend/
-│   └── frontend/
-│
-├── tests/
-│
-├── Dockerfile
-├── docker-compose.yml
-├── README.md
-└── requirements.txt
-```
+## Tech Stack
+* **PDF Parser:** Docling / LlamaParse
+* **Vector DB:** Qdrant (or Pinecone / Milvus)
+* **Reranker:** bge-reranker-large or Cohere Rerank API
+* **LLM & Embeddings:** GPT-4o-mini, Llama 3 (Groq API), OpenAI/Claude API
+* **Evaluation:** Ragas / TruLens
+* **Backend & Cache:** FastAPI + Redis
+* **Frontend:** Streamlit / React
 
----
+## Setup
+1. Clone the repository: `git clone <repo-url>`
+2. Create and activate a Python virtual environment (e.g., `python -m venv .venv`).
+3. Install the required dependencies: `pip install -r requirements.txt`
+4. Start the local Vector Database: `docker compose up -d qdrant`
 
-# 🏗️ System Architecture
+## Run
+1. Ensure your virtual environment is active.
+2. Ensure Docker containers are running.
+3. Execute the main application file (e.g., `python src/app.py`).
 
-## 📄 Parser Module (Member A)
+## Evaluation
+* Automated testing is handled via Pytest.
+* Retrieval and Generation evaluation metrics are managed via Ragas / TruLens.
 
-Responsible for extracting and normalizing financial documents.
-
-| File | Description |
-|------|-------------|
-| `doc_parser.py` | Extract text and tables using Docling/LlamaParse |
-| `normalizer.py` | Normalize tables into Markdown/JSON |
-
----
-
-## 🔍 Indexing Module (Member B)
-
-Responsible for chunking, embedding, and vector storage.
-
-| File | Description |
-|------|-------------|
-| `chunker.py` | Hierarchical Parent-Child chunking |
-| `embedder.py` | Dense embedding configuration |
-| `vector_db.py` | Qdrant/Pinecone schema & metadata filtering |
-
----
-
-## 🧠 Retrieval Module (Member B)
-
-Responsible for advanced retrieval strategies.
-
-| File | Description |
-|------|-------------|
-| `hybrid_search.py` | BM25 + Dense Retrieval |
-| `reranker.py` | BGE/Cohere reranking |
-
----
-
-## 🤖 RAG Pipeline (Member C)
-
-Core orchestration and agent system.
-
-| File | Description |
-|------|-------------|
-| `router.py` | Agentic query routing |
-| `tools.py` | Financial calculators |
-| `chain.py` | LangChain/LangGraph pipeline |
-| `citation.py` | Dynamic citation generation |
-
----
-
-## 📈 Evaluation & Guardrails (Member D)
-
-Evaluation framework and safety layer.
-
-| File | Description |
-|------|-------------|
-| `ragas_eval.py` | RAGAS benchmarking |
-| `guardrails.py` | Hallucination prevention |
-
----
-
-## ⚙️ Backend & Deployment (Member E)
-
-API services and deployment infrastructure.
-
-| File | Description |
-|------|-------------|
-| `main.py` | FastAPI entrypoint |
-| `config.py` | Environment configuration |
-| `cache.py` | Redis semantic cache |
-| `api/endpoints.py` | REST API endpoints |
-
----
-
-## 🖥️ Frontend (Member E)
-
-User interaction layer.
-
-| File | Description |
-|------|-------------|
-| `app.py` | Streamlit/React interface |
-
----
-
-# 👥 Team Responsibilities
-
-| Member | Role | Main Responsibilities |
-|--------|------|----------------------|
-| A | Data & Domain Lead | Data collection, parsing |
-| B | Retrieval Engineer | Chunking, embeddings, retrieval |
-| C | RAG Pipeline Engineer | Agentic RAG pipeline |
-| D | Evaluation & QA Engineer | Evaluation, guardrails |
-| E | Backend & Deployment Engineer | API, frontend, CI/CD |
-
----
-
-# 🌿 Git Workflow
-
-## Core Branches
-
-| Branch | Purpose |
-|---------|---------|
-| `main` | Stable production branch |
-| `dev` | Integration branch |
-
----
-
-## Feature Branch Naming
-
-```bash
-[type]/[member]-[task]
-```
-
-Examples:
-
-```bash
-feature/A-pdf-table-parsing
-feature/B-hybrid-search-rerank
-feature/C-core-rag-pipeline
-feature/D-ragas-benchmarking
-feature/E-fastapi-backend
-```
-
----
-
-# 🔄 Development Workflow
-
-```mermaid
-graph LR
-A[dev] --> B[feature branch]
-B --> C[Commit]
-C --> D[Push]
-D --> E[Pull Request]
-E --> F[Code Review]
-F --> G[Merge to dev]
-G --> H[Merge to main]
-```
-
----
-
-# 🛠️ Git Cheatsheet
-
-### 1. Create a Feature Branch
-
-```bash
-git checkout dev
-git pull origin dev
-git checkout -b feature/A-pdf-table-parsing
-```
-
-### 2. Commit Changes
-
-```bash
-git status
-git add .
-git commit -m "feat(parser): integrate docling pdf parser"
-```
-
-### 3. Push to GitHub
-
-```bash
-git push -u origin feature/A-pdf-table-parsing
-```
-
-### 4. Create Pull Request
-
-- Open GitHub Repository
-- Click **Compare & Pull Request**
-- Set:
-
-```
-base: dev
-compare: feature/A-pdf-table-parsing
-```
-
-- Assign reviewers
-- Submit PR
-
-### 5. Cleanup
-
-```bash
-git checkout dev
-git pull origin dev
-git branch -d feature/A-pdf-table-parsing
-```
+## Team Members
+* A
+* B
+* C
+* D
+* E

@@ -23,7 +23,26 @@ Sau khi môi trường ảo đã được kích hoạt, cài đặt tất cả c
 ```bash
 pip install -r requirements.txt
 ```
+Nếu gặp lỗi khi cài đặt `antlr4-python3-runtime` (lỗi liên quan đến `bin/pygrun`), hãy chạy các lệnh sau để cài đặt thủ công:
 
+1. Tải gói cài đặt:
+   ```powershell
+   pip download antlr4-python3-runtime==4.9.3
+   ```
+2. Giải nén
+   ```powershell
+   tar -xvzf antlr4-python3-runtime-4.9.3.tar.gz
+   ```  
+3. Vào thư mục antlr4-python3-runtime-4.9.3, mở file setup.py và xóa/comment dòng scripts=['bin/pygrun'],.
+4. Chạy lệnh cài đặt cục bộ:
+   ```powershell
+   pip install .
+   ```
+5. Quay lại thư mục gốc dự án và tiếp tục cài đặt các thư viện khác:
+   ```powershell
+   cd ..
+   pip install -r requirements.txt
+   ```
 ## Bước 4: Khởi Động Database Bằng Docker
 Dự án sử dụng Qdrant và MongoDB chạy trên Docker. Đảm bảo ứng dụng Docker đang mở, sau đó khởi động các container ở chế độ nền:
 ```bash

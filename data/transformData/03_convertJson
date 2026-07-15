@@ -14,7 +14,7 @@ def convertJson():
     print("\n--- Step 3: Convert CSV to JSON ---")
     
     if not os.path.exists(CSV_FILENAME):
-        print(f'[!] File CSV không tìm thấy: {CSV_FILENAME}')
+        print(f'[!] CSV file is not found: {CSV_FILENAME}')
         return False
     
     try:
@@ -37,12 +37,12 @@ def convertJson():
         with open(JSON_FILENAME, mode='w', encoding='utf-8-sig') as f:
             json.dump(json_data, f, ensure_ascii=False, indent=4)
         
-        print(f" [OK] Đã chuyển đổi {len(json_data)} bản ghi sang JSON")
-        print(f" [OK] Đã lưu tại: {JSON_FILENAME}")
+        print(f" [OK] Converted {len(json_data)} records to JSON")
+        print(f" [OK] Save in: {JSON_FILENAME}")
         return True
         
     except Exception as e:
-        print(f" [!] Lỗi khi chuyển đổi: {e}")
+        print(f" [!] Convert Error: {e}")
         return False
 
 # ==========================================
@@ -51,14 +51,14 @@ def convertJson():
 
 if __name__ == "__main__":
     print("="*60)
-    print("BƯỚC 3: CHUYỂN ĐỔI CSV SANG JSON")
+    print("Step 3: Convert CSV to JSON")
     print("="*60)
     
     success = convertJson()
     
     if success:
-        print(f"\n✓ JSON file đã được tạo tại: {JSON_FILENAME}")
+        print(f"\n JSON file is created at: {JSON_FILENAME}")
         sys.exit(0)
     else:
-        print("\n[!] Lỗi khi chuyển đổi")
+        print("\n[!] Conver Error")
         sys.exit(1)

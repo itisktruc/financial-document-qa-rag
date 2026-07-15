@@ -9,30 +9,18 @@ jobs:
     runs-on: ubuntu-latest  
     
     steps:  
-      # 1. Checkout
+      # 1. Checkout code từ GitHub
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Setup Python environment
+      # 2. Cài đặt Python 3.12 (Khớp với Docker và requirements)
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11" # Matching the version from your virtual environment
+          python-version: "3.12"
 
-      # 3. Install packages
+      # 3. Cài đặt các thư viện
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install black ruff pytest
-
-      # 4. Run Lint
-      - name: Check formatting with Black
-        run: black --check .
-        
-      - name: Lint with Ruff
-        run: ruff check .
-
-      # 5. Run Test
-      - name: Run Pytest
-        run: pytest

@@ -1,0 +1,96 @@
+import os
+import csv
+import sys
+
+from config import DATA_DIR, CSV_FILENAME
+
+# ==========================================
+# SCAN DỮ LIỆU TỪ MATERIAL FOLDER
+# ==========================================
+
+def scan_material_folder():
+    """Quét tất cả các file PDF trong thư mục material"""
+    material_path = DATA_DIR  # DATA_DIR đã trỏ đến material folder
+    scraped_data = []
+    
+    if not os.path.exists(material_path):
+        print(f"[!] Thư mục material không tồn tại: {material_path}")
+        return []
+    
+    companies = os.listdir(material_path)
+    
+    for company in companies:
+        company_path = os.path.join(material_path, company)
+        
+        if not os.path.isdir(company_path):
+            continue
+        
+        files = [f for f in os.listdir(company_path) if f.endswith('.pdf')]
+        
+        print(f"[*] Công ty: {company} - Tìm thấy {len(files)} file PDF")
+        
+        for file in files:
+            scraped_data.append({
+                'Company': company,
+                'Folder': company_path,
+                'Key_Original': file,
+                'URL': f"local://material/{company}/{file}"
+            })
+    
+    print(f"[✓] Tổng cộng quét được {len(scraped_data)} file\n")
+    return scraped_data
+
+# ==========================================
+# TẠO FILE CSV
+# ==========================================
+
+def run(scraped_data):
+    print("--- Step 2: Create File CSV ---")
+    if not scraped_data:
+        print(" [!] Material is not found to create CSV.")
+        return False
+    
+    os.makedirs(DATA_DIR, exist_ok=True)
+
+    with open(CSV_FILENAME, mode='w', encoding='utf-8-sig', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=['Company', 'Folder', 'Key_Original', 'Value_New', 'URL', 'Status'])
+        writer.writeheader()
+
+        for item in scraped_data:
+            writer.writerow({
+                'Company': item['Company'],
+                'Folder': item['Folder'],
+                'Key_Original': item['Key_Original'],
+                'Value_New': item['Key_Original'],
+                'URL': item['URL'],
+                'Status': ''
+            })
+            
+    print(f" [OK] Đã xuất tổng hợp vào: {CSV_FILENAME}")
+    return True
+
+# ==========================================
+# ENTRY POINT
+# ==========================================
+
+if __name__ == "__main__":
+    print("="*60)
+    print("BƯỚC 2: TẠO FILE CSV TỪ DỮ LIỆU MATERIAL")
+    print("="*60 + "\n")
+    
+    # Quét dữ liệu từ material folder
+    scraped_data = scan_material_folder()
+    
+    if not scraped_data:
+        print("\n[!] Không có dữ liệu để tạo CSV")
+        sys.exit(1)
+    
+    # Tạo CSV
+    success = run(scraped_data)
+    
+    if success:
+        print(f"\n✓ File CSV đã được tạo tại: {CSV_FILENAME}")
+        sys.exit(0)
+    else:
+        print("\n[!] Lỗi khi tạo CSV")
+        sys.exit(1)

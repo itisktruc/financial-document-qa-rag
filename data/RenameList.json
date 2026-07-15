@@ -492,7 +492,7 @@
     {
         "Company": "TheGioiDiDong",
         "Key_Original": "Báo Cáo Tài Chính Hợp Nhất Kiểm Toán Năm 2024 24032025 24032025.pdf",
-        "New_File_Name": "MWG_CFS_2024H1"
+        "New_File_Name": "MWG_CFS_2024FY"
     },
     {
         "Company": "TheGioiDiDong",
@@ -1217,12 +1217,12 @@
     {
         "Company": "Vinamilk",
         "Key_Original": "23012025 2024 Q4 Báo cáo tài chính hợp nhất Báo cáo Quý.pdf",
-        "New_File_Name": "VNM_CFS_2025Q4"
+        "New_File_Name": "x"
     },
     {
         "Company": "Vinamilk",
         "Key_Original": "23012025 2024 Q4 Báo cáo tài chính riêng Báo cáo Quý.pdf",
-        "New_File_Name": "VNM_PCFS_2024Q4"
+        "New_File_Name": "x"
     },
     {
         "Company": "Vinamilk",
@@ -1247,7 +1247,7 @@
     {
         "Company": "Vinamilk",
         "Key_Original": "25042024 2024 Q1 Báo cáo tài chính riêng Đã soát xétkiểm toán.pdf",
-        "New_File_Name": "VNM_PCFS_2024Q4"
+        "New_File_Name": "VNM_PCFS_2024Q1"
     },
     {
         "Company": "Vinamilk",
@@ -1272,12 +1272,12 @@
     {
         "Company": "Vinamilk",
         "Key_Original": "27022026 2025 Q4 Báo cáo tài chính hợp nhất Đã soát xétkiểm toán.pdf",
-        "New_File_Name": "VNM_CFS_2025Q4"
+        "New_File_Name": "x"
     },
     {
         "Company": "Vinamilk",
         "Key_Original": "27022026 2025 Q4 Báo cáo tài chính riêng Đã soát xétkiểm toán.pdf",
-        "New_File_Name": "VNM_PCFS_2025Q4"
+        "New_File_Name": "x"
     },
     {
         "Company": "Vinamilk",
@@ -1347,12 +1347,12 @@
     {
         "Company": "Vinamilk",
         "Key_Original": "29072024 2024 Q2 Báo cáo tài chính riêng Báo cáo Quý.pdf",
-        "New_File_Name": "VNM_CFS_2026Q1"
+        "New_File_Name": "VNM_CFS_2026Q2"
     },
     {
         "Company": "Vinamilk",
         "Key_Original": "29072024 2024 Q2 Báo cáo tài chính riêng Đã soát xétkiểm toán.pdf",
-        "New_File_Name": "VNM_PCFS_2026Q1"
+        "New_File_Name": "VNM_PCFS_2026Q2"
     },
     {
         "Company": "Vinamilk",

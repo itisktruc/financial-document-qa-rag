@@ -1,6 +1,6 @@
 import os 
 
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(ROOT_DIR, "data", "material")
 
 BASE_DOWNLOAD_DIR = os.path.join(ROOT_DIR, "data", "material")
@@ -27,29 +27,29 @@ TASKS = [
         "click_years": [], # Không cần click, vì web load theo URL
         "files_to_download": [] 
     },
-    # {
-    #     "company": "HoaPhat",
-    #     # Sinh URL tự động cho các trang
-    #     "urls": [
-    #         f"https://www.hoaphat.com.vn/quan-he-co-dong/bao-cao-thuong-nien?page={page}"
-    #         for page in range(1, 3)
-    #     ] +[
-    #         f"https://www.hoaphat.com.vn/quan-he-co-dong/bao-cao-tai-chinh?page={page}"
-    #         for page in range(1, 3)
-    #     ] + [
-    #         f"https://www.hoaphat.com.vn/quan-he-co-dong/cao-bach"
-    #     ],
-    #     "click_years": [],
-    #     "files_to_download": []
-    # },
-    # {
-    #     "company": "TheGioiDiDong",
-    #     "urls": [
-    #         "https://mwg.vn/cong-bo-thong-tin"
-    #     ],
-    #     # Web tĩnh URL, cần click vào các tab/năm để load dữ liệu
-    #     "click_years": ["2026", "2025", "2024"], 
-    #     "files_to_download": []
-    # }
+    {
+        "company": "HoaPhat",
+        # Sinh URL tự động cho các trang
+        "urls": [
+            f"https://www.hoaphat.com.vn/quan-he-co-dong/bao-cao-thuong-nien?page={page}"
+            for page in range(1, 3)
+        ] +[
+            f"https://www.hoaphat.com.vn/quan-he-co-dong/bao-cao-tai-chinh?page={page}"
+            for page in range(1, 3)
+        ] + [
+            f"https://www.hoaphat.com.vn/quan-he-co-dong/cao-bach"
+        ],
+        "click_years": [],
+        "files_to_download": []
+    },
+    {
+        "company": "TheGioiDiDong",
+        "urls": [
+            "https://mwg.vn/cong-bo-thong-tin"
+        ],
+        # Web tĩnh URL, cần click vào các tab/năm để load dữ liệu
+        "click_years": ["2026", "2025", "2024"], 
+        "files_to_download": []
+    }
 ]
 

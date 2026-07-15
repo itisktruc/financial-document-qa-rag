@@ -14,7 +14,7 @@ def scan_material_folder():
     scraped_data = []
     
     if not os.path.exists(material_path):
-        print(f"[!] Thư mục material không tồn tại: {material_path}")
+        print(f"[!] Folder is not found: {material_path}")
         return []
     
     companies = os.listdir(material_path)
@@ -27,14 +27,12 @@ def scan_material_folder():
         
         files = [f for f in os.listdir(company_path) if f.endswith('.pdf')]
         
-        print(f"[*] Công ty: {company} - Tìm thấy {len(files)} file PDF")
+        print(f"[*] Company: {company} - Found {len(files)} file PDF")
         
         for file in files:
             scraped_data.append({
                 'Company': company,
-                'Folder': company_path,
                 'Key_Original': file,
-                'URL': f"local://material/{company}/{file}"
             })
     
     print(f"[✓] Tổng cộng quét được {len(scraped_data)} file\n")
@@ -53,17 +51,14 @@ def run(scraped_data):
     os.makedirs(DATA_DIR, exist_ok=True)
 
     with open(CSV_FILENAME, mode='w', encoding='utf-8-sig', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['Company', 'Folder', 'Key_Original', 'Value_New', 'URL', 'Status'])
+        writer = csv.DictWriter(f, fieldnames=['Company', 'Key_Original', 'New_File_Name'])
         writer.writeheader()
 
         for item in scraped_data:
             writer.writerow({
                 'Company': item['Company'],
-                'Folder': item['Folder'],
                 'Key_Original': item['Key_Original'],
-                'Value_New': item['Key_Original'],
-                'URL': item['URL'],
-                'Status': ''
+                'New_File_Name': ''
             })
             
     print(f" [OK] Đã xuất tổng hợp vào: {CSV_FILENAME}")

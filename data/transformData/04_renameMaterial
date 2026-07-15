@@ -13,7 +13,7 @@ def cleanData():
     print("\n--- Step 5: Process Data (Rename/Delete Files) ---")
     
     if not os.path.exists(JSON_FILENAME):
-        print(f" [!] Không tìm thấy file JSON: {JSON_FILENAME}")
+        print(f" [!] JSON file is not found: {JSON_FILENAME}")
         return False
 
     try:
@@ -26,7 +26,7 @@ def cleanData():
         with open(JSON_FILENAME, mode='r', encoding='utf-8-sig') as f:
             data = json.load(f)
         
-        print(f" [*] Tải {len(data)} bản ghi từ JSON")
+        print(f" [*] Load {len(data)} records from JSON")
         
         # Xử lý từng bản ghi
         for record in data:
@@ -43,13 +43,13 @@ def cleanData():
                 if os.path.exists(old_path):
                     try:
                         os.remove(old_path)
-                        print(f" [Xóa] {company}/{old_name}")
+                        print(f" [Delete] {company}/{old_name}")
                         deleted_count += 1
                     except Exception as e:
-                        print(f" [Lỗi] Không thể xóa {old_name}: {e}")
+                        print(f" [Error] Cannot delete {old_name}: {e}")
                         error_count += 1
                 else:
-                    print(f" [⚠️ ] File không tồn tại: {old_name}")
+                    print(f" [Warning] File is not found: {old_name}")
             
             # 2. TRƯỜNG HỢP: ĐỔI TÊN
             elif new_name.lower() != old_name.lower():
@@ -61,28 +61,28 @@ def cleanData():
                 if os.path.exists(old_path):
                     try:
                         os.rename(old_path, new_path)
-                        print(f" [Đổi] {company}: {old_name} → {new_name}")
+                        print(f" [Rename] {company}: {old_name} -> {new_name}")
                         renamed_count += 1
                     except Exception as e:
-                        print(f" [Lỗi] Không thể đổi tên {old_name}: {e}")
+                        print(f" [Error] Cannot rename {old_name}: {e}")
                         error_count += 1
                 else:
-                    print(f" [⚠️ ] File không tồn tại: {old_name}")
+                    print(f" [Warning] File is not found: {old_name}")
                     error_count += 1
             else:
                 skipped_count += 1
 
-        print(f"\n [✓] Kết quả xử lý:")
-        print(f"     - Đổi tên: {renamed_count} file")
-        print(f"     - Xóa: {deleted_count} file")
-        print(f"     - Bỏ qua (không thay đổi): {skipped_count} file")
+        print(f"\n Execute Result:")
+        print(f"     - Rename tên: {renamed_count} file")
+        print(f"     - Delete: {deleted_count} file")
+        print(f"     - Unchange: {skipped_count} file")
         if error_count > 0:
-            print(f"     - Lỗi: {error_count} file")
-        
+            print(f"     - Error: {error_count} file")
+    
         return True
         
     except Exception as e:
-        print(f" [!] Lỗi: {e}")
+        print(f" [!] Error: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -100,8 +100,8 @@ if __name__ == "__main__":
     success = cleanData()
     
     if success:
-        print(f"\n✓ Xử lý dữ liệu hoàn tất!")
+        print(f"\n Completed!")
         sys.exit(0)
     else:
-        print("\n[!] Lỗi khi xử lý")
+        print("\n[!] Error")
         sys.exit(1)

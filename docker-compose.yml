@@ -29,24 +29,39 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ./data:/app/data
+      - ./test_parse_chunk.py:/app/test_parse_chunk.py
+      - ./test_ocr.py:/app/test_ocr.py
+      - ./test_chunking.py:/app/test_chunking.py
+      - ./render_review_html.py:/app/render_review_html.py
+      - ./app/ingestion/ppv3_worker.py:/app/app/ingestion/ppv3_worker.py
+      - ./app/ingestion/build_finetune_dataset.py:/app/app/ingestion/build_finetune_dataset.py
+      - ./app/ingestion/label_tool.html:/app/app/ingestion/label_tool.html
+      - ./app/ingestion/train_finetune.py:/app/app/ingestion/train_finetune.py
+
     env_file:
       - .env
     environment:
       - QDRANT_HOST=qdrant
       - QDRANT_PORT=6333
       - MONGO_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASSWORD:-changeme}@mongodb:27017
+      - PYTHONUTF8=1
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
     depends_on:
       - qdrant
       - mongodb
     restart: unless-stopped
-    # Bỏ comment 2 dòng dưới nếu máy có GPU và cần tăng tốc PaddleOCR/embedding
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
+    #Bỏ comment 2 dòng dưới nếu máy có GPU và cần tăng tốc PaddleOCR/embedding
+    deploy:
+      resources:
+        reservations:
+           devices:
+             - driver: nvidia
+               count: 1
+               capabilities: [gpu]
 
   # ==== Frontend: Streamlit demo ====
   frontend:
@@ -57,6 +72,9 @@ services:
       - "8501:8501"
     environment:
       - BACKEND_URL=http://backend:8000
+    volumes:
+      - ./frontend:/app/frontend
+      - ./app:/app/app
     depends_on:
       - backend
     restart: unless-stopped

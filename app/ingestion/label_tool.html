@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Gán nhãn dataset fine-tune vietocr</title>
+<style>
+  :root {
+    --bg: #1e1f24; --panel: #2a2b32; --border: #40414a; --text: #e8e8ec;
+    --muted: #9a9aa5; --accent: #5b9dff; --good: #4caf82; --warn: #e0a64c; --bad: #e05c5c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text);
+  }
+  header {
+    padding: 14px 20px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  header h1 { font-size: 16px; margin: 0; font-weight: 600; color: var(--text); }
+  .setup {
+    max-width: 720px; margin: 60px auto; padding: 24px; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 10px;
+  }
+  .setup label { display: block; margin: 16px 0 6px; font-size: 14px; color: var(--muted); }
+  .setup input[type=file] {
+    display: block; width: 100%; padding: 10px; background: #16171b; color: var(--text);
+    border: 1px dashed var(--border); border-radius: 6px;
+  }
+  .setup .hint { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  .setup button {
+    margin-top: 22px; padding: 10px 18px; background: var(--accent); color: #fff;
+    border: none; border-radius: 6px; font-size: 14px; cursor: pointer;
+  }
+  .setup button:disabled { background: #444; cursor: not-allowed; }
+  #status { font-size: 13px; color: var(--warn); margin-top: 12px; white-space: pre-line; }
+
+  main { display: none; max-width: 980px; margin: 0 auto; padding: 24px; }
+  .progressbar {
+    height: 8px; background: #16171b; border-radius: 4px; overflow: hidden; margin-bottom: 6px;
+  }
+  .progressbar > div { height: 100%; background: var(--good); }
+  .stats { font-size: 13px; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 18px; }
+  .stats b { color: var(--text); }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+  }
+  .meta { font-size: 12.5px; color: var(--muted); margin-bottom: 12px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .meta span.priority-hard { color: var(--bad); font-weight: 600; }
+  .meta span.priority-normal { color: var(--good); }
+
+  .imgwrap {
+    background: #f3f3f3; border-radius: 8px; padding: 18px; text-align: center;
+    min-height: 90px; display: flex; align-items: center; justify-content: center; overflow: auto;
+  }
+  .imgwrap img { image-rendering: pixelated; max-width: 100%; min-height: 40px; }
+  .imgwrap .missing { color: #b33; font-size: 13px; }
+
+  .guesses { display: flex; gap: 24px; margin: 14px 0; font-size: 13px; }
+  .guesses div { flex: 1; }
+  .guesses .label { color: var(--muted); margin-bottom: 4px; }
+  .guesses .value { font-family: ui-monospace, monospace; color: var(--text); word-break: break-all; }
+  .guesses .prob { color: var(--muted); font-size: 11.5px; margin-left: 6px; }
+
+  #labelInput {
+    width: 100%; font-size: 20px; padding: 12px 14px; border-radius: 8px;
+    border: 1px solid var(--border); background: #16171b; color: var(--text); margin-top: 6px;
+  }
+  #labelInput:focus { outline: 2px solid var(--accent); }
+
+  .actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .actions button {
+    padding: 10px 16px; border-radius: 6px; border: 1px solid var(--border);
+    background: #34353d; color: var(--text); font-size: 13.5px; cursor: pointer;
+  }
+  .actions button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .actions button.blank { background: #3a3423; border-color: var(--warn); }
+  .actions kbd {
+    background: #16171b; border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px;
+    font-size: 11px; margin-left: 6px; color: var(--muted);
+  }
+
+  .toolbar { display:flex; gap:16px; align-items:center; margin-bottom:14px; font-size:13px; color: var(--muted);}
+  .toolbar label { display:flex; align-items:center; gap:6px; }
+  #exportBtn { padding: 10px 18px; background: var(--good); color:#0c1f16; border:none; border-radius:6px; font-weight:600; cursor:pointer; }
+  #exportBtn:disabled { background:#444; color:#888; cursor:not-allowed; }
+  footer { text-align:center; color: var(--muted); font-size: 12px; padding: 30px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏷️ Gán nhãn dataset fine-tune vietocr</h1>
+</header>
+
+<div class="setup" id="setup">
+  <div class="hint" style="color:var(--muted); font-size:13px;">
+    Công cụ chạy hoàn toàn trong trình duyệt (không upload gì lên mạng - mọi thứ chỉ đọc từ máy bạn).
+  </div>
+
+  <label>1. Chọn file <code>manifest.csv</code> (do build_finetune_dataset.py tạo ra)</label>
+  <input type="file" id="manifestInput" accept=".csv">
+
+  <label>2. Chọn thư mục <code>images/</code> (thư mục con chứa ảnh .png, nằm cạnh manifest.csv)</label>
+  <input type="file" id="imagesInput" webkitdirectory directory multiple>
+  <div class="hint">Trình duyệt sẽ hỏi quyền đọc thư mục - chỉ đọc, không gửi đi đâu cả.</div>
+
+  <button id="startBtn" disabled>Bắt đầu gán nhãn</button>
+  <div id="status"></div>
+</div>
+
+<main id="main">
+  <div class="toolbar">
+    <label><input type="checkbox" id="onlyHard" checked> Chỉ hiện ô "khó" (priority=hard) trước</label>
+    <span id="counts"></span>
+  </div>
+  <div class="progressbar"><div id="progressFill" style="width:0%"></div></div>
+  <div class="stats" id="statsLine"></div>
+
+  <div class="card">
+    <div class="meta" id="metaLine"></div>
+    <div class="imgwrap" id="imgWrap"><span class="missing">Đang tải ảnh...</span></div>
+
+    <div class="guesses">
+      <div>
+        <div class="label">vietocr đoán (prob=<span id="probVal"></span>)</div>
+        <div class="value" id="vietocrGuess"></div>
+      </div>
+      <div>
+        <div class="label">paddle đoán (fallback)</div>
+        <div class="value" id="paddleGuess"></div>
+      </div>
+    </div>
+
+    <input type="text" id="labelInput" placeholder="Gõ nhãn ĐÚNG cho ô/dòng này rồi nhấn Enter...">
+
+    <div class="actions">
+      <button class="primary" id="saveNextBtn">💾 Lưu &amp; tiếp theo <kbd>Enter</kbd></button>
+      <button class="blank" id="blankBtn">Đánh dấu Ô TRỐNG thật <kbd>Shift+Enter</kbd></button>
+      <button id="skipBtn">Bỏ qua (chưa chắc) <kbd>Esc</kbd></button>
+      <button id="prevBtn">← Quay lại</button>
+    </div>
+  </div>
+
+  <footer>
+    <button id="exportBtn">⬇️ Xuất train_annotation.txt / valid_annotation.txt / manifest_labeled.csv</button>
+    <div style="margin-top:8px;">Tiến độ tự lưu vào trình duyệt (localStorage) - đóng tab vẫn giữ được, nhưng nên bấm Xuất định kỳ để có file thật.</div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------------------------------------------------------------------
+  // CSV parser/writer riêng (RFC4180 tối giản) - KHÔNG dùng thư viện ngoài vì
+  // công cụ này cần chạy offline, không phụ thuộc CDN. vietocr_guess/
+  // paddle_guess có thể chứa dấu phẩy/nháy kép (rác OCR) nên không thể split(',').
+  // ---------------------------------------------------------------------
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = "", inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (inQuotes) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; }
+          else inQuotes = false;
+        } else field += c;
+      } else {
+        if (c === '"') inQuotes = true;
+        else if (c === ',') { row.push(field); field = ""; }
+        else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ""; }
+        else if (c === '\r') { /* bỏ qua, xử lý bởi \n */ }
+        else field += c;
+      }
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    if (!rows.length) return [];
+    const header = rows[0];
+    return rows.slice(1).filter(r => r.length > 1 || r[0] !== "").map(r => {
+      const obj = {};
+      header.forEach((h, idx) => { obj[h] = r[idx] !== undefined ? r[idx] : ""; });
+      return obj;
+    });
+  }
+
+  function csvField(v) {
+    v = String(v ?? "");
+    if (/[",\n]/.test(v)) return '"' + v.replace(/"/g, '""') + '"';
+    return v;
+  }
+  function toCSV(rows, fields) {
+    const lines = [fields.join(",")];
+    for (const r of rows) lines.push(fields.map(f => csvField(r[f])).join(","));
+    return lines.join("\n");
+  }
+
+  function download(filename, content) {
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // ---------------------------------------------------------------------
+  // State
+  // ---------------------------------------------------------------------
+  let records = [];       // toàn bộ dòng từ manifest.csv, đã gắn thêm .reviewed/.label
+  let imageMap = new Map(); // basename -> File
+  let order = [];          // mảng index vào `records`, đã sắp ưu tiên hard trước
+  let cursor = 0;          // vị trí hiện tại trong `order`
+  let manifestName = "manifest";
+  let currentObjectUrl = null;
+
+  const LS_KEY = () => "vietocr_label_progress::" + manifestName;
+
+  function saveProgress() {
+    const dump = records.map(r => ({ image: r.image, label: r.label, reviewed: r.reviewed }));
+    try { localStorage.setItem(LS_KEY(), JSON.stringify(dump)); } catch (e) { /* im lặng nếu quota đầy */ }
+  }
+
+  function loadProgress() {
+    try {
+      const raw = localStorage.getItem(LS_KEY());
+      if (!raw) return;
+      const dump = JSON.parse(raw);
+      const byImage = new Map(dump.map(d => [d.image, d]));
+      for (const r of records) {
+        const saved = byImage.get(r.image);
+        if (saved) { r.label = saved.label; r.reviewed = saved.reviewed; }
+      }
+    } catch (e) { /* bỏ qua nếu localStorage lỗi/hỏng */ }
+  }
+
+  function basename(path) { return path.split(/[\\/]/).pop(); }
+
+  // ---------------------------------------------------------------------
+  // Setup: nạp manifest.csv + thư mục ảnh
+  // ---------------------------------------------------------------------
+  const manifestInput = document.getElementById("manifestInput");
+  const imagesInput = document.getElementById("imagesInput");
+  const startBtn = document.getElementById("startBtn");
+  const statusEl = document.getElementById("status");
+
+  let manifestFile = null, imageFiles = null;
+  manifestInput.addEventListener("change", e => { manifestFile = e.target.files[0]; checkReady(); });
+  imagesInput.addEventListener("change", e => { imageFiles = e.target.files; checkReady(); });
+  function checkReady() { startBtn.disabled = !(manifestFile && imageFiles && imageFiles.length); }
+
+  startBtn.addEventListener("click", async () => {
+    statusEl.textContent = "Đang đọc dữ liệu...";
+    manifestName = manifestFile.name.replace(/\.csv$/i, "");
+    const text = await manifestFile.text();
+    records = parseCSV(text).map(r => ({
+      ...r,
+      page: r.page,
+      vietocr_prob: parseFloat(r.vietocr_prob || "0"),
+      label: r.label || "",
+      reviewed: false,
+    }));
+
+    imageMap = new Map();
+    for (const f of imageFiles) imageMap.set(basename(f.webkitRelativePath || f.name), f);
+
+    loadProgress();
+
+    const missing = records.filter(r => !imageMap.has(basename(r.image))).length;
+    if (missing > 0) {
+      statusEl.textContent =
+        `⚠️ Có ${missing}/${records.length} dòng trong manifest KHÔNG tìm thấy ảnh tương ứng trong ` +
+        `thư mục đã chọn - kiểm tra lại đã chọn đúng thư mục "images/" chưa. Vẫn có thể tiếp tục với ` +
+        `các dòng còn lại.`;
+    }
+
+    if (!records.length) {
+      statusEl.textContent = "❌ Không đọc được dòng nào từ manifest.csv - kiểm tra lại file.";
+      return;
+    }
+
+    buildOrder();
+    document.getElementById("setup").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    render();
+  });
+
+  function buildOrder() {
+    const onlyHard = document.getElementById("onlyHard").checked;
+    order = records
+      .map((r, i) => i)
+      .filter(i => imageMap.has(basename(records[i].image)))
+      .filter(i => !onlyHard || records[i].priority === "hard")
+      .sort((a, b) => {
+        const pa = records[a].priority === "hard" ? 0 : 1;
+        const pb = records[b].priority === "hard" ? 0 : 1;
+        if (pa !== pb) return pa - pb;
+        return a - b;
+      });
+    // nhảy tới dòng đầu tiên CHƯA review
+    cursor = order.findIndex(i => !records[i].reviewed);
+    if (cursor === -1) cursor = 0;
+  }
+  document.getElementById("onlyHard").addEventListener("change", () => { buildOrder(); render(); });
+
+  // ---------------------------------------------------------------------
+  // Render 1 dòng hiện tại
+  // ---------------------------------------------------------------------
+  const imgWrap = document.getElementById("imgWrap");
+  const labelInput = document.getElementById("labelInput");
+
+  function currentRecord() { return order.length ? records[order[cursor]] : null; }
+
+  function render() {
+    const rec = currentRecord();
+    updateStats();
+    if (!rec) {
+      imgWrap.innerHTML = '<span class="missing">🎉 Hết danh sách (theo bộ lọc hiện tại)!</span>';
+      document.getElementById("metaLine").textContent = "";
+      document.getElementById("vietocrGuess").textContent = "";
+      document.getElementById("paddleGuess").textContent = "";
+      document.getElementById("probVal").textContent = "";
+      labelInput.value = "";
+      return;
+    }
+
+    document.getElementById("metaLine").innerHTML =
+      `<span>${rec.company}</span><span>${rec.source_pdf}</span><span>trang ${rec.page}</span>` +
+      `<span>${rec.kind}</span><span class="priority-${rec.priority}">${rec.priority === "hard" ? "⚠ KHÓ" : "bình thường"}</span>` +
+      (rec.reviewed ? '<span style="color:var(--good)">✓ đã gán</span>' : "");
+
+    const file = imageMap.get(basename(rec.image));
+    if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+    if (file) {
+      currentObjectUrl = URL.createObjectURL(file);
+      imgWrap.innerHTML = `<img src="${currentObjectUrl}" alt="crop">`;
+    } else {
+      imgWrap.innerHTML = '<span class="missing">Không tìm thấy file ảnh này trong thư mục đã chọn.</span>';
+    }
+
+    document.getElementById("vietocrGuess").textContent = rec.vietocr_guess || "(rỗng)";
+    document.getElementById("probVal").textContent = (rec.vietocr_prob || 0).toFixed(2);
+    document.getElementById("paddleGuess").textContent = rec.paddle_guess || "(rỗng)";
+
+    labelInput.value = rec.label || rec.vietocr_guess || "";
+    labelInput.focus();
+    labelInput.select();
+  }
+
+  function updateStats() {
+    const total = records.length;
+    const reviewed = records.filter(r => r.reviewed).length;
+    const hardTotal = records.filter(r => r.priority === "hard").length;
+    const hardDone = records.filter(r => r.priority === "hard" && r.reviewed).length;
+    document.getElementById("progressFill").style.width = (total ? (reviewed / total * 100) : 0) + "%";
+    document.getElementById("statsLine").innerHTML =
+      `Tổng: <b>${total}</b> &nbsp;|&nbsp; Đã gán: <b>${reviewed}</b> &nbsp;|&nbsp; ` +
+      `Ô "khó": <b>${hardDone}/${hardTotal}</b> &nbsp;|&nbsp; Đang hiện: <b>${order.length}</b> dòng (theo bộ lọc)`;
+    document.getElementById("counts").textContent = order.length ? `${cursor + 1} / ${order.length}` : "0 / 0";
+  }
+
+  // ---------------------------------------------------------------------
+  // Điều hướng + lưu
+  // ---------------------------------------------------------------------
+  function goNext() {
+    // nhảy tới dòng CHƯA review kế tiếp trong `order`; nếu hết, dừng ở cuối
+    for (let i = cursor + 1; i < order.length; i++) {
+      if (!records[order[i]].reviewed) { cursor = i; render(); return; }
+    }
+    // không còn dòng chưa review phía sau -> đơn giản đi tới dòng kế (cho phép xem lại)
+    if (cursor + 1 < order.length) cursor++;
+    render();
+  }
+  function goPrev() { if (cursor > 0) { cursor--; render(); } }
+
+  function saveCurrent(label, reviewed) {
+    const rec = currentRecord();
+    if (!rec) return;
+    rec.label = label;
+    rec.reviewed = reviewed;
+    saveProgress();
+  }
+
+  document.getElementById("saveNextBtn").addEventListener("click", () => {
+    saveCurrent(labelInput.value, true); goNext();
+  });
+  document.getElementById("blankBtn").addEventListener("click", () => {
+    saveCurrent("", true); goNext();
+  });
+  document.getElementById("skipBtn").addEventListener("click", () => { goNext(); });
+  document.getElementById("prevBtn").addEventListener("click", goPrev);
+
+  labelInput.addEventListener("keydown", e => {
+    if (e.key === "Enter" && e.shiftKey) { e.preventDefault(); saveCurrent("", true); goNext(); }
+    else if (e.key === "Enter") { e.preventDefault(); saveCurrent(labelInput.value, true); goNext(); }
+    else if (e.key === "Escape") { e.preventDefault(); goNext(); }
+  });
+
+  // ---------------------------------------------------------------------
+  // Xuất kết quả: train_annotation.txt / valid_annotation.txt (format vietocr:
+  // "duong_dan_anh<TAB>nhan", quan hệ với --data_root lúc train) + manifest
+  // đã gán nhãn (để nạp lại label_tool.html sau, tiếp tục gán dở).
+  // ---------------------------------------------------------------------
+  document.getElementById("exportBtn").addEventListener("click", () => {
+    const labeled = records.filter(r => r.reviewed && r.label && r.label.trim() !== "");
+    if (!labeled.length) {
+      alert("Chưa có dòng nào được gán nhãn (không rỗng) để xuất. Ô 'đánh dấu trống' không được đưa vào " +
+            "annotation vì huấn luyện nhận diện chữ không cần ví dụ 'không có chữ'.");
+      return;
+    }
+    // xáo trộn rồi chia 90/10 train/valid
+    const shuffled = [...labeled];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    const splitAt = Math.max(1, Math.floor(shuffled.length * 0.9));
+    const train = shuffled.slice(0, splitAt);
+    const valid = shuffled.slice(splitAt);
+
+    const toLine = r => `${r.image}\t${r.label}`;
+    download("train_annotation.txt", train.map(toLine).join("\n"));
+    download("valid_annotation.txt", valid.map(toLine).join("\n"));
+    download("manifest_labeled.csv", toCSV(records, [
+      "image", "company", "source_pdf", "page", "kind", "priority",
+      "vietocr_guess", "vietocr_prob", "paddle_guess", "label",
+    ]));
+
+    alert(
+      `Đã xuất:\n- train_annotation.txt (${train.length} dòng)\n- valid_annotation.txt (${valid.length} dòng)\n` +
+      `- manifest_labeled.csv (toàn bộ ${records.length} dòng, để mở lại gán tiếp sau này)\n\n` +
+      `Copy 2 file .txt vào thư mục dataset_finetune/ (cùng cấp với images/) rồi chạy train_finetune.py.`
+    );
+  });
+})();
+</script>
+</body>
+</html>

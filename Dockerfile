@@ -11,6 +11,11 @@ WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install vietocr
+#RUN pip install --upgrade gdown
+#RUN python -m venv /opt/venv-paddle
+#RUN /opt/venv-paddle/bin/pip install paddleocr==3.7.0 paddlex==3.7.2 numpy==2.3.5 "paddlex[ocr]"
+#RUN /opt/venv-paddle/bin/pip install paddlepaddle-gpu==3.3.1 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
 
 COPY ./app ./app
 

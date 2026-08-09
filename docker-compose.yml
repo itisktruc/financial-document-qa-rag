@@ -34,13 +34,9 @@ services:
       - ./data:/app/data
       - ./test_parse_chunk.py:/app/test_parse_chunk.py
       - ./test_ocr.py:/app/test_ocr.py
+      - ./test_ocr_colab.py:/app/test_ocr_colab.py
       - ./test_chunking.py:/app/test_chunking.py
       - ./render_review_html.py:/app/render_review_html.py
-      - ./app/ingestion/ppv3_worker.py:/app/app/ingestion/ppv3_worker.py
-      - ./app/ingestion/build_finetune_dataset.py:/app/app/ingestion/build_finetune_dataset.py
-      - ./app/ingestion/label_tool.html:/app/app/ingestion/label_tool.html
-      - ./app/ingestion/train_finetune.py:/app/app/ingestion/train_finetune.py
-
     env_file:
       - .env
     environment:

@@ -33,8 +33,6 @@ from __future__ import annotations
 import locale
 import os
 import sys
-import io
-import requests
 
 # ---------------------------------------------------------------------------
 # Ép UTF-8 TOÀN CỤC ngay khi module này được import -- TRƯỚC bất kỳ import
@@ -81,8 +79,6 @@ from typing import Optional
 
 import pypdfium2 as pdfium
 from docling.document_converter import DocumentConverter
-
-VAST_OCR_URL = os.getenv("VAST_OCR_URL", "http://localhost:8000/ocr")
 
 
 # ---------------------------------------------------------------------------
@@ -165,6 +161,37 @@ def _parse_with_docling(pdf_path: str) -> dict:
 # ---------------------------------------------------------------------------
 
 @lru_cache(maxsize=1)
+def _load_qwen_model():
+    """
+    Load model + processor 1 LẦN DUY NHẤT mỗi process, tái sử dụng cho mọi
+    lần gọi parse_pdf() tiếp theo (load model ~vài GB mỗi lần gọi sẽ rất
+    chậm nếu ingest nhiều file liên tiếp).
+
+    Không cần subprocess/venv riêng như PPStructureV3 trước đây -- Qwen3-VL
+    chạy hoàn toàn qua transformers/PyTorch, hết xung đột CUDA context với
+    Paddle vì Paddle không còn nằm trong pipeline nữa.
+    """
+    import torch
+    from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
+
+    kwargs: dict = {"dtype": "auto", "device_map": "auto"}
+
+    if QWEN_OCR_LOAD_4BIT:
+        from transformers import BitsAndBytesConfig
+
+        kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_compute_dtype=torch.bfloat16
+        )
+
+    model = Qwen3VLForConditionalGeneration.from_pretrained(QWEN_MODEL_ID, **kwargs)
+    processor = AutoProcessor.from_pretrained(
+        QWEN_MODEL_ID,
+        min_pixels=QWEN_OCR_MIN_PIXELS,
+        max_pixels=QWEN_OCR_MAX_PIXELS,
+    )
+    return model, processor
+
+
 def _render_page_to_pil(pdf_path: str, page_index: int, dpi: int):
     """Render 1 trang PDF thành PIL Image, giữ trong bộ nhớ (không ghi PNG
     ra đĩa) -- theo nguyên tắc in-memory processing đã áp dụng cho pipeline."""
@@ -178,27 +205,40 @@ def _render_page_to_pil(pdf_path: str, page_index: int, dpi: int):
 
 
 def _ocr_page_with_qwen(pil_image, max_new_tokens: int = QWEN_OCR_MAX_NEW_TOKENS) -> str:
-    """
-    Thay vì chạy model cục bộ, hàm này sẽ nén ảnh thành bytes, 
-    gửi POST request lên Google Colab (GPU T4) và nhận về kết quả Markdown.
-    """
-    # Chuyển PIL Image thành định dạng JPEG bytes để truyền qua mạng
-    img_byte_arr = io.BytesIO()
-    pil_image.save(img_byte_arr, format="JPEG", quality=95)
-    img_byte_arr.seek(0)
+    """OCR 1 ảnh trang bằng Qwen3-VL, trả về markdown thô cho trang đó."""
+    import torch
+    from qwen_vl_utils import process_vision_info
 
-    files = {"file": ("page.jpg", img_byte_arr, "image/jpeg")}
-    data = {"prompt": OCR_PROMPT}
+    model, processor = _load_qwen_model()
 
-    try:
-        # Gửi request lên Colab (timeout 180s cho mỗi trang tài liệu phức tạp)
-        response = requests.post(VAST_OCR_URL, files=files, data=data, timeout=300)
-        response.raise_for_status()
-        
-        result = response.json()
-        return result.get("markdown", "")
-    except Exception as e:
-        raise RuntimeError(f"Lỗi kết nối tới Colab OCR Server: {e}")
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "image", "image": pil_image},
+                {"type": "text", "text": OCR_PROMPT},
+            ],
+        }
+    ]
+    text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    image_inputs, video_inputs = process_vision_info(messages)
+    inputs = processor(
+        text=[text],
+        images=image_inputs,
+        videos=video_inputs,
+        padding=True,
+        return_tensors="pt",
+    ).to(model.device)
+
+    with torch.no_grad():
+        generated_ids = model.generate(**inputs, max_new_tokens=max_new_tokens)
+
+    trimmed = [out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)]
+    output_text = processor.batch_decode(
+        trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+    )[0]
+    return output_text
+
 
 def _parse_with_qwen_vlm(pdf_path: str, dpi: int = QWEN_OCR_DPI) -> dict:
     import traceback
@@ -215,7 +255,6 @@ def _parse_with_qwen_vlm(pdf_path: str, dpi: int = QWEN_OCR_DPI) -> dict:
         try:
             pil_image = _render_page_to_pil(pdf_path, i, dpi)
             pages_markdown[page_num] = _ocr_page_with_qwen(pil_image)
-            print(f"Đang OCR Qwen3-VL ở trang {page_num}/{num_pages}")
         except Exception as e:
             # QUAN TRỌNG: không được nuốt lỗi âm thầm -- đây chính là bug cũ
             # (pages_error bị swallow, cả trang trả về rỗng + confidence 0.0

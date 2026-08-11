@@ -4,6 +4,6 @@ __pycache__/
 *.pyc
 .git/
 .env
-data/raw/
+data/
 *.log
 .pytest_cache/

@@ -1,0 +1,946 @@
+{
+  "_id": "ocr_results/SGI/2025/3_sgi_2026_4_3_edb3ad2_3__vien_giaitrinhlienquandenbctchopnhat_kiemtoan_2025_final_ky/3_sgi_2026_4_3_edb3ad2_3__vien_giaitrinhlienquandenbctchopnhat_kiemtoan_2025_final_ky_extracted.txt",
+  "blocks": [
+    {
+      "text": "CÔNG TY CỔ PHẦN ĐẦU TƯ SGI HOLDING",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 0,
+      "heading_path": [
+        "CÔNG TY CỔ PHẦN ĐẦU TƯ SGI HOLDING"
+      ],
+      "section": "CÔNG TY CỔ PHẦN ĐẦU TƯ SGI HOLDING",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "SGI HOLDINGS INVESTMENT JOINT STOCK",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 1,
+      "heading_path": [
+        "SGI HOLDINGS INVESTMENT JOINT STOCK"
+      ],
+      "section": "SGI HOLDINGS INVESTMENT JOINT STOCK",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "COMPANY",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 2,
+      "heading_path": [
+        "SGI HOLDINGS INVESTMENT JOINT STOCK"
+      ],
+      "section": "SGI HOLDINGS INVESTMENT JOINT STOCK",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 3,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Độc lập - Tự do - Hạnh phúc",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 4,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 5,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Independence - Freedom - Happiness",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 6,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Số/ No: 1403 /2026/CV-SGI",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 7,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "V/v: Giải trình Báo cáo tài chính hợp nhất đã được kiểm toán năm 2025.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 8,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Re: Explanation of the Audited Consolidated Financial Statements for 2025",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 9,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tp.HCM, ngày 31 tháng 03 năm 2026",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 10,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Ho Chi Minh City, March 31, 2026",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 11,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Kính gửi: - ỦY BAN CHỨNG KHOÁN NHÀ NƯỚC (UBCKNN)",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 12,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- The State Securities Commission",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 13,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- The State Securities Commission"
+      ]
+    },
+    {
+      "text": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 14,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "- Hanoi Stock Exchange",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 15,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Hanoi Stock Exchange"
+      ]
+    },
+    {
+      "text": "1. Tên tổ chức : Công ty Cổ phần Đầu tư SGI Holdings",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 16,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "1. Tên tổ chức : Công ty Cổ phần Đầu tư SGI Holdings"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "1. Tên tổ chức : Công ty Cổ phần Đầu tư SGI Holdings",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "1"
+    },
+    {
+      "text": "Name of organization : SGI Holdings Investment Joint Stock Company",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 17,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "1. Tên tổ chức : Công ty Cổ phần Đầu tư SGI Holdings"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "1. Tên tổ chức : Công ty Cổ phần Đầu tư SGI Holdings",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "2. Mã chứng khoán/Stock code : SGI",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 18,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "2. Mã chứng khoán/Stock code : SGI"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "2. Mã chứng khoán/Stock code : SGI",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "2"
+    },
+    {
+      "text": "3. Địa chỉ trụ sở chính : 47 Đường số 17, Khu phố 6, Phường Hiệp Bình, Thành phố Hồ Chí Minh",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 19,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "3. Địa chỉ trụ sở chính : 47 Đường số 17, Khu phố 6, Phường Hiệp Bình, Thành phố Hồ Chí Minh"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "3. Địa chỉ trụ sở chính : 47 Đường số 17, Khu phố 6, Phường Hiệp Bình, Thành phố Hồ Chí Minh",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "3"
+    },
+    {
+      "text": "Address : No. 47, Street No. 17, Quarter 6, Hiep Binh Ward, Ho Chi Minh City",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 20,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "3. Địa chỉ trụ sở chính : 47 Đường số 17, Khu phố 6, Phường Hiệp Bình, Thành phố Hồ Chí Minh"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "3. Địa chỉ trụ sở chính : 47 Đường số 17, Khu phố 6, Phường Hiệp Bình, Thành phố Hồ Chí Minh",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 21,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "4"
+    },
+    {
+      "text": "Căn cứ Thông tư số 96 /2020/TT-BTC ngày 16 tháng 11 năm 2020 của Bộ Tài chính về công bố thông tin trên thị trường chứng khoán; và",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 22,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Pursuant to the instructions in Circular No 96/2020/TT-BTC dated 16/11/2020 of the Ministry of Finance guiding the information disclosure on the stock market; and",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 23,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Căn cứ vào Báo cáo tài chính hợp nhất đã được kiểm toán 2025 của Công ty Cổ phần Đầu tư SGI Holdings",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 24,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Based on the 2025 audited consolidated financial statements of SGI Holdings Investment Joint Stock Company",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 25,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Công ty Cổ phần Đầu tư SGI Holdings xin giải trình một số vấn đề liên quan lợi nhuận sau thuế trên BCTC hợp nhất năm 2025 đã được kiểm toán như sau:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 26,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "SGI Holding Investment Joint Stock Company would like to explain some issues related to the consolidated profit after-tax on the audited 2025 financial statements as follows:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 27,
+      "heading_path": [
+        "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+        "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143"
+      ],
+      "section": "- SỐ GIAO DỊCH CHỨNG KHOÁN NHÀ NỘI",
+      "subsection": "4. Điện thoại/ Telephone : (+84 28) 3727 1140 Fax: (+84 28) 3727 1143",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 28,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": "I"
+    },
+    {
+      "text": "The change in consolidated after-tax profit for 2025 compared to 2024 is 10% or more.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 29,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "ĐVT: Tỷ VND/Unit: Billion VND",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 30,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "<table><tr><td>STT</td><td>Chỉ tiêu/Target</td><td>2025</td><td>2024</td><td>Chênh lệch Difference</td><td>Tăng/giảm Increase/Decrease</td></tr><tr><td>1</td><td>Lợi nhuận sau thuế TNDN báo cáo hợp nhấtProfit after tax on Consolidated Financial Statements</td><td>65,60</td><td>2,21</td><td>63,39</td><td>2868,3%</td></tr></table>",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 31,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "table",
+      "html": "<table><tr><td>STT</td><td>Chỉ tiêu/Target</td><td>2025</td><td>2024</td><td>Chênh lệch Difference</td><td>Tăng/giảm Increase/Decrease</td></tr><tr><td>1</td><td>Lợi nhuận sau thuế TNDN báo cáo hợp nhấtProfit after tax on Consolidated Financial Statements</td><td>65,60</td><td>2,21</td><td>63,39</td><td>2868,3%</td></tr></table>",
+      "merged": false
+    },
+    {
+      "text": "Lợi nhuận sau thuế TNDN trên báo cáo tài chính hợp nhất năm 2025 tăng 2868,3% so với năm 2024 chủ yếu là do:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 32,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Consolidated profit after corporate income tax for 2025 increased by 2,868.3% compared to 2024, mainly due to:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 33,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Lợi nhuận gộp về bán hàng và cung cấp dịch vụ năm 2025 so năm 2024 tăng 81,53 tỷ đồng tương ứng tăng 29,6% do:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 34,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Gross profit from sales and rendering of services for 2025 increased by VND 81.53 billion, equivalent to a 29.6% increase compared to 2024, mainly due to:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 35,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Doanh thu thuần năm 2025 so năm 2024 tăng 823 tỷ đồng tương ứng 52,4%, chủ yếu do doanh thu ngành may mặc tăng, bán các loại bằng, gạch y tế, trang thiết bị y tế, các loại bông y tế, được phẩm, dụng cụ y tế, khẩu trang y tế, xà phòng, chất tây rửa, chất làm bóng và các chế phẩm vệ sinh",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 36,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Doanh thu thuần năm 2025 so năm 2024 tăng 823 tỷ đồng tương ứng 52,4%, chủ yếu do doanh thu ngành may mặc tăng, bán các loại bằng, gạch y tế, trang thiết bị y tế, các loại bông y tế, được phẩm, dụng cụ y tế, khẩu trang y tế, xà phòng, chất tây rửa, chất làm bóng và các chế phẩm vệ sinh"
+      ]
+    },
+    {
+      "text": "Net revenue for 2025 increased by VND 823 billion, equivalent to a 52.4% increase compared to 2024, mainly attributable to higher revenue from the garment segment and the sale of medical bandages, gauze, medical devices, medical cotton products, pharmaceuticals, medical instruments, medical masks, soap, detergents, polishing agents, and hygiene products.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 37,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Giá vốn năm 2025 số năm 2024 tăng 741,45 tỷ đồng tương ứng 57,3% chủ yếu do tăng doanh thu tương ứng trên.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 38,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Giá vốn năm 2025 số năm 2024 tăng 741,45 tỷ đồng tương ứng 57,3% chủ yếu do tăng doanh thu tương ứng trên."
+      ]
+    },
+    {
+      "text": "Cost of goods sold for 2025 increased by VND 741.45 billion, equivalent to a 57.3% increase compared to 2024, mainly due to the corresponding increase in revenue as mentioned above.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 39,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Doanh thu hoạt động tài chính năm 2024 so năm 2023 tăng 83,13 tỷ đồng tương ứng 22,3%. Nguyên nhân chủ yếu do: Lãi tiền gửi tăng 39,1 tỷ đồng, lãi cho vay giảm 43,1 tỷ đồng, Cổ tức được chia giảm 8,2 tỷ đồng, lãi chính lệch tỷ giá phát sinh tăng 31,17 tỷ đồng, lãi bán chứng khoán kinh doanh tăng 62,32 tỷ đồng.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 40,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Financial income for 2024 increased by VND 83.13 billion, equivalent to a 22.3% increase compared to 2023. The main reasons are as follows: interest income from bank deposits increased by VND 39.1 billion; interest income from loans decreased by VND 43.1 billion; dividend income decreased by VND 8.2 billion; foreign exchange gains increased by VND 31.17 billion; and gains from trading securities increased by VND 62.32 billion.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 41,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Chỉ phí tài chính năm 2025 so năm 2024 giảm 46,84 tỷ đồng tương ứng giảm 15,8%. Nguyên nhân chủ yếu do: Chỉ phí lãi vay tăng 47,9 tỷ đồng, lỗ chênh lệch tỷ giá tăng 20,15 tỷ đồng, dự phòng giảm giá đầu tư chứng khoán giảm 279,18 tỷ đồng, lỗ hoạt động đầu tư công ty liên kết trở thành công ty con tăng 27,45 tỷ đồng, lỗ bán chứng khoán tăng 133,58 tỷ đồng.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 42,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Financial expenses for 2025 decreased by VND 46.84 billion, equivalent to a 15.8% decrease compared to 2024. The main reasons are as follows: interest expense increased by VND 47.9 billion; foreign exchange losses increased by VND 20.15 billion; provision for impairment of securities investments decreased by VND 279.18 billion; losses from the remeasurement of an associate upon becoming a subsidiary increased by VND 27.45 billion; and losses on disposal of securities increased by VND 133.58 billion.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 43,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Chi phí bán hàng năm 2025 so năm 2024 tăng 71,51 tỷ đồng tương ứng 69,5%. Nguyên nhân chủ yếu do: Tăng chi phí nhân viên tăng 15,41 tỷ đồng; chi phí môi giới tăng 12,33 tỷ đồng; chi phí hỗ trợ bán hàng và chi phí sản thương mại điện tử của hoạt động bán buôn các loại băng, gạch y tế, các loại bông y tế; Bán buôn khẩu trang y tế; . tăng 24,88 tỷ đồng, chi phí dịch vụ mua ngoài tăng 17,91 tỷ đồng.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 44,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Selling expenses for 2025 increased by VND 71.51 billion, equivalent to a 69.5% increase compared to 2024. The main reasons are as follows: employee expenses increased by VND 15.41 billion; brokerage expenses increased by VND 12.33 billion; sales support expenses and e-commerce platform fees related to wholesale activities of medical bandages, medical cotton products, wholesale of medical masks, etc. increased by VND 24.88 billion; and outsourced service expenses increased by VND 17.91 billion.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 45,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Chi phí quản lý doanh nghiệp năm 2024 so năm 2023 tăng 23,73 tỷ đồng tương ứng 9,6%. Nguyễn nhân chủ yếu do Chi phí nhân viên tăng.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 46,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Thu nhập khác năm 2025 so năm 2024 tăng 5,96 tỷ đồng tương ứng 66,6%. Nguyên nhân chủ yếu do: Thu nhập từ việc xử lý các khoản nợ và miễn giảm tiền chậm nộp thuế.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 47,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Other income for 2025 increased by VND 5.96 billion, equivalent to a 66.6% increase compared to 2024, mainly attributable to income from the settlement of liabilities and reductions or waivers of tax late payment penalties.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 48,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Chi phí khác năm 2025 so năm 2024 tăng 11,88 tỷ đồng tương ứng tăng 399,4%. Nguyên nhân chủ yếu do: Chi phí khấu hao của tài sản cho thuê tăng 7 tỷ đồng, phạt do vi phạm hợp đồng tăng 1,8 tỷ đồng, chi phí khác tăng 2,5 tỷ đồng.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 49,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Other expenses for 2025 increased by VND 11.88 billion, equivalent to a 399.4% increased compared to 2024. The main reasons are as follows: depreciation expenses of leased assets increased by VND 7 billion; penalties for contract breaches increased by VND 1.8 billion; and other expenses increased by VND 2.5 billion.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 50,
+      "heading_path": [
+        "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên."
+      ],
+      "section": "I. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 so với năm 2024 thay đổi từ 10% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 51,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": "II"
+    },
+    {
+      "text": "The after-tax profit for the year 2025 in the consolidated financial statements differs before and after the audit by 5% or more.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 52,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "ĐVT: Tỷ VND/Unit: Billion VND",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 53,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "<table><tr><td>STT</td><td>Chỉ tiêu/Target</td><td>Sau kiểm toán</td><td>Trước kiểm toán</td><td>Chênh lệch Difference</td><td>Tăng/giảm Increase/Decrease</td></tr><tr><td>1</td><td>Lợi nhuận sau thuế TNDN báo cáo hợp nhấtProfit after tax on Consolidated Financial Statements</td><td>65,60</td><td>76,66</td><td>(11,06)</td><td>-14,4%</td></tr></table>",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 54,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "table",
+      "html": "<table><tr><td>STT</td><td>Chỉ tiêu/Target</td><td>Sau kiểm toán</td><td>Trước kiểm toán</td><td>Chênh lệch Difference</td><td>Tăng/giảm Increase/Decrease</td></tr><tr><td>1</td><td>Lợi nhuận sau thuế TNDN báo cáo hợp nhấtProfit after tax on Consolidated Financial Statements</td><td>65,60</td><td>76,66</td><td>(11,06)</td><td>-14,4%</td></tr></table>",
+      "merged": false
+    },
+    {
+      "text": "Lợi nhuận sau thuế TNDN báo cáo tài chính hợp nhất năm 2025 sau kiểm toán giảm 11,06 tỷ đồng, tương ứng giảm 14,4% nguyên nhân chủ yếu do:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 55,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Giá vốn hàng hóa giảm 4,20 tỷ đồng, chi phí dự phòng giảm giá hàng tồn kho tăng 7,52 tỷ đồng.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 56,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Giá vốn hàng hóa giảm 4,20 tỷ đồng, chi phí dự phòng giảm giá hàng tồn kho tăng 7,52 tỷ đồng."
+      ]
+    },
+    {
+      "text": "- Doanh thu hoạt động tài chính giảm: Nguyên nhân chủ yếu do lãi chênh lệch tỷ giá phát sinh giảm 5,81 tỷ đồng.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 57,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Doanh thu hoạt động tài chính giảm: Nguyên nhân chủ yếu do lãi chênh lệch tỷ giá phát sinh giảm 5,81 tỷ đồng."
+      ]
+    },
+    {
+      "text": "- Chi phí tài chính giảm: Nguyên nhân chủ yếu do lỗ chênh lệch tỷ giá phát sinh giảm 6,55 tỷ đồng, dự phòng giảm giá đầu tư góp vốn vào đơn vị khác tăng 3,45 tỷ đồng.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 58,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Chi phí tài chính giảm: Nguyên nhân chủ yếu do lỗ chênh lệch tỷ giá phát sinh giảm 6,55 tỷ đồng, dự phòng giảm giá đầu tư góp vốn vào đơn vị khác tăng 3,45 tỷ đồng."
+      ]
+    },
+    {
+      "text": "- Chi phí quản lý doanh nghiệp tăng: Nguyên nhân chủ yếu do dự phòng phải thu khó đòi tăng.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 59,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Chi phí quản lý doanh nghiệp tăng: Nguyên nhân chủ yếu do dự phòng phải thu khó đòi tăng."
+      ]
+    },
+    {
+      "text": "- Cost of goods sold decreased by VND 4.20 billion, while the provision for inventory impairment increased by VND 7.52 billion.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 60,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Cost of goods sold decreased by VND 4.20 billion, while the provision for inventory impairment increased by VND 7.52 billion."
+      ]
+    },
+    {
+      "text": "- Financial income decreased, mainly due to a decrease of VND 5.81 billion in foreign exchange gains.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 61,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Financial income decreased, mainly due to a decrease of VND 5.81 billion in foreign exchange gains."
+      ]
+    },
+    {
+      "text": "- Financial expenses decreased, mainly due to a decrease of VND 6.55 billion in foreign exchange losses, partially offset by an increase of VND 3.45 billion in provision for impairment of investments in other entities.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 62,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Financial expenses decreased, mainly due to a decrease of VND 6.55 billion in foreign exchange losses, partially offset by an increase of VND 3.45 billion in provision for impairment of investments in other entities."
+      ]
+    },
+    {
+      "text": "- General and administrative expenses increased, mainly due to an increase in the provision for doubtful receivables.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 63,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- General and administrative expenses increased, mainly due to an increase in the provision for doubtful receivables."
+      ]
+    },
+    {
+      "text": "Trên đây là giải trình của công ty về nguyên nhân chênh lệch lợi nhuận sau thuế TNDN tại báo cáo kết quả hoạt động kinh doanh hợp nhất kiểm toán năm 2025 so với năm 2024.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 64,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The above is the company's explanation of the reasons for the differences in profit after corporate income tax in the consolidated operating results report for 2025 compared to 2024",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 65,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Trân trọng./.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 66,
+      "heading_path": [
+        "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên."
+      ],
+      "section": "II. Lợi nhuận sau thuế TNDN tại BCTC hợp nhất năm 2025 chênh lệch trước và sau kiểm toán từ 5% trở lên.",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "CÔNG TY CP ĐẦU TƯ SGI HOLDINGS",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 67,
+      "heading_path": [
+        "CÔNG TY CP ĐẦU TƯ SGI HOLDINGS"
+      ],
+      "section": "CÔNG TY CP ĐẦU TƯ SGI HOLDINGS",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Tổng Giám Đốc",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 68,
+      "heading_path": [
+        "CÔNG TY CP ĐẦU TƯ SGI HOLDINGS"
+      ],
+      "section": "CÔNG TY CP ĐẦU TƯ SGI HOLDINGS",
+      "subsection": null,
+      "block_type": "signature"
+    }
+  ],
+  "metadata": {
+    "company_name": "CÔNG TY CỔ PHẦN ĐẦU TƯ SGI HOLDING",
+    "report_year": 2025,
+    "source_file": "\\\\?\\D:\\Temp\\hf_ocr__4klhj1z\\ocr_results\\SGI\\2025\\3_sgi_2026_4_3_edb3ad2_3__vien_giaitrinhlienquandenbctchopnhat_kiemtoan_2025_final_ky\\3_sgi_2026_4_3_edb3ad2_3__vien_giaitrinhlienquandenbctchopnhat_kiemtoan_2025_final_ky_extracted.txt",
+    "page_count": 5,
+    "detected_headers": [
+      "ĐVT: Tỷ VND/Unit: Billion VND"
+    ],
+    "detected_footers": [
+      "4"
+    ]
+  },
+  "quality": {
+    "page_count": 5,
+    "block_count": 69,
+    "table_count": 2,
+    "heading_count": 12,
+    "paragraph_count": 42,
+    "list_count": 12,
+    "signature_count": 1,
+    "merged_table_count": 0,
+    "artifact_chars_removed": 0,
+    "cjk_chars_removed": 0,
+    "watermark_lines_removed": 0,
+    "garbage_lines_removed": 17,
+    "symbol_noise_lines_removed": 0,
+    "gibberish_lines_removed": 2,
+    "duplicate_lines_removed": 0,
+    "punctuation_runs_collapsed": 1,
+    "phrases_corrected": 6,
+    "tokens_corrected": 0,
+    "numbers_protected": 41,
+    "noise_risk": "medium",
+    "diacritic_activity": "low",
+    "structure_risk": "low",
+    "overall_risk": "medium"
+  }
+}

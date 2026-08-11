@@ -1,0 +1,1796 @@
+{
+  "_id": "ocr_results/VTV/2025/2_vtv_2026_3_19_6e6d773_giaitrinhlienquandenbctc_2025_explanationsrelatingtofss2025/2_vtv_2026_3_19_6e6d773_giaitrinhlienquandenbctc_2025_explanationsrelatingtofss2025_extracted.txt",
+  "blocks": [
+    {
+      "text": "TỔNG CÔNG TY XÂY DỰNG VIỆT NAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 0,
+      "heading_path": [
+        "TỔNG CÔNG TY XÂY DỰNG VIỆT NAM"
+      ],
+      "section": "TỔNG CÔNG TY XÂY DỰNG VIỆT NAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "VIETNAM NATIONAL CEMENT CORPORATION",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 1,
+      "heading_path": [
+        "VIETNAM NATIONAL CEMENT CORPORATION"
+      ],
+      "section": "VIETNAM NATIONAL CEMENT CORPORATION",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "CÔNG TY CỔ PHẦN NĂNG LƯỢNG",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 2,
+      "heading_path": [
+        "CÔNG TY CỔ PHẦN NĂNG LƯỢNG"
+      ],
+      "section": "CÔNG TY CỔ PHẦN NĂNG LƯỢNG",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "VICEM ENERGY AND ENVIRONMENT",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 3,
+      "heading_path": [
+        "VICEM ENERGY AND ENVIRONMENT"
+      ],
+      "section": "VICEM ENERGY AND ENVIRONMENT",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "JOINT STOCK COMPANY",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 4,
+      "heading_path": [
+        "JOINT STOCK COMPANY"
+      ],
+      "section": "JOINT STOCK COMPANY",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Số/ No: 307 /NLĐMT-KTTKTC V/v giải trình chênh lệch lợi nhuận sau thuế của BCTC năm 2025 sau kiểm toán so với trước kiểm toán và so với năm trước About explain the Audited Financial Statement of 2025 with a profit after corporate income tax compared to before audited and the last year.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 5,
+      "heading_path": [
+        "JOINT STOCK COMPANY"
+      ],
+      "section": "JOINT STOCK COMPANY",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 6,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 7,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Độc lập - Tự do - Hạnh phúc\nIndependence- Freedom- Happiness",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 8,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Hà Nội, ngày 13 tháng 3 năm 2026 Hà Nội, 13 th Mar 2026",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 9,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Kính gửi/ To: - Ủy ban Chứng khoán Nhà nước",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 10,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- The State Securities Commission of VietNam",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 11,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- The State Securities Commission of VietNam"
+      ]
+    },
+    {
+      "text": "- Sở giao dịch Chứng khoán Hà Nội",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 12,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Sở giao dịch Chứng khoán Hà Nội"
+      ]
+    },
+    {
+      "text": "- Hà Nội Stock Exchange",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 13,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Hà Nội Stock Exchange"
+      ]
+    },
+    {
+      "text": "Căn cứ quy định về công bố thông tin của Sở giao dịch chứng khoán Hà Nội về việc giải trình chênh lệch lợi nhuận sau thuế từ 10% trở lên so với cùng kỳ năm trước và chênh lệch từ 5% trở lên so với số liệu trước kiểm toán.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 14,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Pursuant to the information disclosure regulation of Ha Noi Stock Exchange about explanation the Audited Financial Statement with a profit after corporate income tax change of 10% or more compared to the last year, change of 5% or more compared before audited.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 15,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Công ty Cổ phần Năng lượng và Môi trường VICEM xin được giải trình chênh lệch lợi nhuận năm 2025 so với cùng kỳ năm 2024 như sau:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 16,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "VICEM Energy And Environment Joint Stock Company would like to explain as follows:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 17,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "1. Số liệu:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 18,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Details",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 19,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Đơn vị tính: đồng/ Currency: VND",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 20,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "<table><tr><td rowspan=\"2\">Chi tiêuArticle</td><td rowspan=\"2\">Năm 2025trước kiểm toán(Lãy kế Quý 4/2025trước kiểm toán tạiBCTC Quý 4/2025 đãCBTT)FinancialStatements of2025 beforeAudited</td><td rowspan=\"2\">Năm 2025sau kiểm toánAuditedFinancialStatements of2025</td><td rowspan=\"2\">Năm 2024Audited FinancialStatements of 2024</td><td colspan=\"2\">Chênh lệchDifference</td></tr><tr><td>Năm 2025 sau kiểm toán – Năm2025 trước kiểm toánAudited FinancialStatements of 2025compared toFinancialStatements of 2025before Audited</td><td>Năm 2025 sau kiểm toán – Năm2024Audited FinancialStatements of 2025compared to FinancialStatements of 2024</td></tr><tr><td>(1)</td><td>(2)</td><td>(3)</td><td>(4)</td><td>(5= 3-2)</td><td>(6=3-4)</td></tr><tr><td>Lợi nhuận sau thuếNet profit aftercorporateincome tax</td><td>638.776.151</td><td>638.776.151</td><td>(7.500.903.079)</td><td>0</td><td>8.139.679.230</td></tr></table>",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 21,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "table",
+      "html": "<table><tr><td rowspan=\"2\">Chi tiêuArticle</td><td rowspan=\"2\">Năm 2025trước kiểm toán(Lãy kế Quý 4/2025trước kiểm toán tạiBCTC Quý 4/2025 đãCBTT)FinancialStatements of2025 beforeAudited</td><td rowspan=\"2\">Năm 2025sau kiểm toánAuditedFinancialStatements of2025</td><td rowspan=\"2\">Năm 2024Audited FinancialStatements of 2024</td><td colspan=\"2\">Chênh lệchDifference</td></tr><tr><td>Năm 2025 sau kiểm toán – Năm2025 trước kiểm toánAudited FinancialStatements of 2025compared toFinancialStatements of 2025before Audited</td><td>Năm 2025 sau kiểm toán – Năm2024Audited FinancialStatements of 2025compared to FinancialStatements of 2024</td></tr><tr><td>(1)</td><td>(2)</td><td>(3)</td><td>(4)</td><td>(5= 3-2)</td><td>(6=3-4)</td></tr><tr><td>Lợi nhuận sau thuếNet profit aftercorporateincome tax</td><td>638.776.151</td><td>638.776.151</td><td>(7.500.903.079)</td><td>0</td><td>8.139.679.230</td></tr></table>",
+      "merged": false
+    },
+    {
+      "text": "Nội dung dịch sang tiếng Anh chỉ sử dụng cho mục đích thông tin và không dùng thay thế cho nội dung tiếng Việt. Trong trường hợp có sự màu thuần giữa nội dung tiếng Việt và tiếng Anh, nội dung tiếng Việt được ưu tiên áp dụng. The translation is for informational purposes only, and it not a substitute for the official policy. In case of any discrepancy between the Vietnamese and English version, the Vietnamese version shall prevail.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 22,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "2. Nguyên nhân chênh lệch:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 23,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "2"
+    },
+    {
+      "text": "Explanation:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 24,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Lợi nhuận sau thuế năm 2025 đạt 638.776.151 đồng, tăng so với năm trước 8.139.679.230 đồng.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 25,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Net profit after corporate income tax of 2025 was 638.776.151 VND, increase to the same period last year 8.139.679.230 VND.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 26,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nguyên nhân do sản lượng, doanh thu mặt hàng kinh doanh chính của Công ty (than cám) năm 2025 tăng so với năm 2024, đồng thời Công ty phát sinh doanh thu tài chính từ lãi chậm thanh toán của khách hàng 5,09 tỷ đồng làm tăng lợi nhuận. Mọi hoạt động kinh doanh khác của công ty diễn ra bình thường.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 27,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Due to the consumption volume and revenue of the company's mainly product (Coal dust) of 2025 increased compared to the last year, and recording the financial income of payment discount received 5,09 billion vnd, leading to a increased profit. All other activities operation of the company are as normally.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 28,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Công ty Cổ phần Năng lượng và Môi trường VICEM báo cáo và xin cam đoan những giải trình trên hoàn toàn đúng, phù hợp với thực tế phát sinh tại Công ty./.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 29,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "We hereby certify that all information published above is true and is fully responsible before the law for the content of the published information/.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 30,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nơi nhận/Recipients:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 31,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Như trên;",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 32,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "list",
+      "items": [
+        "- Như trên;"
+      ]
+    },
+    {
+      "text": "- As above;",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 33,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "list",
+      "items": [
+        "- As above;"
+      ]
+    },
+    {
+      "text": "- Luru: VT, KTTHTC",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 34,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "list",
+      "items": [
+        "- Lưu: VT, KTTHTC"
+      ]
+    },
+    {
+      "text": "- Saved: Filing Dept, Financial and Accounting Dept.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 35,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "list",
+      "items": [
+        "- Saved: Filing Dept, Financial and Accounting Dept."
+      ]
+    },
+    {
+      "text": "Nội dung dịch sang tiếng Anh chỉ sử dụng cho mục đích thông tin và không dùng thay thế cho nội dung tiếng Việt. Trong trường hợp có sự màu thuần giữa nội dung tiếng Việt và tiếng Anh, nội dung tiếng Việt được ưu tiên áp dụng.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 36,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The translation is for informational purposes only, and it not a substitute for the official policy. In case of any discrepancy between the Vietnamese and English version, the Vietnamese version shall prevail.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 37,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM",
+        "2. Nguyên nhân chênh lệch:"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": "2. Nguyên nhân chênh lệch:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "TỔNG CÔNG TY XÂY DỰNG VIỆT NAM",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 38,
+      "heading_path": [
+        "TỔNG CÔNG TY XÂY DỰNG VIỆT NAM"
+      ],
+      "section": "TỔNG CÔNG TY XÂY DỰNG VIỆT NAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "VIETNAM NATIONAL CEMENT CORPORATION",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 39,
+      "heading_path": [
+        "VIETNAM NATIONAL CEMENT CORPORATION"
+      ],
+      "section": "VIETNAM NATIONAL CEMENT CORPORATION",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "CÔNG TY CỔ PHẦN NĂNG LƯỢNG",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 40,
+      "heading_path": [
+        "CÔNG TY CỔ PHẦN NĂNG LƯỢNG"
+      ],
+      "section": "CÔNG TY CỔ PHẦN NĂNG LƯỢNG",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "VICEM ENERGY AND ENVIRONMENT",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 41,
+      "heading_path": [
+        "VICEM ENERGY AND ENVIRONMENT"
+      ],
+      "section": "VICEM ENERGY AND ENVIRONMENT",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "JOINT STOCK COMPANY",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 42,
+      "heading_path": [
+        "JOINT STOCK COMPANY"
+      ],
+      "section": "JOINT STOCK COMPANY",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Số/ No: 308 /NLĐMT-KTTKTC V/v công bố thông tin BCTC năm 2025 About disclosure information of the Audited Financial Statements of 2025",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 43,
+      "heading_path": [
+        "JOINT STOCK COMPANY"
+      ],
+      "section": "JOINT STOCK COMPANY",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Mẫu số 02\nAppendix 02",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 44,
+      "heading_path": [
+        "JOINT STOCK COMPANY"
+      ],
+      "section": "JOINT STOCK COMPANY",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 45,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 46,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Độc lập  Tự do  Hạnh phúc Independence- Freedom- Happiness",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 47,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Hà Nội, ngày 13 tháng 3 năm 2026 Hà Nội, 13 th Mar 2026",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 48,
+      "heading_path": [
+        "THE SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "THE SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "CÔNG BỐ THÔNG TIN ĐỊNH KÝ BÁO CÁO TÀI CHÍNH",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 49,
+      "heading_path": [
+        "CÔNG BỐ THÔNG TIN ĐỊNH KÝ BÁO CÁO TÀI CHÍNH"
+      ],
+      "section": "CÔNG BỐ THÔNG TIN ĐỊNH KÝ BÁO CÁO TÀI CHÍNH",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "PERIODIC DISCLOSURE INFORMATION",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 50,
+      "heading_path": [
+        "PERIODIC DISCLOSURE INFORMATION"
+      ],
+      "section": "PERIODIC DISCLOSURE INFORMATION",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "OF THE FINANCIAL STATEMENTS",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 51,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Kính gửi: Sở Giao dịch Chứng khoán Hà Nội To: Hà Nội Stock Exchange",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 52,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Thực hiện quy định tại khoản 3 Điều 14 Thông tư số 96/2020/TT-BTC ngày 16/11/2020 của Bộ Tài chính hướng dẫn công bố thông tin trên thị trường chứng khoán, Công ty Cổ phần Năng lượng và Môi trường VICEM thực hiện công bố thông tin báo cáo tài chính (BCTC) năm 2025 sau kiểm toán với Sở Giao dịch Chứng khoán Hà Nội như sau:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 53,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Pursuant to Circular 96/2020/TT-BTC dated 16th Nov 2020 of the Ministry of Finance \"Guidelines for information disclosure on the stock market\" in Clause 3, Article 14, VICEM Energy And Environment Joint Stock Company would like to disclose information of the Audited Financial Statements of 2025 to Ha Noi Stock Exchange as belows:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 54,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "1. Tên tổ chức: Công ty Cổ phần Năng lượng và Môi trường VICEM",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 55,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Tên tổ chức: Công ty Cổ phần Năng lượng và Môi trường VIỆCEM"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Tên tổ chức: Công ty Cổ phần Năng lượng và Môi trường VIỆCEM",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "1"
+    },
+    {
+      "text": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 56,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "1"
+    },
+    {
+      "text": "Mã chứng khoán: VTV",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 57,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "list",
+      "items": [
+        "Mã chứng khoán: VTV"
+      ]
+    },
+    {
+      "text": "• Securities Symbol: VTV",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 58,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "list",
+      "items": [
+        "Securities Symbol: VTV"
+      ]
+    },
+    {
+      "text": "- Địa chỉ: 21B Cát Linh ở P. Ô Chợ Dừa ở Hà Nội ở Việt Nam",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 59,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "list",
+      "items": [
+        "- Địa chỉ: 21B Cát Linh P. Ô Chợ Dừa ở Hà Nội ở Việt Nam"
+      ]
+    },
+    {
+      "text": "• Address: 21B Cát Linh Street, Ô Chợ Dừa Ward, Hà Nội City, Việt Nam",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 60,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "list",
+      "items": [
+        "Address: 21B Cát Linh Street, Ô Chợ Dừa Ward, Hà Nội City, Việt Nam"
+      ]
+    },
+    {
+      "text": "Điện thoại liên hệ/Tel: 02438457328",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 61,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "• Email: vtvvicem@gmail.com",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 62,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "list",
+      "items": [
+        "• Email: vtvvicem@gmail.com"
+      ]
+    },
+    {
+      "text": "Website: www.vtvxm.vn",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 63,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "1. Organization name: VICEM Energy And Environment Joint Stock Company"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "1. Organization name: VICEM Energy And Environment Joint Stock Company",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "2. Nội dung thông tin công bố:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 64,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Nội dung thông tin công bố:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Nội dung thông tin công bố:",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "2"
+    },
+    {
+      "text": "2. Contents of Information disclosure:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 65,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "2"
+    },
+    {
+      "text": "- BCTC năm 2025 sau kiểm toán.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 66,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "list",
+      "items": [
+        "- BCTC năm 2025 sau kiểm toán."
+      ]
+    },
+    {
+      "text": "- The Audited Financial Statements of 2025.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 67,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "list",
+      "items": [
+        "- The Audited Financial Statements of 2025."
+      ]
+    },
+    {
+      "text": "BCTC riêng (TCNY không có công ty con và đơn vị kế toán cấp trên có đơn vị trực thuộc; x",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 68,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Separate Financial Statements (for listed company without subsidiaries and superior accounting entity with subordinate units). x",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 69,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nội dung dịch sang tiếng Anh chỉ sử dụng cho mục đích thông tin và không dùng thay thế cho nội dung tiếng Việt. Trong trường hợp có sự màu thuần giữa nội dung tiếng Việt và tiếng Anh, nội dung tiếng Việt được ưu tiên áp dụng.\nThe translation is for informational purposes only, and it not a substitute for the official policy. In case of any discrepancy between the Vietnamese and English version, the Vietnamese version shall prevail.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 70,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "BCTC hợp nhất (TCNY có công ty con);",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 71,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Consolidated Financial Statements (for listed company with subsidiaries);□",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 72,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "BCTC tổng hợp (TCNY có đơn vị kế toán trực thuộc tổ chức bộ máy kế toán riêng)",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 73,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Combined Financial Statements (for listed company with subordinate accounting units that have their own accounting system)",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 74,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Các trường hợp thuộc diện phải giải trình nguyên nhân:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 75,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "list",
+      "items": [
+        "- Các trường hợp thuộc diện phải giải trình nguyên nhân:"
+      ]
+    },
+    {
+      "text": "- Cases requiring explanation:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 76,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "list",
+      "items": [
+        "- Cases requiring explanation:"
+      ]
+    },
+    {
+      "text": "+ Tổ chức kiểm toán đưa ra ý kiến không phải là ý kiến chấp nhận toàn phần đối với BCTC (đối với BCTC được kiểm toán năm 2025):",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 77,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không X",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 78,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Văn bản giải trình trong trường hợp tích có:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 79,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không □",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 80,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "+ The audit company issued an opinion that is not an unqualified opinion on the financial statements (for audited financial statements 2025):",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 81,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Have explanatory document incase check yes:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 82,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "+ Lợi nhuận sau thuế trong kỳ báo cáo có sự chênh lệch trước và sau kiểm toán từ 5% trở lên, chuyển từ lỗ sang lãi hoặc ngược lại (đối với BCTC được kiểm toán năm 2025):",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 83,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không X",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 84,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Văn bản giải trình trong trường hợp tích có:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 85,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không □",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 86,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "+ Net profit after corporate income tax before audited of this period change of 5% or more after audited, change from loss to profit or vice versa (for audited financial statements 2025):",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 87,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Have explanatory document incase check yes:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 88,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "+ Lợi nhuận sau thuế thu nhập doanh nghiệp tại báo cáo kết quả kinh doanh của kỳ báo cáo thay đổi từ 10% trở lên so với báo cáo cùng kỳ năm trước:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 89,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không □",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 90,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Văn bản giải trình trong trường hợp tích có:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 91,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không □",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 92,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "+ Net profit after corporate income tax before audited of this period this year change of 10% or more to the same period last year:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 93,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Have explanatory document incase check yes:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 94,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "+ Lợi nhuận sau thuế trong kỳ báo cáo bị lỗ, chuyển từ lãi ở báo cáo cùng kỳ năm trước sang lỗ ở kỳ này hoặc ngược lại:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 95,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nội dung dịch sang tiếng Anh chỉ sử dụng cho mục đích thông tin và không dùng thay thế cho nội dung tiếng Việt. Trong trường hợp có sự mẫu thuần giữa nội dung tiếng Việt và tiếng Anh, nội dung tiếng Việt được ưu tiên áp dụng.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 96,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The translation is for informational purposes only, and it not a substitute for the official policy. In case of any discrepancy between the Vietnamese and English version, the Vietnamese version shall prevail.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 97,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không □",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 98,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Văn bản giải trình trong trường hợp tích có:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 99,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Không □",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 100,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "+ The after-tax profit in the reporting period incurs a loss, transitioning from a profit in the same period of the previous year to a loss in this period or vice versa:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 101,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Have explanatory document incase check yes:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 102,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Thông tin này được công bố trên trang thông tin điện tử của công ty vào ngày: 17/3/2026 tại đường dẫn: www.vtvxm.vn.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 103,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The information is published on the company's electronic information page on: 17/3/2026 at the link: www.vtvxm.vn.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 104,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "2. Contents of Information disclosure:"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "2. Contents of Information disclosure:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "3. Báo cáo về các giao dịch có giá trị từ 35% tổng tài sản trở lên trong năm 2025: Không",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 105,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Báo cáo về các giao dịch có giá trị từ 35% tổng tài sản trở lên trong năm 2025: Không"
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Báo cáo về các giao dịch có giá trị từ 35% tổng tài sản trở lên trong năm 2025: Không",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "3"
+    },
+    {
+      "text": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 106,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "3"
+    },
+    {
+      "text": "Trường hợp TÂY có giao dịch đề nghị báo cáo đầy đủ các nội dung sau:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 107,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "In case listed company has transactions, please report the following details:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 108,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nội dung giao dịch:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 109,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "Nội dung giao dịch:"
+      ]
+    },
+    {
+      "text": "- Transaction content:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 110,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- Transaction content:"
+      ]
+    },
+    {
+      "text": "- Tỷ trọng giá trị giao dịch/tổng giá trị tài sản của doanh nghiệp (%) (căn cứ trên báo cáo tài chính năm gần nhất):",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 111,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- Tỷ trọng giá trị giao dịch/tổng giá trị tài sản của doanh nghiệp (%) (căn cứ trên báo cáo tài chính năm gần nhất):"
+      ]
+    },
+    {
+      "text": "- Proportion of transaction value/total asset value of the enterprise (%) (based on the most recent annual financial report):",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 112,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- Proportion of transaction value/total asset value of the enterprise (%) (based on the most recent annual financial report):"
+      ]
+    },
+    {
+      "text": "- Ngày hoàn thành giao dịch:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 113,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- Ngày hoàn thành giao dịch:"
+      ]
+    },
+    {
+      "text": "- Date of transaction completion:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 114,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- Date of transaction completion:"
+      ]
+    },
+    {
+      "text": "Chúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin công bố.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 115,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "We commit that the information disclosed above is true and we take full legal responsibility for the content of the disclosed information.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 116,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tài liệu đính kèm:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 117,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Attached documents",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 118,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- BCTC kiểm toán năm 2025;",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 119,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- BCTC kiểm toán năm 2025;"
+      ]
+    },
+    {
+      "text": "Audited Financial Statement of 2025",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 120,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Văn bản số 307 /NL&MT-KTTKTC ngày 13/3/2026 giải trình chênh lệch lợi nhuận năm 2025 so với trước kiểm toán và so với năm trước.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 121,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- Văn bản số 307 /NL&MT-KTTKTC ngày 13/3/2026 giải trình chênh lệch lợi nhuận năm 2025 so với trước kiểm toán và so với năm trước."
+      ]
+    },
+    {
+      "text": "- Document No. 307 /NL&MT-KTTKTC dated 13/3/2026 explaining the Audited Financial Statement of 2025 with a profit after corporate income tax compared to before audited and the last year..",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 122,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "list",
+      "items": [
+        "- Document No. 307 /NL&MT-KTTKTC dated 13/3/2026 explaining the Audited Financial Statement of 2025 with a profit after corporate income tax compared to before audited and the last year.."
+      ]
+    },
+    {
+      "text": "Đại diện tổ chức\nRepresentative of the organization",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 123,
+      "heading_path": [
+        "OF THE FINANCIAL STATEMENTS",
+        "3. Report on transactions valued at 35% or more of total assets of 2025: No."
+      ],
+      "section": "OF THE FINANCIAL STATEMENTS",
+      "subsection": "3. Report on transactions valued at 35% or more of total assets of 2025: No.",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "GENERAL DIRECTOR",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 124,
+      "heading_path": [
+        "GENERAL DIRECTOR"
+      ],
+      "section": "GENERAL DIRECTOR",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Trần Khắc Mạnh\nTran Khac Manh",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 125,
+      "heading_path": [
+        "GENERAL DIRECTOR"
+      ],
+      "section": "GENERAL DIRECTOR",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nội dung dịch sang tiếng Anh chỉ sử dụng cho mục đích thông tin và không dùng thay thế cho nội dung tiếng Việt. Trong trường hợp có sự màu thuần giữa nội dung tiếng Việt và tiếng Anh, nội dung tiếng Việt được ưu tiên áp dụng.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 126,
+      "heading_path": [
+        "GENERAL DIRECTOR"
+      ],
+      "section": "GENERAL DIRECTOR",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The translation is for informational purposes only, and it not a substitute for the official policy. In case of any discrepancy between the Vietnamese and English version, the Vietnamese version shall prevail.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 127,
+      "heading_path": [
+        "GENERAL DIRECTOR"
+      ],
+      "section": "GENERAL DIRECTOR",
+      "subsection": null,
+      "block_type": "paragraph"
+    }
+  ],
+  "metadata": {
+    "company_name": "TỔNG CÔNG TY XI MĂNG VIỆT NAM",
+    "report_year": 2025,
+    "source_file": "\\\\?\\D:\\Temp\\hf_ocr_6due9k4e\\ocr_results\\VTV\\2025\\2_vtv_2026_3_19_6e6d773_giaitrinhlienquandenbctc_2025_explanationsrelatingtofss2025\\2_vtv_2026_3_19_6e6d773_giaitrinhlienquandenbctc_2025_explanationsrelatingtofss2025_extracted.txt",
+    "page_count": 5,
+    "detected_headers": [
+      "Có X",
+      "Không □",
+      "TỔNG CÔNG TY XI MĂNG VIỆT NAM",
+      "VICEM ENERGY AND ENVIRONMENT",
+      "VIETNAM NATIONAL CEMENT CORPORATION",
+      "VÀ MÔI TRƯỜNG VICEM"
+    ],
+    "detected_footers": [
+      "M",
+      "Nội dung dịch sang tiếng Anh chỉ sử dụng cho mục đích thông tin và không dùng thay thế cho nội dung tiếng Việt. Trong trường hợp có sự màu thuần giữa nội dung tiếng Việt và tiếng Anh, nội dung tiếng Việt được ưu tiên áp dụng.",
+      "The translation is for informational purposes only, and it not a substitute for the official policy. In case of any discrepancy between the Vietnamese and English version, the Vietnamese version shall prevail."
+    ]
+  },
+  "quality": {
+    "page_count": 5,
+    "block_count": 128,
+    "table_count": 1,
+    "heading_count": 25,
+    "paragraph_count": 77,
+    "list_count": 25,
+    "signature_count": 0,
+    "merged_table_count": 0,
+    "artifact_chars_removed": 0,
+    "cjk_chars_removed": 0,
+    "watermark_lines_removed": 0,
+    "garbage_lines_removed": 28,
+    "symbol_noise_lines_removed": 0,
+    "gibberish_lines_removed": 0,
+    "duplicate_lines_removed": 0,
+    "punctuation_runs_collapsed": 0,
+    "phrases_corrected": 7,
+    "tokens_corrected": 0,
+    "numbers_protected": 6,
+    "noise_risk": "high",
+    "diacritic_activity": "low",
+    "structure_risk": "low",
+    "overall_risk": "high"
+  }
+}

@@ -1,0 +1,7 @@
+Điểm duy nhất không phải lỗi cấu trúc nhưng đáng để ý: metadata của cả 161 chunk chỉ có {ticker, source_file} — vì nó đến từ _guess_metadata_from_filename() 
+(regex tên file) trong test_chunking.py, đúng như docstring của hàm đó đã tự cảnh báo là "chỉ tiện ích cho test thủ công". 
+Thiếu year, document_type, quarter, language. Việc này không ảnh hưởng tới bước store hiện tại vì thiết kế đã tách metadata cấp tài liệu ra collection documents riêng (join qua document_id),
+không phụ thuộc vào chunk.metadata. Nhưng khi ráp metadata_extractor.py (LLM extract) vào pipeline thật thay vì regex, nhớ set extra_metadata đầy đủ hơn lúc gọi 
+chunk_document() nếu sau này muốn filter trực tiếp ở tầng chunk/Qdrant payload mà không cần join.
+
+Tóm lại: cứ để nguyên chunker.py, không cần sửa gì cho việc store vào Mongo — file JSON này sinh ra đã đúng format save_chunks() cần.

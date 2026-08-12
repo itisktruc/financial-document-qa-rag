@@ -26,7 +26,7 @@ QUARTER_OPTIONS = ["Tất cả", "Báo cáo năm", 1, 2, 3, 4]
 
 def fetch_documents():
     try:
-        resp = requests.get(f"{BACKEND_URL}/documents/", timeout=10)
+        resp = requests.get(f"{BACKEND_URL}/documents/", timeout=180)
         resp.raise_for_status()
         return resp.json()
     except requests.exceptions.RequestException as e:
@@ -157,7 +157,7 @@ if query:
             resp = requests.post(
                 f"{BACKEND_URL}/chat",
                 json={"session_id": st.session_state.session_id, "query": query},
-                timeout=30,
+                timeout=180,
             )
             resp.raise_for_status()
             answer = resp.json().get("answer", "Không nhận được câu trả lời.")

@@ -35,6 +35,7 @@ import os
 import sys
 import io
 import requests
+import json
 
 # ---------------------------------------------------------------------------
 # Ép UTF-8 TOÀN CỤC ngay khi module này được import -- TRƯỚC bất kỳ import
@@ -96,7 +97,7 @@ TEXT_LAYER_MIN_CHARS = int(os.getenv("PARSER_TEXT_LAYER_MIN_CHARS", "20"))
 # Mặc định model 2B vì máy local đang dùng GTX 1660 (6GB VRAM) -- đổi sang
 # 4B/8B qua biến môi trường khi chạy trên máy/Colab có nhiều VRAM hơn (đã
 # test 4B ổn định trên Colab T4 15GB trong qwen3vl_ocr_colab.ipynb).
-QWEN_MODEL_ID = os.getenv("QWEN_OCR_MODEL_ID", "Qwen/Qwen3-VL-2B-Instruct")
+QWEN_MODEL_ID = os.getenv("QWEN_OCR_MODEL_ID", "Qwen/Qwen3-VL-4B-Instruct")
 QWEN_OCR_DPI = int(os.getenv("QWEN_OCR_DPI", "200"))
 QWEN_OCR_MAX_NEW_TOKENS = int(os.getenv("QWEN_OCR_MAX_NEW_TOKENS", "4096"))
 QWEN_OCR_LOAD_4BIT = os.getenv("QWEN_OCR_LOAD_4BIT", "false").lower() == "true"
@@ -112,7 +113,8 @@ OCR_PROMPT = (
     "3. Giữ đúng thứ tự đọc từ trên xuống, trái sang phải, kể cả tiêu đề/đề mục.\n"
     "4. Không thêm bình luận, giải thích hay tóm tắt -- chỉ xuất nội dung đã OCR.\n"
     "5. Nếu có chú thích/footnote thì đặt ở cuối.\n"
-    "6. Dùng '#', '##', '###' cho tiêu đề/đề mục nếu nhận ra cấp bậc, để giữ cấu trúc tài liệu."
+    "6. Dùng '#', '##', '###' cho tiêu đề/đề mục nếu nhận ra cấp bậc, để giữ cấu trúc tài liệu.\n"
+    "7. Hãy tự động xoay và đọc nội dung văn bản theo đúng chiều đọc tự nhiên nếu trang ảnh bị lật ngược hoặc nghiêng."
 )
 # Yêu cầu (6) thêm so với bản gốc trong notebook: nhắc Qwen3-VL dùng markdown
 # heading nhất quán, để app/ingestion/chunker.py (heading-aware) nhận diện
@@ -330,3 +332,4 @@ def save_markdown(parsed: dict, output_path: str) -> str:
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(markdown)
     return output_path
+

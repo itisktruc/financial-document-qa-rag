@@ -30,20 +30,24 @@ services:
     ports:
       - "8000:8000"
     volumes:
+      - .:/app
       - ./app:/app/app
       - ./data:/app/data
       - ./test_parse_chunk.py:/app/test_parse_chunk.py
       - ./test_ocr.py:/app/test_ocr.py
       - ./test_ocr_colab.py:/app/test_ocr_colab.py
+      - ./test_embedding.py:/app/test_embedding.py
       - ./test_chunking.py:/app/test_chunking.py
+      - ./mongo_test.py:/app/mongo_test.py
       - ./render_review_html.py:/app/render_review_html.py
     env_file:
       - .env
     environment:
       - QDRANT_HOST=qdrant
       - QDRANT_PORT=6333
+      - QDRANT_URL=http://qdrant:6333
       - MONGO_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASSWORD:-changeme}@mongodb:27017
-      - PYTHONUTF8=1
+      - PYTHONIOENCODING=utf-8      
       - LANG=C.UTF-8
       - LC_ALL=C.UTF-8
     depends_on:

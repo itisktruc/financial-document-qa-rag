@@ -1,5 +1,6 @@
 from FlagEmbedding import FlagReranker
 from app.config import settings
+from typing import List
 
 class DocumentReranker:
     def __init__(self):
@@ -15,8 +16,10 @@ class DocumentReranker:
         scores = self.reranker.compute_score(pairs)
         
         # Sắp xếp danh sách document theo điểm số giảm dần
-        doc_score_pairs = list(zip(documents, scores))
-        doc_score_pairs.sort(key=lambda x: x[1], reverse=True)
+        #doc_score_pairs = list(zip(documents, scores))
+        #doc_score_pairs.sort(key=lambda x: x[1], reverse=True)
+        ranked = sorted(range(len(documents)), key=lambda i: scores[i], reverse=True)
         
         # Lấy top K văn bản có điểm cao nhất
-        return [doc for doc, score in doc_score_pairs[:top_k]]
+        #return [doc for doc, score in doc_score_pairs[:top_k]]
+        return ranked[:top_k]   # trả về list index

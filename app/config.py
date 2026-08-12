@@ -12,9 +12,10 @@ class Settings(BaseSettings):
     
     # Embedding & Reranker Models
     EMBEDDING_MODEL_NAME: str = "BAAI/bge-m3"  # BGE-M3 cực mạnh cho tiếng Việt
-    RERANKER_MODEL_NAME: str = "BAAI/bge-reranker-v2-m3"
+    RERANKER_MODEL_NAME: str = "BAAI/bge-reranker-base"
 
     class Config:
         env_file = ".env"
+        extra = "ignore"
 
 settings = Settings()

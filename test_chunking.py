@@ -94,22 +94,20 @@ def run_chunking(
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     file_name = os.path.splitext(os.path.basename(PDF_PATH))[0]
-    parsed_path = os.path.join(OUTPUT_DIR, f"{file_name}_parsed.json")
+    parsed_json_path = os.path.join(OUTPUT_DIR, f"{file_name}.json")
+    parsed_md_path = os.path.join(OUTPUT_DIR, f"{file_name}.md")
     chunks_path = os.path.join(OUTPUT_DIR, f"{file_name}_chunks.json")
 
-    if os.path.exists(parsed_path):
-        print(f"[*] Dùng lại kết quả parse đã có tại: {parsed_path} (không parse lại từ đầu)")
-        with open(parsed_path, "r", encoding="utf-8") as f:
-            parsed = json.load(f)
-    else:
-        print(f"[*] Chưa có kết quả parse sẵn -- đang parse: {PDF_PATH}")
-        print("[i] (chậm hơn nếu rơi vào nhánh OCR Qwen3-VL vì phải load model lần đầu)")
-        from app.ingestion.parser import parse_pdf  # import trễ: tránh load docling/transformers
+    print(f"[*] Chưa có kết quả parse sẵn -- đang parse: {PDF_PATH}")
+    print("[i] (chậm hơn nếu rơi vào nhánh OCR Qwen3-VL vì phải load model lần đầu)")
+    from app.ingestion.parser import parse_pdf, save_markdown  # import trễ: tránh load docling/transformers
 
-        parsed = parse_pdf(PDF_PATH)
-        with open(parsed_path, "w", encoding="utf-8") as f:
-            json.dump(parsed, f, ensure_ascii=False, indent=2, default=str)
-        print(f"[✓] Kết quả parse đã lưu tại: {parsed_path}")
+    parsed = parse_pdf(PDF_PATH)
+    with open(parsed_json_path, "w", encoding="utf-8") as f:
+        json.dump(parsed, f, ensure_ascii=False, indent=2, default=str)
+    save_markdown(parsed, parsed_md_path)
+    print(f"[✓] Kết quả parse đã lưu tại: {parsed_json_path}")
+    print(f"[✓] Kết quả parse đã lưu tại: {parsed_md_path}")
 
     run_chunking(
         parsed,

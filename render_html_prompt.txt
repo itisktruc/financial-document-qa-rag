@@ -1,2 +1,0 @@
-python render_review_html.py --json data/processed/FPT_BCTC_2024_parsed.json --pdf data/raw/FPT/FPT_BCTC_2024.pdf --out data/processed review6.html
-

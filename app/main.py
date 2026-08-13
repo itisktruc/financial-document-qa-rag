@@ -80,11 +80,6 @@ def chat(request: ChatRequest):
         mongo_client = MongoClient(getattr(settings, "MONGO_URI", "mongodb://mongo:27017"))
         mongo_db = mongo_client[getattr(settings, "MONGO_DB_NAME", "financial_rag_db")]
         # 3. Khởi tạo Embedding Model (Dùng chung model BGE-M3 với quá trình Ingestion)
-        print("[*] Đang load Embedding Model")
-        embedding_model = FlagModel(
-            getattr(settings, "EMBEDDING_MODEL_NAME", "BAAI/bge-m3"), 
-            use_fp16=True
-        )
         # 4. Khởi tạo RAGController (Quản lý nửa đầu: Router, Rewriter, Qdrant, Rerank, MongoDB)
         rag_controller = RAGController(
             qdrant_client=qdrant_client,

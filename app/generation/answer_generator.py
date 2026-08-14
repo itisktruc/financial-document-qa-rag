@@ -1,6 +1,7 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from app.config import settings
+from app.retrieval.glossary import FINANCIAL_GLOSSARY
 from typing import List
 
 class AnswerGenerator:
@@ -45,3 +46,14 @@ Câu trả lời của bạn:""",
         })
         
         return response.content
+
+    def generate_definition(self, user_query: str) -> str:
+        hint = next(
+            (f"{abbr}: {full}" for abbr, full in FINANCIAL_GLOSSARY.items() if abbr.lower() in user_query.lower()),
+            None,
+        )
+        prompt = f"""Bạn là chuyên gia tài chính. Hãy giải thích ngắn gọn, dễ hiểu khái niệm và từ viết tắt của các thuật ngữ tài chính
+        {f"Gợi ý: {hint}" if hint else ""}
+        Câu hỏi: {user_query}
+        (Lưu ý cho người dùng: đây là kiến thức tài chính phổ thông, không phải trích từ tài liệu đã tải lên.)"""
+        return self.llm.invoke(prompt).content

@@ -1,20 +1,13 @@
 """
 FastAPI entrypoint cho Financial RAG Chatbot backend.
-Hiện tại chỉ có skeleton + health check, sẽ bổ sung dần các route
-theo pipeline: ingest -> retrieve -> calculate -> generate.
 """
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.routers import documents
 from app.retrieval.hybrid_search import HybridSearchPipeline
-from app.services.embedding_client import embed_query
 from app.retrieval.rag_pipeline import RAGController
 from app.generation.answer_generator import AnswerGenerator
-from app.config import settings
-from qdrant_client import QdrantClient, models
-from pymongo import MongoClient
-from FlagEmbedding import FlagModel
 import uvicorn
 import traceback
 
@@ -24,9 +17,10 @@ app = FastAPI(
 )
 
 app.include_router(documents.router)
-search_pipeline = None      # thêm lại biến này
+search_pipeline = None
 rag_controller = None
 answer_generator = None
+
 
 @app.get("/health")
 def health_check():
@@ -47,46 +41,36 @@ class ChatResponse(BaseModel):
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
     """
-    Placeholder endpoint cho main RAG pipeline.
-    TODO: query contextualization -> route -> retrieve -> rerank
-          -> (calculate nếu cần) -> generate -> citation
+    Endpoint chính: query -> Hybrid Search (BM25 + Dense + RRF + Rerank,
+    xem app/retrieval/hybrid_search.py) -> generation.
     """
     global rag_controller, answer_generator, search_pipeline
 
+    # LAZY LOADING: chỉ khởi tạo khi có request đầu tiên tới /chat.
+    #
+    # QUAN TRỌNG (khác bản cũ): KHÔNG còn tự tạo QdrantClient/MongoClient
+    # riêng ở đây nữa. HybridSearchPipeline tự lo toàn bộ kết nối bên trong
+    # nó (Qdrant qua app.services.qdrant_store, MongoDB qua
+    # app.services.mongo_client, embedding qua app.services.embedding_client).
+    #
+    # Bản cũ tạo 1 QdrantClient riêng trong main.py rồi set alias
+    # "financial_rag" -> "fpt_bctc_blocks" để rag_pipeline.py query theo tên
+    # alias đó -- trong khi qdrant_store.py (dùng cho cả bước ingestion lẫn
+    # bước dense-search mới trong hybrid_search.py) lại trỏ thẳng vào
+    # QDRANT_COLLECTION (biến môi trường, mặc định "fpt_bctc_blocks") của
+    # RIÊNG NÓ. Hai client trỏ 2 "tên" khác nhau cho cùng 1 collection là
+    # nguồn dễ gây lệch dữ liệu nếu sau này đổi 1 bên mà quên đổi bên kia.
+    # Giờ mọi thứ đi qua đúng 1 client Qdrant / 1 client Mongo duy nhất
+    # (định nghĩa trong qdrant_store.py / mongo_client.py), không cần alias.
     if search_pipeline is None:
+        print("[*] Đang khởi tạo HybridSearchPipeline (Router, Rewriter, BM25, Dense, RRF, Rerank)")
         search_pipeline = HybridSearchPipeline()
-    
-    # LAZY LOADING: Chỉ khởi tạo khi có request đầu tiên tới endpoint /chat
-    if rag_controller is None or answer_generator is None:
-        print("[*] Đang khởi tạo toàn bộ hệ thống RAG (Qdrant, MongoDB, Embedding, Reranker, GPT-4o-mini)")
-        
-        # 1. Kết nối Qdrant Client
-        qdrant_client = QdrantClient(
-            url=getattr(settings, "QDRANT_URL", "http://qdrant:6333"),
-            api_key=getattr(settings, "QDRANT_API_KEY", None),
-            timeout=30,
-        )
-        qdrant_client.update_collection_aliases(
-            change_aliases_operations=[
-            models.CreateAliasOperation(
-                create_alias=models.CreateAlias(
-                    collection_name="fpt_bctc_blocks",
-                    alias_name="financial_rag",
-                    )
-                )
-            ]
-        )
-        # 2. Kết nối MongoDB Client
-        mongo_client = MongoClient(getattr(settings, "MONGO_URI", "mongodb://mongo:27017"))
-        mongo_db = mongo_client[getattr(settings, "MONGO_DB_NAME", "financial_rag_db")]
-        # 3. Khởi tạo Embedding Model (Dùng chung model BGE-M3 với quá trình Ingestion)
-        # 4. Khởi tạo RAGController (Quản lý nửa đầu: Router, Rewriter, Qdrant, Rerank, MongoDB)
-        rag_controller = RAGController(
-            qdrant_client=qdrant_client,
-            mongo_db=mongo_db,
-            pipeline=search_pipeline,
-        )
-        # 5. Khởi tạo AnswerGenerator (Quản lý nửa sau: GPT-4o-mini Generation)
+
+    if rag_controller is None:
+        rag_controller = RAGController(pipeline=search_pipeline, top_k=10)
+
+    if answer_generator is None:
+        print("[*] Đang khởi tạo AnswerGenerator (GPT-4o-mini)")
         answer_generator = AnswerGenerator()
         print("Khởi tạo thành công toàn bộ RAG Pipeline!")
 
@@ -98,12 +82,12 @@ def chat(request: ChatRequest):
 
     try:
         # ==========================================
-        # BƯỚC 1: XỬ LÝ QUERY (ROUTING & REWRITING)
+        # NỬA ĐẦU: HYBRID SEARCH (BM25 + Dense + RRF + Rerank + Parent-expansion)
         # ==========================================
         print("Đang thực thi Hybrid Search & Rerank Pipeline")
         search_result = rag_controller.execute_search(raw_query)
-        
-        # Xử lý trường hợp CHITCHAT (Câu hỏi giao tiếp thông thường)
+
+        # Nhánh 1: CHITCHAT (Câu hỏi giao tiếp thông thường)
         if search_result.get("is_chitchat", False):
             print("Phân loại: CHITCHAT")
             chitchat_answer = (
@@ -116,10 +100,19 @@ def chat(request: ChatRequest):
                 citations=[]
             )
 
+        #Nhánh 2: Nhánh Definition
+        if search_result.get("is_definition", False):
+            print("Phân loại: TERM_DEFINITION")
+            definition_answer = answer_generator.generate_definition(raw_query)
+            return ChatResponse(
+                answer=definition_answer,
+                citations=[]
+            )
+
+        #Nhánh 3: Nhánh Finance Search
         # Lấy danh sách ngữ cảnh (Parent Documents từ MongoDB đã qua Rerank)
         contexts = search_result.get("context", [])
         print(f"Truy xuất thành công {len(contexts)} đoạn văn bản ngữ cảnh liên quan.")
-
         # ==========================================
         # NỬA SAU: SINH CÂU TRẢ LỜI (GENERATION)
         # ==========================================
@@ -128,13 +121,15 @@ def chat(request: ChatRequest):
         print("Sinh câu trả lời hoàn tất!")
 
         return ChatResponse(
-            answer=final_answer, 
+            answer=final_answer,
             citations=[],
         )
+    
     except Exception as e:
         print(f"[-] Lỗi tại bước Query: {e}")
-        traceback.print_exc()   # đã import sẵn ở đầu file rồi
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

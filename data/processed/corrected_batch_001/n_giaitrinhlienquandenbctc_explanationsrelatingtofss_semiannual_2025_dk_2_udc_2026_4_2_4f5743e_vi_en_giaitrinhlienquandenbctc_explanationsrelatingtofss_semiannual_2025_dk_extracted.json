@@ -1,0 +1,1113 @@
+{
+  "_id": "ocr_results/UDC/2025/2_udc_2026_4_2_4f5743e_vi_en_giaitrinhlienquandenbctc_explanationsrelatingtofss_semiannual_2025_dk/2_udc_2026_4_2_4f5743e_vi_en_giaitrinhlienquandenbctc_explanationsrelatingtofss_semiannual_2025_dk_extracted.txt",
+  "blocks": [
+    {
+      "text": "UDCONS CONTRUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 0,
+      "heading_path": [
+        "UDCONS CONTRUCTION"
+      ],
+      "section": "UDCONS CONTRUCTION",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "INVESTMENT CORPORATION",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 1,
+      "heading_path": [
+        "INVESTMENT CORPORATION"
+      ],
+      "section": "INVESTMENT CORPORATION",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Số/No.: 66 /UDCons-TCKT",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 2,
+      "heading_path": [
+        "INVESTMENT CORPORATION"
+      ],
+      "section": "INVESTMENT CORPORATION",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "V/v: Giải trình lợi nhuận báo cáo kiểm toán năm lỗ và ý kiến ngoại trừ kiểm toán\nRe: Explanation of audited annual loss and audit qualified opinion and audit qualified opinion.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 3,
+      "heading_path": [
+        "INVESTMENT CORPORATION"
+      ],
+      "section": "INVESTMENT CORPORATION",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 4,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Độc lập  Tự do  Hạnh phúc",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 5,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "SOCIALIST REPUBLIC OF VIETNAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 6,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Independence – Freedom – Happiness",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 7,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tâm thẳng, ngày 30 tháng 03 năm 2026",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 8,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tam Thắng, March 30, 2026",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 9,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Kính gửi: - Sở giao dịch chứng khoán Hà nội",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 10,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "To: - Hanoi Stock Exchange",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 11,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Căn cứ Thông tư 96/2020/TT-BTC ngày 16/11/2020 về việc hướng dẫn công bố thông tin trên thị trường chứng khoán của Bộ Tài Chính.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 12,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Căn cứ Thông tư 96/2020/TT-BTC ngày 16/11/2020 về việc hướng dẫn công bố thông tin trên thị trường chứng khoán của Bộ Tài Chính."
+      ]
+    },
+    {
+      "text": "- Pursuant to Circular 96/2020/TT-BTC dated November 16, 2020, guiding information disclosure on the securities market by the Ministry of Finance.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 13,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Pursuant to Circular 96/2020/TT-BTC dated November 16, 2020, guiding information disclosure on the securities market by the Ministry of Finance."
+      ]
+    },
+    {
+      "text": "- Căn cứ chỉ tiêu lợi nhuận sau thuế báo cáo kiểm toán năm 2025 lỗ, biến động so với cùng kỳ năm 2024 và các ý kiến ngoại trừ tại báo cáo riêng và báo cáo hợp nhất kiểm toán, Công ty Cổ phần Đầu tư Xây dựng UDCONS (Mã chứng khoán: UDC) giải trình như sau:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 14,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Căn cứ chỉ tiêu lợi nhuận sau thuế báo cáo kiểm toán năm 2025 lỗ, biến động so với cùng kỳ năm 2024 và các ý kiến ngoại trừ tại báo cáo riêng và báo cáo hợp nhất kiểm toán, Công ty Cổ phần Đầu tư Xây dựng UDCONS (Mã chứng khoán: UDCN) giải trình như sau:"
+      ]
+    },
+    {
+      "text": "- Pursuant to the net profit after tax indicator in 2025 audited financial statements showing a loss, the fluctuation compared to the same period in 2024, and the qualified opinions in the separate and consolidated audited financial statements, UDCONS Contraction Investment Corporation (Securities code: UDC) hereby provides the following explanation:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 15,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Pursuant to the net profit after tax indicator in 2025 audited financial statements showing a loss, the fluctuation compared to the same period in 2024, and the qualified opinions in the separate and consolidated audited financial statements, UDCONS Contraction Investment Corporation (Securities code: UDC) hereby provides the following explanation:"
+      ]
+    },
+    {
+      "text": "I./ Báo cáo tài chính riêng/Separate financial statements:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 16,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "1./ Giải trình biến động lợi nhuận sau thuế so với cùng kỳ và nguyên nhân lỗ/Explanation of profit after tax fluctuation compared to the same period and causes of loss",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 17,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "1- Lợi nhuận sau năm 2024/Profit after tax 2024: -26.169.351.693",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 18,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "2- Lợi nhuận sau năm 2025/Profit after tax 2025: -62.421.794.075",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 19,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "3- Biến động so với cùng kỳ 2024/ Fluctuation compared to same period 2024 [3]=[2]-[1]: -36.252.442.382",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 20,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nguyên nhân/Causes:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 21,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Lợi nhuận sau thuế báo cáo riêng năm 2025 lỗ 62,4 tỷ đồng, tăng lỗ 36,2 tỷ đồng so với số lỗ 26,1 tỷ đồng cùng kỳ năm 2024. Biến động tăng lỗ của lợi nhuận sau thuế năm 2025 so với cùng kỳ năm 2024 chủ yếu do chi phí tài chính năm 2025 tăng cao và năm 2025 không phát sinh khoản lợi nhuận gộp từ hoạt động kinh doanh bất động sản, cụ thể, chi phí tài chính năm 2025 phát sinh 50,4 tỷ đồng, tăng 18,7 tỷ đồng so với năm 2024 và khoản lợi nhuận gộp từ hoạt động kinh doanh bất động sản năm 2024 là 71,4 tỷ đồng trong khi năm 2025 không phát sinh.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 22,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The separate profit after tax in 2025 showed a loss of VND 62.4 billion, an increase in loss of VND 36.2 billion compared to the loss of VND 26.1 billion in the same period of 2024. The increase in loss in 2025 compared to the same period in 2024 was mainly due to high financial expenses in 2025 and the absence of gross profit from real estate",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 23,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "business activities in 2025. Specifically, financial expenses in 2025 were VND 50.4 billion, an increase of VND 18.7 billion compared to 2024, and gross profit from real estate business in 2024 was VND 71.4 billion, while no such profit occurred in 2025.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 24,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Lợi nhuận sau thuế báo cáo riêng năm 2025 lỗ 62,4 tỷ đồng, chủ yếu do lợi nhuận gộp từ hoạt động xây lắp thấp cộng với chi phí lãi vay và chi phí trích lập dự phòng cao trong khi doanh thu từ hoạt động xây lắp, hoạt động chính của công ty, chưa đủ tạo được mức lợi nhuận gộp có thể bù đáp và trang trải chi phí lãi vay phát sinh 41,2 tỷ và chi phí trích lập dự phòng phát sinh trong kỳ 24,4 tỷ, điều này dẫn đến lợi nhuận sau thuế năm 2025 lỗ như đã báo cáo.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 25,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The separate profit after tax in 2025 showed a loss of VND 62.4 Billion, mainly due to low gross profit from construction activities combined with high interest expenses and provision expenses, while revenue from construction activities, the Company's main activity, was not large enough to generate sufficient gross profit to cover and pay for the interest expenses and provision expenses incurred during the period, which were VND 41.2 Billion and VND 24.4 Billion, respectively, leading to the reported loss in 2025.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 26,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "II./ Báo cáo tài chính hợp nhất/Consolidated financial statements:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 27,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "1./ Giải trình biến động lợi nhuận sau thuế so với cùng kỳ và nguyên nhân lỗ/",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 28,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Explanation of profit after tax fluctuation compared to the same period and causes of loss:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 29,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "1- Lợi nhuận sau thuế năm 2024/Profit after tax 2024: -46.693.339.761",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 30,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "2- Lợi nhuận sau thuế năm 2025/Profit after tax 2025: -61.154.241.283",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 31,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "3- Biến động so với cùng kỳ 2024/Fluctuation compared to same period 2024 [3][2]-[1]: -14.460.901.522",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 32,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nguyên nhân/Causes:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 33,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Lợi nhuận sau thuế hợp nhất năm 2025 lỗ 61,1 tỷ đồng, tăng lỗ 14,4 tỷ đồng so với số lỗ 46,6 tỷ đồng cùng kỳ năm 2024. Ngoài việc tăng lỗ 36,2 tỷ đồng tại công ty mẹ như đã trình bày tại mục I văn bản này, thì lợi nhuận sau thuế của 02 công ty con đều giảm lỗ so với cùng kỳ năm 2024, cụ thể, lợi nhuận sau thuế của công ty TNHH UDC Phú Mỹ lỗ 1,4 tỷ đồng, giảm lỗ 2,6 tỷ đồng so với số lỗ 4,1 tỷ đồng cùng kỳ; lợi nhuận sau thuế của công ty CP Thành Chí lỗ 4,7 tỷ đồng, giảm lỗ 12,4 tỷ đồng so với số lỗ 17,1 tỷ đồng cùng kỳ.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 34,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The consolidated profit after tax in 2025 showed a loss of VND 61.1 billion, an increase in loss of VND 14.4 billion compared to the loss of VND 46.6 billion in the same period of 2024. In addition to the VND 36.2 billion increase in loss at the parent company as presented in section I of this document, the profit after tax of the 02 subsidiaries both showed a decrease in loss compared to the same period in 2024. Specifically, the profit after tax of UDC Phu My Co., Ltd. showed a loss of VND 1.4 Billion, a decrease in loss of VND 2.6 Billion compared to the loss of VND 4.1 Billion in the same period; the profit after tax of Thanh Chi JSC showed a loss of VND 4.7 billion, a decrease in loss of VND 12.4 billion compared to the loss of VND 17.1 billion in the same period. The decrease in loss of the 02 subsidiaries caused the consolidated profit after tax in 2025 to fluctuate less compared to the same period in 2024, with an increase in loss of only VND 14.4 billion compared to the VND 36.2 billion increase in loss at the parent company.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 35,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Lợi nhuận sau thuế hợp nhất năm 2025 lỗ là do lợi nhuận gộp từ hoạt động xây lắp tại công ty mẹ thấp, chi phí lãi vay phát sinh cao cùng với việc trích lập dự phòng trong khi doanh thu tại công ty mẹ chưa đủ để tạo mức lợi nhuận gộp có thể bù đắp và trang trái",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 36,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "các chi phí phát sinh trong kỳ nên kết quả kinh doanh tại công ty mẹ lỗ. Bên cạnh đó, kết quả kinh doanh của 02 công ty con tốt hơn năm 2024 nhưng cũng chưa thoát lỗ, trong đó, Công ty CP Thành Chí lỗ 4,7 tỷ đồng, do chỉ phí khấu hao của tài sản, trang thiết bị khai thác mở đá đang tạm dùng hoạt động chờ cấp lại giấy phép khai thác ; Công ty TNHH UDC Phú Mỹ lỗ 1,4 tỷ đồng do hoạt động kinh doanh của khách sạn chưa đạt kế hoạch khai thác, điều này đã dẫn đến lợi nhuận sau thuế hợp nhất năm 2025 của công ty lỗ như đã báo cáo.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 37,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The consolidated profit after tax in 2025 showed a loss because the gross profit from construction activities at the parent company was low, and interest expenses and provisions were high, while revenue at the parent company was not large enough to generate sufficient gross profit to cover and pay for expenses incurred during the period, resulting in a loss at the parent company. In addition, the business results of the 02 subsidiaries also did not avoid losses, in which Thanh Chi JSC lost VND 4.7 billion due to depreciation expenses of assets and mining equipment that had ceased operation; UDC Phu My Co., Ltd. lost VND 1.4 billion due to ineffective hotel operations, which led to the reported consolidated loss in 2025.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 38,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "III./ Giải trình ý kiến ngoại trừ kiểm toán tại báo cáo riêng và báo cáo hợp nhất/Exsation of audit qualified opinions in the separate and consolidated financial statements:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 39,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "1./ Giải trình ý kiến ngoại trừ chi phí sản xuất kinh doanh dỡ dạng và nợ phải thu khó đòi/ Excountation of qualified opinion regarding work-in-progress production costs and bad debts:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 40,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Căn cứ Báo cáo tài chính riêng và hợp nhất năm 2025 đã được kiểm toán, Công ty TNHH Hàng kiểm toán AASC có ý kiến ngoại trừ liên quan đến giá trị chi phí sản xuất kinh doanh dỡ đang tồn động và khoản nợ phải thu khó đòi như sau:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 41,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Based on the separate and consolidated financial statements audited for 2025, AASC Auditing Firm Co., Ltd. has issued a qualified opinion regarding the value of outstanding work-in-progress production costs and bad debts as follows:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 42,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tại ngày 01/01/2025 và ngày 31/12/2025, giá trị chi phí sản xuất kinh doanh dở dang tồn động do đang chờ quyết toán hoặc tạm ngừng thi công lần lượt là 28,65 tỷ VND và 15,54 tỷ VND, các khoản phải thu tồn động lần lượt là 1,93 tỷ VND và 0,77 tỷ VND chưa được Công ty đánh giá khả năng thu hồi. Chứng tôi chưa thu thập được tài liệu cần thiết làm cơ sở cho việc đánh giá giá trị thuần có thể thực hiện được của khoản mục này.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 43,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "As of January 01, 2025, and December 31, 2025, the value of outstanding work-in-progress production costs awaiting finalization or temporarily suspended was VND 28.65 billion and VND 15.54 billion, respectively; outstanding receivables were VND 1.93 billion and VND 0.77 billion, respectively which have not been assessed by the Company for recoverability. We have not obtained the necessary documentation to serve as a basis for assessing the net realizable value of these items.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 44,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Ý kiến giải trình của Công ty/Company's exceptation:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 45,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Giá trị chi phí sản xuất kinh doanh dở dang tồn động đang chờ quyết toán trong ý kiến ngoại trừ của kiểm toán là do công ty hiện còn một số công trình đã thi công xây dựng có phát sinh thay đổi khối lượng và đơn giá vật tư, nhân công so với hợp đồng nhưng chưa được chủ đầu tư xác nhận thanh toán dẫn đến công ty chưa kết chuyển chi phí tương ứng.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 46,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The value of outstanding work-in-progress production costs awaiting finalization mentioned in the audit qualified opinion is due to the fact that the Company still has several construction projects where changes in volume and unit prices of materials and labor occurred compared to the contracts, but these have not yet been confirmed for payment by the project owner, resulting in the Company not yet transferring the corresponding costs.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 47,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Trong năm 2025, Công ty đã thực hiện đánh giá và trích lập dự phòng 01 số chi phí sản xuất kinh doanh dở dang của các công trình này với tổng số tiền là 13,7 tỷ đồng. Tuy nhiên, do công tác đánh giá gặp nhiều khó khăn, nên hiện vẫn còn một số công trình với chi phí sản xuất kinh doanh dỡ dang chưa được đánh giá kịp thời dẫn đến việc kiểm toán tiếp tục nêu ý kiến ngoại trừ đối với các khoản chưa đánh giá này. Đối với các khoản phải thu chưa được trích lập dự phòng, Công ty sẽ rà soát và tiến hành các thủ tục cần thiết để đánh giá khả năng thu hồi khoản nợ phải thu tồn động trong kỳ kế toán năm 2026.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 48,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "In 2025, the Company assessed and made provisions for several work-in-progress production costs for these projects with a total amount of VND 13.7 billion. However, due to difficulties in the assessment process, there are still some projects with work-in-progress production costs that have not been assessed in a timely manner, leading the auditors to continue issuing a qualified opinion regarding these unassessed items. Regarding the receivables for which no provision has been made, the Company will review and carry out the necessary procedures to assess the recoverability of the outstanding debts in the 2026 accounting period.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 49,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "2./ Giải trình ý kiến ngoại trừ liên quan đến khoản lãi quá hạn của khoản nợ phải trả Quỹ Hỗ trợ sắp xếp doanh nghiệp/ Explanation of qualified opinion regarding overdue interest on debts payable to the Enterprise Restructuring Support Fund:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 50,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Căn cứ Báo cáo tài chính riêng và hợp nhất năm 2025 đã được kiểm toán, Công ty TNHH Hàng kiểm toán AASC có ý kiến ngoại trừ liên quan đến khoản lãi quá hạn của khoản nợ phải trả Quỹ Hỗ trợ sắp xếp doanh nghiệp như sau:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 51,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Based on the audited separate and consolidated financial statements for 2025, AASC Auditing Firm Co., Ltd. has issued a qualified opinion regarding the overdue interest on debts payable to the Enterprise Restructuring Support Fund as follows:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 52,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tại ngày 31 tháng 12 năm 2025, Công ty đang ghi nhận khoản phải trả tiền Quỹ Hỗ trợ sắp xếp và phát triển doanh nghiệp là 39,5 tỷ VND và tiền cổ tức phải trả ứng với phần vốn nhà nước đầu tư là 25,7 tỷ VND (chi tiết tại thuyết minh số 18 và 35). Khoản lãi quá hạn liên quan đến khoản phải trả nếu trên chưa được ghi nhận do Công ty chờ hướng dẫn, chỉ đạo của cơ quan có thẩm quyền.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 53,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "As of December 31, 2025, the Company is recording payable to the Enterprise Restructuring and Development Support Fund of VND 39.5 billion and dividends payable",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 54,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "corresponding to the state-invested capital of VND 25.7 billion (details in notes 18 and 35). The overdue interest related to the aforementioned payables has not been recorded as the Company is awaiting guidance and instructions from competent authorities.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 55,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Ý kiến giải trình của công ty/Company's exceptation:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 56,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Hiện công ty đang có khoản nợ phải trả Quỹ Hỗ trợ sắp xếp và phát triển doanh nghiệp tiền cổ phần hóa là 39,5 tỷ đồng và tiền cổ tức phải trả các năm 2009,2010,2011,2012 là 25,7 tỷ đồng và đang được ghi nhận là khoản phải trả trên báo cáo tài chính tại ngày 31/12/2025. Tuy nhiên, khoản lãi quá hạn liên quan đến khoản nợ này, công ty chưa ghi nhận trên báo cáo tài chính là do:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 57,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Currently, the Company has debts payable to the Enterprise Restructuring and Development Support Fund for equitization of VND 39.5 billion and dividends payable for the years 2009, 2010, 2011, and 2012 of VND 25.7 billion, which are recorded as payables in the financial statements as of December 31, 2025. However, the overdue interest related to this debt has not been recorded in the financial statements because:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 58,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tại Thông báo kết quả kiểm toán năm 2018 số 257/TB-KTNN KV XIII ngày 05 tháng 09 năm 2019 của Kiểm toán nhà nước Khu vực XIII, Kiểm toán Nhà nước đã kiến nghị UBND tỉnh Bà Rịa - Vũng Tàu xác định lãi chậm nộp đối với phần vốn nhà nước tăng từ thời điểm xác định giá trị doanh nghiệp đến khi chính thức chuyển thành Công ty cổ phần và cổ tức được chia từ phần vốn của nhà nước các năm 2009, 2010, 2011, 2012 đơn vị chưa nộp về Quỹ hỗ trợ sắp xếp và phát triển doanh nghiệp, đồng thời xử lý khoản lãi chậm nộp trên khi thực hiện xác định giá trị doanh nghiệp để thoái vốn nhà nước theo Quyết định 1232/QĐ-TTg ngày 17 tháng 08 năm 2017 của Thủ tướng Chính phủ và Kế hoạch số 110/KH-UBND ngày 11 tháng 10 năm 2017 của UBND tỉnh Bà Rịa - Vũng Tàu. Đến thời điểm lập báo cáo tài chính, Công ty vẫn chưa nhận được hướng dẫn, chỉ đạo của cơ quan có thẩm quyền về thực hiện thủ tục xác định giá trị doanh nghiệp để thoái vốn nhà nước tại Công ty. Công ty sẽ ghi nhận lãi quá hạn khi có hướng dẫn cụ thể từ cấp có thẩm quyền.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 59,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "In the 2018 audit result announcement No. 257/TB-KTNN KV XIII dated September 05, 2019, of the State Audit Office Region XIII, the State Audit recommended that the People's Committee of Ba Ria - Vung Tau Province determine the late payment interest on the increased state capital from the time of enterprise valuation until the official conversion into a Joint Stock Company, and dividends distributed from the state capital for the years 2009, 2010, 2011, and 2012 that the unit had not yet paid to the Enterprise Restructuring and Development Support Fund, and simultaneously handle the aforementioned late payment interest when performing the enterprise valuation for state divestment according to Decision 1232/QD-TTg dated August 17, 2017, of the Prime Minister and Plan No. 110/KH-UBND dated October 11, 2017, of the People's Committee of Ba Ria - Vung Tau Province. As of the date of the financial statements, the Company has not yet received guidance or instructions from competent authorities on performing the procedures for enterprise valuation for state divestment at the Company. The Company will record the overdue interest when there is specific guidance from the",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 60,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "competent authority.",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 61,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "3./ Giải trình ý kiến ngoại trừ chi phí thuế thu nhập doanh nghiệp từ hoạt động chuyển nhượng bắt động sản/Exulation of qualified opinion regarding corporate income tax expenses from real estate transfer activities:",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 62,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Căn cứ Báo cáo tài chính riêng và hợp nhất năm 2025 đã được kiểm toán, Công ty TNHH Hàng kiểm toán AASC có ý kiến ngoại trừ liên quan đến xác định chi phí thuế thu nhập doanh nghiệp như sau:",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 63,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Based on the audited separate and consolidated financial statements for 2025, AASC Auditing Firm Co., Ltd. has issued a qualified opinion regarding the determination of corporate income tax expenses as follows:",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 64,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Tại thuyết minh số 30 phần thuyết minh Báo cáo tài chính hợp nhất, trong năm 2024, Công ty đang trình bày chi phí thuế thu nhập doanh nghiệp của Công ty mẹ là 3,34 tỷ VND. Chứng tôi không thu thập được tài liệu cần thiết làm cơ sở cho việc tách thu nhập tính thuế của hoạt động kinh doanh bất động sản và hoạt động khác của Công ty. Chứng tôi đã thực hiện các thủ tục cần thiết theo quy định của Chuẩn mực Việt Nam, tuy nhiên không thể thu thập đầy đủ thông tin để có thể đánh giá được ảnh hưởng của các vấn đề nêu trên tới Báo cáo tài chính hợp nhất kèm theo.",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 65,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "In note 30 of the notes to the consolidated financial statements, for the year 2024, the Company presents the corporate income tax expense of the parent company as VND 3.34 billion. We were unable to obtain the necessary documentation to serve as a basis for separating the taxable income of the real estate business activities from other activities of the Company. We have performed the necessary procedures in accordance with Vietnamese Standards; however, we were unable to obtain sufficient information to assess the impact of the aforementioned matters on the accompanying consolidated financial statements.",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 66,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Ý kiến giải trình của công ty/Company's exceptation :",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 67,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Năm 2024, Công ty có phát sinh doanh thu từ hoạt động chuyển nhượng bất động sản. Do chưa có sự thống nhất giữa Công ty và kiểm toán trong việc xác định và phân bổ chi phí cho hoạt động chuyển nhượng bất động sản dẫn đến việc kiểm toán nêu ý kiến ngoại trừ. Công ty đang thực hiện các thủ tục cần thiết để giải trình và làm việc với cơ quan thuế về khoản thuế thu nhập doanh nghiệp phát sinh từ hoạt động chuyển nhượng bất động sản này.",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 68,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "In 2024, the Company generated revenue from real estate transfer activities. Due to a lack of consensus between the Company and the auditors regarding the determination and allocation of costs for real estate transfer activities, the auditors issued a qualified opinion. The Company is performing the necessary procedures to explain and work with the tax authorities regarding the corporate income tax arising from these real estate transfer activities.",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 69,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "4./ Vấn đề nhân mạnh của kiểm toán về việc nghi ngờ đáng kể về khả năng hoạt động liên tục của Công ty/Audit emphasis of matter regarding significant document about",
+      "page_start": 6,
+      "page_end": 6,
+      "order_index": 70,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "the Company's ability to continue as a going concern:",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 71,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Hoạt động kinh doanh của công ty năm 2025 đã có những chuyển biến tích cực, công ty đã ký thêm được nhiều hợp đồng mới qua đó, doanh thu hoạt động xây dựng năm 2025 của công ty đã tăng so với cùng kỳ năm 2024. Tuy nhiên, do chi phí lãi vay và trích lập dự phòng cao nên công ty vẫn chưa thể thoát lỗ.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 72,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The Company's business operations in 2025 showed positive changes; the Company signed many new contracts, thereby increasing construction revenue in 2025 compared to the same period in 2024. However, due to high interest expenses and provisions, the Company has not yet been able to avoid losses.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 73,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Công ty đã được UBND tỉnh Bà Rịa - Vũng Tàu phê duyệt đề án tái cơ cấu giai đoạn 2021-2025 tại văn bản số 10602/UBND-VP ngày 30/07/2024 và đã được Đại hội đồng cổ đông công ty thông qua tại Nghị quyết số 01/NQ. ĐHĐCD-UDEC ngày 28/06/2025.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 74,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The Company's restructuring plan for the 2021-2025 period was approved by the People's Committee of Ba Ria - Vung Tau Province in Document No. 10602/UBND-VP dated July 30, 2024, and was approved by the General Meeting of Shareholders in Resolution No. 01/NQ.DHDCD-UDEC dated June 28, 2025.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 75,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Với các lý do trên, Công ty tin tưởng sẽ vượt qua giai đoạn khó khăn hiện tại và là cơ sở để báo cáo tài chính soát xét được trình bày dựa trên cơ sở hoạt động liên tục.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 76,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "For the above reasons, the Company is confident that it will overcome the current difficult period, which serves as the basis for the reviewed financial statements to be presented on a going-concern basis.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 77,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Trên đây là giải trình của Công ty Cổ phần Đầu tư Xây dựng UDCONS, kính trình Quý cổ đông.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 78,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "The above is the explanation of UDCONS Contraction Investment Corporation, respectfully submitted to the Shareholders.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 79,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Trân trọng/Sincerely.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 80,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nơi nhận/Recipients:",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 81,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Như trên/ As above;",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 82,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Như trên/ As above;"
+      ]
+    },
+    {
+      "text": "- Lưu văn thư, TCKT/ Archive: AD,",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 83,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Lưu văn thư, TCKT/ Archive: AD,"
+      ]
+    },
+    {
+      "text": "Finance and Accounting Dept.",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 84,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Mai Ngọc Đình",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 85,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Mai Ngọc Dinh",
+      "page_start": 7,
+      "page_end": 7,
+      "order_index": 86,
+      "heading_path": [
+        "SOCIALIST REPUBLIC OF VIETNAM"
+      ],
+      "section": "SOCIALIST REPUBLIC OF VIETNAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    }
+  ],
+  "metadata": {
+    "company_name": "Ý kiến giải trình của Công ty/Company's explanation:",
+    "report_year": 2025,
+    "source_file": "\\\\?\\D:\\Temp\\hf_ocr_n2593t1s\\ocr_results\\UDC\\2025\\2_udc_2026_4_2_4f5743e_vi_en_giaitrinhlienquandenbctc_explanationsrelatingtofss_semiannual_2025_dk\\2_udc_2026_4_2_4f5743e_vi_en_giaitrinhlienquandenbctc_explanationsrelatingtofss_semiannual_2025_dk_extracted.txt",
+    "page_count": 7,
+    "detected_headers": [
+      "Ý kiến giải trình của Công ty/Company's explanation:"
+    ],
+    "detected_footers": [
+      "1",
+      "Nguyên nhân/Causes:"
+    ]
+  },
+  "quality": {
+    "page_count": 7,
+    "block_count": 87,
+    "table_count": 0,
+    "heading_count": 4,
+    "paragraph_count": 77,
+    "list_count": 6,
+    "signature_count": 0,
+    "merged_table_count": 0,
+    "artifact_chars_removed": 0,
+    "cjk_chars_removed": 0,
+    "watermark_lines_removed": 0,
+    "garbage_lines_removed": 15,
+    "symbol_noise_lines_removed": 2,
+    "gibberish_lines_removed": 0,
+    "duplicate_lines_removed": 0,
+    "punctuation_runs_collapsed": 0,
+    "phrases_corrected": 12,
+    "tokens_corrected": 0,
+    "numbers_protected": 39,
+    "noise_risk": "medium",
+    "diacritic_activity": "medium",
+    "structure_risk": "low",
+    "overall_risk": "medium"
+  }
+}

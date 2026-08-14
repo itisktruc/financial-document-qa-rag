@@ -1,0 +1,1104 @@
+{
+  "_id": "ocr_results/SZG/2025/2_szg_2026_3_30_450b440_20260327__cv94_giai_trinh_bao_cao_kiem_toan_doc_lap_vn/2_szg_2026_3_30_450b440_20260327__cv94_giai_trinh_bao_cao_kiem_toan_doc_lap_vn_extracted.txt",
+  "blocks": [
+    {
+      "text": "TỔNG CÔNG TY SONADEZI",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 0,
+      "heading_path": [
+        "TỔNG CÔNG TY SONADEZI"
+      ],
+      "section": "TỔNG CÔNG TY SONADEZI",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "CÔNG TY CP SONADEZI GIANG ĐIỀN",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 1,
+      "heading_path": [
+        "CÔNG TY CP SONADEZI GIANG ĐIỀN"
+      ],
+      "section": "CÔNG TY CP SONADEZI GIANG ĐIỀN",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Só: 94 /SZG-KT",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 2,
+      "heading_path": [
+        "CÔNG TY CP SONADEZI GIANG ĐIỀN"
+      ],
+      "section": "CÔNG TY CP SONADEZI GIANG ĐIỀN",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "V/v Giải trình báo cáo kiểm toán độc lập",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 3,
+      "heading_path": [
+        "CÔNG TY CP SONADEZI GIANG ĐIỀN"
+      ],
+      "section": "CÔNG TY CP SONADEZI GIANG ĐIỀN",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 4,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "heading",
+      "level": 1,
+      "numbering": null
+    },
+    {
+      "text": "Độc lập  Tự do  Hạnh phúc",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 5,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Đồng Nai, ngày 27 tháng 03 năm 2026",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 6,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Kính gửi : - Ủy Ban Chứng khoán Nhà Nước;",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 7,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Sở giao dịch Chứng khoán Hà Nội",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 8,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": null,
+      "block_type": "list",
+      "items": [
+        "- Sở giao dịch Chứng khoán Hà Nội"
+      ]
+    },
+    {
+      "text": "1. Tổ chức niêm yết: Công ty Cổ Phần Sonadezi Giang Điền",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 9,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "1. Tổ chức niêm yết: Công ty Cổ Phần Sonadezi Giang Điền"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "1. Tổ chức niêm yết: Công ty Cổ Phần Sonadezi Giang Điền",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "1"
+    },
+    {
+      "text": "2. Mã chứng khoán niêm yết: SZG",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 10,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "2. Mã chứng khoán niêm yết: SZG"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "2. Mã chứng khoán niêm yết: SZG",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "2"
+    },
+    {
+      "text": "3. Ý kiến kết luận liên quan đến việc ý kiến kiểm toán ngoại trừ ghi tại Báo cáo tài chính năm 2025 đã được kiểm toán:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 11,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "3. Ý kiến kết luận liên quan đến việc ý kiến kiểm toán ngoại trừ ghi tại Báo cáo tài chính năm 2025 đã được kiểm toán:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "3. Ý kiến kết luận liên quan đến việc ý kiến kiểm toán ngoại trừ ghi tại Báo cáo tài chính năm 2025 đã được kiểm toán:",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "3"
+    },
+    {
+      "text": "Theo ý kiến của chúng tôi, ngoại trừ ảnh hưởng của các vấn đề nêu tại đoạn Cơ sở của ý kiến kiểm toán ngoại trừ, Báo cáo tài chính đã phản ánh trung thực và hợp lý, trên các khía cạnh trọng yếu tình hình tài chính của Công ty Cổ phần Sonadezi Giang Điền tại ngày 31 tháng 12 năm 2025, cũng như kết quả hoạt động kinh doanh và tình hình lưu chuyển tiền tệ cho năm tài chính kết thúc cùng ngày, phù hợp với các chuẩn mục kế toán Việt Nam, Chế độ Kế toán doanh nghiệp Việt Nam và các quy định pháp lý có liên quan đến việc lập và trình bày Báo cáo tài chính.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 12,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "3. Ý kiến kết luận liên quan đến việc ý kiến kiểm toán ngoại trừ ghi tại Báo cáo tài chính năm 2025 đã được kiểm toán:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "3. Ý kiến kết luận liên quan đến việc ý kiến kiểm toán ngoại trừ ghi tại Báo cáo tài chính năm 2025 đã được kiểm toán:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "4. Cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 13,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "4. Cơ sở của ý kiến kiểm toán ngoại trừ:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "4. Cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "4"
+    },
+    {
+      "text": "Ngày 21 tháng 01 năm 2025, Công ty đã ký kết Hợp đồng hợp tác kinh doanh với Công ty TNHH Đầu tư Phước Bình để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình tại xã Phước Bình, tỉnh Đồng Nai với tổng giá trị góp vốn theo hợp đồng là 1.236.515.000.000 VND và tổng số tiền Công ty đã góp thực tế đến ngày 31 tháng 12 năm 2025 là 618.257.500.000 VND (xem thuyết minh số V.5b trong Bản thuyết minh Báo cáo tài chính), khoản góp vốn hợp tác kinh doanh này không có tài sản đảm bảo. Đến thời điểm hiện nay, Dự án này vẫn chưa được Ủy ban Nhân dân tỉnh Đồng Nai chấp thuận chủ trương đầu tư cũng như chấp thuận nhà đầu tư. Với các tài liệu và thông tin hiện có, chúng tôi không thể xác định bản chất của khoản hợp tác kinh doanh này, không thể đánh giá được hiệu quả và tính khả thi của dự án cũng như không thể đánh giá năng lực tài chính của bên nhận góp vốn hợp tác kinh doanh. Do vậy chúng tôi không thể xác định được sự phù hợp của việc phần ảnh giá trị của Hợp đồng hợp tác kinh doanh tại chỉ tiêu Phải thu dài hạn khác (mã số 216) trên Bảng cân đối kế toán tại ngày 31 tháng 12 năm 2025 cũng như không thể đánh giá khả năng thu hồi liên quan khoản góp vốn đầu tư, không thể xác định được sự chắc chắn về khoản lợi nhuận được hưởng trong năm 2025 tương ứng với tỷ suất sinh lời tối thiểu cũng như xác định mức độ tổn thất (nếu có) của khoản phải thu về hợp tác kinh doanh này.",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 14,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "4. Cơ sở của ý kiến kiểm toán ngoại trừ:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "4. Cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Ngoài ra, như đề cập tại thuyết minh số V.5a trong Bản thuyết minh Báo cáo tài chính, Công ty cũng đã ký kết Hợp đồng nguyên tắc số 03/HĐNT-PAIP ngày 18 tháng 8 năm 2025 với Công ty Cổ phần Dầu khí Đầu tư Khai thác Cảng Phước An (sau đây gọi tắt là Phước An) để thuê đất trong khu công nghiệp Phước An tại xã Phước An, tỉnh Đồng Nai với tổng số tiền đã đặt cọc là 600.000.000.000 VND, tương ứng 95% giá trị hợp đồng, khoản đặt cọc này không có tài sản đảm bảo. Với các tài liệu được cung cấp, chúng tôi chưa thể xác định rằng Phước An có đủ điều kiện để ký hợp đồng cho thuê lại đất theo quy định hay không, chưa thể xác định bản chất của hợp đồng nguyên tắc này cũng như chưa thể đánh giá khả năng thu hồi của khoản tiền đặt cọc có liên quan tại ngày 31 tháng 12 năm 2025. Ngày 19 tháng 3 năm 2026 Hội đồng quản trị Công",
+      "page_start": 1,
+      "page_end": 1,
+      "order_index": 15,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "4. Cơ sở của ý kiến kiểm toán ngoại trừ:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "4. Cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "ty đã thông qua tờ trình của Tổng Giám đốc số 21/TTr-SZG ngày 13 tháng 3 năm 2026 về việc thay đổi vị trí Khu đất dự kiến thuê lại tại KCN Phước An, tỉnh Đồng Nai từ lô đất B-CN04 theo hợp đồng nguyên tắc trên sang lô đất B-CN03. Ngày 24 tháng 3 năm 2026, Công ty và Phước An đã ký kết Hợp đồng số 01/HĐTĐ-PAIP để thuê lại lô đất B-CN03. Với các tài liệu được cung cấp, chúng tôi chưa có đủ thông tin để đánh giá lô đất B-CN03 thuộc thừa đất số 209, 222, 223, của tờ bản đồ số 73 tại KCN Phước An, tỉnh Đồng Nai đã đủ kiểu kiện để Phước An ký kết hợp đồng cho thuê lại đất theo quy định hay không.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 16,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "4. Cơ sở của ý kiến kiểm toán ngoại trừ:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "4. Cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Chúng tôi chưa thu thập được đầy đủ bằng chứng đáng tin cậy liệu bản chất các giao dịch theo các hợp đồng trên có tồn tại sự kiểm soát chung hay không.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 17,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "4. Cơ sở của ý kiến kiểm toán ngoại trừ:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "4. Cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 18,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 2,
+      "numbering": "5"
+    },
+    {
+      "text": "Công ty Cổ phần Sonadezi Giang Điền (Công ty) xin giải trình về ý kiến ngoại trừ tại Báo cáo tài chính năm 2025 đã được soát xét cho kỳ kế toán kết thúc ngày 31 tháng 12 năm 2025 như sau:",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 19,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 20,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 3,
+      "numbering": "5.1"
+    },
+    {
+      "text": "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 21,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 4,
+      "numbering": "5.1.1"
+    },
+    {
+      "text": "Trên thực tế, dự án đã hoàn thành một loại các thủ tục pháp lý tiền đề quan trọng, tạo nền tảng vững chắc để được cấp chấp thuận chủ trương đầu tư trong thời gian tới. Các thủ tục đã hoàn thành bao gồm nhưng không giới hạn ở việc đã được Thủ tướng Chính Phù chấp thuận bổ sung vào quy hoạch các khu công nghiệp trên địa bàn tỉnh Đồng Nai theo Công văn số 964/TTg-CN ngày 17/06/2009; được Thủ tướng Chính phủ phê duyệt quy hoạch KCN chưa được thành lập đã được đưa vào quy hoạch phát triển KCN đến năm 2020, tiếp tục quy hoạch giai đoạn 2021-2030 tại mục V.1, Phụ lục II, Phương án phát triển KCN tỉnh Đồng Nai thời kỳ 2021-2030, tầm nhìn đến năm 2050, kèm theo Quyết định số 586/QĐ/TTg ngày 03/7/2024 của Thủ tướng về phê duyệt Quy hoạch tỉnh Đồng Nai thời kỳ 2021-2030, tầm nhìn đến năm 2050. Dự án KCN Phước Bình cũng đã được UBND tỉnh Đồng Nai phê duyệt quy hoạch chi tiết tỷ lệ 1/500 tại Quyết định số 344/QĐ-UBND ngày 29/01/2019, được Bộ Tài nguyên và Môi trường phê duyệt báo cáo đánh giá tác động môi trường tại Quyết định số 1674/QĐ-BTNMT ngày 04/7/2019, và đã được cơ quan chức năng địa phương đồng ý về chủ trương một số thủ tục pháp lý dự án đầu tư ban đầu, đồng thời Công ty Phước Bình cũng đã chi trả tiền bồi thường, giải phóng mặt bằng một phần của dự án. Việc chậm trễ trong việc cấp chủ trương đầu tư là do một số lý do khách quan, bao gồm sự điều chỉnh chính sách, quy trình hành chính liên ngành cần thêm thời gian để hoàn thiện. Đây là những khó khăn thường gặp trong quá trình triển khai các dự án đầu tư lớn tại Việt Nam.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 22,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Với kinh nghiệm gần 20 năm đầu tư, xây dựng và phát triển các khu công nghiệp trên địa bàn tỉnh Đồng Nai, chúng tôi đã lượng hóa và đánh giá được rủi ro này. Việc hoàn thiện các thủ tục pháp lý cơ bản là một chỉ dấu quan trọng cho thấy dự án đang đi đúng hướng và sẽ sớm được cấp chủ trương đầu tư. Chúng tôi tin tưởng rằng các vướng mắc sẽ được giải quyết trong thời gian tới, và dự án sẽ sớm có đầy đủ pháp lý để triển khai.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 23,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Việc ký kết Hợp đồng hợp tác kinh doanh (HĐHTKD) với Công ty TNHH Đầu tư Phước Bình là một bước đi chiến lược, được thực hiện dựa trên cơ sở đánh giá chuyên sâu về tính khả thi và tiềm năng phát triển của dự án.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 24,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Tính pháp lý của HĐHTKD: Hợp đồng này được lập và ký kết tuân thủ đầy đủ các quy định của pháp luật dân sự hiện hành, có giá trị ràng buộc và là cơ sở pháp lý vững chắc cho các thỏa thuận giữa hai bên. Công ty đã tham vấn ý kiến pháp lý độc lập và được khẳng định rằng HĐHTKD này có đầy đủ hiệu lực.",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 25,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Tính pháp lý của HĐHTKD: Hợp đồng này được lập và ký kết tuân thủ đầy đủ các quy định của pháp luật dân sự hiện hành, có giá trị ràng buộc và là cơ sở pháp lý vững chắc cho các thỏa thuận giữa hai bên. Công ty đã tham vấn ý kiến pháp lý độc lập và được khẳng định rằng HĐHTKD này có đầy đủ hiệu lực."
+      ]
+    },
+    {
+      "text": "2/5",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 26,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "الإ! ٥٧٥ ٤٤/٤١١",
+      "page_start": 2,
+      "page_end": 2,
+      "order_index": 27,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Cơ sở ghi nhận trên BCTC: Khoản tiền đầu tư mà Công ty đã góp của đợt 01 là 618.257.500.000 VND được hạch toán là \"Phải thu dài hạn khác\" do HĐHTKD có thời hạn 24 tháng, phù hợp với Chuẩn mực kế toán Việt Nam. Việc hạch toán này phản ánh đúng bản chất giao dịch, là khoản tiền công ty đầu tư để được hưởng lợi ích kinh tế trong tương lai từ HĐHTKD.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 28,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.1 Về tính pháp lý và cơ sở ghi nhận khoản mục phải thu dài hạn khác"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Cơ sở ghi nhận trên BCTC: Khoản tiền đầu tư mà Công ty đã góp của đợt 01 là 618.257.500.000 VND được hạch toán là \"Phải thu dài hạn khác\" do HĐHTKD có thời hạn 24 tháng, phù hợp với Chuẩn mực kế toán Việt Nam. Việc hạch toán này phản ánh đúng bản chất giao dịch, là khoản tiền công ty đầu tư để được hưởng lợi ích kinh tế trong tương lai từ HĐHTKD."
+      ]
+    },
+    {
+      "text": "5.1.2 Về khả năng thu hồi vốn và sinh lời",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 29,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.2 Về khả năng thu hồi vốn và sinh lời"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 4,
+      "numbering": "5.1.2"
+    },
+    {
+      "text": "Công ty hoàn toàn tin tưởng vào khả năng thu hồi vốn và thu được lợi nhuận từ khoản đầu tư này dựa trên các cơ sở vững chắc sau:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 30,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.2 Về khả năng thu hồi vốn và sinh lời"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Đảm bảo sinh lời tối thiểu: Hợp đồng quy định rõ ràng ràng Công ty Sonadezi Giang Điền được hưởng tỷ suất sinh lời tối thiểu là 8%/năm trên số vốn góp, bất kể tình trạng của dự án. Điều khoản này đảm bảo tính bảo toàn vốn và lợi nhuận tối thiểu cho Công ty, giảm thiểu rủi ro đáng kể.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 31,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.2 Về khả năng thu hồi vốn và sinh lời"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Đảm bảo sinh lời tối thiểu: Hợp đồng quy định rõ ràng ràng Công ty Sonadezi Giang Điền được hưởng tỷ suất sinh lời tối thiểu là 8%/năm trên số vốn góp, bất kể tình trạng của dự án. Điều khoản này đảm bảo tính bảo toàn vốn và lợi nhuận tối thiểu cho Công ty, giảm thiểu rủi ro đáng kể."
+      ]
+    },
+    {
+      "text": "- Quyền đơn phương chấm dứt hợp đồng: Hợp đồng cũng quy định rõ ràng rằng Sonadezi Giang Điền có quyền đơn phương chấm dứt hợp đồng bất cứ lúc nào chỉ bằng cách gửi thông báo bằng văn bản trước ít nhất 30 ngày làm việc cho Công ty Phước Bình. Khi đó, Công ty Phước Bình phải hoàn trả toàn bộ giá trị góp vốn đã nhận và 8% lợi nhuận trên tổng số vốn góp trong vòng 30 ngày làm việc. Điều khoản này cung cấp cho chúng tôi một cơ chế bảo vệ vốn đầu tư và lợi nhuận chắc chắn, cho phép chúng tôi rút khởi giao dịch nếu nhận thấy rủi ro không thể chấp nhận được, do đó đảm bảo tính thanh khoản và an toàn cho khoản đầu tư.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 32,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.2 Về khả năng thu hồi vốn và sinh lời"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Quyền đơn phương chấm dứt hợp đồng: Hợp đồng cũng quy định rõ ràng rằng Sonadezi Giang Điền có quyền đơn phương chấm dứt hợp đồng bất cứ lúc nào chỉ bằng cách gửi thông báo bằng văn bản trước ít nhất 30 ngày làm việc cho Công ty Phước Bình. Khi đó, Công ty Phước Bình phải hoàn trả toàn bộ giá trị góp vốn đã nhận và 8% lợi nhuận trên tổng số vốn góp trong vòng 30 ngày làm việc. Điều khoản này cung cấp cho chúng tôi một cơ chế bảo vệ vốn đầu tư và lợi nhuận chắc chắn, cho phép chúng tôi rút khởi giao dịch nếu nhận thấy rủi ro không thể chấp nhận được, do đó đảm bảo tính thanh khoản và an toàn cho khoản đầu tư."
+      ]
+    },
+    {
+      "text": "- Quyền kinh doanh và khai thác: Công ty được quyền kinh doanh, khai thác hoặc lựa chọn đối tác thuê lại đất trong phạm vi hợp tác. Điều này cho phép chúng tôi tận dụng lợi thế về mạng lưới khách hàng, kinh nghiệm quản lý và thương hiệu uy tín lâu năm để tạo ra doanh thu và lợi nhuận.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 33,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.2 Về khả năng thu hồi vốn và sinh lời"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Quyền kinh doanh và khai thác: Công ty được quyền kinh doanh, khai thác hoặc lựa chọn đối tác thuê lại đất trong phạm vi hợp tác. Điều này cho phép chúng tôi tận dụng lợi thế về mạng lưới khách hàng, kinh nghiệm quản lý và thương hiệu uy tín lâu năm để tạo ra doanh thu và lợi nhuận."
+      ]
+    },
+    {
+      "text": "- Kinh nghiệm thực tiễn: Công ty có nhiều năm kinh nghiệm đầu tư, xây dựng và khai thác thành công các khu công nghiệp trên địa bàn tỉnh Đồng Nai, bao gồm Khu công nghiệp Giang Điền. Các dự án này đã chứng minh năng lực triển khai và khả năng thu hồi vốn hiệu quả của chúng tôi.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 34,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.2 Về khả năng thu hồi vốn và sinh lời"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Kinh nghiệm thực tiễn: Công ty có nhiều năm kinh nghiệm đầu tư, xây dựng và khai thác thành công các khu công nghiệp trên địa bàn tỉnh Đồng Nai, bao gồm Khu công nghiệp Giang Điền. Các dự án này đã chứng minh năng lực triển khai và khả năng thu hồi vốn hiệu quả của chúng tôi."
+      ]
+    },
+    {
+      "text": "5.1.3. Về bản chất giao dịch và sự kiểm soát chung",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 35,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 4,
+      "numbering": "5.1.3"
+    },
+    {
+      "text": "Chúng tôi xin khẳng định giao dịch theo HĐHTKD này không phải là hoạt động kiểm soát chung mà là một hình thức hợp tác đầu tư, trong đó Công ty đóng vai trò là nhà đầu tư tài chính và kinh nghiệm, còn Công ty TNHH Đầu tư Phước Bình là chủ đầu tư. Mặc dù chúng tôi có các quyền lợi đặc biệt, nhưng quyền quyết định cao nhất và quản lý dự án vẫn thuộc về chủ đầu tư theo quy định pháp luật.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 36,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Công ty Sonadezi Giang Điền cam kết sẽ tiếp tục theo dõi sát sao và hỗ trợ Công ty TNHH Đầu tư Phước Bình bằng kinh nghiệm và nguồn lực nhân sự để đầy nhanh tiến độ pháp lý của Dự án KCN Phước Bình và sẽ công bố thông tin cập nhật ngay khi có quyết định chấp thuận chủ trương đầu tư từ cơ quan nhà nước có thẩm quyền.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 37,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.1 Đối với hợp đồng hợp tác kinh doanh để thực hiện Dự án đầu tư xây dựng và kinh doanh kết cấu hạ tầng Khu công nghiệp Phước Bình",
+        "5.1.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 38,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 3,
+      "numbering": "5.2"
+    },
+    {
+      "text": "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 39,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 4,
+      "numbering": "5.2.1"
+    },
+    {
+      "text": "Trong bối cảnh nền kinh tế Việt Nam tiếp tục phát triển và hội nhập sâu rộng với nền kinh tế toàn cầu do đó nhu cầu vận chuyển hàng hóa và phân phối hàng hóa ngày càng gia tăng. Việc lựa chọn đầu tư thuê đất tại KCN Phước An sẽ giúp cho Công ty có thêm quỹ đất công nghiệp, kho bãi để phát triển các dự án mới đáp ứng nhu cầu mở rộng sản xuất kinh doanh trong dài hạn.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 40,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Khu Công nghiệp Phước An tại xã Phước An, Tỉnh Đồng Nai với quy mô diện tích 330 ha đã hoàn tất các thủ tục pháp lý đủ điều kiện để cho thuê lại đất và sử dụng hạ tầng, cụ thể:",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 41,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- UBND tỉnh Đồng Nai phê duyệt Quy hoạch phân khu xây dựng tỷ lệ 1/2000 tại Quyết định số 995/QĐ-UBND ngày 28/03/2025.",
+      "page_start": 3,
+      "page_end": 3,
+      "order_index": 42,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- UBND tỉnh Đồng Nai phê duyệt Quy hoạch phân khu xây dựng tỷ lệ 1/2000 tại Quyết định số 995/QĐ-UBND ngày 28/03/2025."
+      ]
+    },
+    {
+      "text": "- UBND tỉnh Đồng Nai chấp thuận chủ trương đầu tư đồng thời chấp thuận nhà đầu tư tại Quyết định số 1368/QĐ-UBND ngày 23/09/2025.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 43,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- UBND tỉnh Đồng Nai chấp thuận chủ trương đầu tư đồng thời chấp thuận nhà đầu tư tại Quyết định số 1368/QĐ-UBND ngày 23/09/2025."
+      ]
+    },
+    {
+      "text": "- Bộ Nông nghiệp và Môi trường phê duyệt báo cáo đánh giá tác động môi trường của dự án tại Quyết định số 104/QĐ-BNNMT ngày 12/01/2026.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 44,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Bộ Nông nghiệp và Môi trường phê duyệt báo cáo đánh giá tác động môi trường của dự án tại Quyết định số 104/QĐ-BNNMT ngày 12/01/2026."
+      ]
+    },
+    {
+      "text": "- Ban Quản lý các Khu công nghiệp, Khu kinh tế Đồng Nai thẩm định Báo cáo nghiên cứu khả thi dự án tại văn bản số 1867/KCNKKT-QHXD ngày 06/11/2025. Hội đồng quản trị Công ty Cổ phần Dầu khí Đầu tư Khai thác Cảng Phước An phê duyệt dự án đầu tư xây dựng KCN Phước An tại Nghị quyết số 104/NQ-CPP ngày 28/11/2025.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 45,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Ban Quản lý các Khu công nghiệp, Khu kinh tế Đồng Nai thẩm định Báo cáo nghiên cứu khả thi dự án tại văn bản số 1867/KCNKKT-QHXD ngày 06/11/2025. Hội đồng quản trị Công ty Cổ phần Dầu khí Đầu tư Khai thác Cảng Phước An phê duyệt dự án đầu tư xây dựng KCN Phước An tại Nghị quyết số 104/NQ-PAP ngày 28/11/2025."
+      ]
+    },
+    {
+      "text": "- Phòng Cảnh sát PCCC và CNCH - Công an tỉnh Đồng Nai thẩm định thiết kế về phòng cháy và chữa cháy đối với hệ thống chữa cháy, phương tiện cứu nạn và các giải pháp an toàn PCCC cho hạ tầng kỹ thuật dự án tại Văn bản số 39/TĐ-PCCC ngày 03/02/2026.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 46,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Phòng Cảnh sát PCCC và CNCH - Công an tỉnh Đồng Nai thẩm định thiết kế về phòng cháy và chữa cháy đối với hệ thống chữa cháy, phương tiện cứu nạn và các giải pháp an toàn PCCC cho hạ tầng kỹ thuật dự án tại Văn bản số 39/TĐ-PCCC ngày 03/02/2026."
+      ]
+    },
+    {
+      "text": "- UBND xã Phước An cho Công ty Cổ phần Đầu khí Đầu tư khai thác Cảng Phước An thuê đất Đợt 1 với diện tích 2.830.913,3 m2 để thực hiện Dự án Khu công nghiệp Phước An tại Quyết định số 2499/QĐ-UBND ngày 03/12/2025.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 47,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- UBND xã Phước An cho Công ty Cổ phần Đầu khí Đầu tư khai thác Cảng Phước An thuê đất Đợt 1 với diện tích 2.830.913,3 m2 để thực hiện Dự án Khu công nghiệp Phước An tại Quyết định số 2499/QĐ-UBND ngày 03/12/2025."
+      ]
+    },
+    {
+      "text": "- UBND xã Phước An cho Công ty Cổ phần Đầu khí Đầu tư khai thác Cảng Phước An thuê đất Đợt 2 với diện tích 327.259,3 m2 để thực hiện Dự án Khu công nghiệp Phước An tại Quyết định số 86/QĐ-UBND ngày 23/01/2026.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 48,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- UBND xã Phước An cho Công ty Cổ phần Đầu khí Đầu tư khai thác Cảng Phước An thuê đất Đợt 2 với diện tích 327.259,3 m2 để thực hiện Dự án Khu công nghiệp Phước An tại Quyết định số 86/QĐ-UBND ngày 23/01/2026."
+      ]
+    },
+    {
+      "text": "- UBND xã Phước An đã cấp giấy chứng nhận quyền sử dụng đất với tổng diện tích 315,82 ha / 330 ha để thực hiện Dự án Khu công nghiệp Phước An.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 49,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- UBND xã Phước An đã cấp giấy chứng nhận quyền sử dụng đất với tổng diện tích 315,82 ha / 330 ha để thực hiện Dự án Khu công nghiệp Phước An."
+      ]
+    },
+    {
+      "text": "- Hạ tầng KCN đã được đầu tư cơ bản hoàn thiện, đặc biệt đối với lô đất thuê đã được đầu tư hoàn chỉnh hệ thống kỹ thuật theo thiết kế được duyệt và đến nay đã cơ bản hoàn thiện thi công mặt đường bê tông nhựa.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 50,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Hạ tầng KCN đã được đầu tư cơ bản hoàn thiện, đặc biệt đối với lô đất thuê đã được đầu tư hoàn chỉnh hệ thống kỹ thuật theo thiết kế được duyệt và đến nay đã cơ bản hoàn thiện thi công mặt đường bê tông nhựa."
+      ]
+    },
+    {
+      "text": "Khu Công nghiệp Phước An với vị trí chiến lược gần Tp. Hồ Chí Minh và các cảng biển quan trọng trong hệ thống cảng biển Cái Mép  Thị Vải, đặc biệt nằm liền kề Cảng Phước An tạo nên một hệ sinh thái Logistics toàn diện và hiệu quả có vị trí cực kỳ thuận lợi về giao thông, liền kề tuyến Cao tốc Bến Lức  Long Thành, đường 319 nối với cao tốc Tp. Hồ Chí Minh  Long Thành  Dầu Dây, tuyến đường 25B, 25C, đường Vành Đai 3 Tp. Hồ Chí Minh kết nối với tuyến Quốc Lộ 51 và tuyến Cao tốc Biên Hòa  Vũng Tàu. Do đó chúng tôi đánh giá KCN Phước An có vị trí chiến lược và là địa điểm thích hợp cho nhiều nhà đầu tư thực hiện đầu tư xây dựng nhà máy hoặc kho xưởng và kinh doanh cơ sở hạ tầng KCN. Đặc biệt thời hạn sử dụng đất của KCN Phước An còn lại 50 năm là một lợi thế rất lớn so với các KCN khác. Vì vậy, chúng tôi đánh giá việc thuê đất và đầu tư dự án tại đây sẽ mang lại rất nhiều lợi ích cho công ty trong tương lai.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 51,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Cơ sở ghi nhận khoản tiền đặt cọc thuê đất theo hợp đồng nguyên tắc số 03/HĐNT-PAIP ngày 18 tháng 8 năm 2025 để bảo đảm quyền ưu tiên thuê khu đất theo thỏa thuận giữa hai bên.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 52,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.1 Về cơ sở ký kết hợp đồng và ghi nhận khoản tiền đặt cọc"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Cơ sở ghi nhận khoản tiền đặt cọc thuê đất theo hợp đồng nguyên tắc số 03/HĐNT-PAIP ngày 18 tháng 8 năm 2025 để bảo đảm quyền ưu tiên thuê khu đất theo thỏa thuận giữa hai bên."
+      ]
+    },
+    {
+      "text": "5.2.2 Về khả năng thu hồi khoản tiền đặt cọc và ký kết hợp đồng chính thức cho thuê lại đất",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 53,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.2 Về khả năng thu hồi khoản tiền đặt cọc và ký kết hợp đồng chính thức cho thuê lại đất"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 4,
+      "numbering": "5.2.2"
+    },
+    {
+      "text": "- Công ty hoàn toàn tin tưởng vào khả năng thu hồi khoản tiền đặt cọc và bản chất giao dịch của khoản tiền đặt cọc giữa hai bên như sau:",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 54,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.2 Về khả năng thu hồi khoản tiền đặt cọc và ký kết hợp đồng chính thức cho thuê lại đất"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Công ty hoàn toàn tin tưởng vào khả năng thu hồi khoản tiền đặt cọc và bản chất giao dịch của khoản tiền đặt cọc giữa hai bên như sau:"
+      ]
+    },
+    {
+      "text": "Khoản tiền đặt cọc giữ quyền thuê khu đất vẫn được bảo đảm thông qua việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An số 01/HĐTĐ-PAIP ngày 24/03/2026 được ký giữa Công ty CP Đầu Khí Đầu Tư và Khai Thác Cảng Phước An và Công Ty CP Sonadezi Giang Điền.",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 55,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.2 Về khả năng thu hồi khoản tiền đặt cọc và ký kết hợp đồng chính thức cho thuê lại đất"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Ban lãnh đạo Công ty hoàn toàn tin tưởng vào khả năng thực hiện dự án trên khu đất thuê để mang lại lợi ích kinh tế trong tương lai và căn trừ toàn bộ khoản tiền đặt cọc vào đợt thanh toán",
+      "page_start": 4,
+      "page_end": 4,
+      "order_index": 56,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.2 Về khả năng thu hồi khoản tiền đặt cọc và ký kết hợp đồng chính thức cho thuê lại đất"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "đầu tiên của tiền phí sử dụng hạ tầng đợt 1 tại hợp đồng thuê đất số 01/HĐTĐ-PAIP ngày 24/03/2026 và nhận bàn giao khu đất sớm nhất có thể để tiếp tục thực hiện dự án.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 57,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.2 Về khả năng thu hồi khoản tiền đặt cọc và ký kết hợp đồng chính thức cho thuê lại đất"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "5.2.3. Về bản chất giao dịch và sự kiểm soát chung",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 58,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "heading",
+      "level": 4,
+      "numbering": "5.2.3"
+    },
+    {
+      "text": "Chúng tôi xin khẳng định giao dịch thuê đất tại KCN Phước An không phải là hoạt động kiểm soát chung và được thực hiện trên cơ sở độc lập giữa các bên tham gia, trong đó Công ty với vai trò là doanh nghiệp đi thuê đất để thực hiện mở rộng dự án đầu tư dài hạn và Công ty CP Đầu Khí Đầu Tư và Khai Thác Cảng Phước An với vai trò là chủ đầu tư kinh doanh hạ tầng KCN Phước An.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 59,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Với các luận điểm và cam kết trên, chúng tôi tin tưởng rằng các khoản mục đã ghi nhận trên Báo cáo tài chính là phù hợp, và Công ty hoàn toàn có cơ sở để thu hồi vốn và đạt được lợi ích kinh tế trong tương lai.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 60,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Băng văn bản này, Công ty kính giải trình tới các Quý cơ quan và Quý cổ đông các nội dung trên.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 61,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Trân trọng.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 62,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "Nơi nhận:",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 63,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    },
+    {
+      "text": "- Như trên;",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 64,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Như trên;"
+      ]
+    },
+    {
+      "text": "- TK.HĐQT (Áp/hợp CBTT);",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 65,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- TK.HĐQT (Áp/hợp CBTT);"
+      ]
+    },
+    {
+      "text": "- Luru: VT, KT.",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 66,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "list",
+      "items": [
+        "- Lưu: VT, KT."
+      ]
+    },
+    {
+      "text": "Hoàng Sỹ Quyết",
+      "page_start": 5,
+      "page_end": 5,
+      "order_index": 67,
+      "heading_path": [
+        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+        "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+        "5.2 Đối với việc ký kết hợp đồng thuê lại đất và sử dụng hạ tầng tại KCN Phước An",
+        "5.2.3. Về bản chất giao dịch và sự kiểm soát chung"
+      ],
+      "section": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+      "subsection": "5. Giải trình liên quan đến cơ sở của ý kiến kiểm toán ngoại trừ:",
+      "block_type": "paragraph"
+    }
+  ],
+  "metadata": {
+    "company_name": "TỔNG CÔNG TY SONADEZI",
+    "report_year": 2025,
+    "source_file": "D:\\Temp\\hf_ocr_p24elrz2\\ocr_results\\SZG\\2025\\2_szg_2026_3_30_450b440_20260327__cv94_giai_trinh_bao_cao_kiem_toan_doc_lap_vn\\2_szg_2026_3_30_450b440_20260327__cv94_giai_trinh_bao_cao_kiem_toan_doc_lap_vn_extracted.txt",
+    "page_count": 5,
+    "detected_headers": [],
+    "detected_footers": [
+      "1/5"
+    ]
+  },
+  "quality": {
+    "page_count": 5,
+    "block_count": 68,
+    "table_count": 0,
+    "heading_count": 16,
+    "paragraph_count": 31,
+    "list_count": 21,
+    "signature_count": 0,
+    "merged_table_count": 0,
+    "artifact_chars_removed": 0,
+    "cjk_chars_removed": 5,
+    "watermark_lines_removed": 0,
+    "garbage_lines_removed": 11,
+    "symbol_noise_lines_removed": 1,
+    "gibberish_lines_removed": 0,
+    "duplicate_lines_removed": 0,
+    "punctuation_runs_collapsed": 1,
+    "phrases_corrected": 16,
+    "tokens_corrected": 0,
+    "numbers_protected": 7,
+    "noise_risk": "medium",
+    "diacritic_activity": "medium",
+    "structure_risk": "low",
+    "overall_risk": "medium"
+  }
+}

@@ -1,0 +1,39 @@
+# app/retrieval/financial_glossary.py
+"""Từ điển viết tắt tài chính tiếng Việt phổ biến -- dùng để (1) mở rộng
+câu hỏi trước khi search, (2) trả lời trực tiếp câu hỏi định nghĩa."""
+
+FINANCIAL_GLOSSARY: dict[str, str] = {
+    "LNST": "Lợi nhuận sau thuế",
+    "LNTT": "Lợi nhuận trước thuế",
+    "DTT": "Doanh thu thuần",
+    "DT": "Doanh thu",
+    "GVHB": "Giá vốn hàng bán",
+    "CPBH": "Chi phí bán hàng",
+    "CPQLDN": "Chi phí quản lý doanh nghiệp",
+    "VCSH": "Vốn chủ sở hữu",
+    "TSCĐ": "Tài sản cố định",
+    "TSNH": "Tài sản ngắn hạn",
+    "TSDH": "Tài sản dài hạn",
+    "BCTC": "Báo cáo tài chính",
+    "BCTN": "Báo cáo thường niên",
+    "CDKT": "Bảng cân đối kế toán",
+    "KQKD": "Báo cáo kết quả hoạt động kinh doanh",
+    "LCTT": "Báo cáo lưu chuyển tiền tệ",
+    "EPS": "Lãi cơ bản trên mỗi cổ phiếu (Earnings Per Share)",
+    "ROE": "Tỷ suất lợi nhuận trên vốn chủ sở hữu (Return On Equity)",
+    "ROA": "Tỷ suất lợi nhuận trên tổng tài sản (Return On Assets)",
+    "P/E": "Hệ số giá trên lợi nhuận (Price to Earnings)",
+    "YoY": "So với cùng kỳ năm trước (Year over Year)",
+    "QoQ": "So với quý trước (Quarter over Quarter)",
+    # bổ sung dần theo domain thực tế bạn gặp
+}
+
+def expand_query(query: str) -> str:
+    """Chèn thêm tên đầy đủ ngay sau từ viết tắt xuất hiện trong câu hỏi,
+    để cả BM25 (lexical match) lẫn Dense (semantic match) đều có cơ hội
+    trúng đúng đoạn văn/bảng có ghi tên chỉ tiêu đầy đủ."""
+    expanded = query
+    for abbr, full in FINANCIAL_GLOSSARY.items():
+        if abbr in expanded and full not in expanded:
+            expanded = expanded.replace(abbr, f"{abbr} ({full})")
+    return expanded

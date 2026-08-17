@@ -1,0 +1,16 @@
+2026-08-10 17:23:15,042 ERROR root: Lỗi khi xử lý file debug_output.txt: No '===== PAGE X =====' markers found in input text.
+Traceback (most recent call last):
+  File "D:\financial-document-qa-rag\app\preprocessing\test_debug.py", line 55, in <module>
+    doc = pipeline.process_file(txt_path)
+  File "D:\financial-document-qa-rag\app\preprocessing\pipeline.py", line 342, in process_file
+    return self.process_text(raw_text, source_file=str(path))
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\financial-document-qa-rag\app\preprocessing\pipeline.py", line 164, in process_text
+    pages = self._page_parser.parse(raw_text)
+  File "D:\financial-document-qa-rag\app\preprocessing\parser.py", line 70, in parse
+    return list(self.iter_pages(raw_text))
+  File "D:\financial-document-qa-rag\app\preprocessing\parser.py", line 49, in iter_pages
+    raise PageParsingError(
+        "No '===== PAGE X =====' markers found in input text."
+    )
+preprocessing.parser.PageParsingError: No '===== PAGE X =====' markers found in input text.

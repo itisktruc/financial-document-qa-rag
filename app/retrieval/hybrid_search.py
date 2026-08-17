@@ -27,35 +27,41 @@ FUSION_TOP_K = 30              # số chunks sau RRF đưa vào reranker
 TOP_K = 10                     # số chunks cuối cùng sau reranker
 
 def _load_bm25_corpus():
-    docs = get_chunks_collection().find(
-        {"chunk_type": {"$in": ["text_child", "table"]}},
-        {"content": 1, "parent_id": 1},
-    )
     corpus_ids: List[str] = []
     corpus_texts: List[str] = []
     lookup: Dict[str, dict] = {}
-
-    for doc in docs:
-        cid = str(doc["_id"])
-        text = doc.get("content", "") or ""
-        corpus_ids.append(cid)
-        corpus_texts.append(text)
-        lookup[cid] = {"content": text, "parent_id": doc.get("parent_id")}
+    try:
+        docs = get_chunks_collection().find(
+            {"chunk_type": {"$in": ["text_child", "table"]}},
+            {"content": 1, "parent_id": 1},
+        )
+        for doc in docs:
+            cid = str(doc["_id"])
+            text = doc.get("content", "") or ""
+            corpus_ids.append(cid)
+            corpus_texts.append(text)
+            lookup[cid] = {"content": text, "parent_id": doc.get("parent_id")}
+    except Exception as e:
+        pass
     return corpus_ids, corpus_texts, lookup
 
 @lru_cache(maxsize=1)
 def _get_bm25_index():
     corpus_ids, corpus_texts, lookup = _load_bm25_corpus()
-    corpus_tokens = bm25s.tokenize(corpus_texts, stopwords=list(VI_STOPWORDS))
-    retriever = bm25s.BM25()
-    retriever.index(corpus_tokens)
-    return retriever, corpus_ids, lookup
+    if not corpus_ids or not corpus_texts:
+        return None, [], {}
+    try:
+        corpus_tokens = bm25s.tokenize(corpus_texts, stopwords=list(VI_STOPWORDS))
+        retriever = bm25s.BM25()
+        retriever.index(corpus_tokens)
+        return retriever, corpus_ids, lookup
+    except Exception:
+        return None, [], {}
 
 def refresh_bm25_index() -> None:
-    """Gọi hàm này sau khi ingest/xoá tài liệu (vd cuối
-    app/routers/documents.py) -- lru_cache ở trên không tự biết Mongo vừa
-    đổi nên phải invalidate thủ công, nếu không BM25 sẽ tìm trên corpus cũ."""
+    """Gọi hàm này sau khi ingest/xoá tài liệu -- invalidate cache BM25."""
     _get_bm25_index.cache_clear()
+
 
 
 def reciprocal_rank_fusion(rankings: list[list[str]], k: int = K_RRF) -> list[tuple[str, float]]:
@@ -110,11 +116,15 @@ class HybridSearchPipeline:
 
     def bm25_search(self, query: str, k: int = BM25_TOP_K) -> List[tuple[str, float]]:
         retriever, corpus_ids, _ = _get_bm25_index()
-        if not corpus_ids:
+        if not retriever or not corpus_ids:
             return []
-        query_tokens = bm25s.tokenize([query], stopwords=list(VI_STOPWORDS))
-        indices, scores = retriever.retrieve(query_tokens, k=min(k, len(corpus_ids)))
-        return [(corpus_ids[idx], float(score)) for idx, score in zip(indices[0], scores[0])]
+        try:
+            query_tokens = bm25s.tokenize([query], stopwords=list(VI_STOPWORDS))
+            indices, scores = retriever.retrieve(query_tokens, k=min(k, len(corpus_ids)))
+            return [(corpus_ids[idx], float(score)) for idx, score in zip(indices[0], scores[0])]
+        except Exception:
+            return []
+
 
     def dense_search(
         self,

@@ -1,19 +1,44 @@
 import json
+import re
 from typing import Dict, List, Any
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 from app.config import settings
+import logging
+
+logger = logging.getLogger(__name__)
 
 class QueryRewriter:
     def __init__(self):
-        self.llm = ChatGroq(
-            temperature=0.1, 
-            model_name="llama-3.3-70b-versatile", 
-            groq_api_key=settings.GROQ_API_KEY
-        )
+        self.llm = None
+        if settings.GROQ_API_KEY:
+            try:
+                self.llm = ChatGroq(
+                    temperature=0.1, 
+                    model_name="llama-3.3-70b-versatile", 
+                    groq_api_key=settings.GROQ_API_KEY
+                )
+            except Exception as e:
+                logger.warning(f"Could not initialize ChatGroq QueryRewriter: {e}")
+                self.llm = None
 
     def rewrite_and_extract_metadata(self, query: str) -> Dict[str, Any]:
         """Viết lại câu hỏi thành các dạng tìm kiếm khác nhau và trích xuất bộ lọc Metadata."""
+        if not self.llm or not settings.GROQ_API_KEY:
+            ticker = None
+            year = None
+            ticker_match = re.search(r'\b[A-Z]{3,4}\b', query)
+            if ticker_match:
+                ticker = ticker_match.group(0)
+            year_match = re.search(r'\b(20\d{2})\b', query)
+            if year_match:
+                year = year_match.group(0)
+            return {
+                "ticker": ticker,
+                "year": year,
+                "rewritten_queries": [query]
+            }
+
         prompt = PromptTemplate(
             template="""Bạn là chuyên gia phân tích truy vấn tài chính.
 Nhiệm vụ của bạn:
@@ -31,16 +56,16 @@ Câu hỏi của người dùng: {query}
 JSON Output:""",
             input_variables=["query"]
         )
-        chain = prompt | self.llm
-        response = chain.invoke({"query": query}).content.strip()
-        
         try:
-            # Tìm chuỗi JSON trong phản hồi của LLM
+            chain = prompt | self.llm
+            response = chain.invoke({"query": query}).content.strip()
+            
             start_idx = response.find('{')
             end_idx = response.rfind('}') + 1
             json_str = response[start_idx:end_idx]
             return json.loads(json_str)
-        except Exception:
+        except Exception as e:
+            logger.warning(f"Error in QueryRewriter invoke: {e}. Falling back to default.")
             return {
                 "ticker": None,
                 "year": None,

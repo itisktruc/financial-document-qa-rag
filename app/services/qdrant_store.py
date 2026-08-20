@@ -6,22 +6,24 @@ from qdrant_client.models import Distance, VectorParams, PointStruct
 # ==========================================
 # CẤU HÌNH QDRANT
 # ==========================================
-# Bạn có thể thay đổi đường dẫn hoặc URL kết nối thông qua biến môi trường
+QDRANT_URL = os.getenv("QDRANT_URL")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+QDRANT_HOST = os.getenv("QDRANT_HOST")   # fallback cho ai vẫn chạy docker-compose local
+QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6333"))
 QDRANT_PATH = os.getenv("QDRANT_PATH", "./qdrant_db_storage")
 QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "fpt_bctc_blocks")
-QDRANT_HOST = os.getenv("QDRANT_HOST")  # có set -> ưu tiên connect qua host/port (docker-compose)
-QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6333"))
-VECTOR_SIZE = 1024  # Đảm bảo kích thước này khớp với model embedding bạn đang dùng
+VECTOR_SIZE = 1024
 
 # ==========================================
 # KHỞI TẠO CLIENT & COLLECTION
 # ==========================================
-if QDRANT_HOST:
+if QDRANT_URL:
+    _client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=30)
+elif QDRANT_HOST:
     _client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
 else:
     _client = QdrantClient(path=QDRANT_PATH)
-
-
+    
 def init_collection():
     """Kiểm tra và tạo Collection nếu chưa tồn tại."""
     if not _client.collection_exists(collection_name=QDRANT_COLLECTION):

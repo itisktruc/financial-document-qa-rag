@@ -2,7 +2,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from app.config import settings
 from app.retrieval.glossary import FINANCIAL_GLOSSARY
-from typing import List
+from app.generation.citation import format_citation_label
+from typing import List, Dict, Any
 
 class AnswerGenerator:
     def __init__(self):
@@ -18,6 +19,9 @@ class AnswerGenerator:
             template="""Bạn là chuyên gia tư vấn tài chính doanh nghiệp.
 Dựa vào CÁC THÔNG TIN NGỮ CẢNH ĐƯỢC CUNG CẤP TRÍCH XUẤT TỪ BÁO CÁO TÀI CHÍNH sau đây, hãy trả lời câu hỏi của người dùng.
 - Hãy tổng hợp số liệu một cách rõ ràng, có thể dùng bullet point hoặc bảng nếu cần thiết.
+- Mỗi đoạn ngữ cảnh dưới đây đã được đánh số [1], [2], ... kèm theo nguồn. Khi dùng thông tin từ đoạn nào, 
+hãy CHÈN đúng ký hiệu [n] tương ứng ngay sau câu/số liệu đó (ví dụ: "Doanh thu thuần đạt 10.000 tỷ đồng [1].").
+- Nếu 1 câu dùng thông tin từ nhiều nguồn, ghi liền các ký hiệu (ví dụ "[1][2]").
 - Tuyệt đối KHÔNG tự sáng tạo, KHÔNG lấy thông tin ngoài ngữ cảnh.
 - Nếu ngữ cảnh không chứa thông tin để trả lời, hãy nói: "Dữ liệu hiện tại trong hệ thống không đủ để trả lời câu hỏi này."
 
@@ -31,23 +35,36 @@ Câu trả lời của bạn:""",
         )
         self.chain = self.prompt | self.llm
 
-    def generate(self, user_query: str, retrieved_contexts: List[str]) -> str:
+    def generate(self, user_query: str, retrieved_contexts: List[Dict[str, Any]]) -> Dict[str, Any]:
         # Nếu Qdrant và MongoDB không tìm thấy bất kỳ tài liệu nào
         if not retrieved_contexts:
-            return "Hệ thống chưa có báo cáo tài chính khớp với bộ lọc (Công ty/Năm) hoặc nội dung bạn tìm kiếm."
+            return {
+                "answer": "Hệ thống chưa có báo cáo tài chính khớp với bộ lọc (Công ty/Năm) hoặc nội dung bạn tìm kiếm.",
+                "citations": [],
+            }
             
         # Gộp tất cả các Parent Document lại thành một chuỗi lớn
-        joined_context = "\n\n".join(retrieved_contexts)
-        
-        # Gửi Context và Query cho GPT-4o-mini
+        numbered_blocks: List[str] = []
+        citations: List[Dict[str, Any]] = []
+        for i, ctx in enumerate(retrieved_contexts, start=1):
+            citation = dict(ctx.get("citation", {}))
+            label = format_citation_label(citation, i)
+            numbered_blocks.append(f"{label}\n{ctx['content']}")
+            citation["index"] = i
+            citation["label"] = label
+            citations.append(citation)
+ 
+        joined_context = "\n\n".join(numbered_blocks)
+ 
+        # Gửi Context (đã đánh số) và Query cho GPT-4o-mini
         response = self.chain.invoke({
-            "context": joined_context, 
-            "query": user_query
+            "context": joined_context,
+            "query": user_query,
         })
         
-        return response.content
+        return {"answer": response.content, "citations": citations}
 
-    def generate_definition(self, user_query: str) -> str:
+    def generate_definition(self, user_query: str) -> Dict[str, Any]:
         hint = next(
             (f"{abbr}: {full}" for abbr, full in FINANCIAL_GLOSSARY.items() if abbr.lower() in user_query.lower()),
             None,
@@ -56,4 +73,5 @@ Câu trả lời của bạn:""",
         {f"Gợi ý: {hint}" if hint else ""}
         Câu hỏi: {user_query}
         (Lưu ý cho người dùng: đây là kiến thức tài chính phổ thông, không phải trích từ tài liệu đã tải lên.)"""
-        return self.llm.invoke(prompt).content
+        response = self.llm.invoke(prompt)
+        return {"answer": response.content, "citations": []}

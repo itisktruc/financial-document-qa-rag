@@ -105,8 +105,8 @@ def chat(request: ChatRequest):
             print("Phân loại: TERM_DEFINITION")
             definition_answer = answer_generator.generate_definition(raw_query)
             return ChatResponse(
-                answer=definition_answer,
-                citations=[]
+                answer=definition_answer["answer"],
+                citations=definition_answer["citations"]
             )
 
         #Nhánh 3: Nhánh Finance Search
@@ -118,11 +118,11 @@ def chat(request: ChatRequest):
         # ==========================================
         print("Đang gửi ngữ cảnh và câu hỏi cho GPT-4o-mini")
         final_answer = answer_generator.generate(raw_query, contexts)
-        print("Sinh câu trả lời hoàn tất!")
+        print(f"Sinh câu trả lời hoàn tất kèm {len(final_answer['citations'])} citation")
 
         return ChatResponse(
-            answer=final_answer,
-            citations=[],
+            answer=final_answer["answer"],
+            citations=final_answer["citations"],
         )
     
     except Exception as e:

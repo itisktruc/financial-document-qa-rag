@@ -8,7 +8,7 @@ class QueryRewriter:
     def __init__(self):
         self.llm = ChatGroq(
             temperature=0.1, 
-            model_name="llama-3.3-70b-versatile", 
+            model_name="openai/gpt-oss-120b", 
             groq_api_key=settings.GROQ_API_KEY
         )
 

@@ -3,6 +3,7 @@ from app.retrieval.query_router import QueryRouter
 from app.retrieval.query_rewriter import QueryRewriter
 from app.retrieval.reranker import DocumentReranker
 from app.retrieval.glossary import expand_query
+from app.generation.citation import build_citation
 from pymongo import MongoClient
 from app.config import settings
 from functools import lru_cache
@@ -16,7 +17,7 @@ import bm25s
 import numpy as np
 
 mongo_client = MongoClient(getattr(settings, "MONGO_URI", "mongodb://mongo:27017"))
-mongo_db = mongo_client[getattr(settings, "MONGO_DB_NAME", "financial_rag")]
+mongo_db = mongo_client[getattr(settings.MONGO_DB)]
 
 VI_STOPWORDS = {"là", "của", "và", "các", "một", "những", "cho", "về", "trong", "đã", "này", "được"}  # bổ sung thêm nếu cần
 
@@ -209,6 +210,15 @@ class HybridSearchPipeline:
             seen_parents.add(parent_id)
             parent_doc = get_parent_chunk(parent_id)
             if parent_doc:
-                contexts.append(parent_doc["content"])
+                contexts.append({
+                    "content": parent_doc["content"],
+                    "citation": build_citation(cid, parent_doc),
+                })
  
-        return {"is_chitchat": False, "chunk_ids": top_chunk_ids, "context": contexts}
+        return {
+            "is_chitchat": False,
+            "is_definition": False,
+            "chunk_ids": top_chunk_ids,
+            "context": contexts,
+        }
+ 

@@ -4,7 +4,7 @@ from pymongo.collection import Collection
 from datetime import datetime, timezone
 from typing import Any, Iterable, Optional
 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://admin:changeme@mongodb:27017")
 MONGO_DB = os.getenv("MONGO_DB", "financial_rag")
 
 # Khởi tạo client kết nối (PyMongo tự quản lý connection pool)
@@ -15,10 +15,25 @@ def get_documents_collection(collection_name: str = "documents"):
     """Trả về collection tương ứng từ database"""
     return _db[collection_name]
 
+# def get_chunks_collection() -> Collection:
+#     """Trả về collection "chunks" (output của chunker.chunk_document())."""
+#     return _db["chunks"]
 def get_chunks_collection() -> Collection:
-    """Trả về collection "chunks" (output của chunker.chunk_document())."""
-    return _db["chunks"]
- 
+    """Trả về đúng collection mà chunker.py đã ghi dữ liệu vào."""
+    return _db["chunked_documents_2025"]  # Sửa "chunks" -> "chunked_documents_2025"
+
+
+# def get_parent_chunk(parent_id: str) -> Optional[dict]:
+#     """
+#     Truy vấn parent chunk nằm bên trong mảng `chunks` của collection chunked_documents_2025.
+#     """
+#     doc = get_chunks_collection().find_one(
+#         {"chunks._id": parent_id}, 
+#         {"chunks.$": 1}
+#     )
+#     if doc and "chunks" in doc and len(doc["chunks"]) > 0:
+#         return doc["chunks"][0]
+#     return None
  
 def ensure_indexes() -> None:
     """
@@ -108,10 +123,19 @@ def get_chunks_by_ids(chunk_ids: list[str]) -> list[dict]:
     return [found[cid] for cid in chunk_ids if cid in found]
  
  
+# def get_parent_chunk(parent_id: str) -> Optional[dict]:
+#     """Mở rộng ngữ cảnh: lấy toàn bộ parent chunk (cả section) từ id của 1
+#     text_child/table đã match lúc retrieval."""
+    # return get_chunks_collection().find_one({"_id": parent_id})
 def get_parent_chunk(parent_id: str) -> Optional[dict]:
-    """Mở rộng ngữ cảnh: lấy toàn bộ parent chunk (cả section) từ id của 1
-    text_child/table đã match lúc retrieval."""
-    return get_chunks_collection().find_one({"_id": parent_id})
+    """Truy vấn chính xác parent chunk nằm trong mảng `chunks` lồng nhau."""
+    doc = get_chunks_collection().find_one(
+        {"chunks._id": parent_id},
+        {"chunks": {"$elemMatch": {"_id": parent_id}}}  # Chỉ trả về đúng element khớp parent_id
+    )
+    if doc and "chunks" in doc and len(doc["chunks"]) > 0:
+        return doc["chunks"][0]
+    return None
  
  
 def get_chunks_for_document(document_id: str, chunk_type: Optional[str] = None) -> list[dict]:

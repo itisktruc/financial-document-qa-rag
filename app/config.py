@@ -8,7 +8,8 @@ class Settings(BaseSettings):
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
 
-    MONGO_URI: str = os.getenv("MONGO_URI", "")
+    #MONGO_URI: str = os.getenv("MONGO_URI", "")
+    MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://admin:changeme@mongodb:27017")
     MONGO_DB: str = os.getenv("MONGO_DB", "financial_rag")
 
     QDRANT_URL: str = os.getenv("QDRANT_URL", "")
@@ -20,7 +21,6 @@ class Settings(BaseSettings):
     # Vector Database & Embedding
     #QDRANT_URL: str = os.getenv("QDRANT_URL", "http://localhost:6333")
 
-    #MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://admin:changeme@mongodb:27017")
     #MONGO_DB: str = os.getenv("MONGO_DB", "financial_rag")
 
     # Embedding & Reranker Models

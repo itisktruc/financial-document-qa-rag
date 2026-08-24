@@ -2,6 +2,7 @@ import os
 import json
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.http import models as qmodels
 
 # ==========================================
 # CẤU HÌNH QDRANT
@@ -11,7 +12,7 @@ QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 QDRANT_HOST = os.getenv("QDRANT_HOST")   # fallback cho ai vẫn chạy docker-compose local
 QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6333"))
 QDRANT_PATH = os.getenv("QDRANT_PATH", "./qdrant_db_storage")
-QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "fpt_bctc_blocks")
+QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "financial_chunks")
 VECTOR_SIZE = 1024
 
 # ==========================================
@@ -23,7 +24,29 @@ elif QDRANT_HOST:
     _client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
 else:
     _client = QdrantClient(path=QDRANT_PATH)
+
+def create_payload_indexes():
+    """Tạo Payload Index cho các trường cần dùng trong bộ lọc (Metadata Filter)."""
+    indexes = [
+        ("parent_id", qmodels.PayloadSchemaType.KEYWORD),
+        ("ticker", qmodels.PayloadSchemaType.KEYWORD),
+        ("year", qmodels.PayloadSchemaType.INTEGER),
+        ("doc_id", qmodels.PayloadSchemaType.KEYWORD),
+        ("company", qmodels.PayloadSchemaType.KEYWORD),
+    ]
     
+    for field_name, field_type in indexes:
+        try:
+            _client.create_payload_index(
+                collection_name=QDRANT_COLLECTION,
+                field_name=field_name,
+                field_schema=field_type,
+            )
+            print(f"[*] Đã khởi tạo Payload Index cho: {field_name}")
+        except Exception as e:
+            # Bỏ qua nếu index đã tồn tại
+            pass
+
 def init_collection():
     """Kiểm tra và tạo Collection nếu chưa tồn tại."""
     if not _client.collection_exists(collection_name=QDRANT_COLLECTION):
@@ -37,7 +60,7 @@ def init_collection():
         print(f"[*] Đã tạo mới collection: {QDRANT_COLLECTION}")
     else:
         print(f"[*] Collection '{QDRANT_COLLECTION}' đã sẵn sàng.")
-
+    create_payload_indexes()
 # Khởi tạo ngay khi module được import
 init_collection()
 
@@ -69,7 +92,7 @@ def store_in_qdrant(qdrant_points: list):
 # ==========================================
 # CÁC HÀM HỖ TRỢ TRUY VẤN (Tùy chọn)
 # ==========================================
-def search_similar_blocks(query_vector: list, limit: int = 5, filter_conditions=None):
+def search_similar_blocks(query_vector: list, limit: int = 5, filter_conditions=None, score_threshold: float = 0.0):
     """
     Truy vấn các block có vector tương đồng nhất với câu hỏi.
     (Dùng cho Bước 2 trong pipeline RAG).
@@ -84,7 +107,10 @@ def search_similar_blocks(query_vector: list, limit: int = 5, filter_conditions=
         collection_name=QDRANT_COLLECTION,
         query=query_vector,
         query_filter=filter_conditions,  # Thêm bộ lọc metadata nếu cần
-        limit=limit
+        limit=limit,
+        with_payload=True,     # [BỔ SUNG 1] Ép buộc lấy Metadata để trả về cho Mongo/Reranker
+        with_vectors=False,    # [BỔ SUNG 2] Bỏ qua mảng Vector (1024 float) để tiết kiệm băng thông
+        score_threshold=score_threshold if score_threshold > 0 else None
     )
     return response.points
 

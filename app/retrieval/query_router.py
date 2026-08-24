@@ -15,7 +15,9 @@ class QueryRouter:
             template="""Bạn là trợ lý phân loại câu hỏi cho hệ thống RAG tài chính.
 Hãy phân loại câu hỏi sau đây vào đúng 1 trong 3 nhóm:
 1. 'chitchat': Nếu là câu chào hỏi, xã giao, hoặc câu hỏi chung không liên quan đến dữ liệu tài chính (ví dụ: 'Chào bạn', 'Bạn tên gì?').
-2. 'financial_search': Nếu câu hỏi yêu cầu tra cứu thông tin báo cáo tài chính, doanh thu, lợi nhuận, chỉ số công ty (ví dụ: 'Doanh thu FPT năm 2023').
+2. 'financial_search': Nếu câu hỏi yêu cầu tra cứu thông tin báo cáo tài chính, doanh thu, lợi nhuận, chỉ số công ty (ví dụ: 'Doanh thu FPT năm 2023'),
+bất kỳ câu hỏi nào truy vấn dữ liệu, số liệu, trách nhiệm, báo cáo của MỘT CÔNG TY CỤ THỂ hoặc CÓ NĂM/QUÝ (Ví dụ: "Doanh thu FPT năm 2024", "Trách nhiệm Ban điều hành Công ty 32 năm 2025") thì cũng vào 
+nhánh financial_search và cần truy vấn.
 3. 'term_definition': hỏi về Ý NGHĨA/GIẢI THÍCH khái niệm của một thuật ngữ, từ viết tắt, khái niệm tài chính chung (ví dụ 'LNST là gì', 'ROE nghĩa là gì',
    'EPS được tính như thế nào') -- KHÔNG hỏi số liệu cụ thể của công ty nào.
 

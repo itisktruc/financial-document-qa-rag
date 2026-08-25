@@ -117,6 +117,10 @@ class HybridSearchPipeline:
             return {"type": "chitchat", "queries": [query], "metadata": {}}
         if route == "term_definition":
             return {"type": "term_definition", "original_query": query}
+        if route == "calculation":
+            # Không đi qua rewrite/RRF ở đây -- xử lý riêng bởi
+            # nhánh app.calculation.calculation_service.
+            return {"type": "calculation", "original_query": query}
         
         # 2. Rewrite & Extract Metadata
         extracted_info = self.rewriter.rewrite_and_extract_metadata(query)
@@ -305,6 +309,8 @@ class HybridSearchPipeline:
             return {"is_chitchat": True, "chunk_ids": [], "context": []}
         if prep["type"] == "term_definition":
             return {"is_chitchat": False, "is_definition": True, "chunk_ids": [], "context": []}
+        if prep["type"] == "calculation":
+            return {"is_chitchat": False, "is_definition": False, "is_calculation": True, "chunk_ids": [], "context": []}
  
         qdrant_filter = self._qdrant_filter(prep["metadata_filter"])
         print(f"[retrieve] metadata_filter trích được: {metadata_filter}")

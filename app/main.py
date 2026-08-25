@@ -8,6 +8,8 @@ from app.routers import documents
 from app.retrieval.hybrid_search import HybridSearchPipeline
 from app.retrieval.rag_pipeline import RAGController
 from app.generation.answer_generator import AnswerGenerator
+from app.calculation.calculation_service import CalculationService
+
 import uvicorn
 import traceback
 
@@ -20,6 +22,7 @@ app.include_router(documents.router)
 search_pipeline = None
 rag_controller = None
 answer_generator = None
+calculation_service = None      
 
 
 @app.get("/health")
@@ -44,7 +47,7 @@ def chat(request: ChatRequest):
     Endpoint chính: query -> Hybrid Search (BM25 + Dense + RRF + Rerank,
     xem app/retrieval/hybrid_search.py) -> generation.
     """
-    global rag_controller, answer_generator, search_pipeline
+    global rag_controller, answer_generator, search_pipeline, calculation_service
 
     # LAZY LOADING: chỉ khởi tạo khi có request đầu tiên tới /chat.
     #
@@ -73,6 +76,10 @@ def chat(request: ChatRequest):
         print("[*] Đang khởi tạo AnswerGenerator (GPT-4o-mini)")
         answer_generator = AnswerGenerator()
         print("Khởi tạo thành công toàn bộ RAG Pipeline!")
+
+    if calculation_service is None:                                   
+        print("[*] Đang khởi tạo CalculationService (Financial Calculator)")
+        calculation_service = CalculationService(search_pipeline=search_pipeline)
 
     raw_query = request.query
     session_id = request.session_id
@@ -109,7 +116,13 @@ def chat(request: ChatRequest):
                 citations=definition_answer["citations"]
             )
 
-        #Nhánh 3: Nhánh Finance Search
+        #Nhánh 3: Calculation 
+        if search_result.get("is_calculation", False):
+            print("Phân loại: CALCULATION")
+            calc_result = calculation_service.calculate(raw_query)
+            return ChatResponse(answer=calc_result.answer, citations=calc_result.citations)
+
+        #Nhánh 4 (nhánh chính): Nhánh Finance Search
         # Lấy danh sách ngữ cảnh (Parent Documents từ MongoDB đã qua Rerank)
         contexts = search_result.get("context", [])
         print(f"Truy xuất thành công {len(contexts)} đoạn văn bản ngữ cảnh liên quan.")
@@ -124,7 +137,7 @@ def chat(request: ChatRequest):
             answer=final_answer["answer"],
             citations=final_answer["citations"],
         )
-    
+
     except Exception as e:
         print(f"[-] Lỗi tại bước Query: {e}")
         traceback.print_exc()

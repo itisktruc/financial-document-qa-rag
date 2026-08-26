@@ -11,7 +11,6 @@ from __future__ import annotations
 import hashlib
 import logging
 import re
-import os
 from collections import defaultdict
 from typing import Any, Dict, List, Optional
 
@@ -25,10 +24,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://admin:changeme@mongodb:27017")
-DB_NAME = "financial_rag"
-SOURCE_COLLECTION = "documents_2025"
-DESTINATION_COLLECTION = "chunked_documents_2025"
+MONGO_URI = "mongodb://localhost:27017"
+DB_NAME = "financial_rag_corrected"
+SOURCE_COLLECTION = "documents"
 
 # Block types đưa vào chunk
 CONTENT_TYPES = {"paragraph", "list", "table"}
@@ -172,7 +170,7 @@ def build_parent(
         "year": meta.get("report_year"),
         "source_file": meta.get("source_file"),
         "child_count": len(children),
-       # "_is_corrected": True,
+        #"_is_corrected": True,
         "_batch_id": doc.get("_batch_id"),
     }
 
@@ -250,20 +248,15 @@ def chunk_document(doc: Dict[str, Any]) -> List[Dict[str, Any]]:
     return chunks
 
 
-# def ensure_indexes(col: Collection):
-#     col.create_index("doc_id")
-#     col.create_index("chunk_type")
-#     col.create_index("parent_id")
-#     col.create_index("company")
-#     col.create_index("ticker")
-#     col.create_index("year")
-#     col.create_index("section")
-#     col.create_index([("doc_id", 1), ("chunk_type", 1)])
-#     col.create_index([("ticker", 1), ("year", 1)])
-
 def ensure_indexes(col: Collection):
+    col.create_index("doc_id")
+    col.create_index("chunk_type")
+    col.create_index("parent_id")
+    col.create_index("company")
     col.create_index("ticker")
     col.create_index("year")
+    col.create_index("section")
+    col.create_index([("doc_id", 1), ("chunk_type", 1)])
     col.create_index([("ticker", 1), ("year", 1)])
 
 
@@ -274,60 +267,40 @@ def process(
 ):
     db = get_db()
     src = db[SOURCE_COLLECTION]
-    dest = db[DESTINATION_COLLECTION]
 
-    #query = {"_is_corrected": True}
-    query = {}
+    query = {"_is_corrected": True}
     cursor = src.find(query)
     if limit:
         cursor = cursor.limit(limit)
 
     # Buffer theo từng collection: { collection_name: [chunks...] }
-    # buffers: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
-    # indexed_collections: set = set()
-
-    buffers: List[Dict[str, Any]] = []
+    buffers: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    indexed_collections: set = set()
     total_docs = 0
+    total_chunks = 0
 
-    # total_docs = 0
-    # total_chunks = 0
+    def flush_all():
+        nonlocal total_chunks
+        for col_name, buf in list(buffers.items()):
+            if not buf:
+                continue
+            if dry_run:
+                logger.info("[dry-run] would upsert %d chunks → %s", len(buf), col_name)
+            else:
+                col = db[col_name]
+                if col_name not in indexed_collections:
+                    ensure_indexes(col)
+                    indexed_collections.add(col_name)
 
-    # def flush_all():
-    #     nonlocal total_chunks
-    #     for col_name, buf in list(buffers.items()):
-    #         if not buf:
-    #             continue
-    #         if dry_run:
-    #             logger.info("[dry-run] would upsert %d chunks → %s", len(buf), col_name)
-    #         else:
-    #             col = db[col_name]
-    #             if col_name not in indexed_collections:
-    #                 ensure_indexes(col)
-    #                 indexed_collections.add(col_name)
-
-    #             ops = [
-    #                 UpdateOne({"_id": c["_id"]}, {"$set": c}, upsert=True)
-    #                 for c in buf
-    #             ]
-    #             result = col.bulk_write(ops, ordered=False)
-    #             written = result.upserted_count + result.modified_count
-    #             total_chunks += written
-    #             logger.info("Wrote %d chunks → %s", written, col_name)
-    #         buffers[col_name] = []
-    def flush_buffer():
-        if not buffers:
-            return
-        if dry_run:
-            logger.info("[dry-run] would upsert %d files to %s", len(buffers), DESTINATION_COLLECTION)
-        else:
-            ensure_indexes(dest)
-            ops = [
-                UpdateOne({"_id": d["_id"]}, {"$set": d}, upsert=True) 
-                for d in buffers
-            ]
-            result = dest.bulk_write(ops, ordered=False)
-            logger.info("Wrote %d files to %s", len(buffers), DESTINATION_COLLECTION)
-        buffers.clear()
+                ops = [
+                    UpdateOne({"_id": c["_id"]}, {"$set": c}, upsert=True)
+                    for c in buf
+                ]
+                result = col.bulk_write(ops, ordered=False)
+                written = result.upserted_count + result.modified_count
+                total_chunks += written
+                logger.info("Wrote %d chunks → %s", written, col_name)
+            buffers[col_name] = []
 
     for doc in cursor:
         doc_chunks = chunk_document(doc)
@@ -337,47 +310,28 @@ def process(
 
         # Lấy ticker + year từ chunk đầu tiên (cùng doc thì giống nhau)
         sample = doc_chunks[0]
+        ticker = sample.get("ticker")
+        year = sample.get("year")
+        col_name = get_collection_name(ticker, year)
 
-        # ticker = sample.get("ticker")
-        # year = sample.get("year")
-        # col_name = get_collection_name(ticker, year)
-
-        # buffers[col_name].extend(doc_chunks)
-        # total_docs += 1
-
-        file_document = {
-            "_id": doc["_id"],
-            "ticker": sample.get("ticker"),
-            "year": sample.get("year"),
-            "company": sample.get("company"),
-            "source_file": sample.get("source_file"),
-            "chunks": doc_chunks 
-        }
-
-        buffers.append(file_document)
+        buffers[col_name].extend(doc_chunks)
         total_docs += 1
 
         if total_docs % 10 == 0:
             logger.info("Processed %d documents...", total_docs)
 
-        if len(buffers) >= batch_size:
-            flush_buffer()
-
-    flush_buffer()
-    logger.info("Done. Total files processed: %d", total_docs)
-
         # Flush khi tổng buffer vượt batch_size
-    #     total_buffered = sum(len(v) for v in buffers.values())
-    #     if total_buffered >= batch_size:
-    #         flush_all()
+        total_buffered = sum(len(v) for v in buffers.values())
+        if total_buffered >= batch_size:
+            flush_all()
 
-    # flush_all()
-    # logger.info(
-    #     "Done. Documents: %d | Chunks written: %d | Collections: %s",
-    #     total_docs,
-    #     total_chunks,
-    #     sorted(indexed_collections) if indexed_collections else "dry-run",
-    # )
+    flush_all()
+    logger.info(
+        "Done. Documents: %d | Chunks written: %d | Collections: %s",
+        total_docs,
+        total_chunks,
+        sorted(indexed_collections) if indexed_collections else "dry-run",
+    )
 
 
 if __name__ == "__main__":

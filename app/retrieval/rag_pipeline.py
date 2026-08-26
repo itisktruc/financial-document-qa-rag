@@ -39,4 +39,5 @@ class RAGController:
             "context": result.get("context", []),
             "is_chitchat": result.get("is_chitchat", False),
             "is_definition": result.get("is_definition", False),
+            "is_calculation": result.get("is_calculation", False),
         }

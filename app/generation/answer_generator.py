@@ -2,7 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from app.config import settings
 from app.retrieval.glossary import FINANCIAL_GLOSSARY
-from app.generation.citation import format_citation_label, format_citations_footer
+from app.generation.citation import format_citation_label, citations_filter
 from typing import List, Dict, Any
 
 class AnswerGenerator:
@@ -55,10 +55,6 @@ Câu trả lời của bạn:""",
             citations.append(citation)
  
         joined_context = "\n\n".join(numbered_blocks)
-        print("="*50)
-        print("[DEBUG CONTEXT SENT TO GPT]:")
-        print(joined_context[:1000]) # In 1000 ký tự đầu tiên
-        print("="*50)
  
         # Gửi Context (đã đánh số) và Query cho GPT-4o-mini
         response = self.chain.invoke({
@@ -66,10 +62,8 @@ Câu trả lời của bạn:""",
             "query": user_query,
         })
 
-        footer = format_citations_footer(citations)
-        final_answer = response.content + footer
-        
-        return {"answer": final_answer, "citations": citations}
+        used_citations = citations_filter(citations, response.content)
+        return {"answer": response.content, "citations": used_citations}
 
     def generate_definition(self, user_query: str) -> Dict[str, Any]:
         hint = next(

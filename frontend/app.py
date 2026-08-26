@@ -5,7 +5,6 @@ Gọi sang backend FastAPI qua BACKEND_URL (set trong docker-compose.yml).
 
 import os
 import uuid
-
 import requests
 import streamlit as st
 
@@ -32,6 +31,23 @@ def fetch_documents():
     except requests.exceptions.RequestException as e:
         st.error(f"Không lấy được danh sách tài liệu: {e}")
         return []
+
+def render_citations(citations: list) -> None:
+    """Dropdown citation -- MẶC ĐỊNH THU GỌN (expanded=False), chỉ hiện
+    danh sách nguồn khi người dùng bấm mũi tên mở ra. citations là
+    ChatResponse.citations từ backend, mỗi item đã có sẵn 'index' + 'label'."""
+    if not citations:
+        return
+    with st.expander(f"📎 Nguồn tham khảo ({len(citations)})", expanded=False):
+        for c in sorted(citations, key=lambda c: c.get("index", 0)):
+            label = c.get("label") or f"[{c.get('index', '?')}]"
+            section = c.get("section_path") or c.get("section")
+            section_str = ""
+            if isinstance(section, list) and section:
+                section_str = f" — *Mục: {' > '.join(str(s) for s in section)}*"
+            elif isinstance(section, str) and section:
+                section_str = f" — *Mục: {section}*"
+            st.markdown(f"**{label}**{section_str}")
  
 
 st.set_page_config(page_title="Financial RAG Chatbot", page_icon="💬", layout="wide")
@@ -144,6 +160,7 @@ st.title("💬 Financial RAG Chatbot")
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+        render_citations(msg.get("citations", []))
 
 query = st.chat_input("Hỏi về báo cáo tài chính, hợp đồng tín dụng, bản cáo bạch...")
 
@@ -153,6 +170,7 @@ if query:
         st.write(query)
 
     with st.chat_message("assistant"):
+        citations = []  # giá trị mặc định, đảm bảo luôn tồn tại kể cả khi request lỗi
         try:
             resp = requests.post(
                 f"{BACKEND_URL}/chat",
@@ -160,9 +178,12 @@ if query:
                 timeout=180,
             )
             resp.raise_for_status()
-            answer = resp.json().get("answer", "Không nhận được câu trả lời.")
+            data = resp.json()
+            answer = data.get("answer", "Không nhận được câu trả lời.")
+            citations = data.get("citations", [])
         except requests.exceptions.RequestException as e:
             answer = f"Lỗi kết nối tới backend: {e}"
 
         st.write(answer)
-        st.session_state.messages.append({"role": "assistant", "content": answer})
+        render_citations(citations)
+        st.session_state.messages.append({"role": "assistant", "content": answer, "citations": citations})

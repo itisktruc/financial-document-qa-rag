@@ -1,34 +1,23 @@
+from dotenv import load_dotenv
 import os
-from pydantic_settings import BaseSettings
 
+load_dotenv()
 
+# Mongo
+MONGO_URI_LOCAL = os.getenv("MONGO_URI_LOCAL", "mongodb://localhost:27017")
+MONGO_URI_CLOUD = os.getenv("MONGO_URI_CLOUD")
+MONGO_DB_DOCUMENTS = os.getenv("MONGO_DB_DOCUMENTS", "financial_rag")
+MONGO_DB_CHUNKS = os.getenv("MONGO_DB_CHUNKS", "financial_rag_corrected")
+DOCUMENTS_COLLECTION = os.getenv("DOCUMENTS_COLLECTION", "documents_2025")
 
-class Settings(BaseSettings):
-    # API Keys
-    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
-    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+# Qdrant
+QDRANT_URL = os.getenv("QDRANT_URL")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "financial_chunks")
+VECTOR_SIZE = 1024
 
-    #MONGO_URI: str = os.getenv("MONGO_URI", "")
-    MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://admin:changeme@mongodb:27017")
-    MONGO_DB: str = os.getenv("MONGO_DB", "financial_rag")
-
-    QDRANT_URL: str = os.getenv("QDRANT_URL", "")
-    QDRANT_API_KEY: str = os.getenv("QDRANT_API_KEY", "")   
-
-    #QDRANT_URL = os.getenv("QDRANT_URL")
-    #QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
-    
-    # Vector Database & Embedding
-    #QDRANT_URL: str = os.getenv("QDRANT_URL", "http://localhost:6333")
-
-    #MONGO_DB: str = os.getenv("MONGO_DB", "financial_rag")
-
-    # Embedding & Reranker Models
-    EMBEDDING_MODEL_NAME: str = "BAAI/bge-m3"  # BGE-M3 cực mạnh cho tiếng Việt
-    RERANKER_MODEL_NAME: str = "BAAI/bge-reranker-base"
-
-    class Config:
-        env_file = ".env"
-        extra = "ignore"
-
-settings = Settings()
+# Embedding
+EMBEDDING_MODEL_ID = os.getenv("EMBEDDING_MODEL_ID", "BAAI/bge-m3")
+EMBEDDING_BATCH_SIZE = int(os.getenv("EMBEDDING_BATCH_SIZE", "12"))
+EMBEDDING_MAX_LENGTH = int(os.getenv("EMBEDDING_MAX_LENGTH", "8192"))
+EMBEDDING_USE_FP16 = os.getenv("EMBEDDING_USE_FP16", "auto")

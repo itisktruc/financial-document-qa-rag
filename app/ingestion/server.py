@@ -5,13 +5,11 @@ from PIL import Image
 from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
 
 app = FastAPI()
-
-# 1. Load model và processor MỘT LẦN duy nhất khi khởi động server
-MODEL_ID = "Qwen/Qwen3-VL-4B-Instruct"  # Hoặc bản 4B/8B tùy VRAM bạn thuê
+MODEL_ID = "Qwen/Qwen3-VL-4B-Instruct"
 print(f"Đang tải model {MODEL_ID} lên GPU...")
 
 processor = AutoProcessor.from_pretrained(MODEL_ID)
-# Nếu dùng GPU khoẻ (như RTX 3090/4090), có thể load thẳng torch.bfloat16 để chạy cực nhanh
+
 model = Qwen3VLForConditionalGeneration.from_pretrained(
     MODEL_ID,
     torch_dtype=torch.bfloat16,

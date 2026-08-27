@@ -28,7 +28,7 @@ from app.services.embedding_client import (
     to_qdrant_points,
 )
 
-from app.services.qdrant_store import (
+from app.services.qdrant_service import (
     QDRANT_COLLECTION,
     search_similar_blocks,
     store_in_qdrant,

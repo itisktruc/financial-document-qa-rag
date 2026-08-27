@@ -9,7 +9,7 @@ from app.config import settings
 from functools import lru_cache
 from collections import defaultdict
 from app.services.embedding_client import embed_query
-from app.services.qdrant_store import search_similar_blocks
+from app.services.qdrant_service import search_similar_blocks
 from qdrant_client.http import models as qmodels
 from app.services.mongo_client import get_chunks_collection, get_parent_chunk
 

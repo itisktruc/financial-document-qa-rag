@@ -4,7 +4,7 @@ import shutil
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
 from app.models.document_schema import DocumentMetadata
 from app.services.mongo_client import get_documents_collection, get_chunks_collection, get_document, upsert_document
-from app.services.qdrant_store import _client as qdrant_client, QDRANT_COLLECTION
+from app.services.qdrant_service import _client as qdrant_client, QDRANT_COLLECTION
 from qdrant_client.models import Filter, FieldCondition, MatchValue
 
 router = APIRouter(prefix="/documents", tags=["documents"])

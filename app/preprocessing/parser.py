@@ -8,8 +8,6 @@ from .models import Page
 
 logger = logging.getLogger(__name__)
 
-# Matches lines like "===== PAGE 12 =====", tolerating extra/missing
-# whitespace and varying run lengths of '='.
 _PAGE_MARKER_RE = re.compile(
     r"^[ \t]*=+[ \t]*PAGE[ \t]+(\d+)[ \t]*=+[ \t]*$",
     re.MULTILINE | re.IGNORECASE,

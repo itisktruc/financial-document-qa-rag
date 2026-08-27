@@ -155,9 +155,6 @@ class Document:
     pages: list[Page]
     blocks: list[Block]
     metadata: DocumentMetadata
-    # Optional quality scorecard filled by the pipeline when quality
-    # accounting is enabled. Kept optional so callers that construct a
-    # Document manually (tests, partial pipelines) need not supply it.
     quality: Optional[object] = None
 
     def tables(self) -> list[TableBlock]:

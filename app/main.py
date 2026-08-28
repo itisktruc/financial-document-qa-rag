@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 import uvicorn
 
 from app.routers import documents
+from typing import Optional
 from app.retrieval.hybrid_search import HybridSearchPipeline
 from app.retrieval.rag_pipeline import RAGController
 from app.generation.answer_generator import AnswerGenerator
@@ -61,23 +62,47 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     answer: str
-    citations: List[Dict[str, Any]] = Field(default_factory=list)
-
-
-@app.get("/health", status_code=status.HTTP_200_OK)
-def health_check() -> Dict[str, str]:
-    return {"status": "ok"}
+    citations: list = []
+    intent: Optional[dict] = None
+    metric_spec: Optional[dict] = None
+    calculation: Optional[dict] = None
 
 
 @app.post("/chat", response_model=ChatResponse)
-def chat(request: ChatRequest) -> ChatResponse:
+def chat(request: ChatRequest):
+    """
+    Endpoint chính: query -> Hybrid Search (BM25 + Dense + RRF + Rerank,
+    xem app/retrieval/hybrid_search.py) -> generation.
+    """
+    global rag_controller, answer_generator, search_pipeline, calculation_service
+
+    if search_pipeline is None:
+        print("[*] Đang khởi tạo HybridSearchPipeline (Router, Rewriter, BM25, Dense, RRF, Rerank)")
+        search_pipeline = HybridSearchPipeline()
+
+    if rag_controller is None:
+        rag_controller = RAGController(pipeline=search_pipeline, top_k=10)
+
+    if answer_generator is None:
+        print("[*] Đang khởi tạo AnswerGenerator (GPT-4o-mini)")
+        answer_generator = AnswerGenerator()
+        print("Khởi tạo thành công toàn bộ RAG Pipeline!")
+
+    if calculation_service is None:                                   
+        print("[*] Đang khởi tạo CalculationService (Financial Calculator)")
+        calculation_service = CalculationService(search_pipeline=search_pipeline)
+
     raw_query = request.query
     session_id = request.session_id
 
     logger.info("[%s] Incoming query: '%s'", session_id, raw_query)
 
     try:
-        search_result = services.rag_controller.execute_search(raw_query)
+        # ==========================================
+        # NỬA ĐẦU: HYBRID SEARCH (BM25 + Dense + RRF + Rerank + Parent-expansion)
+        # ==========================================
+        print("Đang bắt đầu thực thi Hybrid Search & Rerank Pipeline")
+        search_result = rag_controller.execute_search(raw_query)
 
         # 1. Chitchat intent
         if search_result.get("is_chitchat", False):
@@ -100,13 +125,16 @@ def chat(request: ChatRequest) -> ChatResponse:
 
         # 3. Calculation intent
         if search_result.get("is_calculation", False):
-            calc_result = services.calculation_service.calculate(raw_query)
-            return ChatResponse(
-                answer=calc_result.answer,
-                citations=calc_result.citations,
-            )
+            print("Phân loại: CALCULATION")
+            calc_result = calculation_service.calculate(raw_query)
+            return ChatResponse(answer=calc_result.answer, citations=calc_result.citations,
+                                intent=calc_result.intent,
+                                metric_spec=calc_result.metric_spec,
+                                calculation=calc_result.calculation.model_dump() if calc_result.calculation else None,)
 
-        # 4. Standard RAG Search intent
+        #Nhánh 4 (nhánh chính): Nhánh Finance Search
+        print("Phân loại: Financial Search")
+        # Lấy danh sách ngữ cảnh (Parent Documents từ MongoDB đã qua Rerank)
         contexts = search_result.get("context", [])
         logger.info("[%s] Retrieved %d context items", session_id, len(contexts))
 

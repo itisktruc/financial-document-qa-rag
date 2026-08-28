@@ -40,26 +40,8 @@ def build_citation(matched_chunk_id: str, parent_doc: Dict[str, Any]) -> Dict[st
     đã dùng lúc ingest, đảm bảo nhất quán giữa metadata trong Qdrant payload
     và citation hiển thị ở đây (tránh 2 nơi suy metadata theo 2 cách khác nhau).
     """
-    # document_id = parent_doc.get("document_id", "") or ""
-    # meta = parent_doc.get("metadata", {}) or {}
-    # doc_meta = parse_document_metadata(
-    #     document_id, meta.get("source_file", ""), ticker_hint=meta.get("ticker")
-    #)
     doc_id = parent_doc.get("doc_id", "") or parent_doc.get("_id", "")
 
-    # return {
-    #     "chunk_id": matched_chunk_id,
-    #     "parent_id": parent_doc.get("_id"),
-    #     "document_id": document_id,
-    #     "company": doc_meta["company"],
-    #     "ticker": doc_meta["ticker"],
-    #     "year": doc_meta["year"],
-    #     "quarter": doc_meta["quarter"],
-    #     "document_type": doc_meta["document_type"],
-    #     "section_path": parent_doc.get("section_path", []),
-    #     "page_start": parent_doc.get("page_start"),
-    #     "page_end": parent_doc.get("page_end"),
-    # }
     return {
         "chunk_id": matched_chunk_id,
         "parent_id": parent_doc.get("_id"),
@@ -82,24 +64,6 @@ def format_citation_label(citation: Dict[str, Any], index: int) -> str:
     '[2] HPG - Báo cáo tài chính quý 2024 (Q2), trang 5-6'
     '[3] VNM_BCTC_2023 (không rõ loại tài liệu)'  -- fallback khi thiếu metadata
     """
-    # parts = []
-    # if citation.get("company"):
-    #     parts.append(str(citation["company"]))
-    # elif citation.get("ticker"):
-    #     parts.append(str(citation["ticker"]))
-
-    # doc_label = _DOC_TYPE_LABELS.get(citation.get("document_type"), "")
-    # year = citation.get("year")
-    # quarter = citation.get("quarter")
-    # if doc_label or year:
-    #     time_part = doc_label
-    #     if year:
-    #         time_part = f"{time_part} {year}" if time_part else str(year)
-    #     if quarter:
-    #         time_part += f" (Q{quarter})"
-    #     parts.append(time_part)
-
-    # label = " - ".join(p for p in parts if p) or citation.get("document_id") or "Không rõ nguồn"
     """Tạo nhãn trích dẫn dạng: [1] A32_BaoCaoTaiChinh_2025.pdf (Trang 11)"""
     file_path = citation.get("source_file") or citation.get("doc_id", "Tài liệu không tên")
     file_name = clean_source_filename(str(file_path))
@@ -151,5 +115,10 @@ def citations_filter(
     giữ nguyên toàn bộ, tránh mất nguồn."""
     cited = extract_cited_indices(answer_text)
     if not cited:
+        print(f"[Citation] LLM không chèn ký hiệu [n] nào trong câu trả lời, "
+              f"giữ nguyên toàn bộ {len(citations)} citation.")
         return citations
-    return [c for c in citations if c.get("index") in cited]
+    kept_citation = [c for c in citations if c.get("index") in cited]
+    print(f"[Citation] LLM trích dẫn được {sorted(cited)} trên tổng {len(citations)} nguồn,"
+          f"giữ lại {len(kept_citation)} citation.")
+    return kept_citation

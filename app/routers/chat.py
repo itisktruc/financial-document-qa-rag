@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 # Import RAGPipeline đã khởi tạo ở file dependency của bạn
-# from app.dependencies import get_rag_pipeline 
+#from app.dependencies import get_rag_pipeline 
 
 router = APIRouter()
 
@@ -12,7 +12,7 @@ class ChatRequest(BaseModel):
 @router.post("/api/v1/chat")
 async def chat_endpoint(request: ChatRequest):
     # Khởi tạo hoặc lấy instance RAGPipeline
-    # rag = get_rag_pipeline()
+    #rag = get_rag_pipeline()
     
     # Hàm generator để stream
     def event_stream():

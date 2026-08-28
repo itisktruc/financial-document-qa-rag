@@ -48,7 +48,38 @@ def render_citations(citations: list) -> None:
             elif isinstance(section, str) and section:
                 section_str = f" — *Mục: {section}*"
             st.markdown(f"**{label}**{section_str}")
- 
+
+def render_intent(intent: dict | None) -> None:
+    """Dropdown hiện CalculationIntent -- BƯỚC ĐẦU của quy trình Calculation
+    (metric_key/ticker/year/quarter LLM trích xuất từ câu hỏi). Set kể cả
+    khi metric_key không khớp được gì, nên có thể xuất hiện dù answer báo
+    lỗi -- hữu ích để người dùng/dev thấy hệ thống đã hiểu câu hỏi thế nào."""
+    if not intent:
+        return
+    with st.expander("Đầu vào đã trích xuất (CalculationIntent)", expanded=False):
+        st.json(intent)
+
+def render_metric_spec(metric_spec: dict | None) -> None:
+    """Dropdown hiện cấu trúc JSON của công thức đang dùng (formula/steps +
+    required_metrics) -- CHỈ xuất hiện ở câu trả lời thuộc nhánh
+    Calculation (backend chỉ set metric_spec khi đó, xem app/main.py).
+    Mục đích: cho người dùng thấy rõ hệ thống tính bằng công thức nào và
+    cần những số liệu thô nào, không phải LLM tự bịa ra kết quả."""
+    if not metric_spec:
+        return
+    metric_key = next(iter(metric_spec.keys()), "")
+    with st.expander(f"Công thức tính toán ({metric_key})", expanded=False):
+        st.json(metric_spec)
+
+def render_calculation_output(calculation: dict | None) -> None:
+    """Dropdown hiện CalculationOutput -- BƯỚC CUỐI của quy trình
+    Calculation: formula ĐÃ THAY SỐ, từng operand kèm nguồn/trang, và result.
+    Chỉ có giá trị khi tính THÀNH CÔNG (thiếu dữ liệu/lỗi công thức thì
+    backend trả calculation=None, dropdown này sẽ không hiện)."""
+    if not calculation:
+        return
+    with st.expander("Kết quả tính toán (CalculationOutput)", expanded=False):
+        st.json(calculation)
 
 st.set_page_config(page_title="Financial RAG Chatbot", page_icon="💬", layout="wide")
 
@@ -97,8 +128,16 @@ with st.sidebar:
     filter_quarter = st.selectbox("Quý", QUARTER_OPTIONS)
  
     all_docs = fetch_documents()
- 
-    filtered_docs = all_docs
+
+    valid_docs = [
+        d for d in all_docs
+        if d.get("document_id") 
+        and d.get("file_name") 
+        and str(d.get("document_id")).lower() != "none" 
+        and str(d.get("file_name")).lower() != "none"
+    ]
+
+    filtered_docs = valid_docs
     if filter_company != "Tất cả":
         filtered_docs = [d for d in filtered_docs if d.get("company") == filter_company]
     if filter_doc_type != "Tất cả":
@@ -111,7 +150,7 @@ with st.sidebar:
         else:
             filtered_docs = [d for d in filtered_docs if d.get("quarter") == filter_quarter]
  
-    st.caption(f"📄 {len(filtered_docs)} / {len(all_docs)} tài liệu phù hợp")
+    st.caption(f"📄 {len(filtered_docs)} / {len(valid_docs)} tài liệu phù hợp")
  
     if st.button("🔄 Làm mới danh sách"):
         st.rerun()
@@ -122,15 +161,15 @@ with st.sidebar:
         st.info("Không tìm thấy tài liệu phù hợp.")
 
     #Xóa tài liệu
-    if all_docs:
-        st.sidebar.markdown("---")
-        st.sidebar.subheader("🗑️ Xóa tài liệu")
-    
     # Tạo danh sách ánh xạ: "Tên file (ID)" -> document_id
     doc_options = {
         f"{doc.get('file_name', 'Unamed')} ({doc['document_id']})": doc['document_id']
-        for doc in all_docs if "document_id" in doc
+        for doc in valid_docs if "document_id" in doc
     }
+
+    if doc_options:
+        st.sidebar.markdown("---")
+        st.sidebar.subheader("🗑️ Xóa tài liệu")
     
     # UI: Menu chọn tài liệu
     selected_label = st.sidebar.selectbox(
@@ -160,6 +199,9 @@ st.title("💬 Financial RAG Chatbot")
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
+        render_intent(msg.get("intent"))
+        render_metric_spec(msg.get("metric_spec"))
+        render_calculation_output(msg.get("calculation"))
         render_citations(msg.get("citations", []))
 
 query = st.chat_input("Hỏi về báo cáo tài chính, hợp đồng tín dụng, bản cáo bạch...")
@@ -171,6 +213,9 @@ if query:
 
     with st.chat_message("assistant"):
         citations = []  # giá trị mặc định, đảm bảo luôn tồn tại kể cả khi request lỗi
+        intent = None          # bước 1: CalculationIntent -- chỉ có ở nhánh Calculation
+        metric_spec = None     # bước 2: công thức/required_metrics
+        calculation = None     # bước 3: CalculationOutput (kết quả cuối)
         try:
             resp = requests.post(
                 f"{BACKEND_URL}/chat",
@@ -181,9 +226,21 @@ if query:
             data = resp.json()
             answer = data.get("answer", "Không nhận được câu trả lời.")
             citations = data.get("citations", [])
+            intent = data.get("intent")
+            metric_spec = data.get("metric_spec")
+            calculation = data.get("calculation")
         except requests.exceptions.RequestException as e:
             answer = f"Lỗi kết nối tới backend: {e}"
 
         st.write(answer)
+        render_intent(intent)
+        render_metric_spec(metric_spec)
+        render_calculation_output(calculation)
         render_citations(citations)
-        st.session_state.messages.append({"role": "assistant", "content": answer, "citations": citations})
+        st.session_state.messages.append({
+            "role": "assistant", 
+            "content": answer, 
+            "intent": intent,
+            "metric_spec": metric_spec,
+            "calculation": calculation,
+            "citations": citations})

@@ -61,6 +61,22 @@ class MetricFormulaSpec(BaseModel):
                 "'formula' (đơn bước) hoặc 'steps' (nhiều bước)."
             )
         return self
+    
+    def display_json(self, metric_key: str) -> dict:
+        """Trả về đúng 2 giá trị cần hiển thị lên UI khi vào nhánh
+        Calculation: công thức thực sự dùng (formula HOẶC steps -- KHÔNG
+        rút gọn ROE/ROA thành 1 formula giả vì sẽ che giấu bước tính bình
+        quân) + required_metrics (những số liệu thô hệ thống cần tra cứu).
+        Dạng: {"<metric_key>": {"formula"|"steps": ..., "required_metrics": [...]}}.
+        """
+        if self.formula:
+            body = {"formula": self.formula, "required_metrics": self.required_metrics}
+        else:
+            body = {
+                "steps": [s.model_dump() for s in self.steps],
+                "required_metrics": self.required_metrics,
+            }
+        return {metric_key: body}
 
 class CalculationIntent(BaseModel):
     metric_key: Optional[str] = None
@@ -76,3 +92,5 @@ class CalculationResponse(BaseModel):
     answer: str
     calculation: Optional[CalculationOutput] = None
     citations: list = Field(default_factory=list)
+    intent: Optional[dict] = None
+    metric_spec: Optional[dict] = None

@@ -5,6 +5,7 @@ FastAPI entrypoint cho Financial RAG Chatbot backend.
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.routers import documents
+from typing import Optional
 from app.retrieval.hybrid_search import HybridSearchPipeline
 from app.retrieval.rag_pipeline import RAGController
 from app.generation.answer_generator import AnswerGenerator
@@ -39,6 +40,9 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     citations: list = []
+    intent: Optional[dict] = None
+    metric_spec: Optional[dict] = None
+    calculation: Optional[dict] = None
 
 
 @app.post("/chat", response_model=ChatResponse)
@@ -49,22 +53,6 @@ def chat(request: ChatRequest):
     """
     global rag_controller, answer_generator, search_pipeline, calculation_service
 
-    # LAZY LOADING: chỉ khởi tạo khi có request đầu tiên tới /chat.
-    #
-    # QUAN TRỌNG (khác bản cũ): KHÔNG còn tự tạo QdrantClient/MongoClient
-    # riêng ở đây nữa. HybridSearchPipeline tự lo toàn bộ kết nối bên trong
-    # nó (Qdrant qua app.services.qdrant_store, MongoDB qua
-    # app.services.mongo_client, embedding qua app.services.embedding_client).
-    #
-    # Bản cũ tạo 1 QdrantClient riêng trong main.py rồi set alias
-    # "financial_rag" -> "fpt_bctc_blocks" để rag_pipeline.py query theo tên
-    # alias đó -- trong khi qdrant_store.py (dùng cho cả bước ingestion lẫn
-    # bước dense-search mới trong hybrid_search.py) lại trỏ thẳng vào
-    # QDRANT_COLLECTION (biến môi trường, mặc định "fpt_bctc_blocks") của
-    # RIÊNG NÓ. Hai client trỏ 2 "tên" khác nhau cho cùng 1 collection là
-    # nguồn dễ gây lệch dữ liệu nếu sau này đổi 1 bên mà quên đổi bên kia.
-    # Giờ mọi thứ đi qua đúng 1 client Qdrant / 1 client Mongo duy nhất
-    # (định nghĩa trong qdrant_store.py / mongo_client.py), không cần alias.
     if search_pipeline is None:
         print("[*] Đang khởi tạo HybridSearchPipeline (Router, Rewriter, BM25, Dense, RRF, Rerank)")
         search_pipeline = HybridSearchPipeline()
@@ -91,7 +79,7 @@ def chat(request: ChatRequest):
         # ==========================================
         # NỬA ĐẦU: HYBRID SEARCH (BM25 + Dense + RRF + Rerank + Parent-expansion)
         # ==========================================
-        print("Đang thực thi Hybrid Search & Rerank Pipeline")
+        print("Đang bắt đầu thực thi Hybrid Search & Rerank Pipeline")
         search_result = rag_controller.execute_search(raw_query)
 
         # Nhánh 1: CHITCHAT (Câu hỏi giao tiếp thông thường)
@@ -120,9 +108,13 @@ def chat(request: ChatRequest):
         if search_result.get("is_calculation", False):
             print("Phân loại: CALCULATION")
             calc_result = calculation_service.calculate(raw_query)
-            return ChatResponse(answer=calc_result.answer, citations=calc_result.citations)
+            return ChatResponse(answer=calc_result.answer, citations=calc_result.citations,
+                                intent=calc_result.intent,
+                                metric_spec=calc_result.metric_spec,
+                                calculation=calc_result.calculation.model_dump() if calc_result.calculation else None,)
 
         #Nhánh 4 (nhánh chính): Nhánh Finance Search
+        print("Phân loại: Financial Search")
         # Lấy danh sách ngữ cảnh (Parent Documents từ MongoDB đã qua Rerank)
         contexts = search_result.get("context", [])
         print(f"Truy xuất thành công {len(contexts)} đoạn văn bản ngữ cảnh liên quan.")

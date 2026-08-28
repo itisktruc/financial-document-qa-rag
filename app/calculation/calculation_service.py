@@ -23,7 +23,7 @@ from langchain_core.prompts import PromptTemplate
 
 from app.config import settings
 from app.calculation.metrics import METRIC_FORMULAS, compute_metric_from_operands, FormulaError, get_metric_spec
-from app.models.calculation_schema import CalculationIntent, CalculationResponse, OperandDetail
+from app.models.calculation_schema import CalculationIntent, CalculationResponse, OperandDetail, MetricFormulaSpec
 from app.generation.citation import format_citation_label, clean_source_filename
 from app.services.mongo_client import get_parent_chunk
 from app.calculation.calculation_formatter import format_calculation_answer
@@ -51,6 +51,11 @@ FIELD_LABELS: dict[str, str] = {
     "average_total_assets": "Tổng tài sản bình quân",
 }
 
+def _normalize_cid(cid: Any) -> str:
+    """Chuẩn hoá chunk_id/parent_id về dạng hex thô không gạch ngang (đồng bộ với MongoDB)."""
+    if not cid:
+        return ""
+    return str(cid).replace("-", "").strip()
 
 def _clean_filename(source_file: str) -> str:
     """Chỉ lấy tên file (không path), khớp docstring của OperandDetail.source."""
@@ -108,7 +113,7 @@ JSON Output:""",
         chain = self.intent_prompt | self.intent_llm
         raw = chain.invoke({"query": query, "metric_list": self._metric_list_text()}).content.strip()
         data = self._safe_json(raw) or {}
-        return CalculationIntent(
+        intent = CalculationIntent(
             metric_key=data.get("metric_key"),
             ticker=(data.get("ticker") or None),
             year=data.get("year"),
@@ -117,23 +122,26 @@ JSON Output:""",
             compare_quarter=data.get("compare_quarter"),
             raw_query=query,
         )
+        print(f"[Calculation] Intent trích được: metric={intent.metric_key}, ticker={intent.ticker}, "
+              f"year={intent.year}, quarter={intent.quarter}")
+        return intent
 
     def _fetch_operand(self, field: str, intent: CalculationIntent, period_label: str) -> tuple[Optional[OperandDetail], list[dict]]:
         field_label = FIELD_LABELS.get(field, field)
         search_query = f"{field_label} {period_label}".strip()
 
         metadata_filter = {"ticker": intent.ticker, "year": intent.year}
-        qdrant_filter = self.search_pipeline._qdrant_filter(metadata_filter)
+        print(f"[Calculation] Đang tra cứu '{field_label}' | filter ticker={intent.ticker}, year={intent.year}")
 
-        RRF_ids, content_lookup = self.search_pipeline.RRF_fuse(
-            [search_query], qdrant_filter=qdrant_filter, metadata_filter=metadata_filter
-        )
+        RRF_ids, content_lookup = self.search_pipeline.RRF_fuse([search_query], metadata_filter=metadata_filter)
         top_ids = self.search_pipeline.rerank(search_query, RRF_ids, content_lookup, top_k=5)
+        print(f"[Calculation] '{field_label}': còn lại {len(RRF_ids)} chunk sau RRF, giữ được {len(top_ids)} sau rerank")
 
         contexts, seen_parents = [], set()
         for cid in top_ids:
-            info = content_lookup.get(cid, {})
-            parent_id = info.get("parent_id") or cid
+            norm_cid = _normalize_cid(cid)
+            info = content_lookup.get(norm_cid, {})
+            parent_id = _normalize_cid(info.get("parent_id")) or norm_cid
             if parent_id in seen_parents:
                 continue
             seen_parents.add(parent_id)
@@ -151,11 +159,12 @@ JSON Output:""",
                 }
             else:
                 text_content = info.get("content", "")
-                citation_info = {"doc_id": cid, "source_file": "Báo cáo tài chính"}
+                citation_info = {"doc_id": norm_cid, "source_file": "Báo cáo tài chính"}
             if text_content:
                 contexts.append({"content": text_content, "citation": citation_info})
 
         if not contexts:
+            print(f"[Calculation] '{field_label}': không tìm thấy ngữ cảnh nào phù hợp, bỏ qua field này.")
             return None, []
 
         numbered_blocks, citations = [], []
@@ -189,10 +198,12 @@ JSON Output:""",
 
         value = data.get("value")
         if value is None:
+            print(f"[Calculation] '{field_label}': LLM trích xuất trả về null (không tìm thấy số liệu trong ngữ cảnh).")
             return None, citations
         try:
             value = float(value)
         except (TypeError, ValueError):
+            print(f"[Calculation] '{field_label}': Giá trị trích xuất không hợp lệ ({value!r}), bỏ qua field này.")
             return None, citations
 
         source_index = data.get("source_index")
@@ -206,18 +217,26 @@ JSON Output:""",
             page=chosen.get("page_start"),
             table=data.get("table") or chosen.get("section"),
         )
+        print(f"[Calculation] '{field_label}': giá trị trích được = {value} (nguồn: {operand.source}, trang {operand.page})")
         return operand, citations
 
 
     def calculate(self, query: str) -> CalculationResponse:
+        print(f"[Calculation] Bắt đầu xử lý câu hỏi loại calculation: {query!r}")
         intent = self.extract_intent(query)
+
+        intent_json = intent.model_dump()
         spec = get_metric_spec(intent.metric_key)
         if spec is None:
+            print(f"[Calculation] Không khớp được metric_key nào trong registry (intent.metric_key={intent.metric_key!r}).")
             return CalculationResponse(
                 answer=("Mình chưa xác định được chính xác chỉ số tài chính bạn muốn tính. "
                         "Bạn có thể hỏi lại rõ hơn, ví dụ: 'Tính ROE của FPT năm 2024' nhé."),
                 result=None, citations=[],
+                intent=intent_json,
             )
+        metric_spec_json = spec.display_json(intent.metric_key)
+        print(f"[Calculation] Công thức sẽ dùng: {metric_spec_json}")
 
         period_label = ""
         if intent.quarter and intent.year:
@@ -236,16 +255,19 @@ JSON Output:""",
             all_citations.extend(used_citations)
 
         if missing_fields:
+            print(f"[Calculation] Thiếu operand: {missing_fields}, không đủ dữ liệu để tính {spec.name_vi}.")
             ticker_part = f"cho {intent.ticker} " if intent.ticker else ""
             return CalculationResponse(
                 answer=(f"Không tìm đủ dữ liệu trong hệ thống để tính {spec.name_vi} "
                         f"{ticker_part}{period_label}. Thiếu: {', '.join(missing_fields)}."),
                 result=None, citations=all_citations,
+                metric_spec=metric_spec_json,
+                intent=intent_json,
             )
 
         deduped_citations, seen_labels = [], set()
         for c in all_citations:
-            key = (c.get("document_id") or c.get("doc_id"), c.get("page_start"))
+            key = (c.get("doc_id"), c.get("page_start"))
             if key in seen_labels:
                 continue
             seen_labels.add(key)
@@ -260,7 +282,11 @@ JSON Output:""",
             return CalculationResponse(
                 answer=f"Không thể tính {spec.name_vi}: {e}",
                 calculation=None, citations=deduped_citations,
+                metric_spec=metric_spec_json,
+                intent=intent_json,
             )
+        print(f"[Calculation] Kết quả {spec.name_vi} = {output.result} {spec.unit} "
+              f"(công thức: {output.formula})")
 
         answer = format_calculation_answer(
         metric_label=spec.name_vi,
@@ -271,4 +297,4 @@ JSON Output:""",
         field_labels=FIELD_LABELS,
         )
 
-        return CalculationResponse(answer=answer, calculation=output, citations=deduped_citations)
+        return CalculationResponse(answer=answer, calculation=output, citations=deduped_citations, metric_spec=metric_spec_json, intent=intent_json)

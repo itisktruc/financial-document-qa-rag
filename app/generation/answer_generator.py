@@ -42,6 +42,7 @@ Câu trả lời của bạn:""",
                 "answer": "Hệ thống chưa có báo cáo tài chính khớp với bộ lọc (Công ty/Năm) hoặc nội dung bạn tìm kiếm.",
                 "citations": [],
             }
+        print(f"[Generation] Đang tổng hợp câu trả lời từ {len(retrieved_contexts)} đoạn ngữ cảnh (GPT-4o-mini)")
             
         # Gộp tất cả các Parent Document lại thành một chuỗi lớn
         numbered_blocks: List[str] = []
@@ -63,6 +64,8 @@ Câu trả lời của bạn:""",
         })
 
         used_citations = citations_filter(citations, response.content)
+        print(f"[Generation] Sinh câu trả lời xong ({len(response.content)} ký tự), "
+              f"{len(used_citations)}/{len(citations)} citation được giữ lại.")
         return {"answer": response.content, "citations": used_citations}
 
     def generate_definition(self, user_query: str) -> Dict[str, Any]:
@@ -70,6 +73,7 @@ Câu trả lời của bạn:""",
             (f"{abbr}: {full}" for abbr, full in FINANCIAL_GLOSSARY.items() if abbr.lower() in user_query.lower()),
             None,
         )
+        print(f"[Generation] Câu hỏi định nghĩa: {user_query!r} về glossary: {hint}")
         prompt = f"""Bạn là chuyên gia tài chính. Hãy giải thích ngắn gọn, dễ hiểu khái niệm và từ viết tắt của các thuật ngữ tài chính
         {f"Gợi ý: {hint}" if hint else ""}
         Câu hỏi: {user_query}

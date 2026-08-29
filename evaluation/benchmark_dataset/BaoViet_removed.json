@@ -1,0 +1,122 @@
+[
+
+  {
+    "question": "Tổng tài sản hợp nhất của BIDV tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td></td><td>TỔNG TÀI SẢN</td><td></td><td>3.330.825.720</td><td>2.760.906.964</td></tr>"
+    ],
+    "ground_truth": "Tổng tài sản hợp nhất của Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV) tại ngày 31/12/2025 là 3.330.825.720 triệu VND (khoảng 3.330.825,7 tỷ đồng), so với 2.760.906.964 triệu VND tại đầu năm (đã trình bày lại).",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "So sánh Tổng tài sản hợp nhất và Tổng tài sản riêng lẻ (báo cáo công ty mẹ) của BIDV tại ngày 31/12/2025, chênh lệch là bao nhiêu?",
+    "contexts": [
+      "<tr><td></td><td>TỔNG TÀI SẢN</td><td></td><td>3.330.825.720</td><td>2.760.906.964</td></tr>",
+      "<tr><td></td><td>TỔNG TÀI SẢN</td><td></td><td>3.265.518.922</td><td>2.709.397.390</td></tr>"
+    ],
+    "ground_truth": "Tổng tài sản hợp nhất của BIDV tại 31/12/2025 là 3.330.825.720 triệu VND, trong khi Tổng tài sản riêng lẻ (báo cáo công ty mẹ) là 3.265.518.922 triệu VND. Chênh lệch giữa hai con số này là 65.306.798 triệu VND, phản ánh phần tài sản đóng góp thêm từ các công ty con khi hợp nhất báo cáo tài chính.",
+    "evolution_type": "multi-context"
+  },
+  {
+    "question": "Lợi nhuận sau thuế hợp nhất của BIDV năm 2025 được phân bổ như thế nào giữa Ngân hàng mẹ và cổ đông không kiểm soát?",
+    "contexts": [
+      "<tr><td rowspan=\"4\">XIII.</td><td>Lợi nhuận sau thuế</td><td></td><td>30.430.130</td><td>25.677.118</td></tr><tr><td>Phân bổ (lãi) cho cổ đông không kiểm soát</td><td></td><td>(525.866)</td><td>(465.069)</td></tr><tr><td>Lợi nhuận thuần của Ngân hàng mẹ</td><td></td><td>29.904.264</td><td>25.212.049</td></tr>"
+    ],
+    "ground_truth": "Tổng lợi nhuận sau thuế hợp nhất của BIDV năm 2025 là 30.430.130 triệu VND. Trong đó, phần phân bổ cho cổ đông không kiểm soát là 525.866 triệu VND, và lợi nhuận thuần thuộc về Ngân hàng mẹ là 29.904.264 triệu VND.",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "Giả sử BIDV không có các công ty con và các khoản điều chỉnh hợp nhất, chỉ tính riêng Ngân hàng mẹ, thì Tổng lợi nhuận trước thuế của Ngân hàng mẹ năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Tổng lợi nhuận kế toán trước thuế</td><td>37.787.518</td><td>32.076.221</td></tr><tr><td>- Lợi nhuận trước thuế của các công ty con</td><td>(1.533.565)</td><td>(1.218.197)</td></tr><tr><td>- Các khoản điều chỉnh hợp nhất</td><td>(745.107)</td><td>(160.153)</td></tr><tr><td>Lợi nhuận trước thuế của Ngân hàng mẹ</td><td>35.508.846</td><td>30.697.871</td></tr>"
+    ],
+    "ground_truth": "Nếu loại trừ lợi nhuận trước thuế của các công ty con (1.533.565 triệu VND) và các khoản điều chỉnh hợp nhất (745.107 triệu VND) khỏi Tổng lợi nhuận kế toán trước thuế hợp nhất (37.787.518 triệu VND), thì Lợi nhuận trước thuế riêng của Ngân hàng mẹ BIDV năm 2025 là 35.508.846 triệu VND.",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Tổng lợi nhuận trước thuế hợp nhất của BIDV năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>XI.</td><td>Tổng lợi nhuận trước thuế</td><td></td><td>37.787.518</td><td>32.076.221</td></tr>"
+    ],
+    "ground_truth": "Tổng lợi nhuận trước thuế hợp nhất của BIDV năm 2025 là 37.787.518 triệu VND, tăng so với 32.076.221 triệu VND của năm 2024.",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tổng tài sản hợp nhất của Agribank tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "TỔNG TÀI SẢN\n\n<table><tr><td>2.686.597.826</td><td>2.234.854.221</td></tr></table>"
+    ],
+    "ground_truth": "Tổng tài sản hợp nhất của Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam (Agribank) tại ngày 31/12/2025 là 2.686.597.826 triệu VND, so với 2.234.854.221 triệu VND tại ngày 31/12/2024.",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Vốn điều lệ của Agribank tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>a</td><td>Vốn điều lệ</td><td>51.638.603</td><td>51.638.603</td></tr>"
+    ],
+    "ground_truth": "Vốn điều lệ của Agribank tại ngày 31/12/2025 là 51.638.603 triệu VND, không đổi so với cuối năm 2024.",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "So sánh Lợi nhuận sau thuế hợp nhất và Lợi nhuận sau thuế riêng lẻ (báo cáo công ty mẹ) của Agribank năm 2025.",
+    "contexts": [
+      "<tr><td>XIII</td><td>Lợi nhuận sau thuế(mang sang trang sau)</td><td>24.954.573</td><td>22.067.275</td></tr>",
+      "<tr><td>XIII</td><td>Lợi nhuận sau thuế</td><td>24.534.691</td><td>21.884.431</td></tr>"
+    ],
+    "ground_truth": "Năm 2025, Lợi nhuận sau thuế hợp nhất của Agribank là 24.954.573 triệu VND, trong khi Lợi nhuận sau thuế riêng lẻ (báo cáo công ty mẹ) là 24.534.691 triệu VND. Lợi nhuận hợp nhất cao hơn lợi nhuận riêng lẻ 419.882 triệu VND, chủ yếu nhờ đóng góp lợi nhuận từ các công ty con hợp nhất vào báo cáo tài chính.",
+    "evolution_type": "multi-context"
+  },
+  {
+    "question": "Nếu Chi phí dự phòng rủi ro tín dụng của Agribank hợp nhất năm 2025 giảm 50% so với mức thực tế, thì Tổng lợi nhuận trước thuế ước tính sẽ là bao nhiêu?",
+    "contexts": [
+      "<tr><td>IX</td><td>Lợi nhuận thuần từ hoạt động kinh doanh trước chi phí dự phòng rủi ro tín dụng</td><td>62.977.814</td><td>54.233.062</td></tr><tr><td>X</td><td>Chi phí dự phòng rủi ro tín dụng</td><td>(31.808.213)</td><td>(26.658.287)</td></tr><tr><td>XI</td><td>Tổng lợi nhuận trước thuế</td><td>31.169.601</td><td>27.574.775</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận thuần từ hoạt động kinh doanh trước chi phí dự phòng rủi ro tín dụng của Agribank năm 2025 (hợp nhất) là 62.977.814 triệu VND, và chi phí dự phòng rủi ro tín dụng thực tế là 31.808.213 triệu VND, dẫn đến Tổng lợi nhuận trước thuế thực tế là 31.169.601 triệu VND. Nếu chi phí dự phòng rủi ro tín dụng giảm 50% (còn khoảng 15.904.106,5 triệu VND), Tổng lợi nhuận trước thuế ước tính sẽ tăng lên khoảng 47.073.707,5 triệu VND (62.977.814 − 15.904.106,5).",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Tổng tài sản hợp nhất của ACB tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td></td><td>TỔNG TÀI SẢN</td><td></td><td>1.025.850.127</td><td>864.005.703</td></tr>"
+    ],
+    "ground_truth": "Tổng tài sản hợp nhất của Ngân hàng TMCP Á Châu (ACB) tại ngày 31/12/2025 là 1.025.850.127 triệu VND, tăng so với 864.005.703 triệu VND tại ngày 31/12/2024.",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Ai đã ký báo cáo kiểm toán độc lập cho báo cáo tài chính hợp nhất của ACB năm 2025, và công ty kiểm toán đưa ra ý kiến gì?",
+    "contexts": [
+      "Theo ý kiến của chúng tôi, báo cáo tài chính hợp nhất đã phần ánh trung thực và hợp lý, trên các khía cạnh trọng yếu, tình hình tài chính hợp nhất của Ngân hàng Thương mại Cổ phần Á Châu và các công ty con tại ngày 31 tháng 12 năm 2025, kết quả hoạt động hợp nhất và lưu chuyển tiền tệ hợp nhất của Ngân hàng và các công ty con cho năm tài chính kết thúc cùng ngày, phù hợp với các Chuẩn mực Kế toán Việt Nam, Chế độ Kế toán Việt Nam áp dụng cho các tổ chức tín dụng do Ngân hàng Nhà nước Việt Nam ban hành và các quy định pháp lý có liên quan đến việc lập và trình bày báo cáo tài chính.",
+      "Nelson Rodriguez Casihan"
+    ],
+    "ground_truth": "Kiểm toán viên Nelson Rodriguez Casihan (thuộc Chi nhánh Công ty TNHH KPMG, Việt Nam) đã ký báo cáo kiểm toán độc lập cho báo cáo tài chính hợp nhất của ACB năm 2025. KPMG đưa ra ý kiến chấp nhận toàn phần, cho rằng báo cáo tài chính hợp nhất đã phản ánh trung thực và hợp lý, trên các khía cạnh trọng yếu, tình hình tài chính hợp nhất, kết quả hoạt động và lưu chuyển tiền tệ hợp nhất của ACB, phù hợp với Chuẩn mực Kế toán và Chế độ Kế toán Việt Nam áp dụng cho các tổ chức tín dụng.",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "So sánh Lợi nhuận sau thuế hợp nhất của ACB với Lợi nhuận sau thuế riêng lẻ (báo cáo công ty mẹ) năm 2025.",
+    "contexts": [
+      "<tr><td>XIII</td><td>Lợi nhuận sau thuế</td><td></td><td>15.624.699</td><td>16.789.768</td></tr>",
+      "<tr><td>XIII</td><td>Lợi nhuận sau thuế</td><td></td><td>14.519.368</td><td>16.085.199</td></tr>"
+    ],
+    "ground_truth": "Năm 2025, Lợi nhuận sau thuế hợp nhất của ACB là 15.624.699 triệu VND, trong khi Lợi nhuận sau thuế riêng lẻ (báo cáo công ty mẹ) là 14.519.368 triệu VND. Lợi nhuận hợp nhất cao hơn lợi nhuận riêng lẻ 1.105.331 triệu VND nhờ đóng góp lợi nhuận từ các công ty con. Cả hai chỉ tiêu đều giảm so với năm 2024 (16.789.768 triệu VND hợp nhất và 16.085.199 triệu VND riêng lẻ).",
+    "evolution_type": "multi-context"
+  },
+  {
+    "question": "Nếu Vốn điều lệ của ACB tại 31/12/2025 (51.366.566 triệu VND) được cộng thêm 20% từ phát hành cổ phiếu mới, thì Vốn điều lệ mới ước tính sẽ là bao nhiêu?",
+    "contexts": [
+      "<tr><td>a</td><td>Vốn điều lệ</td><td></td><td>51.366.566</td><td>44.666.579</td></tr>"
+    ],
+    "ground_truth": "Vốn điều lệ của ACB tại ngày 31/12/2025 là 51.366.566 triệu VND. Nếu tăng thêm 20% từ phát hành cổ phiếu mới, Vốn điều lệ ước tính sẽ là khoảng 61.639.879,2 triệu VND (51.366.566 × 1,2).",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Trong bốn ngân hàng (BaoVietBank, BIDV, Agribank, ACB), ngân hàng nào có Tổng tài sản hợp nhất lớn nhất và ngân hàng nào có Tổng tài sản nhỏ nhất tại thời điểm 31/12/2025?",
+    "contexts": [
+      "<tr><td></td><td>TỔNG TÀI SẢN</td><td></td><td>110.365.851.927.250</td><td>90.623.727.196.173</td></tr>",
+      "<tr><td></td><td>TỔNG TÀI SẢN</td><td></td><td>3.330.825.720</td><td>2.760.906.964</td></tr>",
+      "TỔNG TÀI SẢN\n\n<table><tr><td>2.686.597.826</td><td>2.234.854.221</td></tr></table>",
+      "<tr><td></td><td>TỔNG TÀI SẢN</td><td></td><td>1.025.850.127</td><td>864.005.703</td></tr>"
+    ],
+    "ground_truth": "So sánh Tổng tài sản hợp nhất tại 31/12/2025 (đơn vị triệu VND, trừ BaoVietBank tính bằng VND): BIDV có tổng tài sản lớn nhất với 3.330.825.720 triệu VND, tiếp theo là Agribank với 2.686.597.826 triệu VND, sau đó là ACB với 1.025.850.127 triệu VND. BaoVietBank có tổng tài sản nhỏ nhất, khoảng 110.365,85 tỷ VND (110.365.851.927.250 VND, tương đương khoảng 110.366 triệu triệu VND), nhỏ hơn nhiều so với ba ngân hàng còn lại. Do đó, BIDV có tổng tài sản lớn nhất và BaoVietBank có tổng tài sản nhỏ nhất trong nhóm bốn ngân hàng này.",
+    "evolution_type": "multi-context"
+  }
+]

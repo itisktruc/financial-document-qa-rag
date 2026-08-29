@@ -83,11 +83,11 @@ def _load_bm25_corpus():
 @lru_cache(maxsize=1)
 def _get_bm25_index():
     corpus_ids, corpus_texts, lookup = _load_bm25_corpus()
+    if not corpus_ids or not corpus_texts:          # ← move this check up, before tokenize/index
+        return None, [], {}
     corpus_tokens = bm25s.tokenize(corpus_texts, stopwords=list(VI_STOPWORDS))
     retriever = bm25s.BM25()
     retriever.index(corpus_tokens)
-    if not corpus_ids or not corpus_texts:
-        return None, [], {}
     return retriever, corpus_ids, lookup
 
 def refresh_bm25_index() -> None:

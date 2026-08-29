@@ -117,3 +117,6 @@ def search_similar_blocks(query_vector: list, limit: int = 5, filter_conditions=
 def count_points() -> int:
     """Tiện ích nhỏ để test/debug: đếm tổng số point hiện có trong collection."""
     return _client.count(collection_name=QDRANT_COLLECTION, exact=True).count
+
+def get_qdrant_client() -> QdrantClient:
+    return _client

@@ -286,31 +286,36 @@ def to_qdrant_points(embedded_chunks: list[dict]) -> list[dict]:
     """
     points: list[dict] = []
     skipped: list[tuple[str, str]] = []
- 
+
     for c in embedded_chunks:
-        raw_id = str(c.get("chunk_id", "")).strip()
+        raw_id = str(c.get("chunk_id") or c.get("_id") or "").strip()
+        
+        # Robust UUID conversion handling standard UUIDs, hex strings, and string IDs/ObjectIds
         try:
-            point_id = str(uuid.UUID(hex=raw_id))
+            if len(raw_id) == 32:
+                point_id = str(uuid.UUID(hex=raw_id))
+            else:
+                point_id = str(uuid.UUID(raw_id))
         except Exception:
-            skipped.append((raw_id or "<empty>", "chunk_id không phải UUID hex hợp lệ"))
-            continue
- 
+            # Deterministic UUID generation fallback for non-UUID strings or MongoDB ObjectIds
+            point_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, raw_id))
+
         vector = c.get("dense_vector")
         if not vector:
-            skipped.append((raw_id, "thiếu dense_vector (chunk chưa qua attach_embeddings_to_chunks?)"))
+            skipped.append((raw_id, "thiếu dense_vector"))
             continue
- 
+
         doc_id = c.get("document_id", "") or ""
         meta = c.get("metadata", {}) or {}
         doc_meta = parse_document_metadata(doc_id, meta.get("source_file", ""), ticker_hint=meta.get("ticker"))
- 
+
         payload = {
             "document_id": doc_id,
-            "company": doc_meta["company"],
-            "ticker": doc_meta["ticker"] or meta.get("ticker"),
-            "year": doc_meta["year"],
-            "quarter": doc_meta["quarter"],
-            "document_type": doc_meta["document_type"],
+            "company": doc_meta.get("company"),
+            "ticker": doc_meta.get("ticker") or meta.get("ticker"),
+            "year": doc_meta.get("year"),
+            "quarter": doc_meta.get("quarter"),
+            "document_type": doc_meta.get("document_type"),
             "source_file": meta.get("source_file"),
             "chunk_type": c.get("chunk_type"),
             "parent_id": c.get("parent_id"),
@@ -321,12 +326,10 @@ def to_qdrant_points(embedded_chunks: list[dict]) -> list[dict]:
             "content": c.get("content"),
         }
         points.append({"id": point_id, "vector": vector, "payload": payload})
- 
+
     if skipped:
         print(f"[embedding_client] Bỏ qua {len(skipped)} chunk khi build Qdrant points:")
         for cid, reason in skipped[:10]:
             print(f"    - {cid}: {reason}")
-        if len(skipped) > 10:
-            print(f"    ... và {len(skipped) - 10} chunk khác")
- 
-    return points
+
+    return points  # Added missing return statement

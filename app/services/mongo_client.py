@@ -19,7 +19,9 @@ from pymongo import ASCENDING, MongoClient
 from pymongo.collection import Collection
 from pymongo.database import Database
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
+from dotenv import load_dotenv
 
+load_dotenv()
 # ---------------------------------------------------------------------------
 # Config – Documents & Chunks (DB chính)
 # ---------------------------------------------------------------------------

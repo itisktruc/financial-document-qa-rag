@@ -24,7 +24,9 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
 )
 
+from dotenv import load_dotenv
 
+load_dotenv()
 class Container:
     search_pipeline: HybridSearchPipeline
     rag_controller: RAGController

@@ -14,7 +14,7 @@ Dùng chung bởi:
 
 from __future__ import annotations
 from typing import Any, Dict, List
-from app.services.embedding_client import parse_document_metadata
+#from app.services.embedding_client import parse_document_metadata
 import os
 import re
 
@@ -57,30 +57,47 @@ def build_citation(matched_chunk_id: str, parent_doc: Dict[str, Any]) -> Dict[st
         "source_file": parent_doc.get("source_file"),
     }
 
-
 def format_citation_label(citation: Dict[str, Any], index: int) -> str:
-    """Nhãn ngắn hiển thị cho người dùng, vd:
-    '[1] FPT - Báo cáo tài chính năm 2024, trang 12'
-    '[2] HPG - Báo cáo tài chính quý 2024 (Q2), trang 5-6'
-    '[3] VNM_BCTC_2023 (không rõ loại tài liệu)'  -- fallback khi thiếu metadata
     """
-    """Tạo nhãn trích dẫn dạng: [1] A32_BaoCaoTaiChinh_2025.pdf (Trang 11)"""
-    file_path = citation.get("source_file") or citation.get("doc_id", "Tài liệu không tên")
-    file_name = clean_source_filename(str(file_path))
-    file_name = file_name.replace("_extracted.txt", ".pdf")
+    Nhãn gọn cho user, ví dụ:
+      [1] ACL · 2025 · Trang 13
+      [2] ACB · 2025 · Trang 5-6 · I. ĐẶC ĐIỂM HOẠT ĐỘNG
+    """
+    parts: List[str] = []
 
+    ticker = citation.get("ticker")
+    if ticker:
+        parts.append(str(ticker).upper())
+
+    year = citation.get("year")
+    if year is not None and str(year).strip() != "":
+        parts.append(str(year))
+
+    # Trang
     p_start = citation.get("page_start")
     p_end = citation.get("page_end")
-
     if p_start and p_end:
         page_str = f"Trang {p_start}" if p_start == p_end else f"Trang {p_start}-{p_end}"
     elif p_start:
         page_str = f"Trang {p_start}"
     else:
-        page_str = "Trang N/A"
+        page_str = None
+    if page_str:
+        parts.append(page_str)
 
-    return f"[{index}] {file_name} ({page_str})"
+    # Section ngắn (lấy phần cuối heading_path hoặc section)
+    section = citation.get("section") or citation.get("section_path")
+    if isinstance(section, list) and section:
+        section_str = str(section[-1]).strip()  # chỉ mục gần nhất
+    elif isinstance(section, str) and section.strip():
+        section_str = section.strip()
+    else:
+        section_str = None
+    if section_str and len(section_str) <= 60:
+        parts.append(section_str)
 
+    body = " · ".join(parts) if parts else "Nguồn không rõ"
+    return f"[{index}] {body}"
 
 def format_citations_footer(citations: List[Dict[str, Any]]) -> str:
     """Tạo khối Nguồn tham khảo nối vào cuối câu trả lời."""

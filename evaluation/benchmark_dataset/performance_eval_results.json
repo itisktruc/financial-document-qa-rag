@@ -1,0 +1,224 @@
+{
+  "local": [
+    {
+      "query": "Tổng tài sản của Ngân hàng TMCP Bảo Việt tại ngày 31 tháng 12 năm 2025 là bao nhiêu?",
+      "retrieval_latency_s": 8.223600458994042,
+      "generation_latency_s": 0.0006637079932261258,
+      "e2e_latency_s": 8.224290624988498,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 31,
+      "completion_tokens": 30,
+      "total_tokens": 61,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "BaoVietBank được thành lập vào ngày nào và theo giấy phép số bao nhiêu?",
+      "retrieval_latency_s": 7.078867375006666,
+      "generation_latency_s": 0.0004647089808713645,
+      "e2e_latency_s": 7.079372209002031,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 22,
+      "completion_tokens": 30,
+      "total_tokens": 52,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Lợi nhuận sau thuế của BaoVietBank năm 2025 so với năm 2024 tăng hay giảm, và mức chênh lệch là bao nhiêu?",
+      "retrieval_latency_s": 0.9876417499908712,
+      "generation_latency_s": 1.8708989955484867e-05,
+      "e2e_latency_s": 0.9876618339912966,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 41,
+      "completion_tokens": 30,
+      "total_tokens": 71,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Ai là Tổng Giám đốc của BaoVietBank và ông được bổ nhiệm vào ngày nào?",
+      "retrieval_latency_s": 7.119894917006604,
+      "generation_latency_s": 0.0012201670033391565,
+      "e2e_latency_s": 7.121121625008527,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 24,
+      "completion_tokens": 30,
+      "total_tokens": 54,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Nếu giả định Tổng lợi nhuận trước thuế của BaoVietBank năm 2025 không đổi nhưng chi phí thuế TNDN hiện hành tăng gấp đôi lên khoảng 40.047.125.188 VND, thì lợi nhuận sau thuế ước tính sẽ là bao nhiêu?",
+      "retrieval_latency_s": 0.9195109170104843,
+      "generation_latency_s": 0.00010358300642110407,
+      "e2e_latency_s": 0.9196195830008946,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 67,
+      "completion_tokens": 30,
+      "total_tokens": 97,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Vốn điều lệ của BaoVietBank tại cuối năm 2025 là bao nhiêu và có thay đổi so với đầu năm không?",
+      "retrieval_latency_s": 7.175619000016013,
+      "generation_latency_s": 0.0005245409847702831,
+      "e2e_latency_s": 7.176155041001039,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 32,
+      "completion_tokens": 30,
+      "total_tokens": 62,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Công ty kiểm toán nào đã thực hiện kiểm toán Báo cáo tài chính năm 2025 cho BaoVietBank, BIDV, Agribank và ACB?",
+      "retrieval_latency_s": 8.121450874983566,
+      "generation_latency_s": 0.0006501670286525041,
+      "e2e_latency_s": 8.122137667000061,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 38,
+      "completion_tokens": 30,
+      "total_tokens": 68,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Tổng tài sản hợp nhất của BIDV tại ngày 31/12/2025 là bao nhiêu?",
+      "retrieval_latency_s": 7.657302000006894,
+      "generation_latency_s": 0.0007662500138394535,
+      "e2e_latency_s": 7.6581253340118565,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 25,
+      "completion_tokens": 30,
+      "total_tokens": 55,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "So sánh Tổng tài sản hợp nhất và Tổng tài sản riêng lẻ (báo cáo công ty mẹ) của BIDV tại ngày 31/12/2025, chênh lệch là bao nhiêu?",
+      "retrieval_latency_s": 8.13370229199063,
+      "generation_latency_s": 0.00020645800395868719,
+      "e2e_latency_s": 8.133911791985156,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 50,
+      "completion_tokens": 30,
+      "total_tokens": 80,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Lợi nhuận sau thuế hợp nhất của BIDV năm 2025 được phân bổ như thế nào giữa Ngân hàng mẹ và cổ đông không kiểm soát?",
+      "retrieval_latency_s": 7.1060770000040065,
+      "generation_latency_s": 0.0005910829931963235,
+      "e2e_latency_s": 7.1066963330085855,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 38,
+      "completion_tokens": 30,
+      "total_tokens": 68,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Giả sử BIDV không có các công ty con và các khoản điều chỉnh hợp nhất, chỉ tính riêng Ngân hàng mẹ, thì Tổng lợi nhuận trước thuế của Ngân hàng mẹ năm 2025 là bao nhiêu?",
+      "retrieval_latency_s": 7.623588459013263,
+      "generation_latency_s": 0.0003108329838141799,
+      "e2e_latency_s": 7.623902874998748,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 52,
+      "completion_tokens": 30,
+      "total_tokens": 82,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Tổng lợi nhuận trước thuế hợp nhất của BIDV năm 2025 là bao nhiêu?",
+      "retrieval_latency_s": 7.608789624995552,
+      "generation_latency_s": 0.0003296250069979578,
+      "e2e_latency_s": 7.609123041009298,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 24,
+      "completion_tokens": 30,
+      "total_tokens": 54,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Tổng tài sản hợp nhất của Agribank tại ngày 31/12/2025 là bao nhiêu?",
+      "retrieval_latency_s": 7.116142374987248,
+      "generation_latency_s": 0.0002782090159598738,
+      "e2e_latency_s": 7.116423667001072,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 26,
+      "completion_tokens": 30,
+      "total_tokens": 56,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Vốn điều lệ của Agribank tại ngày 31/12/2025 là bao nhiêu?",
+      "retrieval_latency_s": 7.133623166999314,
+      "generation_latency_s": 0.00019316701218485832,
+      "e2e_latency_s": 7.133822292002151,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 25,
+      "completion_tokens": 30,
+      "total_tokens": 55,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "So sánh Lợi nhuận sau thuế hợp nhất và Lợi nhuận sau thuế riêng lẻ (báo cáo công ty mẹ) của Agribank năm 2025.",
+      "retrieval_latency_s": 7.603329708013916,
+      "generation_latency_s": 0.0003214169992133975,
+      "e2e_latency_s": 7.603655125014484,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 44,
+      "completion_tokens": 30,
+      "total_tokens": 74,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Nếu Chi phí dự phòng rủi ro tín dụng của Agribank hợp nhất năm 2025 giảm 50% so với mức thực tế, thì Tổng lợi nhuận trước thuế ước tính sẽ là bao nhiêu?",
+      "retrieval_latency_s": 0.937418916990282,
+      "generation_latency_s": 2.7166999643668532e-05,
+      "e2e_latency_s": 0.9374473339994438,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 51,
+      "completion_tokens": 30,
+      "total_tokens": 81,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Tổng tài sản hợp nhất của ACB tại ngày 31/12/2025 là bao nhiêu?",
+      "retrieval_latency_s": 7.149127958982717,
+      "generation_latency_s": 0.00021820800611749291,
+      "e2e_latency_s": 7.149351125000976,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 25,
+      "completion_tokens": 30,
+      "total_tokens": 55,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Ai đã ký báo cáo kiểm toán độc lập cho báo cáo tài chính hợp nhất của ACB năm 2025, và công ty kiểm toán đưa ra ý kiến gì?",
+      "retrieval_latency_s": 7.617828999995254,
+      "generation_latency_s": 0.0003178750048391521,
+      "e2e_latency_s": 7.6181591670028865,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 38,
+      "completion_tokens": 30,
+      "total_tokens": 68,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "So sánh Lợi nhuận sau thuế hợp nhất của ACB với Lợi nhuận sau thuế riêng lẻ (báo cáo công ty mẹ) năm 2025.",
+      "retrieval_latency_s": 7.58649470898672,
+      "generation_latency_s": 0.004647540976293385,
+      "e2e_latency_s": 7.591189249971649,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 43,
+      "completion_tokens": 30,
+      "total_tokens": 73,
+      "answer_len_chars": 92
+    },
+    {
+      "query": "Nếu Vốn điều lệ của ACB tại 31/12/2025 (51.366.566 triệu VND) được cộng thêm 20% từ phát hành cổ phiếu mới, thì Vốn điều lệ mới ước tính sẽ là bao nhiêu?",
+      "retrieval_latency_s": 0.9024738330044784,
+      "generation_latency_s": 1.3457989552989602e-05,
+      "e2e_latency_s": 0.902488166000694,
+      "token_source": "tiktoken_estimate",
+      "prompt_tokens": 58,
+      "completion_tokens": 30,
+      "total_tokens": 88,
+      "answer_len_chars": 92
+    }
+  ]
+}

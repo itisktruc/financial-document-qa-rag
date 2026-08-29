@@ -211,3 +211,25 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Models & Weights
+*.bin
+*.pt
+*.safetensors
+*.onnx
+
+# Data & Cache
+*.pdf
+*.csv
+*.parquet
+hf_cache/
+vector_db/
+.venv/
+__pycache__/
+# Exclude model weights directory
+models/
+*.bin
+*.onnx
+*.pt
+*.safetensors
+*.model_data

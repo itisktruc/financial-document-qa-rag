@@ -1,27 +1,5 @@
 services:
 
-  # ==== Vector Database ====
-  qdrant:
-    image: qdrant/qdrant:latest
-    ports:
-      - "6333:6333"     # REST API
-      - "6334:6334"     # gRPC
-    volumes:
-      - qdrant_data:/qdrant/storage
-    restart: unless-stopped
-
-  # ==== Metadata / Document Store ====
-  mongodb:
-    image: mongo:7
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER:-admin}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD:-changeme}
-    restart: unless-stopped
-
   # ==== Backend: FastAPI + RAG pipeline ====
   backend:
     build:
@@ -29,39 +7,26 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     volumes:
       - .:/app
-      - ./app:/app/app
-      - ./data:/app/data
-      - ./test_parse_chunk.py:/app/test_parse_chunk.py
-      - ./test_ocr.py:/app/test_ocr.py
-      - ./test_ocr_colab.py:/app/test_ocr_colab.py
-      - ./test_embedding.py:/app/test_embedding.py
-      - ./test_chunking.py:/app/test_chunking.py
-      - ./mongo_test.py:/app/mongo_test.py
-      - ./render_review_html.py:/app/render_review_html.py
+      - hf_cache:/root/.cache/huggingface
     env_file:
       - .env
     environment:
-      #- QDRANT_HOST=qdrant
-      #- QDRANT_PORT=6333
-      #- QDRANT_URL=http://qdrant:6333
-      - MONGO_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASSWORD:-changeme}@mongodb:27017
       - PYTHONIOENCODING=utf-8      
       - LANG=C.UTF-8
       - LC_ALL=C.UTF-8
-    depends_on:
-      - qdrant
-      - mongodb
     restart: unless-stopped
-    #Bỏ comment 2 dòng dưới nếu máy có GPU và cần tăng tốc PaddleOCR/embedding
     deploy:
       resources:
         reservations:
-           devices:
-             - driver: nvidia
-               count: 1
-               capabilities: [gpu]
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
   # ==== Frontend: Streamlit demo ====
   frontend:
@@ -70,8 +35,13 @@ services:
       dockerfile: Dockerfile.frontend
     ports:
       - "8501:8501"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     environment:
       - BACKEND_URL=http://backend:8000
+      - STREAMLIT_SERVER_FILE_WATCHER_TYPE=none
+      - STREAMLIT_SERVER_HEADLESS=true
     volumes:
       - ./frontend:/app/frontend
       - ./app:/app/app
@@ -80,5 +50,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  qdrant_data:
-  mongo_data:
+  hf_cache:

@@ -25,10 +25,18 @@ FINANCIAL_GLOSSARY: dict[str, str] = {
     "YoY": "So với cùng kỳ năm trước (Year over Year)",
     "QoQ": "So với quý trước (Quarter over Quarter)",
 }
-
 def expand_query(query: str) -> str:
     expanded = query
-    for abbr, full in FINANCIAL_GLOSSARY.items():
-        if abbr in expanded and full not in expanded:
-            expanded = expanded.replace(abbr, f"{abbr} ({full})")
+    for abbr, full in sorted(FINANCIAL_GLOSSARY.items(), key=lambda x: -len(x[0])):
+        if full in expanded:
+            continue
+        parts = expanded.split()
+        new_parts = []
+        for p in parts:
+            core = p.strip(".,;:()[]")
+            if core.upper() == abbr.upper() or core == abbr:
+                new_parts.append(f"{p} ({full})" if p == core else p.replace(core, f"{core} ({full})"))
+            else:
+                new_parts.append(p)
+        expanded = " ".join(new_parts)
     return expanded

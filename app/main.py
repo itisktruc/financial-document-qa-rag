@@ -4,18 +4,18 @@ FastAPI entrypoint for Financial RAG Chatbot backend.
 
 import logging
 from contextlib import asynccontextmanager
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field
 import uvicorn
 
 from app.routers import documents
-from typing import Optional
 from app.retrieval.hybrid_search import HybridSearchPipeline
 from app.retrieval.rag_pipeline import RAGController
 from app.generation.answer_generator import AnswerGenerator
 from app.calculation.calculation_service import CalculationService
+from app.services.chat_history import get_history, append_message
 
 logger = logging.getLogger("rag_backend")
 logging.basicConfig(
@@ -34,7 +34,6 @@ class Container:
 
 services = Container()
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Initializing RAG Pipeline components...")
@@ -42,6 +41,32 @@ async def lifespan(app: FastAPI):
     services.rag_controller = RAGController(pipeline=services.search_pipeline, top_k=10)
     services.answer_generator = AnswerGenerator()
     services.calculation_service = CalculationService(search_pipeline=services.search_pipeline)
+
+    logger.info("Warming up models (BAAI/bge-m3 + reranker)...")
+    try:
+        # 1. Force load embedding model
+        from app.services.embedding_client import embed_query
+        embed_query("warmup embedding", return_sparse=False)
+        logger.info("Embedding model loaded.")
+
+        # 2. Force load reranker
+        if hasattr(services.search_pipeline, "reranker"):
+            services.search_pipeline.reranker.rerank(
+                "warmup query",
+                ["Đây là đoạn văn bản thử nghiệm để load reranker."],
+                top_k=1,
+            )
+            logger.info("Reranker loaded.")
+
+        # 3. Chạy 1 lượt retrieve thật (để warm BM25 cache nếu có)
+        services.rag_controller.execute_search(
+            "doanh thu công ty A32 năm 2024",  # query financial thật, tránh bị route chitchat
+            history=[],
+        )
+        logger.info("Full retrieve warmup done.")
+    except Exception as e:
+        logger.error("Warmup FAILED: %s", e, exc_info=True)  # log rõ, đừng chỉ warning
+
     logger.info("RAG Pipeline initialization completed successfully.")
     yield
 
@@ -68,79 +93,70 @@ class ChatResponse(BaseModel):
     calculation: Optional[dict] = None
 
 
+CHITCHAT_REPLY = (
+    "Đây có vẻ là câu hỏi giao tiếp thông thường. "
+    "Mình là trợ lý AI phân tích tài chính doanh nghiệp. "
+    "Bạn hãy hỏi mình các câu liên quan đến số liệu, báo cáo tài chính nhé!"
+)
+
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
-    """
-    Endpoint chính: query -> Hybrid Search (BM25 + Dense + RRF + Rerank,
-    xem app/retrieval/hybrid_search.py) -> generation.
-    """
-    global rag_controller, answer_generator, search_pipeline, calculation_service
-
-    if search_pipeline is None:
-        print("[*] Đang khởi tạo HybridSearchPipeline (Router, Rewriter, BM25, Dense, RRF, Rerank)")
-        search_pipeline = HybridSearchPipeline()
-
-    if rag_controller is None:
-        rag_controller = RAGController(pipeline=search_pipeline, top_k=10)
-
-    if answer_generator is None:
-        print("[*] Đang khởi tạo AnswerGenerator (GPT-4o-mini)")
-        answer_generator = AnswerGenerator()
-        print("Khởi tạo thành công toàn bộ RAG Pipeline!")
-
-    if calculation_service is None:                                   
-        print("[*] Đang khởi tạo CalculationService (Financial Calculator)")
-        calculation_service = CalculationService(search_pipeline=search_pipeline)
-
     raw_query = request.query
     session_id = request.session_id
-
-    logger.info("[%s] Incoming query: '%s'", session_id, raw_query)
+    history = get_history(session_id, limit=4)
+    logger.info("[%s] Incoming query: %r", session_id, raw_query)
 
     try:
-        # ==========================================
-        # NỬA ĐẦU: HYBRID SEARCH (BM25 + Dense + RRF + Rerank + Parent-expansion)
-        # ==========================================
-        print("Đang bắt đầu thực thi Hybrid Search & Rerank Pipeline")
-        search_result = rag_controller.execute_search(raw_query)
+        search_result = services.rag_controller.execute_search(raw_query, history=history)
 
-        # 1. Chitchat intent
+        # ---------- CHITCHAT ----------
         if search_result.get("is_chitchat", False):
-            return ChatResponse(
-                answer=(
-                    "Đây có vẻ là câu hỏi giao tiếp thông thường. "
-                    "Mình là trợ lý AI phân tích tài chính doanh nghiệp. "
-                    "Bạn hãy hỏi mình các câu liên quan đến số liệu, báo cáo tài chính nhé!"
-                ),
-                citations=[],
-            )
+            answer = CHITCHAT_REPLY
+            append_message(session_id, "user", raw_query)
+            append_message(session_id, "assistant", answer)
+            return ChatResponse(answer=answer, citations=[])
 
-        # 2. Term Definition intent
+        # ---------- DEFINITION ----------
         if search_result.get("is_definition", False):
             definition_answer = services.answer_generator.generate_definition(raw_query)
+            answer = definition_answer["answer"]
+            append_message(session_id, "user", raw_query)
+            append_message(session_id, "assistant", answer)
             return ChatResponse(
-                answer=definition_answer["answer"],
+                answer=answer,
                 citations=definition_answer.get("citations", []),
             )
 
-        # 3. Calculation intent
+        # ---------- CALCULATION ----------
         if search_result.get("is_calculation", False):
-            print("Phân loại: CALCULATION")
-            calc_result = calculation_service.calculate(raw_query)
-            return ChatResponse(answer=calc_result.answer, citations=calc_result.citations,
-                                intent=calc_result.intent,
-                                metric_spec=calc_result.metric_spec,
-                                calculation=calc_result.calculation.model_dump() if calc_result.calculation else None,)
+            logger.info("[%s] Intent: CALCULATION", session_id)
+            calc_result = services.calculation_service.calculate(raw_query)
+            answer = calc_result.answer
+            append_message(session_id, "user", raw_query)
+            append_message(session_id, "assistant", answer)
+            return ChatResponse(
+                answer=answer,
+                citations=calc_result.citations,
+                intent=calc_result.intent,
+                metric_spec=calc_result.metric_spec,
+                calculation=(
+                    calc_result.calculation.model_dump()
+                    if calc_result.calculation
+                    else None
+                ),
+            )
 
-        #Nhánh 4 (nhánh chính): Nhánh Finance Search
-        print("Phân loại: Financial Search")
-        # Lấy danh sách ngữ cảnh (Parent Documents từ MongoDB đã qua Rerank)
+        # ---------- FINANCIAL SEARCH ----------
+        logger.info("[%s] Intent: FINANCIAL_SEARCH", session_id)
         contexts = search_result.get("context", [])
         logger.info("[%s] Retrieved %d context items", session_id, len(contexts))
 
         final_answer = services.answer_generator.generate(raw_query, contexts)
+        answer = final_answer["answer"]
+        append_message(session_id, "user", raw_query)
+        append_message(session_id, "assistant", answer)
         return ChatResponse(
-            answer=final_answer["answer"],
+            answer=answer,
             citations=final_answer.get("citations", []),
         )
 

@@ -4,6 +4,8 @@ app/services/mongo_client.py
   - financial_rag_corrected  → chunks_{TICKER}_{YEAR} (flat documents)
   - chunk_type = "child" | "parent"
   - field chính: doc_id, chunk_id, parent_id, ticker, year
+  Chat History
+  - MONGO_URI_HISTORY + MONGO_DB_HISTORY → chỉ dùng cho chat_sessions
 """
 
 from __future__ import annotations
@@ -19,47 +21,66 @@ from pymongo.database import Database
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 
 # ---------------------------------------------------------------------------
-# Config
+# Config – Documents & Chunks (DB chính)
 # ---------------------------------------------------------------------------
 
-MONGO_URI_LOCAL = os.getenv("MONGO_URI_LOCAL", "mongodb://localhost:27017")
 MONGO_URI_CLOUD = os.getenv("MONGO_URI_CLOUD")
 MONGO_DB_DOCUMENTS = os.getenv("MONGO_DB_DOCUMENTS", "financial_rag")
 MONGO_DB_CHUNKS = os.getenv("MONGO_DB_CHUNKS", "financial_rag_corrected")
 DOCUMENTS_COLLECTION = os.getenv("DOCUMENTS_COLLECTION", "documents_2025")
 
+# ---------------------------------------------------------------------------
+# Config – Chat History (DB riêng, không lẫn với documents)
+# ---------------------------------------------------------------------------
+
+MONGO_URI_HISTORY = os.getenv("MONGO_URI_HISTORY")
+MONGO_DB_HISTORY = os.getenv("MONGO_DB_HISTORY", "fin_rag_history")
+CHAT_SESSIONS_COLLECTION = "chat_sessions"
+
+# ---------------------------------------------------------------------------
+# Clients
+# ---------------------------------------------------------------------------
+
 _client: Optional[MongoClient] = None
+_history_client: Optional[MongoClient] = None
 
 
 def get_mongo_client() -> MongoClient:
+    """Client cho Documents + Chunks (DB chính)."""
     global _client
     if _client is not None:
         return _client
-
-    try:
-        client = MongoClient(MONGO_URI_LOCAL, serverSelectionTimeoutMS=3000)
-        client.admin.command("ping")
-        print("[mongo] Connected to LOCAL")
-        _client = client
-        return _client
-    except (ConnectionFailure, ServerSelectionTimeoutError, Exception) as e:
-        print(f"[mongo] Local failed: {e}")
-
     if not MONGO_URI_CLOUD:
-        raise RuntimeError("Không kết nối được Mongo Local và không có MONGO_URI_CLOUD")
-
+        raise RuntimeError("MONGO_URI_CLOUD chưa được set trong môi trường")
     try:
         client = MongoClient(MONGO_URI_CLOUD, serverSelectionTimeoutMS=8000)
         client.admin.command("ping")
-        print("[mongo] Connected to CLOUD (fallback)")
+        print("[mongo] Connected to CLOUD (documents/chunks)")
         _client = client
         return _client
     except Exception as e:
-        raise RuntimeError(f"Không kết nối được cả Local lẫn Cloud: {e}")
+        raise RuntimeError(f"Không kết nối được Cloud (documents): {e}")
+
+
+def get_history_mongo_client() -> MongoClient:
+    """Client riêng chỉ dùng cho Chat History."""
+    global _history_client
+    if _history_client is not None:
+        return _history_client
+    if not MONGO_URI_HISTORY:
+        raise RuntimeError("MONGO_URI_HISTORY chưa được set trong môi trường")
+    try:
+        client = MongoClient(MONGO_URI_HISTORY, serverSelectionTimeoutMS=8000)
+        client.admin.command("ping")
+        print("[mongo] Connected to HISTORY DB")
+        _history_client = client
+        return _history_client
+    except Exception as e:
+        raise RuntimeError(f"Không kết nối được History DB: {e}")
 
 
 # ---------------------------------------------------------------------------
-# Database helpers
+# Database helpers – Documents & Chunks
 # ---------------------------------------------------------------------------
 
 def get_documents_db() -> Database:
@@ -77,6 +98,18 @@ def get_documents_collection(name: str = DOCUMENTS_COLLECTION) -> Collection:
 def get_chunks_collection(name: str) -> Collection:
     """Lấy collection chunks cụ thể, ví dụ: chunks_BVB_2025"""
     return get_chunks_db()[name]
+
+
+# ---------------------------------------------------------------------------
+# Database helpers – Chat History (tách riêng)
+# ---------------------------------------------------------------------------
+
+def get_history_db() -> Database:
+    return get_history_mongo_client()[MONGO_DB_HISTORY]
+
+
+def get_chat_sessions_collection() -> Collection:
+    return get_history_db()[CHAT_SESSIONS_COLLECTION]
 
 
 # ---------------------------------------------------------------------------
@@ -200,6 +233,13 @@ def ensure_indexes() -> None:
             name="ticker_year",
         )
 
+    # Chat history indexes (nếu muốn)
+    try:
+        chat_col = get_chat_sessions_collection()
+        chat_col.create_index([("updated_at", ASCENDING)], name="updated_at")
+    except Exception:
+        pass  # không bắt buộc
+
 
 # ---------------------------------------------------------------------------
 # Debug helpers
@@ -217,4 +257,6 @@ def summary() -> Dict[str, Any]:
         "documents_collection": DOCUMENTS_COLLECTION,
         "chunk_collections": chunk_cols,
         "total_chunk_collections": len(chunk_cols),
+        "history_db": MONGO_DB_HISTORY,
+        "history_collection": CHAT_SESSIONS_COLLECTION,
     }

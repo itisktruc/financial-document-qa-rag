@@ -94,7 +94,7 @@ def store_in_qdrant(points: List[Dict[str, Any]]) -> int:
     return len(structs)
 
 
-def search_similar(
+def search_similar_blocks(
     query_vector: List[float],
     limit: int = 5,
     query_filter: Optional[qmodels.Filter] = None,

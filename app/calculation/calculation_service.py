@@ -27,7 +27,7 @@ from app.models.calculation_schema import CalculationIntent, CalculationResponse
 from app.generation.citation import format_citation_label, clean_source_filename
 from app.services.mongo_client import get_parent_chunk
 from app.calculation.calculation_formatter import format_calculation_answer
-
+from typing import Any
 
 FIELD_LABELS: dict[str, str] = {
     "gross_profit": "Lợi nhuận gộp",
@@ -150,7 +150,7 @@ JSON Output:""",
                 text_content = parent_doc.get("text") or parent_doc.get("content", "")
                 citation_info = {
                     "doc_id": parent_doc.get("doc_id"),
-                    "source_file": parent_doc.get("source_file"),
+                    #"source_file": parent_doc.get("source_file"),
                     "page_start": parent_doc.get("page_start"),
                     "page_end": parent_doc.get("page_end"),
                     "section": parent_doc.get("section") or parent_doc.get("heading"),

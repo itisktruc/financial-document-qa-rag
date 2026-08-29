@@ -96,6 +96,11 @@ def refresh_bm25_index() -> None:
     đổi nên phải invalidate thủ công, nếu không BM25 sẽ tìm trên corpus cũ."""
     _get_bm25_index.cache_clear()
 
+def _normalize_ticker(raw_ticker: Optional[str]) -> Optional[str]:
+        if not raw_ticker:
+            return None
+        ticker_str = str(raw_ticker).strip().upper()
+        return TICKER_MAPPING.get(ticker_str, ticker_str)
 
 def reciprocal_rank_fusion(rankings: list[list[str]], k: int = K_RRF) -> list[tuple[str, float]]:
     scores: dict[str, float] = defaultdict(float)
@@ -129,10 +134,10 @@ class HybridSearchPipeline:
             "original_query": query,
             "search_queries": extracted_info.get("rewritten_queries", [query]),
             "metadata_filter": {
-                "ticker": extracted_info.get("ticker"),
-                "year": extracted_info.get("year")
-            }
-        }
+            "ticker": _normalize_ticker(extracted_info.get("ticker")),
+            "year": extracted_info.get("year"),
+    }
+} 
     
     @staticmethod
     def _qdrant_filter(metadata_filter: dict) -> Optional[qmodels.Filter]:
@@ -141,26 +146,18 @@ class HybridSearchPipeline:
         must = []
         raw_ticker = metadata_filter.get("ticker")
         if raw_ticker:
-            ticker_str = str(raw_ticker).strip().upper()
-            clean_ticker = TICKER_MAPPING.get(ticker_str, ticker_str)
-
+            clean_ticker = _normalize_ticker(raw_ticker)
             must.append(
-            qmodels.FieldCondition(
-                key="ticker", 
-                match=qmodels.MatchValue(value=clean_ticker)
-                )   
-            )
+            qmodels.FieldCondition(key="ticker", match=qmodels.MatchValue(value=clean_ticker))
+        )
         raw_year = metadata_filter.get("year")
         if raw_year:
             try:
                 must.append(
-                qmodels.FieldCondition(
-                    key="year", 
-                    match=qmodels.MatchValue(value=int(raw_year))
-                )
+                qmodels.FieldCondition(key="year", match=qmodels.MatchValue(value=int(raw_year)))
             )
             except (ValueError, TypeError):
-                pass  
+                 pass
         return qmodels.Filter(must=must) if must else None
         # must = []
         # if metadata_filter.get("ticker"):
@@ -176,6 +173,8 @@ class HybridSearchPipeline:
         #         )
         #     )
         # return qmodels.Filter(must=must) if must else None
+    
+    
 
     def bm25_search(self, query: str, k: int = BM25_TOP_K, metadata_filter: Optional[dict] = None):
         # retriever, corpus_ids, _ = _get_bm25_index()
@@ -317,23 +316,19 @@ class HybridSearchPipeline:
         print(f"[retrieve] qdrant_filter build ra: {qdrant_filter}")
         RRF_ids, content_lookup = self.RRF_fuse(prep["search_queries"], qdrant_filter=qdrant_filter, metadata_filter=metadata_filter)
         if not RRF_ids and metadata_filter.get("ticker"):
-            print("[*] Lần 1 không thấy data. Tiến hành Fallback: Bỏ lọc Year, BẮT BUỘC giữ Ticker...")
-        
-            # Tạo bộ lọc cứng chỉ chứa duy nhất Ticker
-            raw_ticker = str(metadata_filter["ticker"]).strip().upper()
-            clean_ticker = TICKER_MAPPING.get(raw_ticker, raw_ticker)
-            
-            strict_ticker_filter = qmodels.Filter(
-                must=[
-                    qmodels.FieldCondition(
-                        key="ticker",
-                        match=qmodels.MatchValue(value=clean_ticker)
-                    )
-                ]
+            print("[*] Lần 1 không thấy data. Fallback 1: Bỏ lọc Year, giữ Ticker...")
+            fallback_filter = {"ticker": metadata_filter["ticker"]}
+            fallback_qdrant_filter = self._qdrant_filter(fallback_filter)
+            RRF_ids, content_lookup = self.RRF_fuse(
+                prep["search_queries"],
+                qdrant_filter=fallback_qdrant_filter,
+                metadata_filter=fallback_filter,
             )
-            # Chạy RRF Lần 2 với bộ lọc cứng Ticker
-            RRF_ids, content_lookup = self.RRF_fuse(prep["search_queries"], qdrant_filter=strict_ticker_filter)
-
+        if not RRF_ids and (metadata_filter.get("ticker") or metadata_filter.get("year")):
+            print("[*] Vẫn không thấy data. Fallback 2 (cuối): bỏ TOÀN BỘ metadata filter "
+          "(ticker/năm có thể bị extract sai hoặc thiếu ở bước ingest)...")
+            RRF_ids, content_lookup = self.RRF_fuse(prep["search_queries"], metadata_filter={})
+        
         top_chunk_ids = self.rerank(user_query, RRF_ids, content_lookup, top_k=top_k)
  
         seen_parents = set()

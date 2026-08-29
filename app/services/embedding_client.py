@@ -218,6 +218,25 @@ _YEAR_RE = re.compile(r"(20\d{2})")
 _QUARTER_RE = re.compile(r"Q([1-4])", re.IGNORECASE)
 _ANNUAL_REPORT_RE = re.compile(r"BCTN|_AR_", re.IGNORECASE)
 _FINANCIAL_STATEMENT_RE = re.compile(r"BCTC|CFS|PCFS", re.IGNORECASE)
+_TICKER_ALIASES = {
+    "baovietbank": "BVB", "bao viet bank": "BVB",
+    "bidv": "BID",
+    "agribank": "AGR",
+}
+_COMPANY_NAME_TO_TICKER = {v.lower(): k for k, v in COMPANY_TICKER_MAP.items()}
+
+def _guess_ticker_from_text(*texts: str) -> Optional[str]:
+    for t in texts:
+        if not t:
+            continue
+        low = t.lower()
+        for alias, ticker in _TICKER_ALIASES.items():
+            if alias in low:
+                return ticker
+        for name, ticker in _COMPANY_NAME_TO_TICKER.items():
+            if name in low:
+                return ticker
+    return None
  
  
 def parse_document_metadata(document_id: str, source_file: str = "", ticker_hint: Optional[str] = None) -> dict:
@@ -230,7 +249,9 @@ def parse_document_metadata(document_id: str, source_file: str = "", ticker_hint
  
     ticker_match = _TICKER_RE.match(basis)
     ticker = ticker_match.group(1) if ticker_match else ticker_hint
- 
+    if not ticker:
+        ticker = _guess_ticker_from_text(basis, company_hint or "")
+        
     year_match = _YEAR_RE.search(basis)
     year = int(year_match.group(1)) if year_match else None
  
@@ -264,66 +285,52 @@ def parse_document_metadata(document_id: str, source_file: str = "", ticker_hint
 # ---------------------------------------------------------------------------
  
 def to_qdrant_points(embedded_chunks: list[dict]) -> list[dict]:
-    """
-    Chuyển list chunk đã có 'dense_vector' thành list dict khớp 100% kwargs
-    của qdrant_client.models.PointStruct (id/vector/payload), để
-    app.services.qdrant_client.store_in_qdrant() nạp thẳng bằng **item.
- 
-    - id: chunk_id của chunker.py là UUID hex 32 ký tự KHÔNG dấu gạch
-      ngang (vd '8f6e7b76fb27400c8f139db6ae44491b') -- Qdrant point ID cần
-      đúng định dạng UUID chuẩn (có dấu gạch), nên ép lại bằng
-      uuid.UUID(hex=...).
-    - payload: field company/ticker/year/quarter/document_type SUY RA từ
-      document_id qua parse_document_metadata() (xem docstring hàm đó) +
-      field phục vụ retrieval/citation trực tiếp (chunk_type, parent_id,
-      page_start/end, section_path, token_count, content). Không lưu
-      'embedding_text' trong payload vì nó trùng nội dung với 'content'
-      sau khi đã thêm section_path prefix -- lưu cả 2 chỉ tốn thêm dung
-      lượng payload vô ích.
- 
-    Chunk nào KHÔNG hợp lệ (chunk_id sai định dạng hoặc thiếu dense_vector)
-    sẽ bị bỏ qua và log rõ lý do, KHÔNG âm thầm mất dữ liệu.
-    """
+ def to_qdrant_points(embedded_chunks: list[dict]) -> list[dict]:
     points: list[dict] = []
     skipped: list[tuple[str, str]] = []
 
     for c in embedded_chunks:
-        raw_id = str(c.get("chunk_id") or c.get("_id") or "").strip()
-        
-        # Robust UUID conversion handling standard UUIDs, hex strings, and string IDs/ObjectIds
+        raw_id = str(c.get("chunk_id") or c.get("_id", "")).strip()
         try:
-            if len(raw_id) == 32:
-                point_id = str(uuid.UUID(hex=raw_id))
-            else:
-                point_id = str(uuid.UUID(raw_id))
+            point_id = str(uuid.UUID(hex=raw_id))
         except Exception:
-            # Deterministic UUID generation fallback for non-UUID strings or MongoDB ObjectIds
-            point_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, raw_id))
+            skipped.append((raw_id or "<empty>", "chunk_id không phải UUID hex hợp lệ"))
+            continue
 
         vector = c.get("dense_vector")
         if not vector:
             skipped.append((raw_id, "thiếu dense_vector"))
             continue
 
-        doc_id = c.get("document_id", "") or ""
-        meta = c.get("metadata", {}) or {}
-        doc_meta = parse_document_metadata(doc_id, meta.get("source_file", ""), ticker_hint=meta.get("ticker"))
+        # chunker.py (pipeline hiện tại -> chunked_documents_2025) trả về
+        # field PHẲNG: doc_id/ticker/company/year/source_file/text -- KHÔNG
+        # có "document_id" hay "metadata" lồng nhau như code cũ giả định.
+        # Đó là lý do ticker luôn ra None trong Qdrant payload trước đây.
+        doc_id = c.get("doc_id") or c.get("document_id") or ""
+        source_file = c.get("source_file") or ""
+        raw_ticker = c.get("ticker")
+        raw_company = c.get("company")
+
+        doc_meta = parse_document_metadata(
+            doc_id, source_file, ticker_hint=raw_ticker, company_hint=raw_company
+        )
 
         payload = {
             "document_id": doc_id,
-            "company": doc_meta.get("company"),
-            "ticker": doc_meta.get("ticker") or meta.get("ticker"),
-            "year": doc_meta.get("year"),
-            "quarter": doc_meta.get("quarter"),
-            "document_type": doc_meta.get("document_type"),
-            "source_file": meta.get("source_file"),
+            "company": raw_company or doc_meta["company"],
+            "ticker": raw_ticker or doc_meta["ticker"],
+            "year": c.get("year") or doc_meta["year"],
+            "quarter": doc_meta["quarter"],
+            "document_type": doc_meta["document_type"],
+            "source_file": source_file,
             "chunk_type": c.get("chunk_type"),
             "parent_id": c.get("parent_id"),
-            "section_path": c.get("section_path", []),
+            "section_path": c.get("heading_path") or c.get("section_path", []),
             "page_start": c.get("page_start"),
             "page_end": c.get("page_end"),
             "token_count": c.get("token_count"),
-            "content": c.get("content"),
+            "content": c.get("text") or c.get("content"),  # chunker.py dùng "text", không phải "content"
+            "order_index": c.get("order_index"),
         }
         points.append({"id": point_id, "vector": vector, "payload": payload})
 
@@ -331,5 +338,4 @@ def to_qdrant_points(embedded_chunks: list[dict]) -> list[dict]:
         print(f"[embedding_client] Bỏ qua {len(skipped)} chunk khi build Qdrant points:")
         for cid, reason in skipped[:10]:
             print(f"    - {cid}: {reason}")
-
-    return points  # Added missing return statement
+    return points

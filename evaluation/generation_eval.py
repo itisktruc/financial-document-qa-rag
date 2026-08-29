@@ -222,7 +222,7 @@ def run_evaluation(dataset: list[dict[str, Any]], embed_model: SentenceTransform
             "rouge2": rouge_scores["rouge2"],
             "rougeL": rouge_scores["rougeL"],
             "meteor": compute_meteor(ground_truth, answer),
-            "exact_match": compute_exact_match(ground_truth, answer),
+            # "exact_match": compute_exact_match(ground_truth, answer),
             "levenshtein_sim": compute_norm_levenshtein_sim(ground_truth, answer),
             "cosine_sim": cos_sim,
         }

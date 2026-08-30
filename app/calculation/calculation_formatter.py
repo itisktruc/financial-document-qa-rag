@@ -23,7 +23,7 @@ from app.generation.citation import clean_source_filename
 def _fmt_number(x: float) -> str:
     if x == int(x):
         return f"{int(x):,}".replace(",", ".")
-    return f"{x:,.2f}".replace(",", "#").replace(".", ",").replace("#", ".")
+    return f"{x:,.4f}".replace(",", "#").replace(".", ",").replace("#", ".")
 
 
 # ---------------------------------------------------------------------------

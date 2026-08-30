@@ -6,9 +6,14 @@ Gọi sang backend FastAPI qua BACKEND_URL (set trong docker-compose.yml).
 import os
 import uuid
 import requests
+import json
+import base64
 import streamlit as st
+from datetime import datetime, timezone
+
 
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+APP_NAME = "Fragelerator"
 
 COMPANY_OPTIONS = ["Tất cả", "FPT", "TheGioiDiDong", "Vinamilk", "HoaPhat"]
 DOC_TYPE_OPTIONS = [
@@ -22,6 +27,73 @@ DOC_TYPE_OPTIONS = [
 ]
 YEAR_OPTIONS = ["Tất cả"] + list(range(2026, 2005, -1))
 QUARTER_OPTIONS = ["Tất cả", "Báo cáo năm", 1, 2, 3, 4]
+
+CONV_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+CONV_FILE = os.path.join(CONV_DIR, "conversations.json")
+DEFAULT_TITLE = "Cuộc trò chuyện mới"
+
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+def load_conversations() -> dict:
+    if not os.path.exists(CONV_FILE):
+        return {}
+    try:
+        with open(CONV_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        # File hỏng/đang ghi dở -- không để cả app crash, coi như chưa có
+        # cuộc trò chuyện nào thay vì raise lỗi ra UI.
+        return {}
+ 
+ 
+def save_conversations(conversations: dict) -> None:
+    os.makedirs(CONV_DIR, exist_ok=True)
+    tmp_path = CONV_FILE + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump(conversations, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, CONV_FILE)  # ghi qua file tạm rồi rename -- tránh hỏng file nếu crash giữa chừng khi ghi
+ 
+ 
+def new_conversation() -> dict:
+    conv_id = uuid.uuid4().hex
+    now = _now_iso()
+    return {
+        "id": conv_id,
+        "title": DEFAULT_TITLE,
+        "created_at": now,
+        "updated_at": now,
+        "messages": [],
+    }
+ 
+ 
+def make_title_from_query(query: str, max_len: int = 45) -> str:
+    """Tự đặt tên cuộc trò chuyện theo câu hỏi đầu tiên, giống ChatGPT/Claude."""
+    q = " ".join(query.strip().split())
+    return q if len(q) <= max_len else q[: max_len].rstrip() + "…"
+ 
+ 
+def get_most_recent_id(conversations: dict) -> str:
+    return max(conversations, key=lambda cid: conversations[cid].get("updated_at", ""))
+
+def get_image_base64(file_path: str) -> str:
+    if not os.path.exists(file_path):
+        return ""
+    ext = os.path.splitext(file_path)[1].lower().replace(".", "")
+    mime_type = "image/webp" if ext == "webp" else "image/png"
+    with open(file_path, "rb") as f:
+        data = f.read()
+    return f"data:{mime_type};base64,{base64.b64encode(data).decode()}"
+
+# Lấy đường dẫn tới 2 icon trong thư mục icons/
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FOLDER_ICON_PATH = os.path.join(BASE_DIR, "icons", "folder.webp")
+FILTER_ICON_PATH = os.path.join(BASE_DIR, "icons", "filter.png")
+PLUS_ICON_PATH = os.path.join(BASE_DIR, "icons", "plus.png")
+
+plus_icon_b64 = get_image_base64(PLUS_ICON_PATH)
+folder_icon_b64 = get_image_base64(FOLDER_ICON_PATH)
+filter_icon_b64 = get_image_base64(FILTER_ICON_PATH)
 
 def fetch_documents():
     try:
@@ -56,7 +128,7 @@ def render_intent(intent: dict | None) -> None:
     lỗi -- hữu ích để người dùng/dev thấy hệ thống đã hiểu câu hỏi thế nào."""
     if not intent:
         return
-    with st.expander("Đầu vào đã trích xuất (CalculationIntent)", expanded=False):
+    with st.expander("Đầu vào đã trích xuất (Calculation Intent)", expanded=False):
         st.json(intent)
 
 def render_metric_spec(metric_spec: dict | None) -> None:
@@ -78,20 +150,197 @@ def render_calculation_output(calculation: dict | None) -> None:
     backend trả calculation=None, dropdown này sẽ không hiện)."""
     if not calculation:
         return
-    with st.expander("Kết quả tính toán (CalculationOutput)", expanded=False):
+    with st.expander("Kết quả tính toán (Calculation Output)", expanded=False):
         st.json(calculation)
 
-st.set_page_config(page_title="Financial RAG Chatbot", page_icon="💬", layout="wide")
+st.set_page_config(page_title=f"{APP_NAME} | Financial RAG", page_icon="💬", layout="wide")
 
-if "session_id" not in st.session_state:
-    st.session_state.session_id = str(uuid.uuid4())
+st.markdown(
+    f"""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;800&display=swap');
+ 
+    .frag-logo {{
+        font-family: 'Sora', 'Segoe UI', sans-serif;
+        font-weight: 800;
+        font-size: 2.1rem;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin: -3.5rem 0 0 0;
+        background: linear-gradient(90deg, #FF4B4B 0%, #000000 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }}
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+    [data-testid="stSidebar"] hr {{
+        margin-top: 0rem !important;
+        margin-bottom: 0.8rem !important;
+    }}
+
+    .frag-tagline {{
+        font-family: 'Sora', 'Segoe UI', sans-serif;
+        font-size: 0.85rem;
+        color: #8a8f98;
+        margin-bottom: 0.3rem;
+    }}
+
+    /* Bỏ khung/viền cho 2 nút ✏️ và 🗑️ */
+    [data-testid="stSidebar"] [data-testid="stHorizontalBlock"] > div:nth-child(2) button,
+    [data-testid="stSidebar"] [data-testid="stHorizontalBlock"] > div:nth-child(3) button {{
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }}
+
+    .st-key-new_chat_btn button,
+    .st-key-new_chat_btn button *,
+    .st-key-new_chat_btn button p {{
+        font-weight: 800 !important;
+        font-size: 15px !important;
+        color: #000000 !important;
+    }}
+
+    /* Căn giữa chữ và icon */
+    .st-key-new_chat_btn button [data-testid="stMarkdownContainer"] p,
+    .st-key-new_chat_btn button p {{
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }}
+
+    /* --- CHÈN ICON VÀO TRƯỚC CHỮ --- */
+    .st-key-new_chat_btn button [data-testid="stMarkdownContainer"] p::before,
+    .st-key-new_chat_btn button p::before {{
+        content: "" !important;
+        display: inline-block !important;
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+        margin-right: 8px !important;
+        background-image: url("{plus_icon_b64}") !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+ 
+if "conversations" not in st.session_state:
+    st.session_state.conversations = load_conversations()
+ 
+if "rename_target" not in st.session_state:
+    st.session_state.rename_target = None
+
+query_chat_id = st.query_params.get("chat_id")
+ 
+if query_chat_id and query_chat_id in st.session_state.conversations:
+    current_id = query_chat_id
+elif st.session_state.conversations:
+    current_id = get_most_recent_id(st.session_state.conversations)
+    st.query_params["chat_id"] = current_id
+else:
+    _conv = new_conversation()
+    st.session_state.conversations[_conv["id"]] = _conv
+    save_conversations(st.session_state.conversations)
+    current_id = _conv["id"]
+    st.query_params["chat_id"] = current_id
+ 
+current_conv = st.session_state.conversations[current_id]
 
 with st.sidebar:
+    # Tên chatbot, góc trái trên cùng
+    st.markdown(f'<div class="frag-logo">{APP_NAME}</div>', unsafe_allow_html=True)
+    st.divider()
+
+    # Nút tạo cuộc trò chuyện mới
+    if st.button("Cuộc trò chuyện mới", key="new_chat_btn", use_container_width=True):
+        conv = new_conversation()
+        st.session_state.conversations[conv["id"]] = conv
+        save_conversations(st.session_state.conversations)
+        st.query_params["chat_id"] = conv["id"]
+        st.session_state.rename_target = None
+        st.rerun()
+ 
+    #st.markdown("💬 Lịch sử trò chuyện")
+    st.markdown(
+    f"<p style='color: #000000; font-weight: bold; font-size: 18px; margin-top: -10px; margin-left: 0px;'>💬 Lịch sử trò chuyện</p>",
+    unsafe_allow_html=True
+    )
+    sorted_convs = sorted(
+        st.session_state.conversations.values(),
+        key=lambda c: c.get("updated_at", ""),
+        reverse=True,
+    )
+ 
+    for conv in sorted_convs:
+        is_active = conv["id"] == current_id
+        title = conv.get("title") or DEFAULT_TITLE
+ 
+        row = st.columns([0.72, 0.14, 0.14])
+        if row[0].button(
+            title,
+            key=f"open_{conv['id']}",
+            use_container_width=True,
+            type="primary" if is_active else "secondary",
+        ):
+            st.query_params["chat_id"] = conv["id"]
+            st.session_state.rename_target = None
+            st.rerun()
+ 
+        if row[1].button("✏️", key=f"rename_{conv['id']}", help="Đổi tên", type="tertiary"):
+            st.session_state.rename_target = conv["id"]
+            st.rerun()
+ 
+        if row[2].button("🗑️", key=f"delete_{conv['id']}", help="Xoá cuộc trò chuyện", type="tertiary"):
+            del st.session_state.conversations[conv["id"]]
+            if st.session_state.conversations:
+                next_id = get_most_recent_id(st.session_state.conversations)
+            else:
+                _new = new_conversation()
+                st.session_state.conversations[_new["id"]] = _new
+                next_id = _new["id"]
+            save_conversations(st.session_state.conversations)
+            if conv["id"] == current_id:
+                st.query_params["chat_id"] = next_id
+            st.session_state.rename_target = None
+            st.rerun()
+ 
+        # Ô đổi tên inline, chỉ hiện cho đúng conversation đang chọn
+        if st.session_state.rename_target == conv["id"]:
+            new_title = st.text_input(
+                "Tên mới",
+                value=conv.get("title", ""),
+                key=f"rename_input_{conv['id']}",
+                label_visibility="collapsed",
+            )
+            rcol1, rcol2 = st.columns(2)
+            if rcol1.button("Lưu", key=f"save_rename_{conv['id']}", use_container_width=True):
+                conv["title"] = new_title.strip() or DEFAULT_TITLE
+                conv["updated_at"] = _now_iso()
+                save_conversations(st.session_state.conversations)
+                st.session_state.rename_target = None
+                st.rerun()
+            if rcol2.button("Huỷ", key=f"cancel_rename_{conv['id']}", use_container_width=True):
+                st.session_state.rename_target = None
+                st.rerun()
+ 
+    st.divider()
+
     # Upload file
-    st.subheader("📁 Tải tài liệu")
+    st.markdown(
+        f"""
+        <div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; margin-bottom: 12px;">
+            <img src="{folder_icon_b64}" width="26" height="26" style="object-fit: contain;">
+            <span style="font-size: 20px; font-weight: 700;">Tải tài liệu</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
  
     with st.form("upload_form", clear_on_submit=True):
         uploaded_files = st.file_uploader(
@@ -119,8 +368,16 @@ with st.sidebar:
  
     st.divider()
  
-    # Filter: công ty / loại tài liệu / năm / quý cho các file đã upload
-    st.subheader("🔎 Bộ lọc")
+    # Filter
+    st.markdown(
+        f"""
+        <div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; margin-bottom: 12px;">
+            <img src="{filter_icon_b64}" width="26" height="26" style="object-fit: contain;">
+            <span style="font-size: 20px; font-weight: 700;">Bộ lọc</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
  
     filter_company = st.selectbox("Công ty, Tập đoàn", COMPANY_OPTIONS)
     filter_doc_type = st.selectbox("Loại tài liệu", DOC_TYPE_OPTIONS)
@@ -161,53 +418,67 @@ with st.sidebar:
         st.info("Không tìm thấy tài liệu phù hợp.")
 
     #Xóa tài liệu
-    # Tạo danh sách ánh xạ: "Tên file (ID)" -> document_id
-    doc_options = {
-        f"{doc.get('file_name', 'Unamed')} ({doc['document_id']})": doc['document_id']
-        for doc in valid_docs if "document_id" in doc
-    }
+    with st.expander("🗑️ Xoá tài liệu", expanded=False):
+        # valid_docs được tính lại độc lập ở đây phòng trường hợp expander
+        # "Bộ lọc" ở trên chưa từng được mở ra trong lần chạy này.
+        _all_docs = fetch_documents()
+        _valid_docs = [
+            d for d in _all_docs
+            if d.get("document_id")
+            and d.get("file_name")
+            and str(d.get("document_id")).lower() != "none"
+            and str(d.get("file_name")).lower() != "none"
+        ]
+        doc_options = {
+            f"{doc.get('file_name', 'Unamed')} ({doc['document_id']})": doc['document_id']
+            for doc in _valid_docs if "document_id" in doc
+        }
+ 
+        if doc_options:
+            selected_label = st.selectbox(
+                "Chọn tài liệu cần xóa:",
+                options=list(doc_options.keys()),
+            )
+            if st.button("Xóa tài liệu", type="primary"):
+                selected_id = doc_options[selected_label]
+                try:
+                    response = requests.delete(f"{BACKEND_URL}/documents/{selected_id}")
+                    if response.status_code == 200:
+                        st.success("Đã xóa tài liệu thành công!")
+                        st.rerun()
+                    else:
+                        st.error(f"Lỗi {response.status_code}: {response.text}")
+                except Exception as e:
+                    st.error(f"Không thể kết nối đến Backend: {e}")
+        else:
+            st.info("Chưa có tài liệu nào để xoá.")
 
-    if doc_options:
-        st.sidebar.markdown("---")
-        st.sidebar.subheader("🗑️ Xóa tài liệu")
-    
-    # UI: Menu chọn tài liệu
-    selected_label = st.sidebar.selectbox(
-        "Chọn tài liệu cần xóa:",
-        options=list(doc_options.keys())
-    )
-    
-    # UI: Nút bấm xác nhận xóa
-    if st.sidebar.button("Xóa tài liệu", type="primary"):
-        selected_id = doc_options[selected_label]
-        
-        try:
-            # 2. Gửi yêu cầu DELETE xuống Backend
-            response = requests.delete(f"{BACKEND_URL}/documents/{selected_id}")
-            
-            # 3. Đồng bộ giao diện khi thành công
-            if response.status_code == 200:
-                st.sidebar.success("Đã xóa tài liệu thành công!")
-                st.rerun()  # Tự động reload để xóa file khỏi bảng hiển thị
-            else:
-                st.sidebar.error(f"Lỗi {response.status_code}: {response.text}")
-        except Exception as e:
-            st.sidebar.error(f"Không thể kết nối đến Backend: {e}")
 
-
-st.title("💬 Financial RAG Chatbot")
-for msg in st.session_state.messages:
+st.title(f"💬 Financial RAG Chatbot")
+# st.caption(current_conv.get("title", DEFAULT_TITLE))
+title_text = current_conv.get("title", DEFAULT_TITLE)
+st.markdown(
+    f"<p style='color: #000000; font-weight: bold; font-size: 18px; margin-top: -10px; margin-left: 10px;'>Chats: {title_text}</p>",
+    unsafe_allow_html=True
+)
+ 
+for msg in current_conv["messages"]:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
         render_intent(msg.get("intent"))
         render_metric_spec(msg.get("metric_spec"))
         render_calculation_output(msg.get("calculation"))
         render_citations(msg.get("citations", []))
-
+ 
 query = st.chat_input("Hỏi về báo cáo tài chính, hợp đồng tín dụng, bản cáo bạch...")
-
+ 
 if query:
-    st.session_state.messages.append({"role": "user", "content": query})
+    current_conv["messages"].append({"role": "user", "content": query})
+    if current_conv["title"] == DEFAULT_TITLE:
+        current_conv["title"] = make_title_from_query(query)
+    current_conv["updated_at"] = _now_iso()
+    save_conversations(st.session_state.conversations)
+ 
     with st.chat_message("user"):
         st.write(query)
 
@@ -219,7 +490,7 @@ if query:
         try:
             resp = requests.post(
                 f"{BACKEND_URL}/chat",
-                json={"session_id": st.session_state.session_id, "query": query},
+                json={"session_id": current_conv["id"], "query": query},
                 timeout=180,
             )
             resp.raise_for_status()
@@ -237,10 +508,13 @@ if query:
         render_metric_spec(metric_spec)
         render_calculation_output(calculation)
         render_citations(citations)
-        st.session_state.messages.append({
-            "role": "assistant", 
-            "content": answer, 
-            "intent": intent,
-            "metric_spec": metric_spec,
-            "calculation": calculation,
-            "citations": citations})
+    current_conv["messages"].append({
+        "role": "assistant",
+        "content": answer,
+        "intent": intent,
+        "metric_spec": metric_spec,
+        "calculation": calculation,
+        "citations": citations,
+    })
+    current_conv["updated_at"] = _now_iso()
+    save_conversations(st.session_state.conversations)

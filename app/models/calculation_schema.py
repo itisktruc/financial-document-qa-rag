@@ -79,18 +79,29 @@ class MetricFormulaSpec(BaseModel):
         return {metric_key: body}
 
 class CalculationIntent(BaseModel):
+    # "metric_key"/"metric_keys": kể từ khi hỗ trợ multi-metric (1 câu hỏi
+    # có thể cần tính NHIỀU chỉ số, hoặc chỉ số được suy luận GIÁN TIẾP từ
+    # ngữ cảnh câu hỏi thay vì gọi tên trực tiếp -- xem
+    # CalculationService.extract_intent()), "metric_keys" là NGUỒN SỰ THẬT
+    # ĐẦY ĐỦ. "metric_key" (số ít) LUÔN = metric_keys[0] (hoặc None nếu
+    # rỗng) -- giữ lại CHỈ để tương thích ngược với bất kỳ code cũ nào còn
+    # đọc field đơn số này trực tiếp (vd log/debug, hoặc client cũ).
     metric_key: Optional[str] = None
+    metric_keys: list[str] = Field(default_factory=list)
     ticker: Optional[str] = None
     year: Optional[int] = None
     quarter: Optional[int] = None
     compare_year: Optional[int] = None
     compare_quarter: Optional[int] = None
+    report_scope: Optional[str] = None  # "parent" | "consolidated" | None
     raw_query: str = ""
 
 
 class CalculationResponse(BaseModel):
     answer: str
     calculation: Optional[CalculationOutput] = None
+    calculations: list[CalculationOutput] = Field(default_factory=list)
     citations: list = Field(default_factory=list)
     intent: Optional[dict] = None
     metric_spec: Optional[dict] = None
+    metric_specs: list[dict] = Field(default_factory=list)

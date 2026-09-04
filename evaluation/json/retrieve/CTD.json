@@ -1,0 +1,199 @@
+[
+  {
+    "question": "Lợi nhuận sau thuế của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) cho năm tài chính kết thúc ngày 30 tháng 6 năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>60</td><td>Lợi nhuận sau thuế TNDN</td><td></td><td>314.303.622.885</td><td>101.765.147.556</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận sau thuế của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính kết thúc 30/6/2025 là 314.303.622.885 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng lợi nhuận sau thuế của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>60</td><td>Lợi nhuận sau thuế TNDN</td><td></td><td>314.303.622.885</td><td>101.765.147.556</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng LNST của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) = (314.303.622.885 - 101.765.147.556) / 101.765.147.556 ≈ 208,9%. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Doanh thu thuần về bán hàng và cung cấp dịch vụ của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính kết thúc ngày 30/6/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>10</td><td>Doanh thu thuần về bán hàng và cung cấp dịch vụ</td><td>26.1</td><td>19.330.378.685.964</td><td>17.125.456.333.235</td></tr>"
+    ],
+    "ground_truth": "Doanh thu thuần của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính kết thúc 30/6/2025 là 19.330.378.685.964 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Lợi nhuận gộp về bán hàng và cung cấp dịch vụ của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính kết thúc ngày 30/6/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>20</td><td>Lợi nhuận gộp về bán hàng và cung cấp dịch vụ</td><td></td><td>633.931.037.226</td><td>437.960.670.766</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận gộp của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính kết thúc 30/6/2025 là 633.931.037.226 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng doanh thu thuần của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>10</td><td>Doanh thu thuần về bán hàng và cung cấp dịch vụ</td><td>26.1</td><td>19.330.378.685.964</td><td>17.125.456.333.235</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng doanh thu thuần = (19.330.378.685.964 - 17.125.456.333.235) / 17.125.456.333.235 ≈ 12,88%. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng lợi nhuận gộp của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>20</td><td>Lợi nhuận gộp về bán hàng và cung cấp dịch vụ</td><td></td><td>633.931.037.226</td><td>437.960.670.766</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng lợi nhuận gộp = (633.931.037.226 - 437.960.670.766) / 437.960.670.766 ≈ 44,75%. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Biên lợi nhuận gộp của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính kết thúc ngày 30/6/2025 là bao nhiêu phần trăm?",
+    "contexts": [
+      "<tr><td>10</td><td>Doanh thu thuần về bán hàng và cung cấp dịch vụ</td><td>26.1</td><td>19.330.378.685.964</td><td>17.125.456.333.235</td></tr>",
+      "<tr><td>20</td><td>Lợi nhuận gộp về bán hàng và cung cấp dịch vụ</td><td></td><td>633.931.037.226</td><td>437.960.670.766</td></tr>"
+    ],
+    "ground_truth": "Biên lợi nhuận gộp của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) được tính bằng Lợi nhuận gộp (633.931.037.226) chia cho Doanh thu thuần (19.330.378.685.964) = 3,28%. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Chủ tịch Hội đồng Quản trị của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) là ai?",
+    "contexts": [
+      "<table><tr><td>Ông Bolat Duisenov</td><td>Chủ tịch</td></tr><tr><td>Ông Herwig Guido H. Van Hove</td><td>Thành viên</td></tr><tr><td>Ông Talgat Turumbayev</td><td>Thành viên</td></tr><tr><td>Ông Võ Hoàng Lâm</td><td>Thành viên</td></tr><tr><td>Ông Phạm Quang Vũ</td><td>Thành viên</td></tr><tr><td>Ông Tổng Văn Nga</td><td>Thành viên độc lập</td></tr><tr><td>Ông Tan Chin Tiong</td><td>Thành viên độc lập</td></tr></table>"
+    ],
+    "ground_truth": "Ông Bolat Duisenov là Chủ tịch Hội đồng Quản trị của Công ty Cổ phần Xây dựng Coteccons. [Nguồn: Thông tin chung, trang 4]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Công ty kiểm toán của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính kết thúc ngày 30/6/2025 là công ty nào?",
+    "contexts": [
+      "Công ty TNHH Ernst & Young Việt Nam là công ty kiểm toán cho Công ty."
+    ],
+    "ground_truth": "Công ty TNHH Ernst & Young Việt Nam là công ty kiểm toán của Công ty Cổ phần Xây dựng Coteccons. [Nguồn: Thông tin chung, trang 5]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Địa chỉ trụ sở chính của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) là gì?",
+    "contexts": [
+      "Công ty có trụ sở chính tại Số 236/6, Đường Điện Biên Phủ, Phương Gia Định, Thành phố Hồ Chí Minh, Việt Nam."
+    ],
+    "ground_truth": "Số 236/6, Đường Điện Biên Phủ, Phường Gia Định, Thành phố Hồ Chí Minh, Việt Nam. [Nguồn: Thông tin chung, trang 4]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Mã chứng khoán của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) là gì?",
+    "contexts": [
+      "- Mã chứng khoán/ Stock code: CTD"
+    ],
+    "ground_truth": "Mã chứng khoán của Công ty Cổ phần Xây dựng Coteccons là CTD. [Nguồn: Công bố thông tin định kỳ, trang 1]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Ngày lập và phê duyệt báo cáo tài chính riêng năm tài chính kết thúc ngày 30/6/2025 của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) là ngày nào?",
+    "contexts": [
+      "Ngày 23 tháng 9 năm 2025"
+    ],
+    "ground_truth": "Ngày 23 tháng 9 năm 2025. [Nguồn: Báo cáo của Ban Tổng Giám đốc, trang 6]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ nợ xấu (NPL ratio) của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) tại ngày 30/6/2025 là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Xây dựng Coteccons không công bố chỉ tiêu tỷ lệ nợ xấu (NPL). Không thể xác định từ tài liệu này.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Tỷ lệ CAR (Capital Adequacy Ratio) của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) tại ngày 30/6/2025 là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Xây dựng Coteccons không công bố tỷ lệ an toàn vốn (CAR). Không có thông tin trong tài liệu này.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) dự kiến chia cổ tức năm tài chính 2025 với tỷ lệ bao nhiêu phần trăm?",
+    "contexts": [],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Xây dựng Coteccons không có thông tin về tỷ lệ chia cổ tức dự kiến. Không thể xác định từ tài liệu này.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Giá trị sổ sách mỗi cổ phiếu (Book value per share) của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) tại ngày 30/6/2025 là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Xây dựng Coteccons không công bố số lượng cổ phiếu đang lưu hành trong các trang tóm tắt nên không thể tính chính xác Book value per share từ tài liệu này.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Chi phí nhân viên năm tài chính 2025 của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Xây dựng Coteccons không công bố riêng khoản mục chi phí nhân viên trên Báo cáo kết quả hoạt động kinh doanh.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "So sánh tốc độ tăng trưởng doanh thu thuần và tốc độ tăng trưởng lợi nhuận gộp của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025.",
+    "contexts": [
+      "<tr><td>20</td><td>Lợi nhuận gộp về bán hàng và cung cấp dịch vụ</td><td></td><td>633.931.037.226</td><td>437.960.670.766</td></tr>"
+    ],
+    "ground_truth": "Dựa trên số liệu tài chính năm nay so với năm trước: Doanh thu thuần tăng khoảng 12,88%; Lợi nhuận gộp tăng khoảng 44,75%. Lợi nhuận gộp tăng nhanh hơn doanh thu thuần. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "Nếu doanh thu thuần của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025 tăng thêm 10% so với mức thực tế, thì doanh thu ước tính sẽ là bao nhiêu?",
+    "contexts": [
+      "<tr><td>10</td><td>Doanh thu thuần về bán hàng và cung cấp dịch vụ</td><td>26.1</td><td>19.330.378.685.964</td><td>17.125.456.333.235</td></tr>"
+    ],
+    "ground_truth": "Doanh thu thực tế 19.330.378.685.964 VND. Nếu tăng 10% thì ước tính = 19.330.378.685.964 × 1,1 = 21.263.416.554.560 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Nếu lợi nhuận gộp của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025 giữ nguyên mức năm 2024, thì chênh lệch so với thực tế là bao nhiêu?",
+    "contexts": [
+      "<tr><td>20</td><td>Lợi nhuận gộp về bán hàng và cung cấp dịch vụ</td><td></td><td>633.931.037.226</td><td>437.960.670.766</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận gộp thực tế năm nay là 633.931.037.226 VND, cao hơn mức 437.960.670.766 VND của năm trước. Nếu giữ nguyên mức năm 2024 thì thấp hơn thực tế 195.970.366.460 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 12]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Tổng thu nhập của các thành viên HĐQT, BKS và Ban Tổng Giám đốc của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025 là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Tài liệu được cung cấp (từ trang 1 đến trang 32) không chứa thông tin về tổng thu nhập của các thành viên HĐQT, BKS và Ban Tổng Giám đốc (thường nằm ở phần Thuyết minh giao dịch các bên liên quan ở các trang sau).",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng tổng thu nhập của các thành viên HĐQT, BKS và Ban Tổng Giám đốc của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) năm tài chính 2025 so với năm trước là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Tài liệu được cung cấp (từ trang 1 đến trang 32) không chứa thông tin về tổng thu nhập của HĐQT, BKS và Ban Tổng Giám đốc nên không thể tính toán tỷ lệ tăng trưởng.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Cam kết góp vốn vào CTD INC của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) tại ngày 30/6/2025 là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Tài liệu được cung cấp (từ trang 1 đến trang 32) không chứa thông tin Thuyết minh về các cam kết góp vốn vào CTD INC.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Tổng các khoản cam kết góp vốn vào các công ty con của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) tại ngày 30/6/2025 là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Tài liệu được cung cấp (từ trang 1 đến trang 32) không chứa thông tin tổng các khoản cam kết góp vốn vào các công ty con.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Nếu tổng cam kết góp vốn của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) tăng thêm 15%, thì giá trị mới sẽ là bao nhiêu?",
+    "contexts": [],
+    "ground_truth": "Tài liệu được cung cấp (từ trang 1 đến trang 32) không chứa thông tin về tổng cam kết góp vốn hiện tại để có thể thực hiện tính toán.",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Ý kiến kiểm toán về báo cáo tài chính riêng năm tài chính kết thúc ngày 30/6/2025 của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) là gì?",
+    "contexts": [
+      "Theo ý kiến của chúng tối, báo cáo tài chính riêng đã phân ánh trung thực và hợp lý, trên các khóa cạnh trọng yếu, tinh hình tài chính riêng của Công ty tại ngày 30 tháng 6 năm 2025, cũng như kết quả hoạt động kinh doanh riêng và tinh hình lưu chuyển tiền tệ riêng cho năm tài chính kết thúc cùng ngày, phù hợp với các Chuẩn mực kế toán Việt Nam, Chế độ kế toán doanh nghiệp Việt Nam và các quy định pháp lý có liên quan đến việc lập và trình bày báo cáo tài chính riêng."
+    ],
+    "ground_truth": "Ý kiến kiểm toán là ý kiến chấp nhận toàn phần (đã phản ánh trung thực và hợp lý trên các khía cạnh trọng yếu). [Nguồn: Báo cáo kiểm toán độc lập, trang 8]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Người được ủy quyền ký báo cáo tài chính riêng năm tài chính kết thúc ngày 30/6/2025 của Công ty Cổ phần Xây dựng Coteccons (công ty mẹ) là ai?",
+    "contexts": [
+      "Ông Nguyễn Văn Đua được Ông Bolat Duisenov ủy quyền để ký báo cáo tài chính riêng kèm theo cho năm tài chính kết thúc ngày 30 tháng 6 năm 2025 theo Giấy Ủy Quyền số 5091/2024/UQ-CTHĐQT ngày 17 tháng 10 năm 2024."
+    ],
+    "ground_truth": "Ông Nguyễn Văn Đua (được ủy quyền bởi Ông Bolat Duisenov). [Nguồn: Thông tin chung, trang 5]",
+    "evolution_type": "simple"
+  }
+]

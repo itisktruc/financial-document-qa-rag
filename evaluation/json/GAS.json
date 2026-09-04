@@ -1,0 +1,134 @@
+[
+  {
+    "question": "Tổng tài sản của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>TỔNG CỘNG TÀI SẢN (270=100+200)</td><td>270</td><td>87.090.620.643.636</td><td>78.781.946.257.137</td></tr>"
+    ],
+    "ground_truth": "Tổng tài sản của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) tại ngày 31/12/2025 là 87.090.620.643.636 VND. [Nguồn: Bảng cân đối kế toán riêng, trang 9]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tổng nợ phải trả của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "BẢNG CÂN ĐỐI KẾ TOÁN RIÊNG (Tiếp theo)\nTại ngày 31 tháng 12 năm 2025\n<table><tr><td>NGUỒN VỐN</td><td>Mã số</td><td>Số cuối năm</td><td>Số đầu năm</td></tr><tr><td>C. NỘ PHẢI TRẢ</td><td>300</td><td>21.104.040.391.460</td><td>18.691.969.503.308</td></tr></table>"
+    ],
+    "ground_truth": "Tổng nợ phải trả của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) tại ngày 31/12/2025 là 21.104.040.391.460 VND. [Nguồn: Bảng cân đối kế toán riêng, trang 10]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Doanh thu thuần về bán hàng và cung cấp dịch vụ của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>2. Doanh thu thuần về bán hàng và cung cấp dịch vụ (10=01)</td><td>10</td><td>112.249.363.657.413</td><td>99.401.751.288.148</td></tr>"
+    ],
+    "ground_truth": "Doanh thu thuần về bán hàng và cung cấp dịch vụ của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 là 112.249.363.657.413 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 11]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Lợi nhuận sau thuế thu nhập doanh nghiệp của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>15. Lợi nhuận sau thuế thu nhập doanh nghiệp (60=50-51)</td><td>60</td><td>11.233.714.478.209</td><td>10.142.841.846.967</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận sau thuế thu nhập doanh nghiệp của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 là 11.233.714.478.209 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 11]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tổng Giám đốc của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) là ai?",
+    "contexts": [
+      "BÁO CÁO CỦA BAN TỔNG GIÁM ĐỐC\nBan Tổng Giám đốc\n<table><tr><td>Ông Phạm Văn Phong</td><td>Tổng Giám đốc</td></tr><tr><td>Ông Huỳnh Quang Hải</td><td>Phó Tổng Giám đốc</td></tr></table>"
+    ],
+    "ground_truth": "Ông Phạm Văn Phong là Tổng Giám đốc của Tổng Công ty Khí Việt Nam - CTCP. [Nguồn: Báo cáo của Ban Tổng Giám đốc, trang 9]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Chủ tịch Hội đồng Quản trị của Tổng Công ty Khí Việt Nam - CTCP là ai?",
+    "contexts": [
+      "BÁO CÁO CỦA BAN TỔNG GIÁM ĐỐC\nHội đồng Quản trị\n<table><tr><td>Ông Nguyễn Thanh Bình</td><td>Chủ tịch</td></tr><tr><td>Ông Phạm Văn Phong</td><td>Thành viên</td></tr></table>"
+    ],
+    "ground_truth": "Ông Nguyễn Thanh Bình là Chủ tịch Hội đồng Quản trị của Tổng Công ty Khí Việt Nam - CTCP. [Nguồn: Báo cáo của Ban Tổng Giám đốc, trang 9]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng tổng tài sản của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>TỔNG CỘNG TÀI SẢN (270=100+200)</td><td>270</td><td>87.090.620.643.636</td><td>78.781.946.257.137</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng tổng tài sản của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) = (87.090.620.643.636 - 78.781.946.257.137) / 78.781.946.257.137 × 100% ≈ 10,55%. [Nguồn: Bảng cân đối kế toán riêng, trang 9]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ nợ phải trả trên tổng tài sản của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>TỔNG CỘNG TÀI SẢN (270=100+200)</td><td>87.090.620.643.636</td></tr>",
+      "BẢNG CÂN ĐỐI KẾ TOÁN RIÊNG (Tiếp theo)\nTại ngày 31 tháng 12 năm 2025\n<table><tr><td>NGUỒN VỐN</td><td>Số cuối năm</td></tr><tr><td>C. NỘ PHẢI TRẢ</td><td>21.104.040.391.460</td></tr></table>"
+    ],
+    "ground_truth": "Tỷ lệ nợ phải trả trên tổng tài sản = 21.104.040.391.460 / 87.090.620.643.636 × 100% ≈ 24,23%. [Nguồn: Bảng cân đối kế toán riêng, trang 10-11]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng lợi nhuận sau thuế của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>15. Lợi nhuận sau thuế thu nhập doanh nghiệp (60=50-51)</td><td>11.233.714.478.209</td><td>10.142.841.846.967</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng lợi nhuận sau thuế = (11.233.714.478.209 - 10.142.841.846.967) / 10.142.841.846.967 × 100% ≈ 10,75%. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 11]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Lãi cơ bản trên cổ phiếu của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>16. Lãi cơ bản trên có phiếu</td><td>70</td><td>4.578</td><td>4.047</td></tr>"
+    ],
+    "ground_truth": "Lãi cơ bản trên cổ phiếu của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025 là 4.578 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 11]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Số lượng nhân viên của Tổng Công ty Khí Việt Nam - CTCP tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "THÔNG TIN KHÁI QUÁT\nTổng số nhân viên của Tổng Công ty tại ngày 31 tháng 12 năm 2025 là 1."
+    ],
+    "ground_truth": "Số lượng nhân viên của Tổng Công ty Khí Việt Nam - CTCP tại ngày 31/12/2025 là 1.355 người. [Nguồn: Thuyết minh báo cáo tài chính riêng, trang 14]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Công ty kiểm toán báo cáo tài chính riêng của Tổng Công ty Khí Việt Nam - CTCP năm 2025 là đơn vị nào?",
+    "contexts": [
+      "Công ty TNHH Kiểm toán Deloitte Việt Nam\nBÁO CÁO KIỂM TOÁN ĐỘC LẬP\nKính gửi: Các cổ đông\nHội đồng Quản trị và Ban Tổng Giám đốc\nTổng Công ty Khí Việt Nam - Công ty Cố phần"
+    ],
+    "ground_truth": "Công ty TNHH Kiểm toán Deloitte Việt Nam là đơn vị kiểm toán báo cáo tài chính riêng của Tổng Công ty Khí Việt Nam - CTCP năm 2025. [Nguồn: Báo cáo kiểm toán độc lập, trang 7]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ nợ xấu (NPL) của Tổng Công ty Khí Việt Nam - CTCP năm 2025 là bao nhiêu?",
+    "contexts": [
+      "Báo cáo tài chính riêng không trình bày chỉ tiêu tỷ lệ nợ xấu (NPL) do đây không phải là ngân hàng hay tổ chức tín dụng."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Tổng Công ty Khí Việt Nam - CTCP không công bố tỷ lệ nợ xấu (NPL) do đây không phải là ngân hàng. Không có thông tin này trong tài liệu. [Nguồn: Toàn bộ Báo cáo tài chính riêng]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Nếu giá vốn hàng bán năm 2025 của Tổng Công ty Khí Việt Nam - CTCP giảm 5%, lợi nhuận gộp ước tính sẽ là bao nhiêu?",
+    "contexts": [
+      "<tr><td>2. Doanh thu thuần về bán hàng và cung cấp dịch vụ (10=01)</td><td>112.249.363.657.413</td></tr>",
+      "<tr><td>3. Giá vốn hàng bán và dịch vụ cung cấp</td><td>96.923.884.241.759</td></tr>",
+      "<tr><td>4. Lợi nhuận gộp về bán hàng và cung cấp dịch vụ (20=10-11)</td><td>15.325.479.415.654</td></tr>"
+    ],
+    "ground_truth": "Giá vốn hàng bán thực tế là 96.923.884.241.759 VND. Nếu giảm 5%, giá vốn mới = 96.923.884.241.759 × 95% = 92.077.689.929.671 VND. Lợi nhuận gộp ước tính = 112.249.363.657.413 - 92.077.689.929.671 = 20.171.673.727.742 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng, trang 11]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Vốn điều lệ của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) theo Giấy chứng nhận đăng ký doanh nghiệp thay đổi gần nhất là bao nhiêu?",
+    "contexts": [
+      "THÔNG TIN KHÁI QUÁT\nHình thức sở hữu vốn\nVào ngày 14 tháng 10 năm 2025, Sở Kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp Giấy chứng nhận đăng ký doanh nghiệp thay đổi gần nhất lần thứ 23 số 3500102710 để cập nhật thông tin vốn điều lệ của Tổng Công ty từ 23."
+    ],
+    "ground_truth": "Vốn điều lệ của Tổng Công ty Khí Việt Nam - CTCP là 24.129,4 tỷ đồng. [Nguồn: Thuyết minh báo cáo tài chính riêng, trang 14]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "So sánh lưu chuyển tiền thuần từ hoạt động kinh doanh và hoạt động đầu tư của Tổng Công ty Khí Việt Nam - CTCP (công ty mẹ) năm 2025.",
+    "contexts": [
+      "<tr><td>Lưu chuyển tiền thuần từ hoạt động kinh doanh</td><td>13.586.834.113.196</td></tr>",
+      "<tr><td>Lưu chuyển tiền thuần từ hoạt động đầu tư</td><td>(6.448.994.434.925)</td></tr>"
+    ],
+    "ground_truth": "Lưu chuyển tiền thuần từ hoạt động kinh doanh của PV GAS (công ty mẹ) năm 2025 là số dương 13.586.834.113.196 VND, trong khi lưu chuyển tiền thuần từ hoạt động đầu tư là số âm (6.448.994.434.925) VND. Dòng tiền kinh doanh dồi dào đủ để bù đắp cho các hoạt động đầu tư. [Nguồn: Báo cáo lưu chuyển tiền tệ riêng, trang 14]",
+    "evolution_type": "reasoning"
+  }
+]

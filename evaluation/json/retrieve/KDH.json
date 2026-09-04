@@ -1,0 +1,238 @@
+[
+  {
+    "question": "Lợi nhuận sau thuế của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền (BCTC Riêng) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td rowspan=\"2\">1</td><td rowspan=\"2\">Lợi nhuận sau thuế của công ty (BCTC Riêng)Profit after tax (Separate financial statements)</td><td>1.727.393.356</td><td>1.333.285.241</td><td>29,6%</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận sau thuế của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền trên BCTC Riêng năm 2025 là 1.727.393.356 ngàn VND (tương đương 1.727.393.356.000 VND). [Nguồn: Công bố thông tin giải trình lợi nhuận - trang 1]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Lợi nhuận sau thuế phân bổ cho cổ đông của Công ty trên BCTC Hợp nhất năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td rowspan=\"2\">2</td><td rowspan=\"2\">Lợi nhuận sau thuế phân bổ cho Cổ đông của Công ty (BCTC Hợp nhất)Profit after tax attributable to Shareholders to the Company (Consolidated financial statements)</td><td>1.045.471.436</td><td>810.413.554</td><td>29,0%</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận sau thuế phân bổ cho cổ đông của Công ty trên BCTC Hợp nhất năm 2025 là 1.045.471.436 ngàn VND. [Nguồn: Công bố thông tin giải trình lợi nhuận - trang 1]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng lợi nhuận sau thuế trên BCTC Riêng năm 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "<tr><td rowspan=\"2\">1</td><td rowspan=\"2\">Lợi nhuận sau thuế của công ty (BCTC Riêng)Profit after tax (Separate financial statements)</td><td>1.727.393.356</td><td>1.333.285.241</td><td>29,6%</td></tr>"
+    ],
+    "ground_truth": "Tỷ lệ tăng trưởng lợi nhuận sau thuế trên BCTC Riêng năm 2025 so với năm 2024 là 29,6%. [Nguồn: Công bố thông tin giải trình lợi nhuận - trang 1]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tổng Giám đốc của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền là ai?",
+    "contexts": [
+      "THÔNG TIN VỀ DOANH NGHIỆP\n\n<table><tr><td rowspan=\"3\">Ban Tổng Giám đốc</td><td>Ông Vương Văn Minh</td><td>Tổng Giám đốc</td></tr><tr><td>Ông Lê Hoàng Khởi</td><td>Phó Tổng Giám đốc</td></tr><tr><td>Bà Nguyễn Thùy Dương</td><td>Phó Tổng Giám đốc</td></tr></table>\n\n<table><tr><td>Người đại diện theo pháp luật</td><td>Ông Vương Văn Minh</td><td>Tổng Giám đốc</td></tr></table>"
+    ],
+    "ground_truth": "Ông Vương Văn Minh là Tổng Giám đốc (và Người đại diện theo pháp luật) của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền. [Nguồn: Thông tin về doanh nghiệp - trang 5]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Chủ tịch Hội đồng Quản trị của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền là ai?",
+    "contexts": [
+      "<tr><td rowspan=\"3\">Hội đồng Quản trị</td><td>Bà Mai Trần Thanh Trang Ông Lý Điền Sơn</td><td>Chủ tịchPhó Chủ tịch</td></tr>"
+    ],
+    "ground_truth": "Bà Mai Trần Thanh Trang là Chủ tịch Hội đồng Quản trị của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền. [Nguồn: Thông tin về doanh nghiệp - trang 5]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Công ty kiểm toán của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền năm 2025 là công ty nào?",
+    "contexts": [
+      "<tr><td>Công ty kiểm toán</td><td>Công ty TNHH PwC (Việt Nam)</td></tr>",
+      "BÁO CÁO KIỂM TOÁN ĐỘC LẬP\n\nGỬI CÁC CỔ ĐÔNG CỦA CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ KINH DOANH NHÀ KHANG ĐIỀN\n\nCông ty TNHH PwC (Việt Nam)"
+    ],
+    "ground_truth": "Công ty TNHH PwC (Việt Nam) là công ty kiểm toán của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền năm 2025. [Nguồn: Thông tin về doanh nghiệp trang 5 và Báo cáo kiểm toán độc lập trang 7]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tổng tài sản của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền tại ngày 31/12/2025 theo Bảng cân đối kế toán riêng là bao nhiêu?",
+    "contexts": [
+      "<tr><td>270</td><td>TỔNG TÀI SẢN</td><td></td><td>17.032.720.085.368</td><td>16.373.488.403.077</td></tr>"
+    ],
+    "ground_truth": "Tổng tài sản của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền tại ngày 31/12/2025 là 17.032.720.085.368 VND. [Nguồn: Bảng cân đối kế toán riêng - trang 9]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Vốn chủ sở hữu của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>400</td><td>VỐN CHỦ SỞ HỮU</td><td></td><td>16.890.829.541.463</td><td>15.080.725.134.540</td></tr><tr><td>410</td><td>Vốn chủ sở hữu</td><td></td><td>16.890.829.541.463</td><td>15.080.725.134.540</td></tr>"
+    ],
+    "ground_truth": "Vốn chủ sở hữu của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền tại ngày 31/12/2025 là 16.890.829.541.463 VND. [Nguồn: Bảng cân đối kế toán riêng - trang 10]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Lợi nhuận sau thuế TNDN theo Báo cáo kết quả hoạt động kinh doanh riêng năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>60</td><td>Lợi nhuận sau thuế TNDN</td><td></td><td>1.727.393.356.003</td><td>1.333.285.241.143</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận sau thuế TNDN theo Báo cáo kết quả hoạt động kinh doanh riêng năm 2025 là 1.727.393.356.003 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng - trang 11]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Doanh thu hoạt động tài chính năm 2025 của Công ty là bao nhiêu?",
+    "contexts": [
+      "<tr><td>21</td><td>Doanh thu hoạt động tài chính</td><td>19</td><td>1.864.056.211.325</td><td>1.694.802.306.244</td></tr>"
+    ],
+    "ground_truth": "Doanh thu hoạt động tài chính năm 2025 của Công ty là 1.864.056.211.325 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng - trang 11]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Ngày phê chuẩn Báo cáo tài chính riêng năm 2025 của Công ty là ngày nào?",
+    "contexts": [
+      "Báo cáo tài chính riêng đã được Ban Tổng Giám đốc phê chuẩn ngày 26 tháng 3 năm 2026."
+    ],
+    "ground_truth": "Ngày 26 tháng 3 năm 2026. [Nguồn: Cuối Báo cáo tài chính riêng - trang 46]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng tổng tài sản năm 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>270</td><td>TỔNG TÀI SẢN</td><td></td><td>17.032.720.085.368</td><td>16.373.488.403.077</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng tổng tài sản = (17.032.720.085.368 - 16.373.488.403.077) / 16.373.488.403.077 × 100% ≈ 4,03%. [Nguồn: Bảng cân đối kế toán riêng - trang 9]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ vốn chủ sở hữu trên tổng tài sản tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>270</td><td>TỔNG TÀI SẢN</td><td></td><td>17.032.720.085.368</td><td>16.373.488.403.077</td></tr>",
+      "BẢNG CÂN ĐỐI KẾ TOÁN RIÊNG\n\n<table><tr><td>Mã số</td><td>NGUỒN VỐN</td><td>Thuyết minh</td><td>2025 VND</td><td>2024 VND</td></tr><tr><td>400</td><td>VỐN CHỦ SỞ HỮU</td><td></td><td>16.890.829.541.463</td><td>15.080.725.134.540</td></tr></table>"
+    ],
+    "ground_truth": "Tỷ lệ vốn chủ sở hữu trên tổng tài sản = 16.890.829.541.463 / 17.032.720.085.368 × 100% ≈ 99,17%. [Nguồn: Bảng cân đối kế toán riêng - trang 9-10]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng lợi nhuận sau thuế TNDN năm 2025 so với năm 2024 theo Báo cáo kết quả hoạt động kinh doanh riêng là bao nhiêu?",
+    "contexts": [
+      "<tr><td>60</td><td>Lợi nhuận sau thuế TNDN</td><td></td><td>1.727.393.356.003</td><td>1.333.285.241.143</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng = (1.727.393.356.003 - 1.333.285.241.143) / 1.333.285.241.143 × 100% ≈ 29,56%. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng - trang 11]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ chi phí tài chính trên doanh thu hoạt động tài chính năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>21</td><td>Doanh thu hoạt động tài chính</td><td>19</td><td>1.864.056.211.325</td><td>1.694.802.306.244</td></tr>"
+    ],
+    "ground_truth": "Tỷ lệ = 79.291.218.224 / 1.864.056.211.325 × 100% ≈ 4,25%. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng - trang 11]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ nợ phải trả trên tổng tài sản tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>270</td><td>TỔNG TÀI SẢN</td><td></td><td>17.032.720.085.368</td><td>16.373.488.403.077</td></tr>",
+      "BẢNG CÂN ĐỐI KẾ TOÁN RIÊNG\n\n<table><tr><td>Mã số</td><td>NGUỒN VỐN</td><td>Thuyết minh</td><td>2025 VND</td><td>2024 VND</td></tr><tr><td>300</td><td>NỢ PHẢI TRẢ</td><td></td><td>141.890.543.905</td><td>1.292.763.268.537</td></tr></table>"
+    ],
+    "ground_truth": "Tỷ lệ = 141.890.543.905 / 17.032.720.085.368 × 100% ≈ 0,83%. [Nguồn: Bảng cân đối kế toán riêng - trang 9-10]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ nợ xấu (NPL ratio) của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "Báo cáo tài chính riêng không công bố trực tiếp tỷ lệ nợ xấu (NPL) vì đây không phải tổ chức tín dụng."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền không công bố chỉ tiêu tỷ lệ nợ xấu (NPL ratio). Không thể xác định từ tài liệu này. [Nguồn: Toàn bộ Báo cáo tài chính riêng – không có chỉ tiêu NPL]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Tỷ lệ CAR (Capital Adequacy Ratio) của Công ty tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "Báo cáo tài chính riêng không trình bày chỉ tiêu CAR."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền không công bố tỷ lệ an toàn vốn (CAR). Không có thông tin trong tài liệu này. [Nguồn: Toàn bộ Báo cáo tài chính riêng – không có chỉ tiêu CAR]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Công ty dự kiến chia cổ tức năm 2025 với tỷ lệ bao nhiêu phần trăm?",
+    "contexts": [
+      "Báo cáo tài chính riêng không trình bày thông tin về kế hoạch hoặc nghị quyết chia cổ tức năm 2025."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty Cổ phần Đầu tư và Kinh doanh nhà Khang Điền không có thông tin về tỷ lệ chia cổ tức dự kiến năm 2025. Không thể xác định từ tài liệu này. [Nguồn: Toàn bộ Báo cáo tài chính riêng – không có chỉ tiêu chia cổ tức]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Giá trị sổ sách mỗi cổ phiếu (Book value per share) của Công ty tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "Báo cáo không công bố số lượng cổ phiếu đang lưu hành một cách rõ ràng để tính BVPS trong phần tóm tắt."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng không công bố đầy đủ số lượng cổ phiếu đang lưu hành để tính chính xác Book value per share. Không thể xác định chính xác từ các số liệu tóm tắt. [Nguồn: Toàn bộ Báo cáo tài chính riêng – thiếu số lượng cổ phiếu rõ ràng]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Chi phí nhân viên năm 2025 của Công ty là bao nhiêu?",
+    "contexts": [
+      "Báo cáo kết quả hoạt động kinh doanh riêng không tách riêng chi phí nhân viên."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Công ty không công bố riêng khoản mục chi phí nhân viên. Không có số liệu cụ thể trong tài liệu. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng – không tách chi tiết]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "So sánh mức tăng trưởng lợi nhuận sau thuế trên BCTC Riêng và BCTC Hợp nhất năm 2025.",
+    "contexts": [
+      "<tr><td rowspan=\"2\">1</td><td rowspan=\"2\">Lợi nhuận sau thuế của công ty (BCTC Riêng)Profit after tax (Separate financial statements)</td><td>1.727.393.356</td><td>1.333.285.241</td><td>29,6%</td></tr>"
+    ],
+    "ground_truth": "Lợi nhuận sau thuế trên BCTC Riêng tăng 29,6%, trên BCTC Hợp nhất (phân bổ cho cổ đông Công ty) tăng 29,0%. Mức tăng trưởng gần như tương đương, BCTC Riêng tăng nhẹ cao hơn. [Nguồn: Công bố thông tin giải trình lợi nhuận - trang 1]",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "Nguyên nhân chính khiến lợi nhuận sau thuế BCTC Riêng năm 2025 tăng so với năm 2024 là gì?",
+    "contexts": [
+      "Nguyên nhân/Reason:\n\nTheo BCTC Riêng của Công ty năm 2025 và năm 2024 đã được kiểm toán thì lợi nhuận sau thuế của Công ty trên BCTC Riêng năm 2025 tăng 29,6% so với cùng kỳ năm trước do khoản tăng doanh thu tài chính với giá trị là 169 tỷ đồng chủ yếu đến từ khoản tăng lãi tiền gửi, lãi cho vay và khoản giảm chi phí tài chính với giá trị là 263 tỷ đồng bù trừ với khoản tăng chi phí quản lý doanh nghiệp, chi phí thuế thu nhập doanh nghiệp với giá trị lần lượt là 8 tỷ đồng và 30 tỷ đồng."
+    ],
+    "ground_truth": "Nguyên nhân chính là tăng doanh thu tài chính (khoảng 169 tỷ đồng, chủ yếu từ lãi tiền gửi và lãi cho vay) và giảm chi phí tài chính (khoảng 263 tỷ đồng), bù trừ với tăng chi phí quản lý DN và thuế TNDN. [Nguồn: Công bố thông tin giải trình lợi nhuận - trang 2]",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "Nếu chi phí tài chính năm 2025 giảm thêm 50% so với mức thực tế, thì lợi nhuận trước thuế ước tính sẽ thay đổi như thế nào?",
+    "contexts": [
+      "<tr><td>22</td><td>Chi phí tài chính</td><td>20</td><td>(79.291.218.224)</td><td>(341.876.631.978)</td></tr><tr><td>50</td><td>Tổng lợi nhuận kế toán trước thuế</td><td></td><td>1.735.726.878.952</td><td>1.311.066.441.143</td></tr>"
+    ],
+    "ground_truth": "Chi phí tài chính thực tế 79.291.218.224 VND. Nếu giảm 50% thì tiết kiệm thêm khoảng 39.645.609.112 VND. Lợi nhuận trước thuế ước tính tăng lên khoảng 1.735.726.878.952 + 39.645.609.112 = 1.775.372.488.064 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng - trang 11]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Nếu doanh thu hoạt động tài chính năm 2025 tăng thêm 10% so với mức thực tế, trong khi các khoản mục khác giữ nguyên, thì lợi nhuận trước thuế ước tính sẽ là bao nhiêu?",
+    "contexts": [
+      "<tr><td>21</td><td>Doanh thu hoạt động tài chính</td><td>19</td><td>1.864.056.211.325</td><td>1.694.802.306.244</td></tr>"
+    ],
+    "ground_truth": "Doanh thu hoạt động tài chính thực tế 1.864.056.211.325 VND. Tăng thêm 10% tương đương +186.405.621.132,5 VND. Lợi nhuận trước thuế ước tính ≈ 1.735.726.878.952 + 186.405.621.132,5 = 1.922.132.500.084,5 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng - trang 11]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Giả sử tỷ lệ chi phí tài chính trên doanh thu hoạt động tài chính tăng lên 10%, thì chi phí tài chính cần tăng thêm là bao nhiêu?",
+    "contexts": [
+      "<tr><td>21</td><td>Doanh thu hoạt động tài chính</td><td>19</td><td>1.864.056.211.325</td><td>1.694.802.306.244</td></tr>"
+    ],
+    "ground_truth": "Nếu tỷ lệ 10% thì chi phí tài chính = 1.864.056.211.325 × 10% = 186.405.621.132,5 VND. Số cần tăng thêm ≈ 186.405.621.132,5 − 79.291.218.224 ≈ 107.114.402.908,5 VND. [Nguồn: Báo cáo kết quả hoạt động kinh doanh riêng - trang 11]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Phải thu về cho vay ngắn hạn tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>135</td><td>Phải thu về cho vay ngắn hạn</td><td>6</td><td>3.020.000.000.000</td><td>2.242.500.000.000</td></tr>"
+    ],
+    "ground_truth": "Phải thu về cho vay ngắn hạn tại ngày 31/12/2025 là 3.020.000.000.000 VND. [Nguồn: Bảng cân đối kế toán riêng - trang 9]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "So sánh tốc độ tăng trưởng tổng tài sản và tốc độ tăng trưởng lợi nhuận sau thuế năm 2025.",
+    "contexts": [
+      "<tr><td>270</td><td>TỔNG TÀI SẢN</td><td></td><td>17.032.720.085.368</td><td>16.373.488.403.077</td></tr>",
+      "BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH RIÊNG\n\n<table><tr><td rowspan=\"2\">Mã số</td><td rowspan=\"2\"></td><td rowspan=\"2\">Thuyết minh</td><td colspan=\"2\">Năm tài chính kết thúc ngày 31 tháng 12 năm</td></tr><tr><td>2025 VND</td><td>2024 VND</td></tr><tr><td>60</td><td>Lợi nhuận sau thuế TNDN</td><td></td><td>1.727.393.356.003</td><td>1.333.285.241.143</td></tr></table>"
+    ],
+    "ground_truth": "Tăng trưởng tổng tài sản ≈ 4,03%; Tăng trưởng lợi nhuận sau thuế ≈ 29,56%. Lợi nhuận sau thuế tăng nhanh hơn nhiều so với tổng tài sản. [Nguồn: Bảng cân đối kế toán riêng trang 9 và Báo cáo kết quả hoạt động kinh doanh riêng trang 11]",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "Đầu tư vào công ty con tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>251</td><td>Đầu tư vào công ty con</td><td></td><td>12.764.507.401.763</td><td>12.289.307.401.763</td></tr>"
+    ],
+    "ground_truth": "Đầu tư vào công ty con (giá trị gốc) tại ngày 31/12/2025 là 12.764.507.401.763 VND. [Nguồn: Bảng cân đối kế toán riêng - trang 9]",
+    "evolution_type": "simple"
+  }
+]

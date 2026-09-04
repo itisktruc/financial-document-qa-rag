@@ -131,25 +131,56 @@ def render_intent(intent: dict | None) -> None:
     with st.expander("Đầu vào đã trích xuất (Calculation Intent)", expanded=False):
         st.json(intent)
 
-def render_metric_spec(metric_spec: dict | None) -> None:
-    """Dropdown hiện cấu trúc JSON của công thức đang dùng (formula/steps +
-    required_metrics) -- CHỈ xuất hiện ở câu trả lời thuộc nhánh
-    Calculation (backend chỉ set metric_spec khi đó, xem app/main.py).
-    Mục đích: cho người dùng thấy rõ hệ thống tính bằng công thức nào và
-    cần những số liệu thô nào, không phải LLM tự bịa ra kết quả."""
-    if not metric_spec:
-        return
-    metric_key = next(iter(metric_spec.keys()), "")
-    with st.expander(f"Công thức tính toán ({metric_key})", expanded=False):
-        st.json(metric_spec)
+def _as_nonempty_list(plural_value, singular_value=None) -> list:
+    """Chuẩn hoá response Calculation mới/cũ về list.
 
-def render_calculation_output(calculation: dict | None) -> None:
-    """Dropdown hiện CalculationOutput -- BƯỚC CUỐI của quy trình
-    Calculation: formula ĐÃ THAY SỐ, từng operand kèm nguồn/trang, và result.
-    Chỉ có giá trị khi tính THÀNH CÔNG (thiếu dữ liệu/lỗi công thức thì
-    backend trả calculation=None, dropdown này sẽ không hiện)."""
-    if not calculation:
+    Backend mới trả metric_specs/calculations; các response hoặc conversation
+    cũ chỉ có metric_spec/calculation. Giữ fallback để lịch sử chat cũ vẫn
+    render được sau khi nâng cấp frontend.
+    """
+    if isinstance(plural_value, list) and plural_value:
+        return plural_value
+    if singular_value:
+        return [singular_value]
+    return []
+
+def render_metric_specs(metric_specs: list | None, metric_spec: dict | None = None) -> None:
+    """Hiện TOÀN BỘ công thức/required_metrics của câu hỏi multi-metric.
+
+    Mỗi phần tử metric_specs có dạng:
+      {"roe": {...}}, {"roa": {...}}, ...
+    Frontend cũ chỉ đọc metric_spec nên luôn mất các metric từ vị trí thứ 2.
+    """
+    specs = _as_nonempty_list(metric_specs, metric_spec)
+    if not specs:
         return
+
+    if len(specs) == 1:
+        metric_key = next(iter(specs[0].keys()), "") if isinstance(specs[0], dict) else ""
+        with st.expander(f"Công thức tính toán ({metric_key})", expanded=False):
+            st.json(specs[0])
+        return
+
+    with st.expander(f"Công thức tính toán ({len(specs)} metrics)", expanded=False):
+        for i, spec in enumerate(specs, start=1):
+            if not isinstance(spec, dict):
+                st.json(spec)
+                continue
+            metric_key = next(iter(spec.keys()), f"metric_{i}")
+            st.markdown(f"**{i}. {metric_key}**")
+            st.json(spec)
+
+def render_calculation_outputs(calculations: list | None, calculation: dict | None = None) -> None:
+    """Hiện TOÀN BỘ CalculationOutput tính thành công trong câu hỏi.
+
+    Không gán metric_key theo index vì backend hiện chỉ lưu CalculationOutput
+    thuần trong `calculations`; nếu một metric trước đó thiếu operand thì thứ tự
+    `metric_specs` và `calculations` có thể lệch nhau.
+    """
+    outputs = _as_nonempty_list(calculations, calculation)
+    if not outputs:
+        return
+    
     with st.expander("Kết quả tính toán (Calculation Output)", expanded=False):
         st.json(calculation)
 
@@ -466,8 +497,8 @@ for msg in current_conv["messages"]:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
         render_intent(msg.get("intent"))
-        render_metric_spec(msg.get("metric_spec"))
-        render_calculation_output(msg.get("calculation"))
+        render_metric_specs(msg.get("metric_spec"))
+        render_calculation_outputs(msg.get("calculation"))
         render_citations(msg.get("citations", []))
  
 query = st.chat_input("Hỏi về báo cáo tài chính, hợp đồng tín dụng, bản cáo bạch...")
@@ -486,7 +517,9 @@ if query:
         citations = []  # giá trị mặc định, đảm bảo luôn tồn tại kể cả khi request lỗi
         intent = None          # bước 1: CalculationIntent -- chỉ có ở nhánh Calculation
         metric_spec = None     # bước 2: công thức/required_metrics
+        metric_specs = []      # bước 2: TOÀN BỘ công thức/required_metrics
         calculation = None     # bước 3: CalculationOutput (kết quả cuối)
+        calculations = []      # bước 3: TOÀN BỘ CalculationOutput thành công
         try:
             resp = requests.post(
                 f"{BACKEND_URL}/chat",
@@ -499,21 +532,25 @@ if query:
             citations = data.get("citations", [])
             intent = data.get("intent")
             metric_spec = data.get("metric_spec")
+            metric_specs = _as_nonempty_list(data.get("metric_specs"), metric_spec)
             calculation = data.get("calculation")
+            calculations = _as_nonempty_list(data.get("calculations"), calculation)
         except requests.exceptions.RequestException as e:
             answer = f"Lỗi kết nối tới backend: {e}"
 
         st.write(answer)
         render_intent(intent)
-        render_metric_spec(metric_spec)
-        render_calculation_output(calculation)
+        render_metric_specs(metric_specs, metric_spec)
+        render_calculation_outputs(calculations, calculation)
         render_citations(citations)
     current_conv["messages"].append({
         "role": "assistant",
         "content": answer,
         "intent": intent,
-        "metric_spec": metric_spec,
-        "calculation": calculation,
+        "metric_spec": metric_spec,          # giữ để đọc bằng frontend cũ
+        "metric_specs": metric_specs,        # đầy đủ multi-metric
+        "calculation": calculation,          # giữ để đọc bằng frontend cũ
+        "calculations": calculations,        # đầy đủ multi-metric
         "citations": citations,
     })
     current_conv["updated_at"] = _now_iso()

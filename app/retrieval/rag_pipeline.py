@@ -9,18 +9,19 @@ RRF fusion, rerank bằng BGE CrossEncoder, mở rộng parent qua MongoDB) đã
 nằm hết trong HybridSearchPipeline, và pipeline đó tự quản lý kết nối
 Qdrant (qua app.services.qdrant_store) + MongoDB (qua app.services.mongo_client)
 của riêng nó -- nên RAGController KHÔNG cần nhận qdrant_client/mongo_db từ
-bên ngoài nữa (bản cũ nhận nhưng thực chất self.qdrant/self.mongo chỉ được
-dùng ngay trong execute_search(), giờ đã chuyển hết qua pipeline).
+bên ngoài nữa.
 
-Giữ lại class này (thay vì gọi thẳng pipeline.retrieve() từ main.py) để:
-  - main.py không cần biết cấu trúc trả về nội bộ của HybridSearchPipeline
-    (chunk_ids, content_lookup...) -- chỉ nhận đúng {"context", "is_chitchat"}
-    như API cũ, không phải sửa phần generation phía sau.
-  - Có 1 chỗ duy nhất để chỉnh top_k mặc định cho toàn hệ thống.
+CẬP NHẬT: execute_search() giờ nhận thêm session_id (chuyển tiếp cho
+HybridSearchPipeline.retrieve() để pipeline nhớ được công ty/năm/report_scope
+đang thảo luận theo từng session -- xem HybridSearchPipeline._session_state)
+và trả về thêm "entities" (danh sách công ty/năm/report_scope thực sự đã
+dùng để lọc -- có thể nhiều hơn 1 với câu hỏi so sánh nhiều công ty), để
+tầng generation phía sau (nếu cần) biết ngữ cảnh trả về gồm những công ty
+nào.
 """
 
 from __future__ import annotations
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 from app.retrieval.hybrid_search import HybridSearchPipeline
 
 TOP_K = 10  # số chunk cuối cùng lấy sau rerank, dùng làm context cho generation
@@ -30,14 +31,16 @@ class RAGController:
         self.pipeline = pipeline
         self.top_k = top_k
 
-    def execute_search(self, user_query: str) -> Dict[str, Any]:
+    def execute_search(self, user_query: str, session_id: Optional[str] = None) -> Dict[str, Any]:
         """Gọi toàn bộ hybrid pipeline (routing -> BM25+Dense -> RRF ->
         rerank -> parent-expansion) và trả kết quả đúng format cũ cho
-        app/main.py: {"context": list[str], "is_chitchat": bool}."""
-        result = self.pipeline.retrieve(user_query, top_k=self.top_k)
+        app/main.py: {"context": list[str], "is_chitchat": bool, ...},
+        cộng thêm "entities" cho câu hỏi so sánh nhiều công ty."""
+        result = self.pipeline.retrieve(user_query, top_k=self.top_k, session_id=session_id)
         return {
             "context": result.get("context", []),
             "is_chitchat": result.get("is_chitchat", False),
             "is_definition": result.get("is_definition", False),
             "is_calculation": result.get("is_calculation", False),
+            "entities": result.get("entities", []),
         }

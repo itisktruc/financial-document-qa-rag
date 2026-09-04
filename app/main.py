@@ -80,7 +80,7 @@ def chat(request: ChatRequest):
         # NỬA ĐẦU: HYBRID SEARCH (BM25 + Dense + RRF + Rerank + Parent-expansion)
         # ==========================================
         print("Đang bắt đầu thực thi Hybrid Search & Rerank Pipeline")
-        search_result = rag_controller.execute_search(raw_query)
+        search_result = rag_controller.execute_search(raw_query, session_id=session_id)
 
         # Nhánh 1: CHITCHAT (Câu hỏi giao tiếp thông thường)
         if search_result.get("is_chitchat", False):
@@ -107,7 +107,7 @@ def chat(request: ChatRequest):
         #Nhánh 3: Calculation 
         if search_result.get("is_calculation", False):
             print("Phân loại: CALCULATION")
-            calc_result = calculation_service.calculate(raw_query)
+            calc_result = calculation_service.calculate(raw_query,  session_id=session_id)
             return ChatResponse(answer=calc_result.answer, citations=calc_result.citations,
                                 intent=calc_result.intent,
                                 metric_spec=calc_result.metric_spec,

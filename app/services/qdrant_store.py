@@ -33,6 +33,17 @@ def create_payload_indexes():
         ("year", qmodels.PayloadSchemaType.INTEGER),
         ("doc_id", qmodels.PayloadSchemaType.KEYWORD),
         ("company", qmodels.PayloadSchemaType.KEYWORD),
+        ("chunk_id", qmodels.PayloadSchemaType.KEYWORD),
+        ("chunk_type", qmodels.PayloadSchemaType.KEYWORD),
+        ("source_file", qmodels.PayloadSchemaType.KEYWORD),
+        ("block_type", qmodels.PayloadSchemaType.KEYWORD),
+        ("section", qmodels.PayloadSchemaType.KEYWORD),
+        ("subsection", qmodels.PayloadSchemaType.KEYWORD),
+        ("page_start", qmodels.PayloadSchemaType.INTEGER),
+        ("page_end", qmodels.PayloadSchemaType.INTEGER),
+        ("order_index", qmodels.PayloadSchemaType.INTEGER),
+        ("heading_path", qmodels.PayloadSchemaType.KEYWORD),
+        ("text", qmodels.PayloadSchemaType.KEYWORD),
     ]
     
     for field_name, field_type in indexes:

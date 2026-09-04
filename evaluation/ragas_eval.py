@@ -32,22 +32,22 @@ from tabulate import tabulate
 # ----------------------------------------------------------------------------
 
 
-def _require(module_name: str, pip_name: str | None = None):
-    try:
-        return __import__(module_name)
-    except ImportError:
-        pip_name = pip_name or module_name
-        print(
-            f"[FATAL] Missing dependency '{module_name}'. Install with:\n"
-            f"    pip install {pip_name} --break-system-packages",
-            file=sys.stderr,
-        )
-        sys.exit(1)
+# def _require(module_name: str, pip_name: str | None = None):
+#     try:
+#         return __import__(module_name)
+#     except ImportError:
+#         pip_name = pip_name or module_name
+#         print(
+#             f"[FATAL] Missing dependency '{module_name}'. Install with:\n"
+#             f"    pip install {pip_name} --break-system-packages",
+#             file=sys.stderr,
+#         )
+#         sys.exit(1)
 
 
-_require("datasets")
-_require("ragas")
-_require("langchain_openai", "langchain-openai")
+# _require("datasets")
+# _require("ragas")
+# _require("langchain_openai", "langchain-openai")
 
 from datasets import Dataset  # noqa: E402
 from langchain_openai import ChatOpenAI  # noqa: E402
@@ -158,9 +158,6 @@ def run_ragas(rows: list[dict[str, Any]]) -> Any:
         )
         sys.exit(1)
 
-    # Ragas dataset only needs question/answer/contexts/ground_truth;
-    # evolution_type is dropped for scoring but kept in our own row dicts
-    # for the per-question breakdown printed/saved afterward.
     ragas_dataset = Dataset.from_list([
         {
             "question": r["question"],
@@ -233,11 +230,32 @@ def main() -> None:
         default=Path("evaluation/results/ragas_results.json"),
     )
     parser.add_argument("--limit", type=int, default=None, help="Only evaluate the first N items (quick run).")
+    parser.add_argument("--index", type=int, default=None, help="Chỉ đánh giá 1 câu cụ thể theo chỉ số (1-indexed, ví dụ --index 21).")
+    parser.add_argument("--from", type=int, default=None, dest="from_idx", help="Chạy từ câu có chỉ số N (1-indexed, ví dụ --from 21).")
+    parser.add_argument("--to", type=int, default=None, dest="to_idx", help="Chạy đến câu có chỉ số M (1-indexed, bao gồm M, ví dụ --to 23).")
     args = parser.parse_args()
 
     dataset = load_dataset_json(args.dataset)
-    if args.limit:
-        dataset = dataset[: args.limit]
+    total_items = len(dataset)
+    
+    for idx, item in enumerate(dataset, 1):
+        item["_orig_idx"] = idx
+
+    if args.index is not None:
+        if 1 <= args.index <= total_items:
+            dataset = [dataset[args.index - 1]]
+        else:
+            print(f"[FATAL] Index {args.index} nằm ngoài phạm vi dataset (1 đến {total_items}).", file=sys.stderr)
+            sys.exit(1)
+    else:
+        start_idx = (args.from_idx - 1) if (args.from_idx is not None and args.from_idx >= 1) else 0
+        end_idx = args.to_idx if (args.to_idx is not None) else total_items
+
+        if args.from_idx or args.to_idx:
+            dataset = dataset[start_idx:end_idx]
+
+        if args.limit:
+            dataset = dataset[: args.limit]
     print(f"Loaded {len(dataset)} items from {args.dataset}")
 
     rows = run_pipeline(dataset)

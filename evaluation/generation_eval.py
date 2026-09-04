@@ -8,10 +8,6 @@ Levenshtein Similarity, and BGE-M3 embedding cosine similarity.
 
 Usage:
     python generation_eval.py [--dataset PATH] [--out PATH] [--limit N]
-
-Dependencies (install once):
-    pip install nltk rouge-score python-Levenshtein sentence-transformers tabulate --break-system-packages
-    python -m nltk.downloader punkt punkt_tab wordnet omw-1.4
 """
 
 from __future__ import annotations
@@ -25,12 +21,12 @@ from pathlib import Path
 from statistics import mean
 from typing import Any
 
-from tabulate import tabulate
+# Đảm bảo Project Root luôn nằm trong sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent if Path(__file__).resolve().parent.name != "financial_rag" else Path(__file__).resolve().parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-# ----------------------------------------------------------------------------
-# Optional heavy deps — imported lazily with clear error messages so the
-# script fails fast with an actionable hint rather than a bare ImportError.
-# ----------------------------------------------------------------------------
+from tabulate import tabulate
 
 
 def _require(module_name: str, pip_name: str | None = None):
@@ -47,8 +43,8 @@ def _require(module_name: str, pip_name: str | None = None):
 
 
 nltk = _require("nltk")
-from rouge_score import rouge_scorer  # noqa: E402
-import Levenshtein  # noqa: E402  (package name: python-Levenshtein, import name: Levenshtein)
+from rouge_score import rouge_scorer
+import Levenshtein
 
 try:
     from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
@@ -76,16 +72,10 @@ def _ensure_nltk_data() -> None:
 
 _ensure_nltk_data()
 
-# sentence-transformers is the heaviest dep — import lazily, only if the
-# backend generator module itself is importable (avoids failing on unrelated
-# environments that just want to smoke-test the script).
 _st = _require("sentence_transformers", "sentence-transformers")
-from sentence_transformers import SentenceTransformer, util as st_util  # noqa: E402
+from sentence_transformers import SentenceTransformer, util as st_util
 
 
-# ----------------------------------------------------------------------------
-# Backend under test
-# ----------------------------------------------------------------------------
 try:
     from app.generation.answer_generator import AnswerGenerator
 except ImportError:
@@ -98,16 +88,12 @@ except ImportError:
     sys.exit(1)
 
 
-# ----------------------------------------------------------------------------
-# Text normalization / metric helpers
-# ----------------------------------------------------------------------------
-
 _smoothing = SmoothingFunction().method1
 _rouge = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=False)
 
 
 def normalize_text(text: str) -> str:
-    """Lowercase, strip acc*punctuation* (keep Vietnamese diacritics), collapse whitespace."""
+    """Lowercase, strip punctuation (keep Vietnamese diacritics), collapse whitespace."""
     text = unicodedata.normalize("NFC", text or "")
     text = text.lower().strip()
     text = re.sub(r"[^\w\s\u00C0-\u1EF9]", " ", text, flags=re.UNICODE)
@@ -160,14 +146,15 @@ def compute_norm_levenshtein_sim(reference: str, hypothesis: str) -> float:
     return 1.0 - (dist / max_len)
 
 
-# ----------------------------------------------------------------------------
-# Core evaluation
-# ----------------------------------------------------------------------------
-
-def format_contexts(contexts: list[str]) -> list[dict[str, Any]]:
-    """Adapt raw context strings from the dataset to the generator's expected
-    input shape: a list of dicts with a 'content' key."""
-    return [{"content": c} for c in (contexts or [])]
+def format_contexts(contexts: list[Any]) -> list[dict[str, Any]]:
+    """Chuẩn hóa dữ liệu context thành danh sách dict có key 'content'."""
+    formatted = []
+    for c in (contexts or []):
+        if isinstance(c, dict):
+            formatted.append(c)
+        else:
+            formatted.append({"content": str(c)})
+    return formatted
 
 
 def load_dataset(path: Path) -> list[dict[str, Any]]:
@@ -197,14 +184,13 @@ def run_evaluation(dataset: list[dict[str, Any]], embed_model: SentenceTransform
         print(f"[{i}/{len(dataset)}] Generating answer for: {question[:70]}...")
         try:
             gen_result = generator.generate(question, formatted_contexts)
-            answer = (gen_result or {}).get("answer", "") if isinstance(gen_result, dict) else str(gen_result)
+            answer = (gen_result or {}).get("answer", "") if isinstance(gen_result, dict) else str(gen_result or "")
         except Exception as e:
             print(f"    [WARN] generation failed: {e}", file=sys.stderr)
             answer = ""
 
         rouge_scores = compute_rouge(ground_truth, answer)
 
-        # Embedding cosine similarity (BGE-M3)
         try:
             embs = embed_model.encode([ground_truth or "", answer or ""], normalize_embeddings=True)
             cos_sim = float(st_util.cos_sim(embs[0], embs[1]).item())
@@ -222,7 +208,7 @@ def run_evaluation(dataset: list[dict[str, Any]], embed_model: SentenceTransform
             "rouge2": rouge_scores["rouge2"],
             "rougeL": rouge_scores["rougeL"],
             "meteor": compute_meteor(ground_truth, answer),
-            # "exact_match": compute_exact_match(ground_truth, answer),
+            "exact_match": compute_exact_match(ground_truth, answer),
             "levenshtein_sim": compute_norm_levenshtein_sim(ground_truth, answer),
             "cosine_sim": cos_sim,
         }

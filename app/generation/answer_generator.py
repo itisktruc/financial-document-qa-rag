@@ -19,9 +19,12 @@ class AnswerGenerator:
             template="""Bạn là chuyên gia tư vấn tài chính doanh nghiệp.
 Dựa vào CÁC THÔNG TIN NGỮ CẢNH ĐƯỢC CUNG CẤP TRÍCH XUẤT TỪ BÁO CÁO TÀI CHÍNH sau đây, hãy trả lời câu hỏi của người dùng.
 - Hãy tổng hợp số liệu một cách rõ ràng, có thể dùng bullet point hoặc bảng nếu cần thiết.
-- Mỗi đoạn ngữ cảnh dưới đây đã được đánh số [1], [2], ... kèm theo nguồn. Khi dùng thông tin từ đoạn nào, 
+- Mỗi đoạn ngữ cảnh dưới đây đã được đánh số [1], [2], ... kèm theo nguồn (VÀ kèm theo tên công ty/năm nếu có). Khi dùng thông tin từ đoạn nào,
 hãy CHÈN đúng ký hiệu [n] tương ứng ngay sau câu/số liệu đó (ví dụ: "Doanh thu thuần đạt 10.000 tỷ đồng [1].").
 - Nếu 1 câu dùng thông tin từ nhiều nguồn, ghi liền các ký hiệu (ví dụ "[1][2]").
+- NẾU câu hỏi yêu cầu SO SÁNH/TỔNG HỢP nhiều công ty: PHẢI trình bày rõ số liệu của TỪNG công ty riêng biệt
+(vd dùng bảng, hoặc từng đoạn/bullet riêng cho mỗi công ty) trước khi đưa ra nhận xét so sánh -- không được
+gộp lẫn số liệu của các công ty khác nhau vào chung 1 câu mơ hồ không rõ của công ty nào.
 - Tuyệt đối KHÔNG tự sáng tạo, KHÔNG lấy thông tin ngoài ngữ cảnh.
 - Nếu ngữ cảnh không chứa thông tin để trả lời, hãy nói: "Dữ liệu hiện tại trong hệ thống không đủ để trả lời câu hỏi này."
 
@@ -34,6 +37,26 @@ Câu trả lời của bạn:""",
             input_variables=["context", "query"]
         )
         self.chain = self.prompt | self.llm
+
+    @staticmethod
+    def _entity_header(citation: Dict[str, Any]) -> str:
+        """Nhãn ngắn 'Công ty: X, Năm: Y' gắn ngay dưới label nguồn của mỗi
+        đoạn ngữ cảnh -- giúp LLM (và người đọc log) phân biệt RÕ đoạn nào
+        thuộc công ty/năm nào, đặc biệt quan trọng với câu hỏi so sánh
+        nhiều công ty (retrieve() gắn "matched_entity" cho từng context
+        trong trường hợp đó, xem app/retrieval/hybrid_search.py). Với câu
+        hỏi 1 công ty vẫn hiển thị được nếu citation có sẵn ticker/year."""
+        entity = citation.get("matched_entity") or {}
+        ticker = entity.get("ticker") or citation.get("ticker")
+        year = entity.get("year") or citation.get("year")
+        if not ticker and not year:
+            return ""
+        parts = []
+        if ticker:
+            parts.append(f"Công ty: {ticker}")
+        if year:
+            parts.append(f"Năm: {year}")
+        return " (" + ", ".join(parts) + ")"
 
     def generate(self, user_query: str, retrieved_contexts: List[Dict[str, Any]]) -> Dict[str, Any]:
         # Nếu Qdrant và MongoDB không tìm thấy bất kỳ tài liệu nào
@@ -50,7 +73,8 @@ Câu trả lời của bạn:""",
         for i, ctx in enumerate(retrieved_contexts, start=1):
             citation = dict(ctx.get("citation", {}))
             label = format_citation_label(citation, i)
-            numbered_blocks.append(f"{label}\n{ctx['content']}")
+            entity_header = self._entity_header(citation)
+            numbered_blocks.append(f"{label}{entity_header}\n{ctx['content']}")
             citation["index"] = i
             citation["label"] = label
             citations.append(citation)
@@ -80,5 +104,3 @@ Câu trả lời của bạn:""",
         (Lưu ý cho người dùng: đây là kiến thức tài chính phổ thông, không phải trích từ tài liệu đã tải lên.)"""
         response = self.llm.invoke(prompt)
         return {"answer": response.content, "citations": []}
-
-   

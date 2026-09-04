@@ -1,4 +1,5 @@
 import os
+from functools import lru_cache
 from pymongo import MongoClient, ASCENDING, DESCENDING
 from pymongo.collection import Collection
 from datetime import datetime, timezone
@@ -15,25 +16,10 @@ def get_documents_collection(collection_name: str = "documents"):
     """Trả về collection tương ứng từ database"""
     return _db[collection_name]
 
-# def get_chunks_collection() -> Collection:
-#     """Trả về collection "chunks" (output của chunker.chunk_document())."""
-#     return _db["chunks"]
+
 def get_chunks_collection() -> Collection:
     """Trả về đúng collection mà chunker.py đã ghi dữ liệu vào."""
     return _db["chunked_documents_2025"]  # Sửa "chunks" -> "chunked_documents_2025"
-
-
-# def get_parent_chunk(parent_id: str) -> Optional[dict]:
-#     """
-#     Truy vấn parent chunk nằm bên trong mảng `chunks` của collection chunked_documents_2025.
-#     """
-#     doc = get_chunks_collection().find_one(
-#         {"chunks._id": parent_id}, 
-#         {"chunks.$": 1}
-#     )
-#     if doc and "chunks" in doc and len(doc["chunks"]) > 0:
-#         return doc["chunks"][0]
-#     return None
  
 def ensure_indexes() -> None:
     """
@@ -138,6 +124,60 @@ def get_parent_chunk(parent_id: str) -> Optional[dict]:
     return None
  
  
+# ---------------------------------------------------------------------------
+# known tickers -- dùng làm ngữ cảnh cho LLM (gpt-4o-mini) tự chuẩn hoá
+# ticker/report_scope trong câu hỏi người dùng, THAY cho TICKER_MAPPING
+# viết tay trước đây trong app/retrieval/hybrid_search.py (mỗi công ty/
+# biến thể tên gọi mới đều phải sửa code). Dùng bởi:
+#   - app/retrieval/query_rewriter.py   (nhánh financial_search)
+#   - app/calculation/calculation_service.py (nhánh calculation)
+# ---------------------------------------------------------------------------
+
+@lru_cache(maxsize=1)
+def get_known_tickers() -> list[dict]:
+    """
+    Danh sách {ticker, company} hiện có trong hệ thống, suy trực tiếp từ dữ
+    liệu đã ingest (collection chunks) -- tự cập nhật theo dữ liệu thật,
+    không cần đụng code khi ingest thêm công ty mới.
+
+    Cache bằng lru_cache (không TTL) vì list này chỉ đổi khi ingest/xoá tài
+    liệu -- gọi refresh_known_tickers() ngay sau các thao tác đó để
+    invalidate (app/retrieval/hybrid_search.refresh_bm25_index() đã gọi hộ).
+    """
+    pipeline = [
+        {"$match": {"ticker": {"$ne": None}}},
+        {"$group": {"_id": "$ticker", "company": {"$first": "$company"}}},
+        {"$sort": {"_id": 1}},
+    ]
+    try:
+        rows = list(get_chunks_collection().aggregate(pipeline))
+    except Exception as e:
+        print(f"[mongo_client] Không lấy được danh sách ticker: {e}")
+        return []
+    return [{"ticker": r["_id"], "company": r.get("company")} for r in rows if r.get("_id")]
+
+
+def known_tickers_prompt_text(limit: int = 200) -> str:
+    """Format sẵn danh sách ticker/company thành text ngắn gọn để nhúng vào
+    prompt LLM -- dùng chung bởi QueryRewriter và CalculationService, tránh
+    trùng lặp logic format ở 2 nơi. `limit` để tránh phình prompt nếu hệ
+    thống có rất nhiều công ty."""
+    known = get_known_tickers()
+    if not known:
+        return "(Chưa có dữ liệu công ty nào trong hệ thống)"
+    lines = [
+        f"- {item['ticker']}" + (f": {item['company']}" if item.get("company") else "")
+        for item in known[:limit]
+    ]
+    return "\n".join(lines)
+
+
+def refresh_known_tickers() -> None:
+    """Gọi sau khi ingest/xoá tài liệu để invalidate cache get_known_tickers()
+    -- nếu không, LLM sẽ không "thấy" được ticker vừa được ingest thêm."""
+    get_known_tickers.cache_clear()
+
+
 def get_chunks_for_document(document_id: str, chunk_type: Optional[str] = None) -> list[dict]:
     """Lấy toàn bộ chunk của 1 document -- dùng cho debug/QA thủ công hoặc
     re-embed theo document. Lọc thêm theo chunk_type nếu cần."""

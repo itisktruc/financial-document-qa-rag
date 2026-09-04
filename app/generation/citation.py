@@ -18,11 +18,7 @@ from app.services.embedding_client import parse_document_metadata
 import os
 import re
 
-# _DOC_TYPE_LABELS = {
-#     "BCTC_Nam": "Báo cáo tài chính năm",
-#     "BCTC_Quy": "Báo cáo tài chính quý",
-#     "BCTN": "Báo cáo thường niên",
-# }
+
 def clean_source_filename(raw: str) -> str:
     if not raw:
         return "Tài liệu không tên"

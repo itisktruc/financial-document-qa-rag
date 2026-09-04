@@ -3,7 +3,7 @@ from app.retrieval.query_router import QueryRouter
 from app.retrieval.query_rewriter import QueryRewriter
 from app.retrieval.reranker import DocumentReranker
 from app.retrieval.glossary import expand_query
-from app.generation.citation import build_citation
+from app.generation.citation import clean_source_filename
 from pymongo import MongoClient
 from app.config import settings
 from functools import lru_cache
@@ -11,28 +11,87 @@ from collections import defaultdict
 from app.services.embedding_client import embed_query
 from app.services.qdrant_store import search_similar_blocks
 from qdrant_client.http import models as qmodels
-from app.services.mongo_client import get_chunks_collection, get_parent_chunk
+from app.services.mongo_client import get_chunks_collection, get_parent_chunk, refresh_known_tickers
+from collections import OrderedDict, defaultdict
 
 import bm25s
 import numpy as np
+import unicodedata
+import re
 
 mongo_client = MongoClient(getattr(settings, "MONGO_URI", "mongodb://mongo:27017"))
 
 VI_STOPWORDS = {"là", "của", "và", "các", "một", "những", "cho", "về", "trong", "đã", "này", "được"}  # bổ sung thêm nếu cần
-TICKER_MAPPING = {
-    "32": "A32",
-    "CL3": "A32",
-    "công ty cổ phần 32": "A32",
-    "cty 32": "A32",
-    "a32": "A32",
-    "công ty A32": "A32",
+
+# TICKER_MAPPING viết tay + REPORT_SCOPE_QUERY_KEYWORDS (dò keyword rule-
+# based) đã bị LOẠI BỎ khỏi đây. Ticker và report_scope giờ do LLM
+# (gpt-4o-mini) trích xuất/chuẩn hoá trực tiếp từ câu hỏi ngay tại
+# QueryRewriter.rewrite_and_extract_metadata() (nhánh financial_search) và
+# CalculationService.extract_intent() (nhánh calculation) -- cả 2 đều đối
+# chiếu với danh sách ticker THẬT đang có trong hệ thống
+# (app.services.mongo_client.get_known_tickers()/known_tickers_prompt_text()),
+# thay vì 1 dict tĩnh phải sửa code mỗi khi ingest thêm công ty/biến thể tên
+# gọi mới. Xem process_user_query() bên dưới và app/calculation/calculation_service.py.
+
+REPORT_SCOPE_FILENAME_HINTS: Dict[str, List[str]] = {
+    "parent": ["congtyme", "cty me", "rieng", "Congtyme"],
+    "consolidated": ["hopnhat", "hop nhat", "Hopnhat"],
 }
 
 K_RRF = 60                     # hằng số k trong công thức RRF: 1 / (k + rank)
-BM25_TOP_K = 50                # số ứng viên BM25 lấy mỗi query
-DENSE_TOP_K = 50               # số ứng viên Dense lấy mỗi query
-FUSION_TOP_K = 50              # số chunks sau RRF đưa vào reranker
-TOP_K = 20                     # số chunks cuối cùng sau reranker
+BM25_TOP_K = 30                # số ứng viên BM25 lấy mỗi query
+DENSE_TOP_K = 30               # số ứng viên Dense lấy mỗi query
+FUSION_TOP_K = 30              # số chunks sau RRF đưa vào reranker
+TOP_K = 10                     # số chunks cuối cùng sau reranker
+
+_MAX_TRACKED_SESSIONS = 500  # tránh self._session_state phình vô hạn theo thời gian chạy
+ 
+def _strip_diacritics(s: str) -> str:
+    s = unicodedata.normalize("NFD", s or "")
+    return "".join(c for c in s if unicodedata.category(c) != "Mn")
+ 
+ 
+def extract_report_scope(metadata_filter: Optional[dict]) -> Optional[str]:
+    scope = (metadata_filter or {}).get("report_scope")
+    return scope if scope in REPORT_SCOPE_FILENAME_HINTS else None
+ 
+ 
+def _source_file_matches_scope(source_file: Optional[str], scope: Optional[str]) -> bool:
+    """True nếu source_file khớp đúng scope yêu cầu, HOẶC nếu không xác
+    định được scope của chính source_file đó (an toàn hơn là lỡ loại bỏ
+    nhầm dữ liệu hợp lệ khi tên file không theo đúng quy ước đặt tên).
+ 
+    QUAN TRỌNG: cả Qdrant lẫn Mongo hiện đều lưu 'source_file' là ĐƯỜNG DẪN
+    ĐẦY ĐỦ (không chỉ tên file) -- nếu so hint trực tiếp trên cả path, một
+    thư mục cha (vd tên ticker/tên công ty) tình cờ chứa chuỗi trùng hint
+    ("rieng", "hopnhat"...) có thể gây match sai. Dùng clean_source_filename()
+    (đã có sẵn trong app/generation/citation.py, cùng hàm mà tầng citation
+    dùng để hiển thị tên file cho người dùng) để CHỈ lấy phần tên file cuối
+    cùng trước khi so khớp, tách biệt hẳn khỏi cấu trúc thư mục phía trước."""
+    if not scope or not source_file:
+        return True
+    fname = _strip_diacritics(clean_source_filename(str(source_file)).lower())
+    if any(h in fname for h in REPORT_SCOPE_FILENAME_HINTS.get(scope, [])):
+        return True
+    other_hints = [
+        h for s, hs in REPORT_SCOPE_FILENAME_HINTS.items() if s != scope for h in hs
+    ]
+    if any(h in fname for h in other_hints):
+        return False
+    return True
+ 
+ 
+def _report_scope_mongo_regex(scope: str) -> Optional[str]:
+    """Build regex cho $regex trên field 'source_file' của Mongo (đường dẫn
+    ĐẦY ĐỦ, không phải tên file trần). Neo hint vào ĐOẠN CUỐI CÙNG của path
+    (sau dấu '/' hoặc '\\' gần nhất, tới hết chuỗi) bằng [^/\\\\]*$, để hint
+    chỉ được tính là khớp khi nó nằm trong chính TÊN FILE, không phải trong
+    tên thư mục cha (vd thư mục theo ticker) đứng trước nó trong path."""
+    hints = REPORT_SCOPE_FILENAME_HINTS.get(scope, [])
+    if not hints:
+        return None
+    alt = "|".join(re.escape(h) for h in hints)
+    return rf"({alt})[^/\\]*$"
 
 def _normalize_cid(cid: Any) -> str:
     """Chuẩn hoá chunk_id/parent_id về dạng hex thô không gạch ngang (đồng bộ với MongoDB),
@@ -54,12 +113,15 @@ def ticker_year_filter(metadata_filter: Optional[dict]) -> tuple[dict, Optional[
     mongo_query = {}
     must_qdrant = []
 
-    # 1. Chuẩn hóa Ticker
+    # 1. Chuẩn hóa Ticker -- ticker đã được LLM (QueryRewriter/CalculationService,
+    # dùng gpt-4o-mini, đối chiếu known_tickers_prompt_text()) chuẩn hoá
+    # đúng theo danh sách ticker thật trong hệ thống ngay từ bước trích
+    # xuất. Ở đây chỉ strip/upper cho an toàn (phòng khi gọi trực tiếp
+    # hàm này với 1 ticker chưa qua LLM, vd truyền tay lúc test/debug).
     raw_ticker = metadata_filter.get("ticker")
     if raw_ticker:
-        ticker_str = str(raw_ticker).strip().upper()
-        clean_ticker = TICKER_MAPPING.get(ticker_str, ticker_str)
-        
+        clean_ticker = str(raw_ticker).strip().upper()
+
         mongo_query["ticker"] = clean_ticker
         must_qdrant.append(
             qmodels.FieldCondition(
@@ -85,12 +147,16 @@ def ticker_year_filter(metadata_filter: Optional[dict]) -> tuple[dict, Optional[
     qdrant_filter = qmodels.Filter(must=must_qdrant) if must_qdrant else None
     return mongo_query, qdrant_filter
 
-def _load_bm25_corpus(ticker: Optional[str] = None, year: Optional[int] = None):
+def _load_bm25_corpus(ticker: Optional[str] = None, year: Optional[int] = None, report_scope: Optional[str] = None):
     mongo_query: dict = {}
     if ticker:
         mongo_query["ticker"] = ticker
     if year:
         mongo_query["year"] = year
+    if report_scope:
+        pattern = _report_scope_mongo_regex(report_scope)
+        if pattern:
+            mongo_query["source_file"] = {"$regex": pattern, "$options": "i"}
     docs = list(
         get_chunks_collection().find(
             mongo_query, {"chunks": 1, "ticker": 1, "year": 1, "source_file": 1}
@@ -123,21 +189,27 @@ def _load_bm25_corpus(ticker: Optional[str] = None, year: Optional[int] = None):
     return corpus_ids, corpus_texts, lookup
 
 @lru_cache(maxsize=64)
-def _get_bm25_index(ticker: Optional[str] = None, year: Optional[int] = None):
-    corpus_ids, corpus_texts, lookup = _load_bm25_corpus(ticker=ticker, year=year)
+def _get_bm25_index(ticker: Optional[str] = None, year: Optional[int] = None, report_scope: Optional[str] = None):
+    corpus_ids, corpus_texts, lookup = _load_bm25_corpus(ticker=ticker, year=year, report_scope=report_scope)
+    if not corpus_ids or not corpus_texts:
+            print("[BM25] Không tìm thấy tài liệu phù hợp trong MongoDB")
+            return None, [], {}
     corpus_tokens = bm25s.tokenize(corpus_texts, stopwords=list(VI_STOPWORDS))
     retriever = bm25s.BM25()
     retriever.index(corpus_tokens)
-    if not corpus_ids or not corpus_texts:
-        print("[BM25] Không tìm thấy tài liệu phù hợp trong MongoDB")
-        return None, [], {}
+    
     return retriever, corpus_ids, lookup
 
 def refresh_bm25_index() -> None:
     """Gọi hàm này sau khi ingest/xoá tài liệu (vd cuối
     app/routers/documents.py) -- lru_cache ở trên không tự biết Mongo vừa
-    đổi nên phải invalidate thủ công, nếu không BM25 sẽ tìm trên corpus cũ."""
+    đổi nên phải invalidate thủ công, nếu không BM25 sẽ tìm trên corpus cũ.
+    Đồng thời invalidate luôn cache get_known_tickers() (mongo_client.py):
+    danh sách ticker dùng làm ngữ cảnh cho LLM chuẩn hoá ticker cũng cần
+    cập nhật ngay khi có công ty mới được ingest, nếu không LLM sẽ không
+    "thấy" được ticker vừa thêm."""
     _get_bm25_index.cache_clear()
+    refresh_known_tickers()
 
 
 def reciprocal_rank_fusion(rankings: list[list[str]], k: int = K_RRF) -> list[tuple[str, float]]:
@@ -152,8 +224,53 @@ class HybridSearchPipeline:
         self.router = QueryRouter()
         self.rewriter = QueryRewriter()
         self.reranker = DocumentReranker()
+        self._session_state: "OrderedDict[str, Dict[str, Any]]" = OrderedDict()
 
-    def process_user_query(self, query: str) -> Dict[str, Any]:
+    # ------------------------------------------------------------------
+    # Quản lý session để chatbot ghi nhớ công ty đang thảo luận 
+    # ------------------------------------------------------------------
+
+    def _get_session_state(self, session_id: Optional[str]) -> Dict[str, Any]:
+        if not session_id:
+            return {}
+        return dict(self._session_state.get(session_id, {}))
+
+    def _update_session_state(self, session_id: Optional[str], current_filter: Dict[str, Any]) -> None:
+        """Ghi lại NHỮNG GIÁ TRỊ MỚI thực sự trích xuất được từ câu hỏi
+        HIỆN TẠI (không ghi giá trị đã kế thừa từ trước đó -- tránh việc 1
+        giá trị kế thừa tự "xác nhận lại" chính nó vô nghĩa)."""
+        if not session_id:
+            return
+        state = self._session_state.setdefault(session_id, {})
+        for key, value in current_filter.items():
+            if value:
+                state[key] = value
+        self._session_state.move_to_end(session_id)
+        while len(self._session_state) > _MAX_TRACKED_SESSIONS:
+            evicted_id, _ = self._session_state.popitem(last=False)
+            print(f"[session_state] Vượt quá {_MAX_TRACKED_SESSIONS} session đang theo dõi, "
+                  f"loại bỏ session cũ nhất khỏi bộ nhớ: {evicted_id!r}")
+
+    def clear_session_state(self, session_id: str) -> None:
+        """Cho phép chủ động xoá ngữ cảnh 1 session (vd người dùng bấm
+        'cuộc trò chuyện mới' trên frontend)."""
+        self._session_state.pop(session_id, None)
+
+    def get_session_context(self, session_id: Optional[str]) -> Dict[str, Any]:
+        """Đọc lại {ticker, year, report_scope} đã ghi nhận của 1 session."""
+        return self._get_session_state(session_id)
+
+    def update_session_context(self, session_id: Optional[str], **fields: Any) -> None:
+        """Ghi nhận lại ticker/year/report_scope MỚI của 1 session. Chỉ
+        truyền field nào THỰC SỰ trích xuất được ở câu hỏi hiện tại (giá trị
+        rỗng/None sẽ bị bỏ qua, không ghi đè mất giá trị cũ -- xem
+        _update_session_state())."""
+        self._update_session_state(session_id, fields)
+
+    # ------------------------------------------------------------------
+    # Xử lý query 
+
+    def process_user_query(self, query: str, session_id: Optional[str] = None) -> Dict[str, Any]:
         # 1. Routing câu hỏi
         route = self.router.route(query)
         if route == "chitchat":
@@ -163,29 +280,76 @@ class HybridSearchPipeline:
         if route == "calculation":
             # Không đi qua rewrite/RRF ở đây -- xử lý riêng bởi
             # nhánh app.calculation.calculation_service.
-            return {"type": "calculation", "original_query": query}
+            return {"type": "calculation", "original_query": query, "session_id": session_id}
         
-        # 2. Rewrite & Extract Metadata
+        # 2. Rewrite & Extract Metadata -- ticker/year/report_scope giờ đều
+        # do LLM (gpt-4o-mini) trích xuất trong CÙNG 1 lần gọi
+        # rewrite_and_extract_metadata() (xem app/retrieval/query_rewriter.py),
+        # không còn dò keyword rule-based riêng cho report_scope nữa.
+        #
+        # MULTI-ENTITY: rewriter giờ trả về "entities" = list[{ticker, year,
+        # report_scope}] -- câu hỏi so sánh/tổng hợp NHIỀU công ty (vd "So
+        # sánh doanh thu FPT năm 2023 với MWG năm 2024") sẽ có >= 2 phần tử,
+        # MỖI công ty giữ đúng ticker/năm/report_scope riêng của nó. Câu
+        # hỏi thông thường (1 công ty) vẫn chỉ có 1 phần tử -- xử lý giống
+        # hệt bản cũ ở nhánh đó.
         extracted_info = self.rewriter.rewrite_and_extract_metadata(query)
+        entities = extracted_info.get("entities") or [{
+            "ticker": extracted_info.get("ticker"),
+            "year": extracted_info.get("year"),
+            "report_scope": extracted_info.get("report_scope"),
+        }]
+
+        session_state = self._get_session_state(session_id)
+
+        if len(entities) <= 1:
+            # 3a. CHỈ 1 công ty -- áp dụng kế thừa từ session như bản cũ
+            # cho field nào câu hỏi HIỆN TẠI không đề cập (follow-up
+            # question, vd "Còn năm 2023 thì sao?" sau khi đã hỏi về FPT).
+            current_filter = dict(entities[0]) if entities else {"ticker": None, "year": None, "report_scope": None}
+            entity = dict(current_filter)
+            inherited_keys = []
+            for key in ("ticker", "year", "report_scope"):
+                if not entity.get(key) and session_state.get(key):
+                    entity[key] = session_state[key]
+                    inherited_keys.append(key)
+            if inherited_keys:
+                print(f"[process_user_query] session={session_id!r} kế thừa {inherited_keys} "
+                      f"từ lượt hỏi trước: { {k: entity[k] for k in inherited_keys} }")
+            entities = [entity]
+            self._update_session_state(session_id, current_filter)
+        else:
+            # 3b. NHIỀU công ty -- mỗi công ty đã được LLM nêu rõ trong câu
+            # hỏi hiện tại, KHÔNG áp dụng kế thừa session cho từng entity
+            # (tránh trộn nhầm ticker/năm cũ của session vào 1 trong các
+            # công ty vừa hỏi). Vẫn cập nhật session bằng công ty CUỐI CÙNG
+            # được nhắc tới, để câu hỏi tiếp theo (vd "còn ROE thì sao?")
+            # có 1 công ty "đang nói tới" mặc định hợp lý.
+            print(f"[process_user_query] Câu hỏi nhiều công ty ({len(entities)}): "
+                  f"{[e.get('ticker') for e in entities]}")
+            self._update_session_state(session_id, entities[-1])
+
         return {
             "type": "financial_search",
             "original_query": query,
             "search_queries": extracted_info.get("rewritten_queries", [query]),
-            "metadata_filter": {
-                "ticker": extracted_info.get("ticker"),
-                "year": extracted_info.get("year")
-            }
+            "entities": entities,
+            # tương thích ngược: field số ít = entity đầu tiên, cho bất kỳ
+            # chỗ nào (nếu có) còn đọc "metadata_filter" trực tiếp.
+            "metadata_filter": entities[0],
         }
     
     def bm25_search(self, query: str, k: int = BM25_TOP_K, metadata_filter: Optional[dict] = None):
         mongo_query, _ = ticker_year_filter(metadata_filter)
         ticker, year = mongo_query.get("ticker"), mongo_query.get("year")
+        report_scope = extract_report_scope(metadata_filter)
 
-        retriever, corpus_ids, lookup = _get_bm25_index(ticker=ticker, year=year)        
+        retriever, corpus_ids, lookup = _get_bm25_index(ticker=ticker, year=year, report_scope=report_scope)        
         if not retriever or not corpus_ids:
             return []
         
-        print(f"[BM25] Đang phân tách chuỗi (split strings) và tokenize query người dùng: (filter ticker={ticker}, year={year})")
+        print(f"[BM25] Đang phân tách chuỗi (split strings) và tokenize query người dùng: "
+              f"(filter ticker={ticker}, year={year}, report_scope={report_scope})")
         query_tokens = bm25s.tokenize([query], stopwords=list(VI_STOPWORDS))
 
         print("[BM25] Đang truy vấn BM25 index")
@@ -203,11 +367,19 @@ class HybridSearchPipeline:
         metadata_filter: Optional[dict] = None,
     ) -> List[tuple[str, float, dict]]:
         _, qdrant_filter = ticker_year_filter(metadata_filter)
+        report_scope = extract_report_scope(metadata_filter)
 
         print("[Dense] Đang tạo Vector Embedding cho câu hỏi")
         vector = embed_query(query, return_sparse=False)["dense"]
 
         hits = search_similar_blocks(vector, limit=k, filter_conditions=qdrant_filter)
+        if report_scope:
+            before = len(hits)
+            hits = [
+                h for h in hits
+                if _source_file_matches_scope((h.payload or {}).get("source_file"), report_scope)
+            ][:k]
+            print(f"[Dense] Lọc report_scope={report_scope!r} theo source_file: {before} -> {len(hits)} điểm.")
         result = [(_normalize_cid(hit.id), float(hit.score), hit.payload or {}) for hit in hits]
 
         dense_order_indices = [
@@ -233,8 +405,9 @@ class HybridSearchPipeline:
         """
         mongo_query, _ = ticker_year_filter(metadata_filter)
         ticker, year = mongo_query.get("ticker"), mongo_query.get("year")
+        report_scope = extract_report_scope(metadata_filter)
 
-        _, corpus_ids, bm25_lookup = _get_bm25_index(ticker=ticker, year=year)
+        _, corpus_ids, bm25_lookup = _get_bm25_index(ticker=ticker, year=year, report_scope=report_scope)
         rankings: List[List[str]] = []
         content_lookup: Dict[str, dict] = {}
         qdrant_cid_to_order_idx: Dict[str, Any] = {}  # Lưu order_index của các chunk xuất hiện từ Qdrant
@@ -296,41 +469,40 @@ class HybridSearchPipeline:
         print(f"[Reranker] Top {len(result)} chunk ID cuối cùng được giữ lại: {result}")
         return result
 
-    def retrieve(self, user_query: str, top_k: int = TOP_K) -> Dict[str, Any]:
-        """Entry point chính -- gọi hàm NÀY từ RAGController.execute_search()
-        thay vì tự làm dense-search riêng như code cũ.
- 
-        Trả về:
-          {
-            "is_chitchat": bool,
-            "chunk_ids": list[str],   # top_k chunk_id sau rerank
-            "context": list[str],     # nội dung parent tương ứng, đã dedup
-          }
+    def _retrieve_for_entity(
+        self,
+        user_query: str,
+        search_queries: List[str],
+        entity: Dict[str, Any],
+        top_k: int,
+    ) -> tuple[List[str], List[Dict[str, Any]]]:
+        """Chạy TRỌN 1 lượt Hybrid Search (RRF -> fallback bỏ year -> rerank
+        -> mở rộng parent) cho ĐÚNG 1 entity (ticker/year/report_scope).
+
+        Tách riêng thành hàm này để retrieve() gọi LẶP LẠI cho câu hỏi so
+        sánh nhiều công ty (mỗi công ty 1 lượt retrieval độc lập, không bị
+        trộn filter với nhau) -- xem retrieve() bên dưới. Đây chính là toàn
+        bộ logic cũ của retrieve() (bản chỉ hỗ trợ 1 công ty), giữ nguyên
+        không đổi hành vi cho trường hợp 1 công ty.
         """
-        prep = self.process_user_query(user_query)
-        metadata_filter = prep.get("metadata_filter", {})
-        if prep["type"] == "chitchat":
-            return {"is_chitchat": True, "chunk_ids": [], "context": []}
-        if prep["type"] == "term_definition":
-            return {"is_chitchat": False, "is_definition": True, "chunk_ids": [], "context": []}
-        if prep["type"] == "calculation":
-            return {"is_chitchat": False, "is_definition": False, "is_calculation": True, "chunk_ids": [], "context": []}
- 
+        metadata_filter = entity
         mongo_query, qdrant_filter = ticker_year_filter(metadata_filter)
-        print(f"[retrieve] metadata_filter trích được: {metadata_filter}")
-        print(f"[retrieve] Áp dụng lọc công ty={metadata_filter.get('ticker')}, năm={metadata_filter.get('year')} "
+        report_scope = extract_report_scope(metadata_filter)
+
+        print(f"[retrieve] entity trích được: {metadata_filter}")
+        print(f"[retrieve] Áp dụng lọc công ty={metadata_filter.get('ticker')}, năm={metadata_filter.get('year')}, report_scope={report_scope}"
               f"cho cả BM25 (mongo_query={mongo_query}) và Dense Vector "
               f"(qdrant_filter={qdrant_filter.model_dump(exclude_none=True) if qdrant_filter else None})")
-        RRF_ids, content_lookup = self.RRF_fuse(prep["search_queries"], metadata_filter=metadata_filter)
+        RRF_ids, content_lookup = self.RRF_fuse(search_queries, metadata_filter=metadata_filter)
         if not RRF_ids and metadata_filter.get("ticker"):
             print("[*] Lần 1 không thấy data. Tiến hành Fallback: Bỏ lọc Year, BẮT BUỘC giữ Ticker...")
-            fallback_filter = {"ticker": metadata_filter["ticker"]}
-            RRF_ids, content_lookup = self.RRF_fuse(prep["search_queries"], metadata_filter=fallback_filter)
+            fallback_filter = {"ticker": metadata_filter["ticker"], "report_scope": metadata_filter.get("report_scope")}
+            RRF_ids, content_lookup = self.RRF_fuse(search_queries, metadata_filter=fallback_filter)
 
         top_chunk_ids = self.rerank(user_query, RRF_ids, content_lookup, top_k=top_k)
  
         seen_parents = set()
-        contexts: List[str] = []
+        contexts: List[Dict[str, Any]] = []
         for cid in top_chunk_ids:
             norm_cid = _normalize_cid(cid)
             chunk_info = content_lookup.get(norm_cid, {})
@@ -344,6 +516,9 @@ class HybridSearchPipeline:
             if parent_doc:
                 text_content = parent_doc.get("text") or parent_doc.get("content", "")
                 citation_info = {
+                    "chunk_id": target_parent_id,
+                    "matched_chunk_id": norm_cid,
+                    # LƯU Ý: document_id của FILE NGUỒN, KHÔNG PHẢI chunk_id.
                     "doc_id": parent_doc.get("doc_id"),
                     "source_file": parent_doc.get("source_file"),
                     "page_start": parent_doc.get("page_start"),
@@ -356,7 +531,9 @@ class HybridSearchPipeline:
                 # Fallback lấy trực tiếp nội dung từ content_lookup nếu Mongo chưa bóc tách xong
                 text_content = chunk_info.get("content", "")
                 citation_info = {
-                    "doc_id": norm_cid,
+                    "chunk_id": norm_cid,
+                    "matched_chunk_id": norm_cid,
+                    "doc_id": None,
                     "source_file": "Báo cáo tài chính",
                     "page_start": None,
                     "page_end": None,
@@ -369,9 +546,76 @@ class HybridSearchPipeline:
                     "citation": citation_info
                 })
 
+        return top_chunk_ids, contexts
+
+    def retrieve(
+        self, user_query: str, 
+        top_k: int = TOP_K,
+        session_id: Optional[str] = None,
+        prep: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """Entry point chính -- gọi hàm NÀY từ RAGController.execute_search()
+        thay vì tự làm dense-search riêng như code cũ.
+
+        MULTI-ENTITY: nếu prep["entities"] có NHIỀU HƠN 1 công ty (câu hỏi
+        so sánh/tổng hợp, xem process_user_query()), retrieval được chạy
+        RIÊNG cho từng công ty (_retrieve_for_entity()) rồi GỘP LẠI, chia
+        đều ngân sách top_k cho mỗi công ty -- tránh tình trạng công ty có
+        nhiều chunk khớp hơn "lấn át" hoàn toàn công ty còn lại trong 1 lần
+        RRF/rerank dùng chung. Câu hỏi thông thường (1 công ty) chạy y hệt
+        bản cũ, không đổi hành vi.
+ 
+        Trả về:
+          {
+            "is_chitchat": bool,
+            "chunk_ids": list[str],   # top_k chunk_id sau rerank (gộp)
+            "context": list[dict],    # nội dung parent tương ứng, đã dedup
+            "entities": list[dict],   # các công ty/năm/scope đã dùng để lọc
+          }
+        """
+        prep = prep if prep is not None else self.process_user_query(user_query, session_id=session_id)
+        if prep["type"] == "chitchat":
+            return {"is_chitchat": True, "chunk_ids": [], "context": []}
+        if prep["type"] == "term_definition":
+            return {"is_chitchat": False, "is_definition": True, "chunk_ids": [], "context": []}
+        if prep["type"] == "calculation":
+            return {"is_chitchat": False, "is_definition": False, "is_calculation": True, "chunk_ids": [], "context": []}
+
+        entities = prep.get("entities") or [prep.get("metadata_filter", {})]
+        search_queries = prep["search_queries"]
+
+        if len(entities) <= 1:
+            entity = entities[0] if entities else {}
+            top_chunk_ids, contexts = self._retrieve_for_entity(user_query, search_queries, entity, top_k)
+        else:
+            per_entity_k = max(3, top_k // len(entities))
+            print(f"[retrieve] Câu hỏi nhiều công ty ({len(entities)}) -- chạy retrieval riêng cho từng "
+                  f"công ty, mỗi công ty tối đa {per_entity_k} chunk sau rerank.")
+            top_chunk_ids = []
+            contexts = []
+            seen_parents_global: set = set()
+            for entity in entities:
+                ent_chunk_ids, ent_contexts = self._retrieve_for_entity(user_query, search_queries, entity, per_entity_k)
+                top_chunk_ids.extend(ent_chunk_ids)
+                for ctx in ent_contexts:
+                    parent_id = ctx["citation"].get("chunk_id")
+                    if parent_id in seen_parents_global:
+                        continue
+                    seen_parents_global.add(parent_id)
+                    # Đánh dấu context này match theo entity nào -- hữu ích
+                    # cho generation/citation khi hiển thị câu trả lời so
+                    # sánh nhiều công ty (biết đoạn nào thuộc công ty nào).
+                    ctx["citation"]["matched_entity"] = {
+                        "ticker": entity.get("ticker"),
+                        "year": entity.get("year"),
+                        "report_scope": entity.get("report_scope"),
+                    }
+                    contexts.append(ctx)
+
         return {
             "is_chitchat": False,
             "is_definition": False,
             "chunk_ids": top_chunk_ids,
             "context": contexts,
+            "entities": entities,
         }

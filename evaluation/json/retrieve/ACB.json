@@ -1,0 +1,243 @@
+[
+  {
+    "question": "Tổng tài sản của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31 tháng 12 năm 2025 theo bảng phân tích thanh khoản là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Tổng tài sản</td><td>5.949.255</td><td>175.534.149</td><td>66.455.590</td><td>169.479.391</td><td>239.076.436</td><td>93.719.969</td><td>258.039.233</td><td>1.008.253.411</td></tr>"
+    ],
+    "ground_truth": "Tổng tài sản (không bao gồm dự phòng rủi ro) của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là 1.008.253.411 triệu đồng. [Nguồn: Thuyết minh quản lý rủi ro thanh khoản - Báo cáo tài chính riêng, trang 81]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tổng nợ phải trả của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31 tháng 12 năm 2025 theo bảng phân tích thanh khoản là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Tổng nợ phải trả</td><td>-</td><td>169.459.894</td><td>63.381.385</td><td>395.160.459</td><td>247.935.000</td><td>51.289.319</td><td>233.217.258</td><td>909.444.203</td></tr>"
+    ],
+    "ground_truth": "Tổng nợ phải trả của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là 909.444.203 triệu đồng. [Nguồn: Thuyết minh quản lý rủi ro thanh khoản - Báo cáo tài chính riêng, trang 81]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Thu nhập lãi của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 theo báo cáo bộ phận là bao nhiêu?",
+    "contexts": [
+      "<tr><td>1. Thu nhập lãi</td><td>15.422.944</td><td>9.233.860</td><td>106.046.780</td><td>(73.994.949)</td><td>56.708.635</td></tr>"
+    ],
+    "ground_truth": "Thu nhập lãi của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là 56.708.635 triệu đồng. [Nguồn: Báo cáo bộ phận theo khu vực địa lý - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Chi phí lãi của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 theo báo cáo bộ phận là bao nhiêu?",
+    "contexts": [
+      "<tr><td>2. Chi phí lãi</td><td>(10.827.877)</td><td>(6.650.474)</td><td>(87.467.345)</td><td>73.994.949</td><td>(30.950.747)</td></tr>"
+    ],
+    "ground_truth": "Chi phí lãi của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là 30.950.747 triệu đồng. [Nguồn: Báo cáo bộ phận theo khu vực địa lý - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Kết quả kinh doanh trước chi phí dự phòng rủi ro của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh trước chi phí dự phòng rủi ro</td><td>3.471.910</td><td>1.803.122</td><td>16.174.477</td><td>-</td><td>21.449.509</td></tr>"
+    ],
+    "ground_truth": "Kết quả kinh doanh trước chi phí dự phòng rủi ro của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là 21.449.509 triệu đồng. [Nguồn: Báo cáo bộ phận theo khu vực địa lý - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Chi phí dự phòng rủi ro của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>5. Chi phí dự phòng rủi ro</td><td>(360.608)</td><td>(371.903)</td><td>(2.565.950)</td><td>-</td><td>(3.298.461)</td></tr>"
+    ],
+    "ground_truth": "Chi phí dự phòng rủi ro của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là 3.298.461 triệu đồng. [Nguồn: Báo cáo bộ phận theo khu vực địa lý - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Kết quả kinh doanh bộ phận của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh bộ phận</td><td>3.111.302</td><td>1.431.219</td><td>13.608.527</td><td>-</td><td>18.151.048</td></tr>"
+    ],
+    "ground_truth": "Kết quả kinh doanh bộ phận của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là 18.151.048 triệu đồng. [Nguồn: Báo cáo bộ phận theo khu vực địa lý - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tổng Giám đốc của Ngân hàng TMCP Á Châu (công ty mẹ) là ai?",
+    "contexts": [
+      "<tr><td>Ban Tổng Giám đốc</td><td>Ông Từ Tiến Phát</td><td>Tổng Giám đốc</td></tr>"
+    ],
+    "ground_truth": "Ông Từ Tiến Phát là Tổng Giám đốc của Ngân hàng TMCP Á Châu (công ty mẹ). [Nguồn: Thông tin về Ngân hàng - Ban Tổng Giám đốc, trang 3]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Chủ tịch Hội đồng Quản trị của Ngân hàng TMCP Á Châu (công ty mẹ) là ai?",
+    "contexts": [
+      "<tr><td>Hội đồng Quản trị</td><td>Ông Trần Hùng Huy</td><td>Chủ tịch</td></tr>"
+    ],
+    "ground_truth": "Ông Trần Hùng Huy là Chủ tịch Hội đồng Quản trị của Ngân hàng TMCP Á Châu (công ty mẹ). [Nguồn: Thông tin về Ngân hàng - Hội đồng Quản trị, trang 3]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng tổng tài sản của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 so với năm 2024 theo bảng thanh khoản là bao nhiêu?",
+    "contexts": [
+      "2025: <tr><td>Tổng tài sản</td><td>5.949.255</td><td>175.534.149</td><td>66.455.590</td><td>169.479.391</td><td>239.076.436</td><td>93.719.969</td><td>258.039.233</td><td>1.008.253.411</td></tr>",
+      "2024: <tr><td>Tổng tài sản</td><td>3.074.225</td><td>152.049.391</td><td>54.389.449</td><td>147.795.598</td><td>193.719.969</td><td>69.275.524</td><td>233.104.926</td><td>853.409.082</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng tổng tài sản của Ngân hàng TMCP Á Châu (công ty mẹ) = (1.008.253.411 - 853.409.082) / 853.409.082 × 100% ≈ 18,14%. [Nguồn: Thuyết minh rủi ro thanh khoản - Báo cáo tài chính riêng trang 81-82]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ vốn chủ sở hữu xấp xỉ (Tổng tài sản - Tổng nợ phải trả) trên tổng tài sản của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Tổng nợ phải trả</td><td>-</td><td>169.459.894</td><td>63.381.385</td><td>395.160.459</td><td>247.935.000</td><td>51.289.319</td><td>233.217.258</td><td>909.444.203</td></tr>"
+    ],
+    "ground_truth": "Vốn chủ sở hữu xấp xỉ của Ngân hàng TMCP Á Châu (công ty mẹ) = 1.008.253.411 - 909.444.203 = 98.809.208 triệu đồng. Tỷ lệ = 98.809.208 / 1.008.253.411 × 100% ≈ 9,80%. [Nguồn: Thuyết minh rủi ro thanh khoản - Báo cáo tài chính riêng, trang 81]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ tăng trưởng thu nhập lãi của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 so với năm 2024 là bao nhiêu?",
+    "contexts": [
+      "2025: <tr><td>1. Thu nhập lãi</td><td>15.422.944</td><td>9.233.860</td><td>106.046.780</td><td>(73.994.949)</td><td>56.708.635</td></tr>",
+      "2024: <tr><td>1. Thu nhập lãi</td><td>13.204.815</td><td>8.102.430</td><td>91.568.120</td><td>(63.186.844)</td><td>49.688.521</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng thu nhập lãi của Ngân hàng TMCP Á Châu (công ty mẹ) = (56.708.635 - 49.688.521) / 49.688.521 × 100% ≈ 14,13%. [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng trang 84-85]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ chi phí dự phòng rủi ro trên kết quả kinh doanh trước dự phòng của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh trước chi phí dự phòng rủi ro</td><td>3.471.910</td><td>1.803.122</td><td>16.174.477</td><td>-</td><td>21.449.509</td></tr>",
+      "<tr><td>5. Chi phí dự phòng rủi ro</td><td>(360.608)</td><td>(371.903)</td><td>(2.565.950)</td><td>-</td><td>(3.298.461)</td></tr>"
+    ],
+    "ground_truth": "Tỷ lệ = 3.298.461 / 21.449.509 × 100% ≈ 15,38%. [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Miền Nam đóng góp bao nhiêu phần trăm vào kết quả kinh doanh bộ phận của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025?",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh bộ phận</td><td>3.111.302</td><td>1.431.219</td><td>13.608.527</td><td>-</td><td>18.151.048</td></tr>"
+    ],
+    "ground_truth": "Miền Nam đóng góp 13.608.527 / 18.151.048 × 100% ≈ 74,97% vào kết quả kinh doanh bộ phận của Ngân hàng TMCP Á Châu (công ty mẹ). [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ nợ phải trả trên tổng tài sản của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Tổng tài sản</td><td>5.949.255</td><td>175.534.149</td><td>66.455.590</td><td>169.479.391</td><td>239.076.436</td><td>93.719.969</td><td>258.039.233</td><td>1.008.253.411</td></tr>",
+      "<tr><td>Tổng nợ phải trả</td><td>-</td><td>169.459.894</td><td>63.381.385</td><td>395.160.459</td><td>247.935.000</td><td>51.289.319</td><td>233.217.258</td><td>909.444.203</td></tr>"
+    ],
+    "ground_truth": "Tỷ lệ = 909.444.203 / 1.008.253.411 × 100% ≈ 90,20%. [Nguồn: Thuyết minh rủi ro thanh khoản - Báo cáo tài chính riêng, trang 81]",
+    "evolution_type": "calculation"
+  },
+  {
+    "question": "Tỷ lệ nợ xấu (NPL ratio) của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu phần trăm?",
+    "contexts": [
+      "Báo cáo tài chính riêng không công bố trực tiếp tỷ lệ nợ xấu (NPL) tổng hợp tại các trang tóm tắt số liệu."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Ngân hàng TMCP Á Châu (công ty mẹ) không công bố con số tỷ lệ nợ xấu (NPL ratio) tổng hợp. Không thể xác định từ các số liệu tóm tắt được cung cấp. [Nguồn: Toàn bộ Báo cáo tài chính riêng – không có chỉ tiêu NPL ratio]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Tỷ lệ CAR (Capital Adequacy Ratio) của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "Báo cáo tài chính riêng không trình bày chỉ tiêu CAR."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Ngân hàng TMCP Á Châu (công ty mẹ) không công bố tỷ lệ an toàn vốn (CAR). Không có thông tin trong tài liệu này. [Nguồn: Toàn bộ Báo cáo tài chính riêng – không có chỉ tiêu CAR]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Ngân hàng TMCP Á Châu (công ty mẹ) dự kiến chia cổ tức năm 2025 với tỷ lệ bao nhiêu phần trăm?",
+    "contexts": [
+      "Báo cáo tài chính riêng không trình bày thông tin về kế hoạch hoặc nghị quyết chia cổ tức năm 2025."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Ngân hàng TMCP Á Châu (công ty mẹ) không có thông tin về tỷ lệ chia cổ tức dự kiến năm 2025. Không thể xác định từ tài liệu này. [Nguồn: Toàn bộ Báo cáo tài chính riêng – không có chỉ tiêu chia cổ tức]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Giá trị sổ sách mỗi cổ phiếu (Book value per share) của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "Báo cáo không công bố số lượng cổ phiếu đang lưu hành."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Ngân hàng TMCP Á Châu (công ty mẹ) không công bố số lượng cổ phiếu đang lưu hành nên không thể tính chính xác Book value per share. [Nguồn: Toàn bộ Báo cáo tài chính riêng – thiếu số lượng cổ phiếu]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "Chi phí nhân viên năm 2025 của Ngân hàng TMCP Á Châu (công ty mẹ) là bao nhiêu?",
+    "contexts": [
+      "Báo cáo kết quả hoạt động riêng không tách riêng chi phí nhân viên."
+    ],
+    "ground_truth": "Báo cáo tài chính riêng của Ngân hàng TMCP Á Châu (công ty mẹ) không công bố riêng khoản mục chi phí nhân viên. Không có số liệu cụ thể trong tài liệu. [Nguồn: Báo cáo kết quả hoạt động riêng – không tách chi tiết]",
+    "evolution_type": "hallucination"
+  },
+  {
+    "question": "So sánh đóng góp của Miền Nam và Miền Bắc vào kết quả kinh doanh bộ phận của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025.",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh bộ phận</td><td>3.111.302</td><td>1.431.219</td><td>13.608.527</td><td>-</td><td>18.151.048</td></tr>"
+    ],
+    "ground_truth": "Miền Nam đóng góp 13.608.527 triệu đồng (≈74,97%), Miền Bắc đóng góp 3.111.302 triệu đồng (≈17,14%). Miền Nam đóng góp cao hơn nhiều so với Miền Bắc trong kết quả kinh doanh bộ phận của Ngân hàng TMCP Á Châu (công ty mẹ). [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "Mức chênh thanh khoản ròng của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Mức chênh thanh khoản ròng</td><td>5.949.255</td><td>6.074.255</td><td>3.074.205</td><td>(225.681.068)</td><td>(8.858.564)</td><td>42.430.650</td><td>24.821.975</td><td>98.809.208</td></tr>"
+    ],
+    "ground_truth": "Mức chênh thanh khoản ròng của Ngân hàng TMCP Á Châu (công ty mẹ) tại ngày 31/12/2025 là 98.809.208 triệu đồng. [Nguồn: Thuyết minh rủi ro thanh khoản - Báo cáo tài chính riêng, trang 81]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Nếu Chi phí dự phòng rủi ro của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 giảm 50% so với mức thực tế, thì Kết quả kinh doanh bộ phận ước tính sẽ là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh trước chi phí dự phòng rủi ro</td><td>3.471.910</td><td>1.803.122</td><td>16.174.477</td><td>-</td><td>21.449.509</td></tr>",
+      "<tr><td>5. Chi phí dự phòng rủi ro</td><td>(360.608)</td><td>(371.903)</td><td>(2.565.950)</td><td>-</td><td>(3.298.461)</td></tr>",
+      "<tr><td>Kết quả kinh doanh bộ phận</td><td>3.111.302</td><td>1.431.219</td><td>13.608.527</td><td>-</td><td>18.151.048</td></tr>"
+    ],
+    "ground_truth": "Kết quả trước dự phòng của Ngân hàng TMCP Á Châu (công ty mẹ) là 21.449.509 triệu đồng, chi phí dự phòng thực tế 3.298.461 triệu đồng. Nếu giảm 50% (còn 1.649.230,5 triệu đồng) thì Kết quả kinh doanh bộ phận ước tính = 21.449.509 − 1.649.230,5 = 19.800.278,5 triệu đồng. [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Nếu Thu nhập lãi của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 tăng thêm 10% so với mức thực tế, trong khi các khoản mục khác giữ nguyên, thì Kết quả kinh doanh trước dự phòng ước tính sẽ thay đổi như thế nào?",
+    "contexts": [
+      "<tr><td>1. Thu nhập lãi</td><td>15.422.944</td><td>9.233.860</td><td>106.046.780</td><td>(73.994.949)</td><td>56.708.635</td></tr>",
+      "<tr><td>Kết quả kinh doanh trước chi phí dự phòng rủi ro</td><td>3.471.910</td><td>1.803.122</td><td>16.174.477</td><td>-</td><td>21.449.509</td></tr>"
+    ],
+    "ground_truth": "Thu nhập lãi thực tế của Ngân hàng TMCP Á Châu (công ty mẹ) là 56.708.635 triệu đồng. Nếu tăng thêm 10% thì tăng thêm 5.670.863,5 triệu đồng. Kết quả kinh doanh trước dự phòng ước tính sẽ tăng lên khoảng 21.449.509 + 5.670.863,5 = 27.120.372,5 triệu đồng. [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Giả sử tỷ lệ chi phí dự phòng trên kết quả trước dự phòng của Ngân hàng TMCP Á Châu (công ty mẹ) tăng lên 20%, thì chi phí dự phòng cần trích thêm là bao nhiêu?",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh trước chi phí dự phòng rủi ro</td><td>3.471.910</td><td>1.803.122</td><td>16.174.477</td><td>-</td><td>21.449.509</td></tr>",
+      "<tr><td>5. Chi phí dự phòng rủi ro</td><td>(360.608)</td><td>(371.903)</td><td>(2.565.950)</td><td>-</td><td>(3.298.461)</td></tr>"
+    ],
+    "ground_truth": "Nếu tỷ lệ lên 20% thì chi phí dự phòng = 21.449.509 × 20% = 4.289.901,8 triệu đồng. Số trích thêm ≈ 4.289.901,8 − 3.298.461 = 991.440,8 triệu đồng. [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "conditional"
+  },
+  {
+    "question": "Ngày phê duyệt báo cáo tài chính riêng năm 2025 của Ngân hàng TMCP Á Châu (công ty mẹ) là ngày nào?",
+    "contexts": [
+      "Thành phố Hồ Chí Minh, Việt Nam\n\nNgày 24 tháng 2 năm 2026"
+    ],
+    "ground_truth": "Ngày 24 tháng 2 năm 2026. [Nguồn: Trang chữ ký cuối Báo cáo tài chính riêng của Ngân hàng TMCP Á Châu, trang 4]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "Công ty kiểm toán của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025 là công ty nào?",
+    "contexts": [
+      "KPMG\nBÁO CÁO KIỂM TOÁN ĐỘC LẬP"
+    ],
+    "ground_truth": "KPMG là công ty kiểm toán của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025. [Nguồn: Trang bìa và Báo cáo kiểm toán độc lập, trang 1, trang 5]",
+    "evolution_type": "simple"
+  },
+  {
+    "question": "So sánh tốc độ tăng trưởng tổng tài sản và tốc độ tăng trưởng thu nhập lãi của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025.",
+    "contexts": [
+      "2025: <tr><td>1. Thu nhập lãi</td><td>15.422.944</td><td>9.233.860</td><td>106.046.780</td><td>(73.994.949)</td><td>56.708.635</td></tr>",
+      "2024: <tr><td>1. Thu nhập lãi</td><td>13.204.815</td><td>8.102.430</td><td>91.568.120</td><td>(63.186.844)</td><td>49.688.521</td></tr>"
+    ],
+    "ground_truth": "Tăng trưởng tổng tài sản ≈ 18,14%; Tăng trưởng thu nhập lãi ≈ 14,13%. Tổng tài sản tăng nhanh hơn thu nhập lãi của Ngân hàng TMCP Á Châu (công ty mẹ). [Nguồn: Thuyết minh rủi ro thanh khoản và Báo cáo bộ phận - Báo cáo tài chính riêng, trang 81, trang 82, trang 84, trang 85]",
+    "evolution_type": "reasoning"
+  },
+  {
+    "question": "Miền nào có kết quả kinh doanh bộ phận thấp nhất của Ngân hàng TMCP Á Châu (công ty mẹ) năm 2025?",
+    "contexts": [
+      "<tr><td>Kết quả kinh doanh bộ phận</td><td>3.111.302</td><td>1.431.219</td><td>13.608.527</td><td>-</td><td>18.151.048</td></tr>"
+    ],
+    "ground_truth": "Miền Trung có kết quả kinh doanh bộ phận thấp nhất với 1.431.219 triệu đồng của Ngân hàng TMCP Á Châu (công ty mẹ). [Nguồn: Báo cáo bộ phận - Báo cáo tài chính riêng, trang 84]",
+    "evolution_type": "reasoning"
+  }
+]
